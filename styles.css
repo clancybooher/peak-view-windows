@@ -252,7 +252,7 @@ section { padding: var(--pad-section) 0; }
 .stats { background: var(--bg-dark); padding: 3.5rem 0; }
 .stats__row {
   display: grid;
-  grid-template-columns: repeat(4,1fr);
+  grid-template-columns: repeat(3,1fr);
 }
 .stat {
   text-align: center;
