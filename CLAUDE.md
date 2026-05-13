@@ -125,7 +125,7 @@ Homeowners in Bend, Redmond, Sisters, and surrounding Central Oregon whose homes
 
 - Always invoke the front-end design skill before any front-end code. No exceptions.
 - Use the screenshot loop to compare work before/after changes.
-- Do not push to GitHub until explicitly told to push or deploy.
+- Do not push to GitHub or deploy to Netlify until explicitly told to do so.
 - When working with animated elements, skip the screenshot loop (user will confirm visually).
 - Reference brand assets at `/brand_assets/` when available.
 - Always make edits directly -- never ask for permission before editing files.
