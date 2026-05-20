@@ -10,7 +10,7 @@
   --text-light:   #B0AAA3;
   --accent:       #8C1D2A;
   --accent-dark:  #6B1313;
-  --accent-light: #F5EAEA;
+  --accent-light: #E8E3DA;
   --gold:         #C09A5A;
   --border:       #E2DDD6;
   --white:        #FFFFFF;
@@ -83,8 +83,10 @@ section { padding: var(--pad-section) 0; }
 .btn {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 0.5rem;
   padding: 0.875rem 1.75rem;
+  min-height: 48px;
   font-family: var(--font-body);
   font-size: 0.82rem;
   font-weight: 500;
@@ -114,6 +116,12 @@ section { padding: var(--pad-section) 0; }
   align-items: center;
   background: var(--gold);
   border-bottom: 1px solid rgba(0,0,0,0.1);
+  transform: translateY(0);
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform;
+}
+.nav--hidden {
+  transform: translateY(-100%);
 }
 .nav.scrolled {
   background: var(--gold);
@@ -130,9 +138,10 @@ section { padding: var(--pad-section) 0; }
 }
 .nav__logo { display: flex; align-items: center; }
 .nav__logo-img {
-  height: 76px;
+  height: calc(90px - 16px);
   width: auto;
   mix-blend-mode: multiply;
+  box-sizing: border-box;
 }
 .nav__links {
   display: flex;
@@ -155,9 +164,25 @@ section { padding: var(--pad-section) 0; }
   color: rgba(0,0,0,0.7);
 }
 
+.nav__mobile-phone {
+  display: none;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--text);
+  text-decoration: none;
+  padding: 0.5rem 0.75rem;
+  border-radius: var(--radius-sm);
+  min-height: 48px;
+  align-items: center;
+  transition: color var(--t);
+  letter-spacing: 0.01em;
+}
+.nav__mobile-phone:hover { color: var(--accent); }
+
 @media (max-width: 900px) {
   .nav__links,
   .nav__actions { display: none; }
+  .nav__mobile-phone { display: flex; }
 }
 
 .nav__burger {
@@ -622,9 +647,9 @@ section { padding: var(--pad-section) 0; }
   clip: rect(0,0,0,0); border: 0;
 }
 @media (max-width: 640px) {
-  body { font-size: 15px; }
+  body { font-size: 16px; }
   .eyebrow { font-size: 0.65rem; }
-  .btn { padding: 0.75rem 1.5rem; font-size: 0.78rem; }
+  .btn { padding: 0.85rem 1.5rem; font-size: 0.9rem; min-height: 48px; }
   .footer-btm { flex-direction: column; text-align: center; }
 }
 
