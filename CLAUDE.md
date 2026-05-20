@@ -64,7 +64,30 @@ The About section on the website needs real personality to build trust with cust
 ## Brand and Positioning
 
 - **Logo:** Exists. Black background, white mountain peaks with a window/house icon, serif typography
-- **Colors:** Black, white, and a warm accent color
+- **Colors (previous warm scheme — archived):**
+  - `--bg: #F9F6F0` (warm cream)
+  - `--bg-alt: #F0EDE8` (warm off-white)
+  - `--bg-dark: #18181A` (near black)
+  - `--text: #1A1A1A` (near black)
+  - `--text-muted: #7C7971` (warm gray)
+  - `--text-light: #B0AAA3` (light warm gray)
+  - `--accent: #8C1D2A` (deep red)
+  - `--accent-dark: #6B1313` (darker red)
+  - `--accent-light: #E8E3DA` (warm stone)
+  - `--gold: #C09A5A` (nav bar gold)
+  - `--border: #E2DDD6` (warm border)
+- **Colors (current scheme — black, white, warm linen, red):**
+  - `--bg: #FFFFFF` (pure white)
+  - `--bg-alt: #F2EBE0` (warm linen — the in-between)
+  - `--bg-dark: #111111` (near black)
+  - `--text: #111111` (near black)
+  - `--text-muted: #4A4035` (dark warm brown)
+  - `--text-light: #7A6E64` (medium warm brown)
+  - `--accent: #8C1D2A` (deep red — keep this)
+  - `--accent-dark: #6B1313` (darker red)
+  - `--accent-light: #F2EBE0` (warm linen)
+  - `--gold: #FFFFFF` (nav bar — white)
+  - `--border: #E0D8CF` (warm linen border)
 - **Tone:** Whatever generates the most leads for Central Oregon homeowners. Not about personal preference -- about what works in this market.
 - **Primary Competitor:** Renewal by Andersen. They dominate the market. Peak View positions against them with personal owner-led service and competitive pricing.
 

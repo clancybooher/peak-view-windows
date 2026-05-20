@@ -2,17 +2,17 @@
 
 /* ─── TOKENS ─────────────────────────────────────────────── */
 :root {
-  --bg:           #F9F6F0;
-  --bg-alt:       #F0EDE8;
-  --bg-dark:      #18181A;
-  --text:         #1A1A1A;
-  --text-muted:   #7C7971;
-  --text-light:   #B0AAA3;
+  --bg:           #FFFFFF;
+  --bg-alt:       #F2EBE0;
+  --bg-dark:      #111111;
+  --text:         #111111;
+  --text-muted:   #4A4035;
+  --text-light:   #7A6E64;
   --accent:       #8C1D2A;
   --accent-dark:  #6B1313;
-  --accent-light: #E8E3DA;
-  --gold:         #C09A5A;
-  --border:       #E2DDD6;
+  --accent-light: #F2EBE0;
+  --gold:         #FFFFFF;
+  --border:       #E0D8CF;
   --white:        #FFFFFF;
 
   --font-display: 'Cormorant Garamond', Georgia, serif;
