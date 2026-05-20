@@ -111,7 +111,7 @@ section { padding: var(--pad-section) 0; }
   inset-block-start: 0;
   inset-inline: 0;
   z-index: 200;
-  height: 90px;
+  height: 110px;
   display: flex;
   align-items: center;
   background: var(--gold);
@@ -138,7 +138,7 @@ section { padding: var(--pad-section) 0; }
 }
 .nav__logo { display: flex; align-items: center; }
 .nav__logo-img {
-  height: calc(90px - 16px);
+  height: calc(110px - 16px);
   width: auto;
   mix-blend-mode: multiply;
   box-sizing: border-box;
@@ -207,7 +207,7 @@ section { padding: var(--pad-section) 0; }
 .mob-menu {
   display: none;
   position: fixed;
-  top: 90px;
+  top: 110px;
   left: 0;
   right: 0;
   bottom: 0;
@@ -234,7 +234,7 @@ section { padding: var(--pad-section) 0; }
   display: flex;
   align-items: center;
   overflow: hidden;
-  margin-top: 90px;
+  margin-top: 110px;
 }
 .hero__bg {
   position: absolute;
