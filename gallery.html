@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Our Work | Window &amp; Door Installs | Peak View Windows &amp; Doors</title>
+  <meta name="description" content="Photos from real window and door installs by Peak View Windows and Doors in Bend and Central Oregon. CCB #260230." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://peakvieworegon.com/gallery.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Our Work | Peak View Windows &amp; Doors" />
+  <meta property="og:description" content="Real installs. Windows, doors, and trim work across Central Oregon." />
+  <meta property="og:image" content="https://peakvieworegon.com/logo.png" />
+  <meta property="og:url" content="https://peakvieworegon.com/gallery.html" />
+
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" type="image/png" href="logo.png" />
+
+  <style>
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.75rem;
+    }
+    @media (max-width: 768px) {
+      .gallery-grid { grid-template-columns: repeat(2, 1fr); gap: 0.5rem; }
+    }
+    @media (max-width: 480px) {
+      .gallery-grid { grid-template-columns: 1fr; }
+    }
+    .gallery-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: var(--radius);
+      background: var(--bg-alt);
+      aspect-ratio: 4/3;
+      cursor: pointer;
+    }
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.35s ease;
+    }
+    .gallery-item:hover img {
+      transform: scale(1.04);
+    }
+
+    /* Lightbox */
+    .lightbox {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.92);
+      z-index: 2000;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+    }
+    .lightbox.open {
+      display: flex;
+    }
+    .lightbox__img {
+      max-width: 100%;
+      max-height: 90vh;
+      object-fit: contain;
+      border-radius: var(--radius);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+    }
+    .lightbox__close {
+      position: fixed;
+      top: 1rem;
+      right: 1.25rem;
+      background: none;
+      border: none;
+      color: #fff;
+      font-size: 2rem;
+      cursor: pointer;
+      line-height: 1;
+      z-index: 2001;
+      opacity: 0.8;
+    }
+    .lightbox__close:hover { opacity: 1; }
+    .lightbox__nav {
+      position: fixed;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(255,255,255,0.1);
+      border: none;
+      color: #fff;
+      font-size: 1.75rem;
+      padding: 0.75rem 1rem;
+      cursor: pointer;
+      border-radius: var(--radius);
+      z-index: 2001;
+      line-height: 1;
+    }
+    .lightbox__nav:hover { background: rgba(255,255,255,0.2); }
+    .lightbox__prev { left: 0.75rem; }
+    .lightbox__next { right: 0.75rem; }
+
+    .gallery-cta {
+      background: var(--black);
+      color: var(--white);
+      border-radius: var(--radius-md);
+      padding: 2.5rem 2rem;
+      text-align: center;
+      margin-top: 4rem;
+    }
+    .gallery-cta h2 {
+      font-size: clamp(1.5rem, 4vw, 2.25rem);
+      color: var(--white);
+      margin-bottom: 1rem;
+    }
+    .gallery-cta p {
+      color: rgba(255,255,255,0.75);
+      margin-bottom: 1.75rem;
+      line-height: 1.7;
+    }
+  </style>
+</head>
+<body class="has-banner">
+
+<!-- OFFER BANNER -->
+<div class="offer-banner" id="offer-banner" role="alert">
+  <span>Free in-home estimate. Fast, firm quote. No showroom visit required.</span>
+  <a href="tel:+15416393968">Call 541-639-3968</a>
+  <button class="offer-banner__close" id="banner-close" aria-label="Close offer banner">&times;</button>
+</div>
+
+<!-- NAV -->
+<nav class="nav scrolled" id="nav" aria-label="Main navigation">
+  <div class="nav__inner">
+    <a href="/" class="nav__logo" aria-label="Peak View Windows &amp; Doors - home">
+      <img src="logo-light.png" alt="Peak View Windows &amp; Doors" width="56" height="56" class="nav__logo-img" />
+    </a>
+    <ul class="nav__links" role="list">
+      <li><a href="/" class="nav__link">Home</a></li>
+      <li><a href="windows.html" class="nav__link">Windows</a></li>
+      <li><a href="doors.html" class="nav__link">Doors</a></li>
+      <li><a href="/#process" class="nav__link">Process</a></li>
+      <li><a href="about.html" class="nav__link">About Us</a></li>
+      <li><a href="/#contact" class="nav__link">Contact</a></li>
+    </ul>
+    <div class="nav__actions">
+      <a href="tel:+15416393968" class="btn btn--nav-phone">541-639-3968</a>
+      <a href="/#contact" class="btn btn--primary">Free Estimate</a>
+    </div>
+    <button class="nav__burger" id="burger" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<div class="mob-menu" id="mob-menu" role="dialog" aria-label="Navigation">
+  <a href="/">Home</a>
+  <a href="windows.html">Windows</a>
+  <a href="doors.html">Doors</a>
+  <a href="/#process">Process</a>
+  <a href="about.html">About Us</a>
+  <a href="/#contact">Contact</a>
+  <a href="/#contact" class="btn btn--primary">Free Estimate</a>
+</div>
+
+<!-- PAGE HERO -->
+<header class="page-hero" aria-labelledby="page-h1">
+  <div class="container">
+    <p class="eyebrow">Peak View Windows &amp; Doors &nbsp;·&nbsp; Central Oregon</p>
+    <h1 id="page-h1">Our Work</h1>
+    <p>Real installs. Windows, doors, and finish carpentry done across Central Oregon. Every job led by Clancy.</p>
+  </div>
+</header>
+
+<!-- GALLERY -->
+<section style="padding: clamp(3rem,8vw,5rem) 0;">
+  <div class="container">
+
+    <div class="gallery-grid" id="gallery-grid">
+      <div class="gallery-item" data-index="0">
+        <img src="photos/IMG_0901.jpg" alt="Window installation Central Oregon" loading="lazy" />
+      </div>
+      <div class="gallery-item" data-index="1">
+        <img src="photos/IMG_0902.jpg" alt="Window replacement Bend Oregon" loading="lazy" />
+      </div>
+      <div class="gallery-item" data-index="2">
+        <img src="photos/IMG_0905.jpg" alt="Door installation Bend Oregon" loading="lazy" />
+      </div>
+      <div class="gallery-item" data-index="3">
+        <img src="photos/IMG_0908.jpg" alt="Window and door install Central Oregon" loading="lazy" />
+      </div>
+      <div class="gallery-item" data-index="4">
+        <img src="photos/IMG_0921.jpg" alt="Trim work window installation Bend" loading="lazy" />
+      </div>
+      <div class="gallery-item" data-index="5">
+        <img src="photos/IMG_0925.jpg" alt="Entry door replacement Bend Oregon" loading="lazy" />
+      </div>
+      <div class="gallery-item" data-index="6">
+        <img src="photos/IMG_0926.jpg" alt="Window replacement Central Oregon" loading="lazy" />
+      </div>
+      <div class="gallery-item" data-index="7">
+        <img src="photos/IMG_1344.jpg" alt="Andersen window install Bend Oregon" loading="lazy" />
+      </div>
+      <div class="gallery-item" data-index="8">
+        <img src="photos/IMG_1345.jpg" alt="Door and trim install Bend Oregon" loading="lazy" />
+      </div>
+      <div class="gallery-item" data-index="9">
+        <img src="photos/IMG_1346.jpg" alt="Window installation peak view windows" loading="lazy" />
+      </div>
+      <div class="gallery-item" data-index="10">
+        <img src="photos/IMG_1348.jpg" alt="Finish carpentry window trim Bend" loading="lazy" />
+      </div>
+      <div class="gallery-item" data-index="11">
+        <img src="photos/IMG_1349.jpg" alt="Window replacement Central Oregon home" loading="lazy" />
+      </div>
+      <div class="gallery-item" data-index="12">
+        <img src="photos/IMG_1350.jpg" alt="Door installation Bend Oregon home" loading="lazy" />
+      </div>
+      <div class="gallery-item" data-index="13">
+        <img src="photos/IMG_1351.jpg" alt="Window and door install Sisters Oregon" loading="lazy" />
+      </div>
+      <div class="gallery-item" data-index="14">
+        <img src="photos/IMG_1358.jpg" alt="Window trim and millwork Bend Oregon" loading="lazy" />
+      </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="gallery-cta">
+      <h2>Like What You See?</h2>
+      <p>We bring this same quality to every job in Bend, Redmond, Sisters, and all of Central Oregon.</p>
+      <a href="/#contact" class="btn btn--primary" style="margin-right:1rem">Get a Free Estimate</a>
+      <a href="tel:+15416393968" class="btn btn--outline" style="border-color:rgba(255,255,255,0.3);color:#fff">Call 541-639-3968</a>
+    </div>
+
+  </div>
+</section>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Photo viewer">
+  <button class="lightbox__close" id="lb-close" aria-label="Close">&times;</button>
+  <button class="lightbox__nav lightbox__prev" id="lb-prev" aria-label="Previous photo">&#8249;</button>
+  <img class="lightbox__img" id="lb-img" src="" alt="" />
+  <button class="lightbox__nav lightbox__next" id="lb-next" aria-label="Next photo">&#8250;</button>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer__inner container">
+    <div class="footer__brand">
+      <img src="logo-light.png" alt="Peak View Windows and Doors" width="56" height="56" style="margin-bottom:1rem" />
+      <p class="footer__tagline">Windows &amp; Doors Done Right.<br>Bend, Oregon.</p>
+    </div>
+    <div class="footer__links">
+      <strong>Pages</strong>
+      <a href="/">Home</a>
+      <a href="windows.html">Windows</a>
+      <a href="doors.html">Doors</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="about.html">About Us</a>
+      <a href="/#contact">Contact</a>
+    </div>
+    <div class="footer__links">
+      <strong>Contact</strong>
+      <a href="tel:+15416393968">541-639-3968</a>
+      <a href="mailto:clancy@peakvieworegon.com">clancy@peakvieworegon.com</a>
+      <span>Bend, Oregon</span>
+      <span>CCB #260230</span>
+    </div>
+  </div>
+  <div class="footer__bottom container">
+    <span>&copy; 2025 Peak View Windows &amp; Doors. All rights reserved.</span>
+    <span>CCB #260230 &nbsp;·&nbsp; Licensed, Bonded &amp; Insured</span>
+  </div>
+</footer>
+
+<!-- FLOATING PHONE FAB (mobile only) -->
+<a href="tel:+15416393968" class="phone-fab" aria-label="Call Peak View Windows and Doors">
+  <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.68A2 2 0 012 .18h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.09-1.09a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+</a>
+
+<script src="script.js"></script>
+<script>
+  const items = document.querySelectorAll('.gallery-item');
+  const lightbox = document.getElementById('lightbox');
+  const lbImg = document.getElementById('lb-img');
+  const lbClose = document.getElementById('lb-close');
+  const lbPrev = document.getElementById('lb-prev');
+  const lbNext = document.getElementById('lb-next');
+  const srcs = Array.from(items).map(el => ({
+    src: el.querySelector('img').src,
+    alt: el.querySelector('img').alt
+  }));
+  let current = 0;
+
+  function openLightbox(index) {
+    current = index;
+    lbImg.src = srcs[current].src;
+    lbImg.alt = srcs[current].alt;
+    lightbox.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeLightbox() {
+    lightbox.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  function showNext() { current = (current + 1) % srcs.length; lbImg.src = srcs[current].src; lbImg.alt = srcs[current].alt; }
+  function showPrev() { current = (current - 1 + srcs.length) % srcs.length; lbImg.src = srcs[current].src; lbImg.alt = srcs[current].alt; }
+
+  items.forEach(item => item.addEventListener('click', () => openLightbox(parseInt(item.dataset.index))));
+  lbClose.addEventListener('click', closeLightbox);
+  lbNext.addEventListener('click', showNext);
+  lbPrev.addEventListener('click', showPrev);
+  lightbox.addEventListener('click', e => { if (e.target === lightbox) closeLightbox(); });
+  document.addEventListener('keydown', e => {
+    if (!lightbox.classList.contains('open')) return;
+    if (e.key === 'Escape') closeLightbox();
+    if (e.key === 'ArrowRight') showNext();
+    if (e.key === 'ArrowLeft') showPrev();
+  });
+</script>
+</body>
+</html>
