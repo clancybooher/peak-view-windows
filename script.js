@@ -14,7 +14,8 @@
       if (!ticking) {
         requestAnimationFrame(() => {
           tick();
-          if (currentY > lastY && currentY > 120) {
+          const navH = nav.offsetHeight;
+          if (currentY > lastY && currentY > navH) {
             nav.classList.add('nav--hidden');
           } else {
             nav.classList.remove('nav--hidden');
