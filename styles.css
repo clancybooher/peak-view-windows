@@ -668,10 +668,6 @@ section { padding: var(--pad-section) 0; }
 .offer-banner__close:hover { color: var(--white); }
 .offer-banner.dismissed { display: none; }
 
-body.has-banner .nav           { inset-block-start: 44px; }
-body.has-banner .hero          { margin-top: calc(90px + 44px); }
-body.has-banner .mob-menu      { top: calc(90px + 44px); }
-body.has-banner .page-hero     { padding-top: calc(90px + 44px + 5rem); }
 
 @media (max-width: 640px) {
   .offer-banner { font-size: 0.7rem; gap: 0.625rem; }
