@@ -185,30 +185,40 @@ function buildCustomerEmail({ name, phone, email, message }, projectLabel) {
 <title>Estimate Request Received</title>
 <style>
   body{margin:0;padding:0;background:#F2EBE0;font-family:'Helvetica Neue',Arial,sans-serif}
-  .wrap{background:#F2EBE0;padding:40px 16px}
-  .card{max-width:600px;margin:0 auto;background:#fff;border:1px solid #E0D8CF}
-  .hd{background:#111;padding:24px 40px;text-align:center}
-  .hd img{display:block;margin:0 auto;height:44px;width:auto}
-  .bd{padding:40px;color:#111}
-  h1{font-size:22px;font-weight:700;margin:0 0 8px}
+  .wrap{background:#F2EBE0;padding:32px 16px}
+  .card{max-width:600px;margin:0 auto;background:#F2EBE0;border:1px solid #E0D8CF}
+  .logo-wrap{padding:36px 40px 24px;text-align:center;background:#F2EBE0}
+  .logo-wrap img{display:block;margin:0 auto;height:90px;width:auto}
+  .bd{padding:32px 40px 40px;background:#FFFFFF;color:#111;border-top:1px solid #E0D8CF}
+  h1{font-size:22px;font-weight:700;margin:0 0 10px;color:#111}
   .sub{font-size:15px;color:#4A4035;margin:0 0 28px;line-height:1.65}
-  .box{background:#F2EBE0;border:1px solid #E0D8CF;margin-bottom:28px;padding:20px 24px}
+  .box{background:#F2EBE0;border:1px solid #E0D8CF;margin-bottom:32px;padding:20px 24px}
   .eyebrow{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#7A6E64;display:block;margin-bottom:12px}
   table{width:100%;border-collapse:collapse}
-  td{padding:5px 0;font-size:14px;vertical-align:top}
-  td.label{color:#4A4035;font-weight:600;width:120px}
-  .cl{font-size:15px;color:#4A4035;margin:0 0 6px;line-height:1.65}
+  td{padding:6px 0;font-size:14px;vertical-align:top}
+  td.label{color:#4A4035;font-weight:600;width:110px}
+  .contact-block{background:#F2EBE0;border:1px solid #E0D8CF;padding:20px 24px;text-align:center}
+  .contact-block p{margin:0 0 6px;font-size:14px;color:#4A4035;line-height:1.6}
+  .contact-block p:last-child{margin:0}
   a.red{color:#8C1D2A;font-weight:700;text-decoration:none}
   a.plain{color:#8C1D2A;text-decoration:none}
-  .ft{padding:20px 40px;background:#F2EBE0;border-top:1px solid #E0D8CF;text-align:center}
+  .ft{padding:20px 40px;background:#F2EBE0;text-align:center}
   .ft p{font-size:12px;color:#7A6E64;margin:0}
+  @media(max-width:600px){
+    .logo-wrap{padding:28px 20px 20px}
+    .bd{padding:24px 20px 32px}
+    .box{padding:16px 16px}
+    .contact-block{padding:16px}
+    .ft{padding:16px 20px}
+    td.label{width:90px}
+  }
 </style>
 </head>
 <body><div class="wrap"><div class="card">
-  <div class="hd"><img src="https://peakvieworegon.com/logo-light.png" alt="Peak View Windows &amp; Doors" /></div>
+  <div class="logo-wrap"><img src="https://peakvieworegon.com/logo.png" alt="Peak View Windows &amp; Doors" /></div>
   <div class="bd">
     <h1>Got it, ${escHtml(firstName)}.</h1>
-    <p class="sub">Thanks for reaching out to Peak View Windows &amp; Doors. Clancy will personally review your request and get back to you — usually same day.</p>
+    <p class="sub">Thanks for reaching out. We will personally review your request and get back to you — usually same day.</p>
     <div class="box">
       <span class="eyebrow">Your Submission</span>
       <table>
@@ -219,9 +229,11 @@ function buildCustomerEmail({ name, phone, email, message }, projectLabel) {
         ${messageRow}
       </table>
     </div>
-    <p class="cl">In the meantime, reach Clancy directly:</p>
-    <p class="cl"><a href="tel:+15416393968" class="red">541-639-3968</a> &nbsp;·&nbsp; call or text</p>
-    <p class="cl"><a href="mailto:clancy@peakvieworegon.com" class="plain">clancy@peakvieworegon.com</a></p>
+    <div class="contact-block">
+      <p>In the meantime, reach us directly:</p>
+      <p><a href="tel:+15416393968" class="red">541-639-3968</a> &nbsp;·&nbsp; call or text</p>
+      <p><a href="mailto:clancy@peakvieworegon.com" class="plain">clancy@peakvieworegon.com</a></p>
+    </div>
   </div>
   <div class="ft"><p>Peak View Windows &amp; Doors &nbsp;·&nbsp; Bend, Oregon &nbsp;·&nbsp; CCB #260230</p></div>
 </div></div></body></html>`;
