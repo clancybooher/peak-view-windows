@@ -172,68 +172,82 @@ function escHtml(str) {
 function buildCustomerEmail({ name, phone, email, message }, projectLabel) {
   const firstName  = name.split(' ')[0];
   const messageRow = message
-    ? `<tr><td class="label">Message</td><td>${escHtml(message).replace(/\n/g, '<br>')}</td></tr>`
+    ? `<tr><td style="padding:5px 0;font-size:14px;color:#4A4035;font-weight:600;vertical-align:top;">Message</td><td style="padding:5px 0;font-size:14px;color:#111111;">${escHtml(message).replace(/\n/g, '<br>')}</td></tr>`
     : '';
 
   return `<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" /><meta name="viewport" content="width=device-width,initial-scale=1" />
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
 <title>Estimate Request Received</title>
-<style>
-  body{margin:0;padding:0;background:#F2EBE0;font-family:'Helvetica Neue',Arial,sans-serif}
-  .wrap{background:#F2EBE0;padding:40px 16px}
-  .card{max-width:600px;margin:0 auto;background:#FFFFFF;border:1px solid #E0D8CF}
-  .logo-wrap{padding:40px 40px 28px;text-align:center;background:#FFFFFF}
-  .logo-wrap img{display:block;margin:0 auto;height:80px;width:auto}
-  .bd{padding:0 40px 40px;background:#FFFFFF;color:#111}
-  h1{font-size:22px;font-weight:700;margin:0 0 10px;color:#111}
-  .sub{font-size:15px;color:#4A4035;margin:0 0 28px;line-height:1.65}
-  .box{background:#F2EBE0;border:1px solid #E0D8CF;margin-bottom:32px;padding:20px 24px}
-  .eyebrow{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#7A6E64;display:block;margin-bottom:12px}
-  table{width:100%;border-collapse:collapse}
-  td{padding:6px 0;font-size:14px;vertical-align:top}
-  td.label{color:#4A4035;font-weight:600;width:110px}
-  .contact-block{background:#F2EBE0;border:1px solid #E0D8CF;padding:20px 24px;text-align:center}
-  .contact-block p{margin:0 0 6px;font-size:14px;color:#4A4035;line-height:1.6}
-  .contact-block p:last-child{margin:0}
-  a.red{color:#8C1D2A;font-weight:700;text-decoration:none}
-  a.plain{color:#8C1D2A;text-decoration:none}
-  .ft{padding:20px 40px;background:#F2EBE0;border-top:1px solid #E0D8CF;text-align:center}
-  .ft p{font-size:12px;color:#7A6E64;margin:0}
-  @media(max-width:600px){
-    .logo-wrap{padding:28px 20px 20px}
-    .bd{padding:0 20px 32px}
-    .box{padding:16px}
-    .contact-block{padding:16px}
-    .ft{padding:16px 20px}
-    td.label{width:90px}
-  }
-</style>
 </head>
-<body><div class="wrap"><div class="card">
-  <div class="logo-wrap"><img src="https://peakvieworegon.com/logo.png" alt="Peak View Windows &amp; Doors" /></div>
-  <div class="bd">
-    <h1>Got it, ${escHtml(firstName)}.</h1>
-    <p class="sub">Thanks for reaching out. We will personally review your request and get back to you — usually same day.</p>
-    <div class="box">
-      <span class="eyebrow">Your Submission</span>
-      <table>
-        <tr><td class="label">Name</td><td>${escHtml(name)}</td></tr>
-        <tr><td class="label">Phone</td><td>${escHtml(phone)}</td></tr>
-        <tr><td class="label">Email</td><td>${escHtml(email)}</td></tr>
-        <tr><td class="label">Project</td><td>${escHtml(projectLabel)}</td></tr>
-        ${messageRow}
-      </table>
-    </div>
-    <div class="contact-block">
-      <p>In the meantime, reach us directly:</p>
-      <p><a href="tel:+15416393968" class="red">541-639-3968</a> &nbsp;·&nbsp; call or text</p>
-      <p><a href="mailto:clancy@peakvieworegon.com" class="plain">clancy@peakvieworegon.com</a></p>
-    </div>
-  </div>
-  <div class="ft"><p>Peak View Windows &amp; Doors &nbsp;·&nbsp; Bend, Oregon &nbsp;·&nbsp; CCB #260230</p></div>
-</div></div></body></html>`;
+<body style="margin:0;padding:0;background-color:#F2EBE0;font-family:'Helvetica Neue',Arial,sans-serif;">
+<table width="100%" cellpadding="0" cellspacing="0" style="background-color:#F2EBE0;padding:40px 16px;">
+  <tr><td align="center">
+    <table width="600" cellpadding="0" cellspacing="0" style="max-width:600px;width:100%;background-color:#ffffff;border:1px solid #E0D8CF;">
+
+      <!-- Logo on dark strip -->
+      <tr>
+        <td align="center" style="background-color:#111111;padding:24px 32px;">
+          <img src="https://peakvieworegon.com/logo-light.png" alt="Peak View Windows &amp; Doors" height="56" style="display:block;height:56px;width:auto;border:0;" />
+        </td>
+      </tr>
+
+      <!-- Body -->
+      <tr>
+        <td style="padding:36px 40px 16px;background-color:#ffffff;">
+          <h1 style="font-size:22px;font-weight:700;color:#111111;margin:0 0 10px;">Got it, ${escHtml(firstName)}.</h1>
+          <p style="font-size:15px;color:#4A4035;line-height:1.65;margin:0 0 28px;">Thanks for reaching out. We will personally review your request and get back to you — usually same day.</p>
+        </td>
+      </tr>
+
+      <!-- Submission box -->
+      <tr>
+        <td style="padding:0 40px 28px;background-color:#ffffff;">
+          <table width="100%" cellpadding="0" cellspacing="0" style="background-color:#F2EBE0;border:1px solid #E0D8CF;">
+            <tr>
+              <td style="padding:20px 24px;">
+                <span style="display:block;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#7A6E64;margin-bottom:14px;">Your Submission</span>
+                <table width="100%" cellpadding="0" cellspacing="0">
+                  <tr><td style="padding:5px 0;font-size:14px;color:#4A4035;font-weight:600;width:110px;vertical-align:top;">Name</td><td style="padding:5px 0;font-size:14px;color:#111111;">${escHtml(name)}</td></tr>
+                  <tr><td style="padding:5px 0;font-size:14px;color:#4A4035;font-weight:600;vertical-align:top;">Phone</td><td style="padding:5px 0;font-size:14px;color:#111111;">${escHtml(phone)}</td></tr>
+                  <tr><td style="padding:5px 0;font-size:14px;color:#4A4035;font-weight:600;vertical-align:top;">Email</td><td style="padding:5px 0;font-size:14px;color:#111111;">${escHtml(email)}</td></tr>
+                  <tr><td style="padding:5px 0;font-size:14px;color:#4A4035;font-weight:600;vertical-align:top;">Project</td><td style="padding:5px 0;font-size:14px;color:#111111;">${escHtml(projectLabel)}</td></tr>
+                  ${messageRow}
+                </table>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+
+      <!-- Contact block -->
+      <tr>
+        <td style="padding:0 40px 36px;background-color:#ffffff;">
+          <table width="100%" cellpadding="0" cellspacing="0" style="background-color:#F2EBE0;border:1px solid #E0D8CF;">
+            <tr>
+              <td align="center" style="padding:20px 24px;">
+                <p style="margin:0 0 8px;font-size:14px;color:#4A4035;">In the meantime, reach us directly:</p>
+                <p style="margin:0 0 6px;font-size:16px;font-weight:700;"><a href="tel:+15416393968" style="color:#8C1D2A;text-decoration:none;">541-639-3968</a> &nbsp;&middot;&nbsp; <span style="font-size:14px;font-weight:400;color:#4A4035;">call or text</span></p>
+                <p style="margin:0;font-size:14px;"><a href="mailto:clancy@peakvieworegon.com" style="color:#8C1D2A;text-decoration:none;">clancy@peakvieworegon.com</a></p>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+
+      <!-- Footer -->
+      <tr>
+        <td align="center" style="padding:16px 40px;background-color:#F2EBE0;border-top:1px solid #E0D8CF;">
+          <p style="margin:0;font-size:12px;color:#7A6E64;">Peak View Windows &amp; Doors &nbsp;&middot;&nbsp; Bend, Oregon &nbsp;&middot;&nbsp; CCB #260230</p>
+        </td>
+      </tr>
+
+    </table>
+  </td></tr>
+</table>
+</body></html>`;
 }
 
 function buildOwnerEmail({ name, phone, email, message }, projectLabel) {
