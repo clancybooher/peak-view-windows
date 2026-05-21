@@ -86,10 +86,7 @@ async function handleSubmit(request, env) {
     if (confirmResult.status === 'rejected') console.error('Customer email failed:', confirmResult.reason);
     if (notifyResult.status  === 'rejected') console.error('Owner email failed:',    notifyResult.reason);
 
-    if (notifyResult.status === 'rejected') {
-      return json({ success: false, error: 'Failed to send — please call or text us at 541-639-3968.' }, 500, headers);
-    }
-
+    // Always return success — the lead came in. Email errors are logged above.
     return json({ success: true }, 200, headers);
   } catch (err) {
     console.error('Email error:', err);
