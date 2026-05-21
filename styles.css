@@ -943,6 +943,21 @@ section { padding: var(--pad-section) 0; }
 .f-submit:hover { background: var(--accent-dark); }
 .f-note { font-size: 0.75rem; color: var(--text-light); text-align: center; margin-top: 0.75rem; }
 
+.f-alert { display: block; padding: 0.75rem 1rem; border-radius: var(--radius); font-size: 0.875rem; margin-bottom: 1rem; }
+.f-alert--error { background: #FEF2F2; color: #991B1B; border: 1px solid #FECACA; }
+[hidden] { display: none !important; }
+
+.cf-turnstile { margin-bottom: 1rem; }
+
+.f-submit:disabled { opacity: 0.65; cursor: not-allowed; }
+
+.f-success { text-align: center; padding: 3rem 1.5rem; }
+.f-success__icon { color: var(--accent); margin-bottom: 1rem; display: flex; justify-content: center; }
+.f-success h3 { font-size: 1.375rem; margin-bottom: 0.75rem; }
+.f-success p { color: var(--text-muted); line-height: 1.65; font-size: 1rem; }
+.f-success a { color: var(--accent); font-weight: 600; text-decoration: none; }
+.f-success a:hover { text-decoration: underline; }
+
 /* ─── BLOG STUB ──────────────────────────────────────────────  */
 .blog-grid {
   display: grid;

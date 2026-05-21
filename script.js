@@ -101,6 +101,128 @@
   } catch (_) {}
 })();
 
+// Contact form — fetch submission + Turnstile + validation
+(function () {
+  'use strict';
+
+  function getField(form, name) {
+    return form.querySelector('[name="' + name + '"]');
+  }
+
+  function showAlert(form, msg) {
+    let el = form.querySelector('.f-alert');
+    if (!el) {
+      el = document.createElement('p');
+      el.className = 'f-alert f-alert--error';
+      el.setAttribute('role', 'alert');
+      el.setAttribute('aria-live', 'polite');
+      const btn = form.querySelector('.f-submit');
+      form.insertBefore(el, btn);
+    }
+    el.textContent = msg;
+    el.hidden = false;
+    el.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  }
+
+  function clearAlert(form) {
+    const el = form.querySelector('.f-alert');
+    if (el) el.hidden = true;
+  }
+
+  function setLoading(btn, loading) {
+    if (loading) {
+      btn.disabled = true;
+      btn.dataset.orig = btn.textContent;
+      btn.textContent = 'SENDING…';
+    } else {
+      btn.disabled = false;
+      btn.textContent = btn.dataset.orig || 'GET MY FREE EVALUATION →';
+    }
+  }
+
+  function showSuccess(form) {
+    const wrapper = form.closest('.c-form');
+    if (!wrapper) return;
+    const firstName = (getField(form, 'name')?.value || '').split(' ')[0] || 'there';
+    wrapper.innerHTML =
+      '<div class="f-success" role="status" aria-live="polite">' +
+        '<div class="f-success__icon" aria-hidden="true">' +
+          '<svg width="48" height="48" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">' +
+            '<path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>' +
+          '</svg>' +
+        '</div>' +
+        '<h3>Got it, ' + firstName + '.</h3>' +
+        '<p>Clancy will reach out personally — usually same day. In the meantime you can call or text directly at <a href="tel:+15416393968">541-639-3968</a>.</p>' +
+      '</div>';
+  }
+
+  function validate(form) {
+    const name  = getField(form, 'name')?.value.trim();
+    const phone = getField(form, 'phone')?.value.trim();
+    const email = getField(form, 'email')?.value.trim();
+    const type  = getField(form, 'project_type')?.value;
+    if (!name)                                          return 'Please enter your name.';
+    if (!phone)                                         return 'Please enter your phone number.';
+    if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return 'Please enter a valid email address.';
+    if (!type)                                          return 'Please select a project type.';
+    return null;
+  }
+
+  // Wire up all contact forms (index + about)
+  document.querySelectorAll('form[name^="contact"]').forEach(function (form) {
+    form.setAttribute('novalidate', '');
+
+    form.addEventListener('submit', async function (e) {
+      e.preventDefault();
+      clearAlert(form);
+
+      const err = validate(form);
+      if (err) { showAlert(form, err); return; }
+
+      // Grab the Turnstile token injected by the widget
+      const tokenInput = form.querySelector('[name="cf-turnstile-response"]');
+      const token = tokenInput?.value || '';
+      if (!token) {
+        showAlert(form, 'Please complete the security check.');
+        return;
+      }
+
+      const btn = form.querySelector('.f-submit');
+      setLoading(btn, true);
+
+      const payload = {
+        name:          getField(form, 'name').value.trim(),
+        phone:         getField(form, 'phone').value.trim(),
+        email:         getField(form, 'email').value.trim(),
+        project_type:  getField(form, 'project_type').value,
+        message:       getField(form, 'message')?.value.trim() || '',
+        turnstileToken: token,
+      };
+
+      try {
+        const res  = await fetch('/api/submit', {
+          method:  'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body:    JSON.stringify(payload),
+        });
+        const data = await res.json().catch(() => ({}));
+
+        if (res.ok && data.success) {
+          showSuccess(form);
+        } else {
+          showAlert(form, data.error || 'Something went wrong. Please call 541-639-3968.');
+          setLoading(btn, false);
+          if (window.turnstile) window.turnstile.reset();
+        }
+      } catch {
+        showAlert(form, 'Connection error. Please call or text us at 541-639-3968.');
+        setLoading(btn, false);
+        if (window.turnstile) window.turnstile.reset();
+      }
+    });
+  });
+})();
+
 // Testimonials carousel
 (function () {
   const track    = document.getElementById('t-track');

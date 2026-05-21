@@ -351,10 +351,7 @@
 
       <div class="c-form">
         <h3>Request a Free Estimate</h3>
-        <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
-          <input type="hidden" name="form-name" value="contact" />
-          <p class="sr-only"><label>Don't fill this out if you're human: <input name="bot-field" /></label></p>
-
+        <form name="contact" method="POST">
           <div class="f-row">
             <div class="f-group">
               <label for="f-name">Your Name</label>
@@ -388,6 +385,7 @@
             <textarea id="f-message" name="message" placeholder="Number of windows, door type, neighborhood, any other details..."></textarea>
           </div>
 
+          <div class="cf-turnstile" data-sitekey="0x4AAAAAADT7OZdh-mCzf-mp" data-theme="light"></div>
           <button type="submit" class="f-submit">GET MY FREE EVALUATION &rarr;</button>
           <p class="f-note">We get back to you fast.</p>
         </form>
@@ -470,6 +468,7 @@
   </div>
 </footer>
 
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 <script src="script.js"></script>
 
 <!-- FLOATING PHONE FAB (mobile only) -->

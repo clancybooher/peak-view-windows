@@ -1,0 +1,8 @@
+name = "peak-view-windows"
+compatibility_date = "2024-09-23"
+compatibility_flags = ["nodejs_compat"]
+
+# ─── Local dev secrets ──────────────────────────────────────────────────────
+# Copy .env.example → .env and fill in values.
+# wrangler pages dev reads .dev.vars (not .env) — rename or symlink if needed.
+# In production, set these in the Cloudflare Pages dashboard.
