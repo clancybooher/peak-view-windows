@@ -1,12 +1,11 @@
 /**
- * Cloudflare Pages Function: POST /api/submit
- * No npm dependencies — uses fetch natively (works on Cloudflare Pages without a build step).
+ * Peak View Windows — Cloudflare Worker
+ * Handles POST /api/submit; everything else is served as static assets.
  *
- * Required env vars (Cloudflare Pages → Settings → Environment variables):
+ * Required env vars (Worker → Settings → Variables and secrets):
  *   RESEND_API_KEY              – from resend.com
  *   MY_EMAIL                    – clancy@peakvieworegon.com
  *   CLOUDFLARE_TURNSTILE_SECRET – from Cloudflare Turnstile dashboard
- *   ALLOWED_ORIGIN              – https://peakvieworegon.com
  */
 
 const TURNSTILE_VERIFY_URL = 'https://challenges.cloudflare.com/turnstile/v0/siteverify';
@@ -21,16 +20,25 @@ const PROJECT_TYPE_LABELS = {
   'not-sure':           'Not Sure Yet',
 };
 
-// ─── CORS preflight ──────────────────────────────────────────────────────────
+export default {
+  async fetch(request, env) {
+    const url = new URL(request.url);
 
-export async function onRequestOptions({ env }) {
-  return new Response(null, { status: 204, headers: corsHeaders(env) });
-}
+    if (url.pathname === '/api/submit') {
+      if (request.method === 'OPTIONS') return handleOptions();
+      if (request.method === 'POST')    return handleSubmit(request, env);
+      return new Response('Method not allowed', { status: 405 });
+    }
 
-// ─── Main handler ────────────────────────────────────────────────────────────
+    // All other routes → static assets
+    return env.ASSETS.fetch(request);
+  },
+};
 
-export async function onRequestPost({ request, env }) {
-  const headers = { 'Content-Type': 'application/json', ...corsHeaders(env) };
+// ─── Form submission handler ──────────────────────────────────────────────────
+
+async function handleSubmit(request, env) {
+  const headers = { 'Content-Type': 'application/json', ...corsHeaders() };
 
   let body;
   try {
@@ -89,19 +97,22 @@ export async function onRequestPost({ request, env }) {
   }
 }
 
-// ─── Helpers ─────────────────────────────────────────────────────────────────
-
-function json(body, status, headers) {
-  return new Response(JSON.stringify(body), { status, headers });
+function handleOptions() {
+  return new Response(null, { status: 204, headers: corsHeaders() });
 }
 
-function corsHeaders(env) {
-  const origin = env?.ALLOWED_ORIGIN || ALLOWED_ORIGIN;
+// ─── Helpers ──────────────────────────────────────────────────────────────────
+
+function corsHeaders() {
   return {
-    'Access-Control-Allow-Origin':  origin,
+    'Access-Control-Allow-Origin':  ALLOWED_ORIGIN,
     'Access-Control-Allow-Methods': 'POST, OPTIONS',
     'Access-Control-Allow-Headers': 'Content-Type',
   };
+}
+
+function json(body, status, headers) {
+  return new Response(JSON.stringify(body), { status, headers });
 }
 
 function sanitize(str) {
@@ -110,17 +121,17 @@ function sanitize(str) {
 }
 
 function validateInputs({ name, phone, email, project_type, turnstileToken }) {
-  if (!name  || typeof name  !== 'string' || !name.trim())  return 'Please enter your name.';
-  if (!phone || typeof phone !== 'string' || !phone.trim()) return 'Please enter your phone number.';
-  if (!email || typeof email !== 'string' || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim())) return 'Please enter a valid email address.';
-  if (!project_type || !PROJECT_TYPE_LABELS[project_type.trim()]) return 'Please select a valid project type.';
-  if (!turnstileToken || typeof turnstileToken !== 'string')       return 'Please complete the security check.';
+  if (!name  || !name.trim())  return 'Please enter your name.';
+  if (!phone || !phone.trim()) return 'Please enter your phone number.';
+  if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim())) return 'Please enter a valid email address.';
+  if (!project_type || !PROJECT_TYPE_LABELS[project_type.trim()])  return 'Please select a valid project type.';
+  if (!turnstileToken) return 'Please complete the security check.';
   return null;
 }
 
 async function verifyTurnstile(token, ip, secret) {
   if (!secret) {
-    console.warn('CLOUDFLARE_TURNSTILE_SECRET not set — skipping verification in dev.');
+    console.warn('CLOUDFLARE_TURNSTILE_SECRET not set.');
     return true;
   }
   try {
@@ -148,18 +159,15 @@ async function sendEmail(apiKey, { from, to, subject, html }) {
   });
   if (!res.ok) {
     const err = await res.text();
-    throw new Error(`Resend error ${res.status}: ${err}`);
+    throw new Error(`Resend ${res.status}: ${err}`);
   }
   return res.json();
 }
 
 function escHtml(str) {
   return String(str)
-    .replace(/&/g, '&amp;')
-    .replace(/</g, '&lt;')
-    .replace(/>/g, '&gt;')
-    .replace(/"/g, '&quot;')
-    .replace(/'/g, '&#39;');
+    .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;').replace(/'/g, '&#39;');
 }
 
 // ─── Email templates ──────────────────────────────────────────────────────────
@@ -173,8 +181,7 @@ function buildCustomerEmail({ name, phone, email, message }, projectLabel) {
   return `<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
+<meta charset="UTF-8" /><meta name="viewport" content="width=device-width,initial-scale=1" />
 <title>Estimate Request Received</title>
 <style>
   body{margin:0;padding:0;background:#F2EBE0;font-family:'Helvetica Neue',Arial,sans-serif}
@@ -197,8 +204,7 @@ function buildCustomerEmail({ name, phone, email, message }, projectLabel) {
   .ft p{font-size:12px;color:#7A6E64;margin:0}
 </style>
 </head>
-<body>
-<div class="wrap"><div class="card">
+<body><div class="wrap"><div class="card">
   <div class="hd"><img src="https://peakvieworegon.com/logo-light.png" alt="Peak View Windows &amp; Doors" /></div>
   <div class="bd">
     <h1>Got it, ${escHtml(firstName)}.</h1>
@@ -218,8 +224,7 @@ function buildCustomerEmail({ name, phone, email, message }, projectLabel) {
     <p class="cl"><a href="mailto:clancy@peakvieworegon.com" class="plain">clancy@peakvieworegon.com</a></p>
   </div>
   <div class="ft"><p>Peak View Windows &amp; Doors &nbsp;·&nbsp; Bend, Oregon &nbsp;·&nbsp; CCB #260230</p></div>
-</div></div>
-</body></html>`;
+</div></div></body></html>`;
 }
 
 function buildOwnerEmail({ name, phone, email, message }, projectLabel) {
@@ -231,8 +236,7 @@ function buildOwnerEmail({ name, phone, email, message }, projectLabel) {
   return `<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
+<meta charset="UTF-8" /><meta name="viewport" content="width=device-width,initial-scale=1" />
 <title>New Estimate Request</title>
 <style>
   body{margin:0;padding:0;background:#F2EBE0;font-family:'Helvetica Neue',Arial,sans-serif}
@@ -251,8 +255,7 @@ function buildOwnerEmail({ name, phone, email, message }, projectLabel) {
   .ft p{font-size:12px;color:#7A6E64;margin:0}
 </style>
 </head>
-<body>
-<div class="wrap"><div class="card">
+<body><div class="wrap"><div class="card">
   <div class="hd"><p>New Lead — Peak View Website</p></div>
   <div class="bd">
     <h2>${escHtml(name)} wants a free estimate</h2>
@@ -265,6 +268,5 @@ function buildOwnerEmail({ name, phone, email, message }, projectLabel) {
     </table>
   </div>
   <div class="ft"><p>Sent from peakvieworegon.com &nbsp;·&nbsp; Peak View Windows &amp; Doors</p></div>
-</div></div>
-</body></html>`;
+</div></div></body></html>`;
 }
