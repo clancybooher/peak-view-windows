@@ -185,11 +185,11 @@ function buildCustomerEmail({ name, phone, email, message }, projectLabel) {
 <title>Estimate Request Received</title>
 <style>
   body{margin:0;padding:0;background:#F2EBE0;font-family:'Helvetica Neue',Arial,sans-serif}
-  .wrap{background:#F2EBE0;padding:32px 16px}
-  .card{max-width:600px;margin:0 auto;background:#F2EBE0;border:1px solid #E0D8CF}
-  .logo-wrap{padding:36px 40px 24px;text-align:center;background:#F2EBE0}
-  .logo-wrap img{display:block;margin:0 auto;height:90px;width:auto}
-  .bd{padding:32px 40px 40px;background:#FFFFFF;color:#111;border-top:1px solid #E0D8CF}
+  .wrap{background:#F2EBE0;padding:40px 16px}
+  .card{max-width:600px;margin:0 auto;background:#FFFFFF;border:1px solid #E0D8CF}
+  .logo-wrap{padding:40px 40px 28px;text-align:center;background:#FFFFFF}
+  .logo-wrap img{display:block;margin:0 auto;height:80px;width:auto}
+  .bd{padding:0 40px 40px;background:#FFFFFF;color:#111}
   h1{font-size:22px;font-weight:700;margin:0 0 10px;color:#111}
   .sub{font-size:15px;color:#4A4035;margin:0 0 28px;line-height:1.65}
   .box{background:#F2EBE0;border:1px solid #E0D8CF;margin-bottom:32px;padding:20px 24px}
@@ -202,12 +202,12 @@ function buildCustomerEmail({ name, phone, email, message }, projectLabel) {
   .contact-block p:last-child{margin:0}
   a.red{color:#8C1D2A;font-weight:700;text-decoration:none}
   a.plain{color:#8C1D2A;text-decoration:none}
-  .ft{padding:20px 40px;background:#F2EBE0;text-align:center}
+  .ft{padding:20px 40px;background:#F2EBE0;border-top:1px solid #E0D8CF;text-align:center}
   .ft p{font-size:12px;color:#7A6E64;margin:0}
   @media(max-width:600px){
     .logo-wrap{padding:28px 20px 20px}
-    .bd{padding:24px 20px 32px}
-    .box{padding:16px 16px}
+    .bd{padding:0 20px 32px}
+    .box{padding:16px}
     .contact-block{padding:16px}
     .ft{padding:16px 20px}
     td.label{width:90px}
