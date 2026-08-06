@@ -3,6 +3,8 @@
   "compatibility_date": "2026-05-21",
   "main": "worker.js",
   "assets": {
-    "directory": "."
+    "directory": ".",
+    "binding": "ASSETS",
+    "not_found_handling": "404-page"
   }
 }

@@ -55,10 +55,14 @@ h1,h2,h3,h4,h5,h6 {
   letter-spacing: -0.01em;
 }
 .display {
-  font-size: clamp(3.2rem, 7vw, 6rem);
+  /* 7vw alone is too large below ~420px — the long hero headline overflowed the
+     viewport on phones. The vw+rem mix lets it scale down while staying large
+     on desktop. */
+  font-size: clamp(2.6rem, 6vw + 0.6rem, 6rem);
   line-height: 1.04;
   letter-spacing: -0.025em;
   font-weight: 300;
+  overflow-wrap: break-word;
 }
 .eyebrow {
   font-family: var(--font-body);
@@ -139,15 +143,17 @@ section { padding: var(--pad-section) 0; }
   margin: 0 auto;
   padding: 0 var(--pad-x);
 }
-.nav__logo { display: flex; align-items: center; }
+.nav__logo { display: flex; align-items: center; flex-shrink: 0; }
 .nav__logo-img {
   height: calc(120px - 10px);
   width: auto;
-  mix-blend-mode: multiply;
+  max-width: 100%;
+  /* No mix-blend-mode: on mobile it blended the black mark into the white bar
+     and the logo effectively disappeared. The PNG already has a white ground. */
   box-sizing: border-box;
 }
 @media (max-width: 900px) {
-  .nav__logo-img { height: calc(80px - 8px); }
+  .nav__logo-img { height: calc(80px - 16px); }
 }
 .nav__links {
   display: flex;
@@ -191,6 +197,12 @@ section { padding: var(--pad-section) 0; }
   .nav__links,
   .nav__actions { display: none; }
   .nav__mobile-phone { display: flex; }
+  /* Logo | phone | burger must all fit without crowding. */
+  .nav__inner { gap: 0.5rem; padding: 0 1rem; }
+}
+@media (max-width: 400px) {
+  .nav__mobile-phone { font-size: 0.875rem; padding: 0.5rem 0.7rem; }
+  .nav__logo-img { height: 52px; }
 }
 
 .nav__burger {
@@ -199,17 +211,27 @@ section { padding: var(--pad-section) 0; }
   align-items: center;
   justify-content: center;
   gap: 5px;
-  width: 32px;
-  height: 32px;
+  /* 44px minimum touch target. The bars stay 24px wide via the span rule. */
+  width: 44px;
+  height: 44px;
+  flex-shrink: 0;
+  padding: 0;
+  background: none;
+  border: none;
+  -webkit-tap-highlight-color: transparent;
 }
 .nav__burger span {
   display: block;
-  width: 100%;
+  width: 24px;
   height: 2px;
-  background: rgba(0,0,0,0.6);
-  transition: all var(--t);
+  background: var(--text);
+  transition: transform var(--t), opacity var(--t);
   border-radius: 1px;
 }
+/* Animate to an X while the menu is open so it reads as a close button. */
+.nav__burger[aria-expanded="true"] span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.nav__burger[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+.nav__burger[aria-expanded="true"] span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 @media (max-width: 900px) {
   .nav__burger { display: flex; }
 }
@@ -217,16 +239,20 @@ section { padding: var(--pad-section) 0; }
 .mob-menu {
   display: none;
   position: fixed;
+  /* Sits below the nav bar, which stays pinned while the menu is open. */
   top: 80px;
   left: 0;
   right: 0;
   bottom: 0;
   background: var(--white);
   flex-direction: column;
-  padding: 2rem 1.5rem;
+  padding: 1.5rem 1.5rem calc(2rem + env(safe-area-inset-bottom));
   gap: 0;
-  z-index: 199;
+  /* Must sit ABOVE the nav's stacking context sibling content but BELOW the nav
+     itself (z-index 200) so the burger stays tappable to close it. */
+  z-index: 190;
   overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
   border-top: 1px solid var(--border);
 }
 .mob-menu.open { display: flex; }
@@ -235,16 +261,26 @@ section { padding: var(--pad-section) 0; }
   font-weight: 500;
   color: var(--text);
   padding: 1rem 0;
+  min-height: 48px;
+  display: flex;
+  align-items: center;
   border-bottom: 1px solid var(--border);
   transition: color var(--t);
 }
-.mob-menu a:last-child { border-bottom: none; margin-top: 1.5rem; }
 .mob-menu a:hover { color: var(--accent); }
+/* The trailing CTA button */
+.mob-menu a.btn {
+  border-bottom: none;
+  margin-top: 1.5rem;
+  justify-content: center;
+  color: var(--white);
+}
+.mob-menu a.btn:hover { color: var(--white); }
 
 /* ─── HERO ───────────────────────────────────────────────── */
 .hero {
   position: relative;
-  min-height: 100vh;
+  min-height: calc(100vh - 120px);
   display: flex;
   align-items: center;
   overflow: hidden;
@@ -266,13 +302,17 @@ section { padding: var(--pad-section) 0; }
 .hero__title {
   color: var(--white);
   margin-bottom: 1.5rem;
+  text-shadow: 0 2px 30px rgba(0,0,0,0.55), 0 1px 4px rgba(0,0,0,0.35);
 }
 .hero__sub {
-  color: rgba(255,255,255,0.85);
+  color: rgba(255,255,255,0.96);
   font-size: 1.05rem;
   max-width: 680px;
   margin-bottom: 2.5rem;
   line-height: 1.78;
+  /* The hero photo has bright lit areas behind this text — the shadow keeps it
+     legible without darkening the whole image. */
+  text-shadow: 0 1px 14px rgba(0,0,0,0.75), 0 1px 3px rgba(0,0,0,0.5);
 }
 .hero__actions {
   display: flex;
@@ -347,7 +387,7 @@ section { padding: var(--pad-section) 0; }
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   gap: 2rem;
-  max-width: var(--max-wide);
+  max-width: var(--max-w);
   margin: 0 auto;
 }
 .process-step {
@@ -493,32 +533,32 @@ section { padding: var(--pad-section) 0; }
 }
 
 .footer-brand img {
-  height: 30px;
+  height: 64px;
   width: auto;
   margin-bottom: 1rem;
-  opacity: 0.85;
+  opacity: 0.9;
 }
 .footer-brand p {
   font-size: 0.85rem;
-  color: rgba(255,255,255,0.38);
+  color: rgba(255,255,255,0.55);
   line-height: 1.72;
   max-width: 28ch;
   margin-bottom: 1.25rem;
 }
-.footer-brand .license { font-size: 0.72rem; color: rgba(255,255,255,0.22); letter-spacing: 0.04em; }
+.footer-brand .license { font-size: 0.72rem; color: rgba(255,255,255,0.42); letter-spacing: 0.04em; }
 .footer-col h4 {
   font-size: 0.72rem;
   font-weight: 500;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: rgba(255,255,255,0.32);
+  color: rgba(255,255,255,0.45);
   margin-bottom: 1.125rem;
   font-family: var(--font-body);
 }
 .footer-col nav { display: flex; flex-direction: column; gap: 0.55rem; }
 .footer-col nav a {
   font-size: 0.85rem;
-  color: rgba(255,255,255,0.45);
+  color: rgba(255,255,255,0.6);
   transition: color var(--t);
 }
 .footer-col nav a:hover { color: rgba(255,255,255,0.85); }
@@ -528,7 +568,7 @@ section { padding: var(--pad-section) 0; }
   justify-content: space-between;
   gap: 1rem;
 }
-.footer-btm p { font-size: 0.78rem; color: rgba(255,255,255,0.2); }
+.footer-btm p { font-size: 0.78rem; color: rgba(255,255,255,0.4); }
 
 /* ─── INNER PAGE STYLES ──────────────────────────────────── */
 .page-hero {
@@ -542,6 +582,12 @@ section { padding: var(--pad-section) 0; }
 .page-hero .eyebrow { margin-bottom: 0.875rem; }
 .page-hero h1 { font-size: clamp(2.5rem,5vw,4.25rem); max-width: 20ch; margin-bottom: 1.125rem; }
 .page-hero p { color: var(--text-muted); font-size: 1rem; max-width: 48ch; line-height: 1.7; }
+
+/* Centered variant — used where the page below is centered (blog index) so the
+   hero does not leave a large empty column on the right. */
+.page-hero--center { text-align: center; }
+.page-hero--center h1,
+.page-hero--center p { margin-inline: auto; }
 
 .sec-head { margin-bottom: clamp(3rem,5vw,5rem); }
 .sec-head--center { text-align: center; max-width: 52ch; margin-inline: auto; }
@@ -736,6 +782,10 @@ section { padding: var(--pad-section) 0; }
   margin: 0 auto;
   padding: 0 var(--pad-x);
 }
+@media (max-width: 768px) {
+  /* Keep badge text clear of the floating phone button. */
+  .trust-bar__inner { gap: 0.75rem 1.25rem; padding-right: calc(var(--pad-x) + 3.5rem); }
+}
 .trust-badge {
   display: flex;
   align-items: center;
@@ -784,6 +834,16 @@ section { padding: var(--pad-section) 0; }
   line-height: 1.78;
   margin-bottom: 1.125rem;
 }
+
+/* Long-form article body — larger and looser than the About blurb it shares
+   styling with, so a 1,200-word post is comfortable to read. */
+.post-body > p {
+  font-size: 1.0625rem;
+  line-height: 1.85;
+  margin-bottom: 1.35rem;
+}
+.post-body > p strong { color: var(--text); }
+.post-body li { font-size: 1.0625rem; }
 
 /* ─── TESTIMONIALS ───────────────────────────────────────────  */
 .testimonials { background: var(--bg-dark); }
@@ -913,7 +973,7 @@ section { padding: var(--pad-section) 0; }
 .f-group textarea:focus {
   outline: none;
   border-color: var(--accent);
-  box-shadow: 0 0 0 3px rgba(139,26,26,0.07);
+  box-shadow: 0 0 0 3px rgba(140,29,42,0.12);
 }
 .f-group textarea { resize: vertical; min-height: 110px; }
 .f-group select {
@@ -966,6 +1026,13 @@ section { padding: var(--pad-section) 0; }
 }
 @media (max-width: 900px) { .blog-grid { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 580px) { .blog-grid { grid-template-columns: 1fr; } }
+
+/* With only one or two posts, a 3-up grid leaves a large empty gap.
+   Center them at a readable width instead. */
+.blog-grid--few {
+  grid-template-columns: repeat(auto-fit, minmax(300px, 380px));
+  justify-content: center;
+}
 .b-card {
   background: var(--white);
   border: 1px solid var(--border);
@@ -1075,6 +1142,31 @@ section { padding: var(--pad-section) 0; }
 @media (max-width: 640px) {
   .gallery-preview-grid { grid-template-columns: 1fr; }
 }
+
+/* Two-up photo band (Andersen page) */
+.photo-pair {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+@media (max-width: 720px) {
+  .photo-pair { grid-template-columns: 1fr; gap: 1rem; }
+}
+.gallery-preview-item {
+  display: block;
+  aspect-ratio: 4/3;
+  overflow: hidden;
+  border-radius: var(--radius-md);
+}
+.gallery-preview-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.35s ease;
+}
+.gallery-preview-item:hover img { transform: scale(1.04); }
 
 /* ─── FAQ TEASER (homepage) ──────────────────────────────── */
 .faq-teaser {

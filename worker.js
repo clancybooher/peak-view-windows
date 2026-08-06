@@ -2,18 +2,29 @@
  * Peak View Windows — Cloudflare Worker
  * Handles POST /api/submit; everything else is served as static assets.
  *
- * Required env vars (Worker → Settings → Variables and secrets):
- *   RESEND_API_KEY              – from resend.com
+ * Required env vars (Cloudflare dashboard → Workers & Pages → peak-view-windows
+ *                    → Settings → Variables and secrets):
+ *
+ *   RESEND_API_KEY              – resend.com → API Keys
  *   MY_EMAIL                    – clancy@peakvieworegon.com
- *   CLOUDFLARE_TURNSTILE_SECRET – from Cloudflare Turnstile dashboard
+ *   CLOUDFLARE_TURNSTILE_SECRET – dash.cloudflare.com → Turnstile → your site → Secret key
+ *
+ *   QUO_API_KEY                 – app.openphone.com → Settings → API → your key (sent as bare Authorization header, no Bearer prefix)
+ *   QUO_FROM_NUMBER             – your Quo/OpenPhone number in E.164, e.g. +15416393968
+ *   MY_PHONE_NUMBER             – your personal number to receive texts, e.g. +15415550000
+ *
+ * Deploy:
+ *   npx wrangler deploy
  */
 
 const TURNSTILE_VERIFY_URL = 'https://challenges.cloudflare.com/turnstile/v0/siteverify';
 const RESEND_API_URL       = 'https://api.resend.com/emails';
+const OPENPHONE_API_URL    = 'https://api.openphone.com/v1/messages';
 const ALLOWED_ORIGIN       = 'https://peakvieworegon.com';
 
 const PROJECT_TYPE_LABELS = {
-  'window-replacement': 'Window Replacement',
+  'whole-home-window-replacement': 'Whole-Home Window Replacement',
+  'window-replacement': 'A Few Windows',
   'door-replacement':   'Door Replacement',
   'windows-and-doors':  'Windows & Doors',
   'millwork-trim':      'Millwork / Trim Only',
@@ -30,7 +41,6 @@ export default {
       return new Response('Method not allowed', { status: 405 });
     }
 
-    // All other routes → static assets
     return env.ASSETS.fetch(request);
   },
 };
@@ -40,9 +50,17 @@ export default {
 async function handleSubmit(request, env) {
   const headers = { 'Content-Type': 'application/json', ...corsHeaders() };
 
+  // Parse body — accept both JSON and form-encoded submissions
   let body;
   try {
-    body = await request.json();
+    const ct = request.headers.get('Content-Type') ?? '';
+    if (ct.includes('application/x-www-form-urlencoded')) {
+      const text   = await request.text();
+      const params = new URLSearchParams(text);
+      body = Object.fromEntries(params.entries());
+    } else {
+      body = await request.json();
+    }
   } catch {
     return json({ success: false, error: 'Invalid request.' }, 400, headers);
   }
@@ -67,31 +85,29 @@ async function handleSubmit(request, env) {
   };
   const projectLabel = PROJECT_TYPE_LABELS[safe.project_type] ?? safe.project_type;
 
-  try {
-    const [confirmResult, notifyResult] = await Promise.allSettled([
-      sendEmail(env.RESEND_API_KEY, {
-        from:    'Peak View Windows & Doors <hello@peakvieworegon.com>',
-        to:      safe.email,
-        subject: 'We received your estimate request — Peak View Windows & Doors',
-        html:    buildCustomerEmail(safe, projectLabel),
-      }),
-      sendEmail(env.RESEND_API_KEY, {
-        from:    'Peak View Website <hello@peakvieworegon.com>',
-        to:      env.MY_EMAIL,
-        subject: `New estimate request from ${safe.name}`,
-        html:    buildOwnerEmail(safe, projectLabel),
-      }),
-    ]);
+  // Fire all three notifications in parallel; any individual failure is logged but
+  // never surfaces as an error to the user — the lead is in, that's what matters.
+  const [confirmResult, notifyResult, smsResult] = await Promise.allSettled([
+    sendEmail(env.RESEND_API_KEY, {
+      from:    'Peak View Windows & Doors <hello@peakvieworegon.com>',
+      to:      safe.email,
+      subject: 'We received your estimate request — Peak View Windows & Doors',
+      html:    buildCustomerEmail(safe, projectLabel),
+    }),
+    sendEmail(env.RESEND_API_KEY, {
+      from:    'Peak View Website <hello@peakvieworegon.com>',
+      to:      buildNotifyList(env),
+      subject: `New estimate request from ${safe.name}`,
+      html:    buildOwnerEmail(safe, projectLabel),
+    }),
+    sendSms(env, safe, projectLabel),
+  ]);
 
-    if (confirmResult.status === 'rejected') console.error('Customer email failed:', confirmResult.reason);
-    if (notifyResult.status  === 'rejected') console.error('Owner email failed:',    notifyResult.reason);
+  if (confirmResult.status === 'rejected') console.error('Customer email failed:', confirmResult.reason);
+  if (notifyResult.status  === 'rejected') console.error('Owner email failed:',    notifyResult.reason);
+  if (smsResult.status     === 'rejected') console.error('SMS failed:',            smsResult.reason);
 
-    // Always return success — the lead came in. Email errors are logged above.
-    return json({ success: true }, 200, headers);
-  } catch (err) {
-    console.error('Email error:', err);
-    return json({ success: false, error: 'Failed to send — please call or text us at 541-639-3968.' }, 500, headers);
-  }
+  return json({ success: true }, 200, headers);
 }
 
 function handleOptions() {
@@ -128,7 +144,7 @@ function validateInputs({ name, phone, email, project_type, turnstileToken }) {
 
 async function verifyTurnstile(token, ip, secret) {
   if (!secret) {
-    console.warn('CLOUDFLARE_TURNSTILE_SECRET not set.');
+    console.warn('CLOUDFLARE_TURNSTILE_SECRET not set — skipping.');
     return true;
   }
   try {
@@ -145,21 +161,70 @@ async function verifyTurnstile(token, ip, secret) {
   }
 }
 
+// Always includes clancybooher@gmail.com as a guaranteed fallback;
+// also sends to MY_EMAIL (clancy@peakvieworegon.com) when that secret is set.
+function buildNotifyList(env) {
+  const addrs = ['clancybooher@gmail.com'];
+  if (env.MY_EMAIL && env.MY_EMAIL !== addrs[0]) addrs.push(env.MY_EMAIL);
+  return addrs;
+}
+
+// ─── Email sending ────────────────────────────────────────────────────────────
+
 async function sendEmail(apiKey, { from, to, subject, html }) {
+  if (!apiKey) throw new Error('RESEND_API_KEY not set.');
   const res = await fetch(RESEND_API_URL, {
     method:  'POST',
-    headers: {
-      'Authorization': `Bearer ${apiKey}`,
-      'Content-Type':  'application/json',
-    },
-    body: JSON.stringify({ from, to, subject, html }),
+    headers: { 'Authorization': `Bearer ${apiKey}`, 'Content-Type': 'application/json' },
+    body:    JSON.stringify({ from, to, subject, html }),
   });
-  if (!res.ok) {
-    const err = await res.text();
-    throw new Error(`Resend ${res.status}: ${err}`);
-  }
+  if (!res.ok) throw new Error(`Resend ${res.status}: ${await res.text()}`);
   return res.json();
 }
+
+// ─── SMS sending (Quo / OpenPhone) ────────────────────────────────────────────
+
+async function sendSms(env, safe, projectLabel) {
+  const { QUO_API_KEY, QUO_FROM_NUMBER, MY_PHONE_NUMBER } = env;
+
+  // Skip silently if any Quo secret is missing — won't throw, just logs.
+  if (!QUO_API_KEY || !QUO_FROM_NUMBER || !MY_PHONE_NUMBER) {
+    console.warn('Quo SMS skipped: QUO_API_KEY, QUO_FROM_NUMBER, or MY_PHONE_NUMBER not set.');
+    return;
+  }
+
+  const text = buildSmsMessage(safe, projectLabel);
+
+  const res = await fetch(OPENPHONE_API_URL, {
+    method:  'POST',
+    headers: {
+      'Authorization': QUO_API_KEY,
+      'Content-Type':  'application/json',
+    },
+    body: JSON.stringify({
+      from:    QUO_FROM_NUMBER,
+      to:      [MY_PHONE_NUMBER],
+      content: text,
+    }),
+  });
+
+  if (!res.ok) throw new Error(`Quo SMS ${res.status}: ${await res.text()}`);
+  return res.json();
+}
+
+function buildSmsMessage({ name, phone, email, message }, projectLabel) {
+  const lines = [
+    '🏠 NEW LEAD — Peak View',
+    `Name:    ${name}`,
+    `Phone:   ${phone}`,
+    `Email:   ${email}`,
+    `Project: ${projectLabel}`,
+  ];
+  if (message) lines.push(`Note:    ${message.slice(0, 200)}`);
+  return lines.join('\n');
+}
+
+// ─── HTML escape helper ───────────────────────────────────────────────────────
 
 function escHtml(str) {
   return String(str)
@@ -187,14 +252,12 @@ function buildCustomerEmail({ name, phone, email, message }, projectLabel) {
   <tr><td align="center">
     <table width="600" cellpadding="0" cellspacing="0" style="max-width:600px;width:100%;background-color:#ffffff;border:1px solid #E0D8CF;">
 
-      <!-- Logo on dark strip -->
       <tr>
         <td align="center" style="background-color:#111111;padding:24px 32px;">
           <img src="https://peakvieworegon.com/logo-light.png" alt="Peak View Windows &amp; Doors" height="56" style="display:block;height:56px;width:auto;border:0;" />
         </td>
       </tr>
 
-      <!-- Body -->
       <tr>
         <td style="padding:36px 40px 16px;background-color:#ffffff;">
           <h1 style="font-size:22px;font-weight:700;color:#111111;margin:0 0 10px;">Got it, ${escHtml(firstName)}.</h1>
@@ -202,7 +265,6 @@ function buildCustomerEmail({ name, phone, email, message }, projectLabel) {
         </td>
       </tr>
 
-      <!-- Submission box -->
       <tr>
         <td style="padding:0 40px 28px;background-color:#ffffff;">
           <table width="100%" cellpadding="0" cellspacing="0" style="background-color:#F2EBE0;border:1px solid #E0D8CF;">
@@ -222,7 +284,6 @@ function buildCustomerEmail({ name, phone, email, message }, projectLabel) {
         </td>
       </tr>
 
-      <!-- Contact block -->
       <tr>
         <td style="padding:0 40px 36px;background-color:#ffffff;">
           <table width="100%" cellpadding="0" cellspacing="0" style="background-color:#F2EBE0;border:1px solid #E0D8CF;">
@@ -237,7 +298,6 @@ function buildCustomerEmail({ name, phone, email, message }, projectLabel) {
         </td>
       </tr>
 
-      <!-- Footer -->
       <tr>
         <td align="center" style="padding:16px 40px;background-color:#F2EBE0;border-top:1px solid #E0D8CF;">
           <p style="margin:0;font-size:12px;color:#7A6E64;">Peak View Windows &amp; Doors &nbsp;&middot;&nbsp; Bend, Oregon &nbsp;&middot;&nbsp; CCB #260230</p>

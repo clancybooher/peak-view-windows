@@ -15,7 +15,12 @@
         requestAnimationFrame(() => {
           tick();
           const navH = nav.offsetHeight;
-          if (currentY > lastY && currentY > navH) {
+          const menuOpen = document.getElementById('mob-menu')?.classList.contains('open');
+          // Never hide the bar while the mobile menu is open — doing so takes the
+          // burger off screen and leaves no way to close the menu.
+          if (menuOpen) {
+            nav.classList.remove('nav--hidden');
+          } else if (currentY > lastY && currentY > navH) {
             nav.classList.add('nav--hidden');
           } else {
             nav.classList.remove('nav--hidden');
@@ -34,17 +39,33 @@
   const burger = document.getElementById('burger');
   const mobMenu = document.getElementById('mob-menu');
   if (burger && mobMenu) {
-    burger.addEventListener('click', () => {
-      const open = mobMenu.classList.toggle('open');
+    const setMenu = (open) => {
+      mobMenu.classList.toggle('open', open);
       burger.setAttribute('aria-expanded', String(open));
+      burger.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
       document.body.style.overflow = open ? 'hidden' : '';
+      // Keep the bar visible whenever the menu is showing.
+      if (open && nav) nav.classList.remove('nav--hidden');
+    };
+
+    burger.addEventListener('click', (e) => {
+      e.stopPropagation();
+      setMenu(!mobMenu.classList.contains('open'));
     });
+
+    // Any link closes it (including same-page hash links, where no navigation
+    // happens and the menu would otherwise stay open over the content).
     mobMenu.querySelectorAll('a').forEach(a => {
-      a.addEventListener('click', () => {
-        mobMenu.classList.remove('open');
-        burger.setAttribute('aria-expanded', 'false');
-        document.body.style.overflow = '';
-      });
+      a.addEventListener('click', () => setMenu(false));
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && mobMenu.classList.contains('open')) setMenu(false);
+    });
+
+    // Returning to desktop width must not leave the overlay and scroll-lock on.
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 900 && mobMenu.classList.contains('open')) setMenu(false);
     });
   }
 
@@ -73,7 +94,9 @@
   // Smooth scroll for hash links
   document.querySelectorAll('a[href^="#"]').forEach(a => {
     a.addEventListener('click', e => {
-      const target = document.querySelector(a.getAttribute('href'));
+      const href = a.getAttribute('href');
+      if (href.length < 2) return;
+      const target = document.querySelector(href);
       if (target) {
         e.preventDefault();
         target.scrollIntoView({ behavior: 'smooth' });

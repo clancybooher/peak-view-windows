@@ -15,16 +15,25 @@
   <meta property="og:description" content="Entry doors, patio doors, and French doors for homes in Bend, Redmond, Sisters &amp; Central Oregon. Free repair-or-replace evaluation. CCB #260230." />
   <meta property="og:image" content="https://peakvieworegon.com/logo.png" />
   <meta property="og:url" content="https://peakvieworegon.com/doors.html" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:site_name" content="Peak View Windows &amp; Doors" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Door Replacement in Central Oregon | Peak View Windows &amp; Doors" />
+  <meta name="twitter:description" content="Entry, patio &amp; French door replacement in Bend, Redmond, Sisters &amp; Central Oregon. Free repair-or-replace evaluation. CCB #260230." />
+  <meta name="twitter:image" content="https://peakvieworegon.com/logo.png" />
 
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "Service",
     "name": "Door Replacement in Bend Oregon",
+    "serviceType": "Door Replacement",
     "provider": {
-      "@type": "LocalBusiness",
+      "@type": "HomeAndConstructionBusiness",
       "@id": "https://peakvieworegon.com/#business",
-      "name": "Peak View Windows & Doors"
+      "name": "Peak View Windows & Doors",
+      "telephone": "+1-541-639-3968",
+      "url": "https://peakvieworegon.com"
     },
     "areaServed": [
       {"@type": "City", "name": "Bend"},
@@ -33,10 +42,30 @@
       {"@type": "City", "name": "Sunriver"},
       {"@type": "City", "name": "La Pine"},
       {"@type": "City", "name": "Prineville"},
-      {"@type": "City", "name": "Tumalo"}
+      {"@type": "City", "name": "Tumalo"},
+      {"@type": "City", "name": "Terrebonne"},
+      {"@type": "AdministrativeArea", "name": "Central Oregon"}
     ],
-    "description": "Professional door replacement for homes in Central Oregon. Entry doors, patio doors, French doors, and storm doors. Free repair-or-replace evaluation. CCB licensed.",
-    "url": "https://peakvieworegon.com/doors.html"
+    "description": "Professional door replacement for homes in Central Oregon. Entry doors, patio doors, French doors, and sliding doors. Free repair-or-replace evaluation. CCB licensed.",
+    "url": "https://peakvieworegon.com/doors.html",
+    "offers": {
+      "@type": "Offer",
+      "name": "Free Repair-or-Replace Evaluation",
+      "price": "0",
+      "priceCurrency": "USD",
+      "description": "Free in-home door evaluation with an honest repair-or-replace recommendation anywhere in Central Oregon."
+    }
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://peakvieworegon.com/"},
+      {"@type": "ListItem", "position": 2, "name": "Door Replacement", "item": "https://peakvieworegon.com/doors.html"}
+    ]
   }
   </script>
 
@@ -57,11 +86,11 @@
       <li><a href="doors.html" class="nav__link active">Doors</a></li>
       <li><a href="gallery.html" class="nav__link">Our Work</a></li>
       <li><a href="about.html" class="nav__link">About Us</a></li>
-      <li><a href="/#contact" class="nav__link">Contact</a></li>
+      <li><a href="blog.html" class="nav__link">Blog</a></li>
     </ul>
     <div class="nav__actions">
       <a href="tel:+15416393968" class="btn btn--nav-phone">541-639-3968</a>
-      <a href="#quote" class="btn btn--primary">Free Estimate</a>
+      <a href="#quote" class="btn btn--primary">Free Quote</a>
     </div>
     <a href="tel:+15416393968" class="nav__mobile-phone" aria-label="Call Peak View Windows and Doors">541-639-3968</a>
     <button class="nav__burger" id="burger" aria-label="Open menu" aria-expanded="false">
@@ -76,8 +105,9 @@
   <a href="doors.html">Doors</a>
   <a href="gallery.html">Our Work</a>
   <a href="about.html">About Us</a>
+  <a href="blog.html">Blog</a>
   <a href="/#contact">Contact</a>
-  <a href="#quote" class="btn btn--primary">Free Estimate</a>
+  <a href="#quote" class="btn btn--primary">Free Quote</a>
 </div>
 
 <!-- PAGE HERO -->
@@ -142,18 +172,40 @@
 
 <!-- WHAT WE INSTALL -->
 <section id="entry" style="background:var(--bg-alt)" aria-labelledby="types-h2">
+  <span id="patio"></span>
   <div class="container">
     <div style="max-width:var(--max-narrow);margin:0 auto;text-align:center">
       <p class="eyebrow" style="margin-bottom:.875rem">Door Types</p>
       <h2 id="types-h2" style="font-size:clamp(2rem,5vw,3.25rem);margin-bottom:1.25rem">We Install All Major Door Types</h2>
       <p style="font-size:1.05rem;color:var(--text-muted);line-height:1.78;margin-bottom:2.5rem">The right door depends on your home's layout, traffic patterns, and energy priorities. We'll help you work through the options and give you a straight recommendation.</p>
       <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:1rem;max-width:520px;margin:0 auto 2.5rem">
-        <div style="padding:1.5rem;background:var(--bg);border:1px solid var(--border);border-radius:var(--radius-sm);font-weight:600;font-size:1rem">Entry Doors</div>
-        <div style="padding:1.5rem;background:var(--bg);border:1px solid var(--border);border-radius:var(--radius-sm);font-weight:600;font-size:1rem">Patio Doors</div>
-        <div style="padding:1.5rem;background:var(--bg);border:1px solid var(--border);border-radius:var(--radius-sm);font-weight:600;font-size:1rem">French Doors</div>
-        <div style="padding:1.5rem;background:var(--bg);border:1px solid var(--border);border-radius:var(--radius-sm);font-weight:600;font-size:1rem">Sliding Doors</div>
+        <div style="padding:1.5rem;background:var(--bg);border:1px solid var(--border);border-radius:var(--radius-md);font-weight:600;font-size:1rem">Entry Doors</div>
+        <div style="padding:1.5rem;background:var(--bg);border:1px solid var(--border);border-radius:var(--radius-md);font-weight:600;font-size:1rem">Patio Doors</div>
+        <div style="padding:1.5rem;background:var(--bg);border:1px solid var(--border);border-radius:var(--radius-md);font-weight:600;font-size:1rem">French Doors</div>
+        <div style="padding:1.5rem;background:var(--bg);border:1px solid var(--border);border-radius:var(--radius-md);font-weight:600;font-size:1rem">Sliding Doors</div>
       </div>
       <a href="#quote" class="btn btn--primary">Get a Free Evaluation</a>
+    </div>
+  </div>
+</section>
+
+<!-- REDMOND & SISTERS -->
+<section id="redmond-sisters" aria-labelledby="rs-h2">
+  <div class="container">
+    <div style="max-width:var(--max-narrow);margin:0 auto;text-align:center;margin-bottom:clamp(2.5rem,5vw,4rem)">
+      <p class="eyebrow" style="margin-bottom:.875rem">Beyond Bend</p>
+      <h2 id="rs-h2" style="font-size:clamp(2rem,5vw,3.25rem);margin-bottom:1rem">Door Replacement in Redmond &amp; Sisters</h2>
+      <p style="color:var(--text-muted);font-size:1rem;line-height:1.7">Same free evaluation, same honest repair-or-replace call, same crew — just a short drive up or down Highway 97 or 20.</p>
+    </div>
+    <div class="wg-grid">
+      <div class="wg-card">
+        <h3 id="redmond">Redmond</h3>
+        <p>Redmond's wind exposure is tough on entry doors and older sliding patio doors, especially in neighborhoods built before 2000 where frames have shifted and swollen over the years. We evaluate the door and the opening honestly — sometimes it's a weatherstripping or hardware fix, sometimes the frame has gone and a full replacement is the right call.</p>
+      </div>
+      <div class="wg-card">
+        <h3 id="sisters">Sisters</h3>
+        <p>Sisters' higher elevation means colder nights and heavier snow load than Bend, which is hard on door seals and thresholds. Mountain and log-style homes in the area often call for custom sizing and matched trim — handled by the same crew that does the door and the finish carpentry, start to finish.</p>
+      </div>
     </div>
   </div>
 </section>
@@ -176,35 +228,40 @@
   <div class="container">
     <div class="footer-top">
       <div class="footer-brand">
-        <img src="logo.png" alt="Peak View Windows &amp; Doors" width="110" height="30" />
-        <p>Window and door replacement for homes across Central Oregon. Based in Bend. Clancy leads every install.</p>
+        <img src="logo.png" alt="Peak View Windows &amp; Doors" width="64" height="64" />
+        <p>Luxury window replacement for homes across Central Oregon. Based in Bend. Licensed, insured, and accountable on every job.</p>
         <p class="license">CCB Licensed, Bonded &amp; Insured &nbsp;·&nbsp; License #260230</p>
       </div>
       <div class="footer-col">
         <h4>Services</h4>
         <nav aria-label="Services">
           <a href="windows.html">Window Replacement</a>
+          <a href="andersen.html">Andersen Window Replacement</a>
+          <a href="windows.html#energy">Energy Efficient Windows</a>
           <a href="doors.html">Door Replacement</a>
-          <a href="windows.html">Energy Efficient Windows</a>
-          <a href="doors.html#entry">Entry Door Installation</a>
-          <a href="doors.html#patio">Patio Door Installation</a>
+          <a href="doors.html#patio">Patio Door Replacement</a>
+          <a href="blog.html">Blog</a>
         </nav>
       </div>
       <div class="footer-col">
         <h4>Service Area</h4>
         <nav aria-label="Service area">
           <a href="/#contact">Bend</a>
-          <a href="/#contact">Redmond</a>
-          <a href="/#contact">Sisters</a>
+          <a href="#redmond">Redmond</a>
+          <a href="#sisters">Sisters</a>
           <a href="/#contact">Sunriver</a>
           <a href="/#contact">La Pine</a>
+          <a href="/#contact">Tumalo</a>
+          <a href="/#contact">Prineville</a>
+          <a href="/#contact">Terrebonne</a>
         </nav>
       </div>
       <div class="footer-col">
         <h4>Contact</h4>
         <nav aria-label="Contact">
-          <a href="#quote">Free Estimate</a>
+          <a href="#quote">Free Quote</a>
           <a href="faq.html">FAQ</a>
+          <a href="about.html">About Us</a>
           <a href="tel:+15416393968">541-639-3968</a>
           <a href="mailto:clancy@peakvieworegon.com">clancy@peakvieworegon.com</a>
         </nav>
@@ -212,7 +269,7 @@
     </div>
     <div class="footer-btm">
       <p>&copy; 2026 Peak View Windows &amp; Doors &nbsp;&middot;&nbsp; Bend, Oregon</p>
-      <p>Serving Bend, Redmond, Sisters, and all of Central Oregon and surrounding areas.</p>
+      <p>Serving Bend, Redmond, Sisters, Sunriver, La Pine, Tumalo, Prineville, Terrebonne &amp; all of Central Oregon.</p>
     </div>
   </div>
 </footer>
