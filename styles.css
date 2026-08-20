@@ -1778,7 +1778,10 @@ section { padding-block: clamp(4rem, 8vw, 7rem); }
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center 62%;
+  /* Portrait is 1067x1600. Faces sit ~35–45% from the top, torsos
+     through the middle third. 42% keeps the couple in frame and
+     crops the marquee/sky above them — do not replace the file. */
+  object-position: center 42%;
   display: block;
 }
 .about-story {
