@@ -254,14 +254,14 @@
   const nextBtn  = document.getElementById('t-next');
   if (!track || !dotsWrap) return;
 
-  const cards = Array.from(track.children);
+  const cards = Array.from(track.querySelectorAll('.t-card'));
+  if (!cards.length) return;
+
   let perView = getPerView();
   let current = 0;
 
   function getPerView() {
-    if (window.innerWidth < 580) return 1;
-    if (window.innerWidth < 900) return 2;
-    return 3;
+    return 1;
   }
 
   function totalPages() { return Math.ceil(cards.length / perView); }
@@ -280,19 +280,34 @@
 
   function goTo(idx) {
     current = Math.max(0, Math.min(idx, totalPages() - 1));
-    const gap      = 24; // matches 1.5rem gap in CSS
-    const cardW    = cards[0] ? cards[0].offsetWidth : 0;
-    const slideAmt = current * perView * (cardW + gap);
-    track.style.transform = 'translateX(-' + slideAmt + 'px)';
+    cards.forEach((card, i) => {
+      const active = i === current;
+      card.classList.toggle('t-card--active', active);
+      card.setAttribute('aria-hidden', active ? 'false' : 'true');
+    });
     dotsWrap.querySelectorAll('.t-dot').forEach((d, i) =>
       d.classList.toggle('active', i === current)
     );
+    syncWrapHeight();
+  }
+
+  const wrap = track.parentElement;
+
+  function syncWrapHeight() {
+    if (!wrap || !cards[current]) return;
+    wrap.style.minHeight = cards[current].offsetHeight + 'px';
   }
 
   if (prevBtn) prevBtn.addEventListener('click', () => goTo(current - 1));
   if (nextBtn) nextBtn.addEventListener('click', () => goTo(current + 1));
 
-  buildDots();
+  try {
+    buildDots();
+    goTo(0);
+  } catch (_) {
+    cards[0].classList.add('t-card--active');
+    cards[0].setAttribute('aria-hidden', 'false');
+  }
 
   let resizeTimer;
   window.addEventListener('resize', () => {
@@ -304,7 +319,76 @@
         current = 0;
         buildDots();
         goTo(0);
+      } else {
+        syncWrapHeight();
       }
     }, 200);
   });
+})();
+
+// Scroll reveal — staggered, luxury easing (respects prefers-reduced-motion)
+(function () {
+  'use strict';
+  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (prefersReduced) return;
+
+  const STAGGER_MS = 90;
+  const CHILD_SEL = [
+    '.wg-card',
+    '.gallery-preview-item',
+    '.gallery-preview-grid > img',
+    '.gallery-item',
+    '.process-step',
+    '.b-card',
+    '.svc-card',
+    '.prod-card',
+    '.trust-badge',
+    '.energy-stat',
+    '.step',
+    '.pillar',
+  ].join(', ');
+
+  const HEAD_SEL = '.section-head-center, .sec-head, .sec-head--center, .testimonials-head';
+  const sections = document.querySelectorAll(
+    'section:not(.hero):not(.cta-band), .trust-bar, .page-hero'
+  );
+
+  const toObserve = [];
+
+  sections.forEach((section) => {
+    section.querySelectorAll('.why-img').forEach((img) => {
+      img.classList.add('reveal-img');
+      toObserve.push(img);
+    });
+
+    const children = section.querySelectorAll(CHILD_SEL);
+    if (children.length > 0) {
+      children.forEach((child, i) => {
+        child.classList.add('reveal-child');
+        child.style.setProperty('--reveal-delay', i * STAGGER_MS + 'ms');
+        toObserve.push(child);
+      });
+      const head = section.querySelector(HEAD_SEL);
+      if (head) {
+        head.classList.add('reveal');
+        toObserve.push(head);
+      }
+    } else {
+      section.classList.add('reveal');
+      toObserve.push(section);
+    }
+  });
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add('is-visible');
+        observer.unobserve(entry.target);
+      });
+    },
+    { threshold: 0.1, rootMargin: '0px 0px -10% 0px' }
+  );
+
+  toObserve.forEach((el) => observer.observe(el));
 })();

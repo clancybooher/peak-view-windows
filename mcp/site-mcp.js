@@ -39,14 +39,14 @@ const SITE = 'https://peakvieworegon.com';
 
 /** Static pages that must always appear in the sitemap, with their priorities. */
 const STATIC_PAGES = [
-  { loc: '/',              priority: '1.0', changefreq: 'monthly' },
-  { loc: '/windows.html',  priority: '0.9', changefreq: 'monthly' },
-  { loc: '/andersen.html', priority: '0.9', changefreq: 'monthly' },
-  { loc: '/doors.html',    priority: '0.9', changefreq: 'monthly' },
-  { loc: '/blog.html',     priority: '0.8', changefreq: 'weekly'  },
-  { loc: '/gallery.html',  priority: '0.8', changefreq: 'monthly' },
-  { loc: '/about.html',    priority: '0.7', changefreq: 'yearly'  },
-  { loc: '/faq.html',      priority: '0.7', changefreq: 'monthly' },
+  { loc: '/',          priority: '1.0', changefreq: 'monthly' },
+  { loc: '/windows',   priority: '0.9', changefreq: 'monthly' },
+  { loc: '/andersen',  priority: '0.9', changefreq: 'monthly' },
+  { loc: '/doors',     priority: '0.9', changefreq: 'monthly' },
+  { loc: '/blog',      priority: '0.8', changefreq: 'weekly'  },
+  { loc: '/gallery',   priority: '0.8', changefreq: 'monthly' },
+  { loc: '/about',     priority: '0.7', changefreq: 'yearly'  },
+  { loc: '/faq',       priority: '0.7', changefreq: 'monthly' },
 ];
 
 const today = () => new Date().toISOString().slice(0, 10);
@@ -85,12 +85,12 @@ function rebuild(posts) {
   const urls = [
     ...STATIC_PAGES.map(p => ({
       loc: `${SITE}${p.loc}`,
-      lastmod: p.loc === '/blog.html' ? newest : today(),
+      lastmod: p.loc === '/blog' ? newest : today(),
       changefreq: p.changefreq,
       priority: p.priority,
     })),
     ...live.map(p => ({
-      loc: `${SITE}/blog/${p.slug}.html`,
+      loc: `${SITE}/blog/${p.slug}`,
       lastmod: p.updated || p.date,
       changefreq: 'yearly',
       priority: '0.6',
@@ -130,7 +130,7 @@ server.tool('list_posts',
       `    "${p.title}"\n` +
       `    ${prettyDate(p.date)} · ${p.tag || 'Article'}${p.updated ? ` · updated ${prettyDate(p.updated)}` : ''}\n` +
       `    ${p.excerpt || ''}\n` +
-      `    ${SITE}/blog/${p.slug}.html`
+      `    ${SITE}/blog/${p.slug}`
     );
     return text(`${posts.length} post(s):\n\n${lines.join('\n\n')}`);
   }
@@ -157,7 +157,7 @@ server.tool('draft_post',
       `DRAFT PREVIEW — nothing has been written.\n\n` +
       `Title:    ${title}\n` +
       `Slug:     ${s}\n` +
-      `URL:      ${SITE}/blog/${s}.html\n` +
+      `URL:      ${SITE}/blog/${s}\n` +
       `Tag:      ${tag || 'Article'}\n` +
       `Image:    ${image || '(none — card will show a text placeholder)'}\n` +
       `Length:   ~${words} words\n` +
@@ -233,7 +233,7 @@ server.tool('publish_post',
       `  Index:   blog.html (regenerated — ${built.liveCount} live post(s))\n` +
       `  Sitemap: sitemap.xml (regenerated)\n` +
       `  Status:  ${entry.status}\n` +
-      `  Live at: ${SITE}/blog/${slug}.html (after deploy)\n\n` +
+      `  Live at: ${SITE}/blog/${slug} (after deploy)\n\n` +
       `Files are written locally. Run deploy_site when Clancy is ready to push it live.`
     );
   }

@@ -158,11 +158,11 @@ function nav(active, prefix) {
     </a>
     <ul class="nav__links" role="list">
       <li><a href="${prefix}/" class="${cls('home')}">Home</a></li>
-      <li><a href="${prefix}windows.html" class="${cls('windows')}">Windows</a></li>
-      <li><a href="${prefix}doors.html" class="${cls('doors')}">Doors</a></li>
-      <li><a href="${prefix}gallery.html" class="${cls('gallery')}">Our Work</a></li>
-      <li><a href="${prefix}about.html" class="${cls('about')}">About Us</a></li>
-      <li><a href="${prefix}blog.html" class="${cls('blog')}">Blog</a></li>
+      <li><a href="${prefix}windows" class="${cls('windows')}">Windows</a></li>
+      <li><a href="${prefix}doors" class="${cls('doors')}">Doors</a></li>
+      <li><a href="${prefix}gallery" class="${cls('gallery')}">Our Work</a></li>
+      <li><a href="${prefix}about" class="${cls('about')}">About Us</a></li>
+      <li><a href="${prefix}blog" class="${cls('blog')}">Blog</a></li>
     </ul>
     <div class="nav__actions">
       <a href="tel:${PHONE_HREF}" class="btn btn--nav-phone">${PHONE_DISPLAY}</a>
@@ -177,11 +177,11 @@ function nav(active, prefix) {
 
 <div class="mob-menu" id="mob-menu" role="dialog" aria-label="Navigation">
   <a href="${prefix}/">Home</a>
-  <a href="${prefix}windows.html">Windows</a>
-  <a href="${prefix}doors.html">Doors</a>
-  <a href="${prefix}gallery.html">Our Work</a>
-  <a href="${prefix}about.html">About Us</a>
-  <a href="${prefix}blog.html">Blog</a>
+  <a href="${prefix}windows">Windows</a>
+  <a href="${prefix}doors">Doors</a>
+  <a href="${prefix}gallery">Our Work</a>
+  <a href="${prefix}about">About Us</a>
+  <a href="${prefix}blog">Blog</a>
   <a href="${prefix}#contact">Contact</a>
   <a href="${prefix}#contact" class="btn btn--primary">Free Quote</a>
 </div>`;
@@ -201,12 +201,12 @@ function footer(prefix) {
       <div class="footer-col">
         <h4>Services</h4>
         <nav aria-label="Services">
-          <a href="${prefix}windows.html">Window Replacement</a>
-          <a href="${prefix}andersen.html">Andersen Window Replacement</a>
-          <a href="${prefix}windows.html#energy">Energy Efficient Windows</a>
-          <a href="${prefix}doors.html">Door Replacement</a>
-          <a href="${prefix}doors.html#patio">Patio Door Replacement</a>
-          <a href="${prefix}blog.html">Blog</a>
+          <a href="${prefix}windows">Window Replacement</a>
+          <a href="${prefix}andersen">Andersen Window Replacement</a>
+          <a href="${prefix}windows#energy">Energy Efficient Windows</a>
+          <a href="${prefix}doors">Door Replacement</a>
+          <a href="${prefix}doors#patio">Patio Door Replacement</a>
+          <a href="${prefix}blog">Blog</a>
         </nav>
       </div>
       <div class="footer-col">
@@ -226,8 +226,8 @@ function footer(prefix) {
         <h4>Contact</h4>
         <nav aria-label="Contact">
           <a href="${prefix}#contact">Free Quote</a>
-          <a href="${prefix}faq.html">FAQ</a>
-          <a href="${prefix}about.html">About Us</a>
+          <a href="${prefix}faq">FAQ</a>
+          <a href="${prefix}about">About Us</a>
           <a href="tel:${PHONE_HREF}">${PHONE_DISPLAY}</a>
           <a href="mailto:${EMAIL}">${EMAIL}</a>
         </nav>
@@ -270,7 +270,7 @@ function ctaBand(prefix) {
  */
 export function renderPost(post) {
   const prefix = '../';
-  const url = `${SITE}/blog/${post.slug}.html`;
+  const url = `${SITE}/blog/${post.slug}`;
   const desc = post.excerpt || toPlainText(post.body, 155);
   const img = post.image ? `${SITE}/${post.image.replace(/^\.\.\//, '')}` : `${SITE}/logo.png`;
 
@@ -362,7 +362,7 @@ ${post.faq.map(f => `      <div class="faq-item">
       "@type": "Person",
       "name": "Clancy Booher",
       "jobTitle": "Owner",
-      "url": "${SITE}/about.html"
+      "url": "${SITE}/about"
     },
     "publisher": {
       "@type": "Organization",
@@ -379,7 +379,7 @@ ${post.faq.map(f => `      <div class="faq-item">
     "@type": "BreadcrumbList",
     "itemListElement": [
       {"@type": "ListItem", "position": 1, "name": "Home", "item": "${SITE}/"},
-      {"@type": "ListItem", "position": 2, "name": "Blog", "item": "${SITE}/blog.html"},
+      {"@type": "ListItem", "position": 2, "name": "Blog", "item": "${SITE}/blog"},
       {"@type": "ListItem", "position": 3, "name": "${jsonEsc(post.title)}", "item": "${url}"}
     ]
   }
@@ -412,7 +412,7 @@ ${renderMarkdown(post.body)}
       Questions about your own windows? Call <a href="tel:${PHONE_HREF}" style="color:var(--accent)">${PHONE_DISPLAY}</a>.
     </p>
     <p style="margin-top:1.5rem">
-      <a href="${prefix}blog.html" class="btn btn--ghost">&larr; All Articles</a>
+      <a href="${prefix}blog" class="btn btn--ghost">&larr; All Articles</a>
     </p>
   </div>
 </section>
@@ -437,7 +437,7 @@ export function renderIndex(posts) {
         const imgStyle = p.image
           ? `background-image:url('${esc(p.image)}');background-size:cover;background-position:center`
           : `background:var(--bg-alt)`;
-        return `      <a href="blog/${esc(p.slug)}.html" class="b-card" style="display:block">
+        return `      <a href="blog/${esc(p.slug)}" class="b-card" style="display:block">
         <div class="b-card__img" style="${imgStyle}">${p.image ? '' : esc(p.tag || 'Peak View')}</div>
         <div class="b-card__body">
           <p class="b-tag">${esc(p.tag || 'Article')}</p>
@@ -449,7 +449,7 @@ export function renderIndex(posts) {
       }).join('\n')
     : `      <p style="color:var(--text-muted);grid-column:1/-1;text-align:center">New articles are on the way. In the meantime, give us a call at <a href="tel:${PHONE_HREF}" style="color:var(--accent)">${PHONE_DISPLAY}</a>.</p>`;
 
-  const itemList = live.map((p, i) => `      {"@type": "ListItem", "position": ${i + 1}, "name": "${jsonEsc(p.title)}", "url": "${SITE}/blog/${p.slug}.html"}`).join(',\n');
+  const itemList = live.map((p, i) => `      {"@type": "ListItem", "position": ${i + 1}, "name": "${jsonEsc(p.title)}", "url": "${SITE}/blog/${p.slug}"}`).join(',\n');
 
   return `<!DOCTYPE html>
 <html lang="en">
@@ -460,20 +460,20 @@ export function renderIndex(posts) {
   <meta name="description" content="Straight answers about replacing windows in Bend and Central Oregon — energy efficiency, product choices, costs, and what actually matters in our high-desert climate. From Peak View Windows &amp; Doors, CCB #260230." />
   <meta name="keywords" content="window replacement advice Bend Oregon, energy efficient windows Central Oregon, Andersen windows Bend blog, replacing windows Bend Oregon guide" />
   <meta name="robots" content="index, follow" />
-  <link rel="canonical" href="${SITE}/blog.html" />
+  <link rel="canonical" href="${SITE}/blog" />
   <meta name="geo.region" content="US-OR" />
   <meta name="geo.placename" content="Bend, Oregon" />
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Window Replacement Guides &amp; Advice | Peak View Windows &amp; Doors" />
   <meta property="og:description" content="Straight answers about replacing windows in Bend and Central Oregon, from the crew that does the work." />
-  <meta property="og:image" content="${SITE}/logo.png" />
-  <meta property="og:url" content="${SITE}/blog.html" />
+  <meta property="og:image" content="${SITE}/photos/andersen/andersen-100-room.jpg" />
+  <meta property="og:url" content="${SITE}/blog" />
   <meta property="og:locale" content="en_US" />
   <meta property="og:site_name" content="Peak View Windows &amp; Doors" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Window Replacement Guides &amp; Advice | Peak View Windows &amp; Doors" />
   <meta name="twitter:description" content="Straight answers about replacing windows in Bend and Central Oregon." />
-  <meta name="twitter:image" content="${SITE}/logo.png" />
+  <meta name="twitter:image" content="${SITE}/photos/andersen/andersen-100-room.jpg" />
 
   <script type="application/ld+json">
   {
@@ -481,7 +481,7 @@ export function renderIndex(posts) {
     "@type": "Blog",
     "name": "Peak View Windows & Doors Journal",
     "description": "Window replacement guides and advice for Central Oregon homeowners.",
-    "url": "${SITE}/blog.html",
+    "url": "${SITE}/blog",
     "publisher": {
       "@type": "Organization",
       "name": "Peak View Windows & Doors",

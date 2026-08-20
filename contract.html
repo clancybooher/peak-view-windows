@@ -8,7 +8,7 @@
   <meta name="robots" content="noindex, follow" />
   <link rel="canonical" href="https://peakvieworegon.com/contract" />
   <link rel="icon" type="image/png" href="logo.png" />
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="styles.css?v=8" />
   <style>
     .contract-page {
       max-width: 820px;
@@ -86,14 +86,12 @@
       color: var(--bg-dark);
       margin: 0 0 0.85rem;
     }
-    .contract-section p,
-    .contract-section li {
+    .contract-section p.contract-section li {
       font-size: 0.9rem;
       line-height: 1.7;
       color: var(--text-muted);
     }
-    .contract-section ul,
-    .contract-section ol {
+    .contract-section ul.contract-section ol {
       padding-left: 1.4rem;
       margin: 0.5rem 0;
     }
@@ -199,14 +197,14 @@
 <nav class="nav" id="nav" aria-label="Main navigation">
   <div class="nav__inner">
     <a href="/" class="nav__logo" aria-label="Peak View Windows &amp; Doors - home">
-      <img src="logo-light.png" alt="Peak View Windows &amp; Doors" width="76" height="76" class="nav__logo-img" />
+      <img src="logo-light.png" alt="Peak View Windows &amp; Doors" width="56" height="56" class="nav__logo-full" />
     </a>
     <ul class="nav__links" role="list">
       <li><a href="/" class="nav__link">Home</a></li>
-      <li><a href="windows.html" class="nav__link">Windows</a></li>
-      <li><a href="doors.html" class="nav__link">Doors</a></li>
-      <li><a href="gallery.html" class="nav__link">Our Work</a></li>
-      <li><a href="about.html" class="nav__link">About Us</a></li>
+      <li><a href="/windows" class="nav__link">Windows</a></li>
+      <li><a href="/doors" class="nav__link">Doors</a></li>
+      <li><a href="/gallery" class="nav__link">Our Work</a></li>
+      <li><a href="/about" class="nav__link">About Us</a></li>
       <li><a href="/#contact" class="nav__link">Contact</a></li>
     </ul>
     <button class="nav__toggle" aria-label="Open navigation menu" aria-expanded="false" aria-controls="nav-menu">
@@ -245,7 +243,7 @@
   <!-- Section 1 -->
   <div class="contract-section" id="scope">
     <h2>1. Scope of Work</h2>
-    <p>Peak View Windows and Doors ("Contractor") agrees to furnish all labor, materials, and equipment necessary to complete the window and/or door replacement work described in your individual quote. The specific scope — including product selections, quantities, and installation locations — is set out in your signed quote.</p>
+    <p>Peak View Windows and Doors ("Contractor") agrees to furnish all labor, materials, and equipment necessary to complete the window and/or door replacement work described in your individual quote. The specific scope, including product selections, quantities, and installation locations, is set out in your signed quote.</p>
     <p>All work will be performed in a workmanlike manner consistent with industry standards. Work not listed in your quote is excluded and subject to a separate written Change Order.</p>
   </div>
 
@@ -263,7 +261,7 @@
 
     <p><strong>Deposit Rule</strong></p>
     <div class="price-rule">
-      <p><strong>If materials exceed labor cost:</strong> The deposit equals the full cost of materials — so Contractor can place your custom order. Materials are non-refundable once ordered.</p>
+      <p><strong>If materials exceed labor cost:</strong> The deposit equals the full cost of materials, so Contractor can place your custom order. Materials are non-refundable once ordered.</p>
     </div>
     <div class="price-rule">
       <p><strong>If labor equals or exceeds material cost:</strong> The deposit is 50% of the total contract price, due before work begins.</p>
@@ -283,7 +281,7 @@
   <!-- Section 5 -->
   <div class="contract-section" id="change-orders">
     <h2>5. Change Orders</h2>
-    <p>Any work outside the scope in your original quote — including but not limited to:</p>
+    <p>Any work outside the scope in your original quote, including but not limited to:</p>
     <ul>
       <li>Structural damage, rot, or mold discovered during removal of existing units</li>
       <li>Non-standard rough openings requiring framing modification</li>
@@ -319,7 +317,7 @@
     <p>Contractor carries general liability insurance and workers' compensation as required by Oregon law (CCB #260230). Contractor is not liable for:</p>
     <ul>
       <li>Pre-existing conditions at the property</li>
-      <li>Cosmetic damage to interior finishes (paint, drywall) incidental to window/door removal — Contractor will minimize disturbance but some touch-up may be required</li>
+      <li>Cosmetic damage to interior finishes (paint, drywall) incidental to window/door removal. Contractor will minimize disturbance but some touch-up may be required</li>
       <li>Damage resulting from Client-supplied materials or Client-directed work</li>
       <li>Consequential damages beyond the value of the contract</li>
     </ul>
@@ -388,19 +386,19 @@
       <div class="footer-col">
         <h4>Services</h4>
         <nav aria-label="Services">
-          <a href="windows.html">Window Replacement</a>
-          <a href="doors.html">Door Replacement</a>
-          <a href="windows.html#energy">Energy Efficient Windows</a>
-          <a href="doors.html#entry">Entry Door Replacement</a>
-          <a href="doors.html#patio">Patio Door Replacement</a>
+          <a href="/windows">Window Replacement</a>
+          <a href="/doors">Door Replacement</a>
+          <a href="/windows#energy">Energy Efficient Windows</a>
+          <a href="/doors#entry">Entry Door Replacement</a>
+          <a href="/doors#patio">Patio Door Replacement</a>
         </nav>
       </div>
       <div class="footer-col">
         <h4>Service Area</h4>
         <nav aria-label="Service area">
           <a href="/#contact">Bend</a>
-          <a href="/windows.html#redmond">Redmond</a>
-          <a href="/windows.html#sisters">Sisters</a>
+          <a href="/windows#redmond">Redmond</a>
+          <a href="/windows#sisters">Sisters</a>
           <a href="/#contact">Sunriver</a>
           <a href="/#contact">La Pine</a>
         </nav>
@@ -409,7 +407,7 @@
         <h4>Contact</h4>
         <nav aria-label="Contact">
           <a href="/#contact">Free Quote</a>
-          <a href="faq.html">FAQ</a>
+          <a href="/faq">FAQ</a>
           <a href="tel:+15416393968">541-639-3968</a>
           <a href="mailto:clancy@peakvieworegon.com">clancy@peakvieworegon.com</a>
         </nav>
@@ -422,6 +420,6 @@
   </div>
 </footer>
 
-<script src="script.js"></script>
+<script src="script.js?v=8"></script>
 </body>
 </html>
