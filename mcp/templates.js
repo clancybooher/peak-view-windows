@@ -57,9 +57,15 @@ export function renderMarkdown(md = '') {
   let para = [];
   let list = null; // 'ul' | 'ol'
 
+  const href = (raw) => {
+    let h = raw;
+    if (h.startsWith('../')) h = `/${h.slice(3)}`;
+    if (h === '/#contact') h = '/contact';
+    return h;
+  };
   const inline = (t) =>
     esc(t)
-      .replace(/\[([^\]]+)\]\(([^)\s]+)\)/g, '<a href="$2">$1</a>')
+      .replace(/\[([^\]]+)\]\(([^)\s]+)\)/g, (_, text, url) => `<a href="${href(url)}">${text}</a>`)
       .replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>')
       .replace(/(^|[\s(])\*([^*]+)\*/g, '$1<em>$2</em>')
       .replace(/`([^`]+)`/g, '<code>$1</code>');
@@ -153,20 +159,20 @@ function nav(active, prefix) {
   return `<!-- NAV -->
 <nav class="nav scrolled" id="nav" aria-label="Main navigation">
   <div class="nav__inner">
-    <a href="${prefix}/" class="nav__logo" aria-label="Peak View Windows &amp; Doors - home">
-      <img src="${prefix}logo-light.png" alt="Peak View Windows &amp; Doors" width="76" height="76" class="nav__logo-img" />
+    <a href="/" class="nav__logo" aria-label="Peak View Windows &amp; Doors - home">
+      <img src="/logo-light.png" alt="Peak View Windows &amp; Doors" width="56" height="56" class="nav__logo-full" />
     </a>
     <ul class="nav__links" role="list">
-      <li><a href="${prefix}/" class="${cls('home')}">Home</a></li>
-      <li><a href="${prefix}windows" class="${cls('windows')}">Windows</a></li>
-      <li><a href="${prefix}doors" class="${cls('doors')}">Doors</a></li>
-      <li><a href="${prefix}gallery" class="${cls('gallery')}">Our Work</a></li>
-      <li><a href="${prefix}about" class="${cls('about')}">About Us</a></li>
-      <li><a href="${prefix}blog" class="${cls('blog')}">Blog</a></li>
+      <li><a href="/" class="${cls('home')}">Home</a></li>
+      <li><a href="/windows" class="${cls('windows')}">Windows</a></li>
+      <li><a href="/doors" class="${cls('doors')}">Doors</a></li>
+      <li><a href="/gallery" class="${cls('gallery')}">Our Work</a></li>
+      <li><a href="/about" class="${cls('about')}">About Us</a></li>
+      <li><a href="/blog" class="${cls('blog')}">Blog</a></li>
     </ul>
     <div class="nav__actions">
       <a href="tel:${PHONE_HREF}" class="btn btn--nav-phone">${PHONE_DISPLAY}</a>
-      <a href="${prefix}#contact" class="btn btn--primary">Free Quote</a>
+      <a href="/contact" class="btn btn--primary">Free Quote</a>
     </div>
     <a href="tel:${PHONE_HREF}" class="nav__mobile-phone" aria-label="Call Peak View Windows and Doors">${PHONE_DISPLAY}</a>
     <button class="nav__burger" id="burger" aria-label="Open menu" aria-expanded="false">
@@ -176,14 +182,14 @@ function nav(active, prefix) {
 </nav>
 
 <div class="mob-menu" id="mob-menu" role="dialog" aria-label="Navigation">
-  <a href="${prefix}/">Home</a>
-  <a href="${prefix}windows">Windows</a>
-  <a href="${prefix}doors">Doors</a>
-  <a href="${prefix}gallery">Our Work</a>
-  <a href="${prefix}about">About Us</a>
-  <a href="${prefix}blog">Blog</a>
-  <a href="${prefix}#contact">Contact</a>
-  <a href="${prefix}#contact" class="btn btn--primary">Free Quote</a>
+  <a href="/">Home</a>
+  <a href="/windows">Windows</a>
+  <a href="/doors">Doors</a>
+  <a href="/gallery">Our Work</a>
+  <a href="/about">About Us</a>
+  <a href="/blog">Blog</a>
+  <a href="/contact">Contact</a>
+  <a href="/contact" class="btn btn--primary">Free Quote</a>
 </div>`;
 }
 
@@ -194,40 +200,41 @@ function footer(prefix) {
   <div class="container">
     <div class="footer-top">
       <div class="footer-brand">
-        <img src="${prefix}logo.png" alt="Peak View Windows &amp; Doors" width="64" height="64" />
+        <img src="/logo.png" alt="Peak View Windows &amp; Doors" width="64" height="64" />
         <p>Luxury window replacement for homes across Central Oregon. Based in Bend. Licensed, insured, and accountable on every job.</p>
         <p class="license">CCB Licensed, Bonded &amp; Insured &nbsp;·&nbsp; License #260230</p>
+        <p class="footer-nap">18550 Walton Rd<br>Bend, OR 97703<br><a href="tel:${PHONE_HREF}">${PHONE_DISPLAY}</a><br><a href="mailto:${EMAIL}">${EMAIL}</a><br>CCB #260230</p>
       </div>
       <div class="footer-col">
         <h4>Services</h4>
         <nav aria-label="Services">
-          <a href="${prefix}windows">Window Replacement</a>
-          <a href="${prefix}andersen">Andersen Window Replacement</a>
-          <a href="${prefix}windows#energy">Energy Efficient Windows</a>
-          <a href="${prefix}doors">Door Replacement</a>
-          <a href="${prefix}doors#patio">Patio Door Replacement</a>
-          <a href="${prefix}blog">Blog</a>
+          <a href="/windows">Window Replacement</a>
+          <a href="/andersen">Andersen Window Replacement</a>
+          <a href="/windows#energy">Energy Efficient Windows</a>
+          <a href="/doors">Door Replacement</a>
+          <a href="/doors#patio">Patio Door Replacement</a>
+          <a href="/blog">Blog</a>
         </nav>
       </div>
       <div class="footer-col">
         <h4>Service Area</h4>
         <nav aria-label="Service area">
-          <a href="${prefix}#contact">Bend</a>
-          <a href="${prefix}#contact">Redmond</a>
-          <a href="${prefix}#contact">Sisters</a>
-          <a href="${prefix}#contact">Sunriver</a>
-          <a href="${prefix}#contact">La Pine</a>
-          <a href="${prefix}#contact">Tumalo</a>
-          <a href="${prefix}#contact">Prineville</a>
-          <a href="${prefix}#contact">Terrebonne</a>
+          <a href="/#contact">Bend</a>
+          <a href="/#contact">Redmond</a>
+          <a href="/#contact">Sisters</a>
+          <a href="/#contact">Sunriver</a>
+          <a href="/#contact">La Pine</a>
+          <a href="/#contact">Tumalo</a>
+          <a href="/#contact">Prineville</a>
+          <a href="/#contact">Terrebonne</a>
         </nav>
       </div>
       <div class="footer-col">
         <h4>Contact</h4>
         <nav aria-label="Contact">
-          <a href="${prefix}#contact">Free Quote</a>
-          <a href="${prefix}faq">FAQ</a>
-          <a href="${prefix}about">About Us</a>
+          <a href="/contact">Free Quote</a>
+          <a href="/faq">FAQ</a>
+          <a href="/about">About Us</a>
           <a href="tel:${PHONE_HREF}">${PHONE_DISPLAY}</a>
           <a href="mailto:${EMAIL}">${EMAIL}</a>
         </nav>
@@ -245,7 +252,7 @@ function footer(prefix) {
   <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.68A2 2 0 012 .18h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.09-1.09a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
 </a>
 
-<script src="${prefix}script.js"></script>`;
+<script src="/script.js?v=8"></script>`;
 }
 
 /** Closing CTA band shared by posts. */
@@ -258,7 +265,7 @@ function ctaBand(prefix) {
     <p>We come to you, measure every opening you want replaced, and leave you with a firm itemized quote. Serving Bend, Redmond, Sisters &amp; all of Central Oregon.</p>
     <div class="cta-band__actions">
       <a href="tel:${PHONE_HREF}" class="btn btn--light">Call ${PHONE_DISPLAY}</a>
-      <a href="${prefix}#contact" class="btn btn--outline">Request a Quote Online</a>
+      <a href="/contact" class="btn btn--outline">Request a Quote Online</a>
     </div>
   </div>
 </section>`;
@@ -269,10 +276,11 @@ function ctaBand(prefix) {
  * post: { slug, title, date, tag, excerpt, image, imageAlt, body (markdown), faq: [{q,a}] }
  */
 export function renderPost(post) {
-  const prefix = '../';
+  const prefix = '/';
   const url = `${SITE}/blog/${post.slug}`;
   const desc = post.excerpt || toPlainText(post.body, 155);
   const img = post.image ? `${SITE}/${post.image.replace(/^\.\.\//, '')}` : `${SITE}/logo.png`;
+  const heroSrc = post.image ? `/${post.image.replace(/^\.\.\//, '')}` : '';
 
   const faqSchema = (post.faq && post.faq.length)
     ? `
@@ -320,7 +328,7 @@ ${post.faq.map(f => `      <div class="faq-item">
     ? `
 <!-- POST IMAGE -->
 <div class="container container--narrow" style="margin-top:clamp(2.5rem,5vw,3.5rem)">
-  <img src="${prefix}${esc(post.image)}" alt="${esc(post.imageAlt || post.title)}" style="width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:var(--radius-md);display:block" />
+  <img src="${esc(heroSrc)}" alt="${esc(post.imageAlt || post.title)}" style="width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:var(--radius-md);display:block" />
 </div>
 `
     : '';
@@ -385,8 +393,8 @@ ${post.faq.map(f => `      <div class="faq-item">
   }
   </script>${faqSchema}
 
-  <link rel="stylesheet" href="${prefix}styles.css" />
-  <link rel="icon" type="image/png" href="${prefix}logo.png" />
+  <link rel="stylesheet" href="/styles.css?v=12" />
+  <link rel="icon" type="image/png" href="/logo.png" />
 </head>
 <body>
 
@@ -412,7 +420,7 @@ ${renderMarkdown(post.body)}
       Questions about your own windows? Call <a href="tel:${PHONE_HREF}" style="color:var(--accent)">${PHONE_DISPLAY}</a>.
     </p>
     <p style="margin-top:1.5rem">
-      <a href="${prefix}blog" class="btn btn--ghost">&larr; All Articles</a>
+      <a href="/blog" class="btn btn--ghost">&larr; All Articles</a>
     </p>
   </div>
 </section>
@@ -500,8 +508,8 @@ ${itemList}
   }
   </script>
 ` : ''}
-  <link rel="stylesheet" href="styles.css" />
-  <link rel="icon" type="image/png" href="logo.png" />
+  <link rel="stylesheet" href="/styles.css?v=12" />
+  <link rel="icon" type="image/png" href="/logo.png" />
 </head>
 <body>
 

@@ -47,9 +47,15 @@ const STATIC_PAGES = [
   { loc: '/gallery',   priority: '0.8', changefreq: 'monthly' },
   { loc: '/about',     priority: '0.7', changefreq: 'yearly'  },
   { loc: '/faq',       priority: '0.7', changefreq: 'monthly' },
+  { loc: '/contact',   priority: '0.8', changefreq: 'monthly' },
+  { loc: '/contract',  priority: '0.3', changefreq: 'yearly'  },
 ];
 
 const today = () => new Date().toISOString().slice(0, 10);
+const capLastmod = (d) => {
+  const t = today();
+  return d && String(d) <= t ? String(d) : t;
+};
 
 function ensureBlogDir() {
   if (!existsSync(BLOG_DIR)) mkdirSync(BLOG_DIR, { recursive: true });
@@ -81,7 +87,7 @@ function rebuild(posts) {
     .filter(p => p.status !== 'draft')
     .sort((a, b) => String(b.date).localeCompare(String(a.date)));
 
-  const newest = live[0]?.updated || live[0]?.date || today();
+  const newest = capLastmod(live[0]?.updated || live[0]?.date || today());
   const urls = [
     ...STATIC_PAGES.map(p => ({
       loc: `${SITE}${p.loc}`,
@@ -91,7 +97,7 @@ function rebuild(posts) {
     })),
     ...live.map(p => ({
       loc: `${SITE}/blog/${p.slug}`,
-      lastmod: p.updated || p.date,
+      lastmod: capLastmod(p.updated || p.date),
       changefreq: 'yearly',
       priority: '0.6',
     })),
