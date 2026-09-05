@@ -267,10 +267,10 @@ function quoteForm(slug) {
   <div class="container">
     <div class="contact-grid">
       <div class="contact-info">
-        <p class="eyebrow" style="margin-bottom:.875rem">Free In-Home Quote</p>
-        <h2 id="${prefix}-contact-h2" style="font-size:clamp(2rem,4vw,3rem);margin-bottom:1rem">Get a Fast, Firm Replacement Quote.</h2>
-        <p style="font-size:1.05rem;color:var(--text-muted);margin-bottom:1.5rem">Serving Bend, Redmond, Sisters, and all of Central Oregon within about 50 miles of Bend.</p>
-        <p>We come to you, measure every opening you want replaced, talk through your options, and give you a clear itemized quote.</p>
+        <p class="eyebrow" style="margin-bottom:.875rem">Written quote</p>
+        <h2 id="${prefix}-contact-h2" style="font-size:clamp(2rem,4vw,3rem);margin-bottom:1rem">Get a written quote</h2>
+        <p style="font-size:1.05rem;color:var(--text-muted);margin-bottom:1.5rem">We drive from Bend. Central Oregon is a regular run.</p>
+        <p>We measure at the house. You get product, labor, and trim on one sheet.</p>
         <div class="c-detail">
           <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true"><path d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z"/></svg>
           <a href="tel:${PHONE_HREF}">${PHONE_DISPLAY}</a>
@@ -285,7 +285,7 @@ function quoteForm(slug) {
         </div>
       </div>
       <div class="c-form">
-        <h3>Request a Free Replacement Quote</h3>
+        <h3>Request a quote</h3>
         <form name="${name}" method="POST">
           <div class="f-row">
             <div class="f-group">
@@ -333,12 +333,12 @@ function ctaBand(prefix) {
   return `<!-- CTA -->
 <section class="cta-band" aria-labelledby="post-cta-h2">
   <div class="container">
-    <p class="eyebrow">Free In-Home Quote</p>
-    <h2 id="post-cta-h2" style="font-size:clamp(2rem,5vw,3.5rem)">Ready to Replace Your Windows?</h2>
-    <p>We come to you, measure every opening you want replaced, and leave you with a firm itemized quote. Serving Bend, Redmond, Sisters &amp; all of Central Oregon.</p>
+    <p class="eyebrow">Written quote</p>
+    <h2 id="post-cta-h2" style="font-size:clamp(2rem,5vw,3.5rem)">Want a number for your house?</h2>
+    <p>We measure at the house. You get a written quote. Bend, Redmond, Sisters, and the rest of Central Oregon.</p>
     <div class="cta-band__actions">
       <a href="tel:${PHONE_HREF}" class="btn btn--light">Call ${PHONE_DISPLAY}</a>
-      <a href="/contact" class="btn btn--outline">Request a Quote Online</a>
+      <a href="/contact" class="btn btn--outline">Get a quote</a>
     </div>
   </div>
 </section>`;
@@ -487,7 +487,7 @@ ${heroImg}
   <div class="container container--narrow">
     <div class="about-body post-body">
 ${renderMarkdown(post.body)}
-      <p style="margin:2rem 0;padding:1.25rem 1.5rem;background:var(--bg-alt);border-left:3px solid var(--accent)">Ready for a number on your house? <a href="/contact">Request a free in-home quote</a> or call <a href="tel:${PHONE_HREF}">${PHONE_DISPLAY}</a>.</p>
+      <p style="margin:2rem 0;padding:1.25rem 1.5rem;background:var(--bg-alt);border-left:3px solid var(--accent)">Need a number for your house? <a href="/contact">Get a quote</a> or call <a href="tel:${PHONE_HREF}">${PHONE_DISPLAY}</a>.</p>
     </div>
     <p style="margin-top:2.5rem;font-size:.875rem;color:var(--text-light)">
       From the team at Peak View Windows &amp; Doors — CCB #260230, Bend, Oregon.
