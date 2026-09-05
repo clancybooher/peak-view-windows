@@ -57,9 +57,15 @@ export function renderMarkdown(md = '') {
   let para = [];
   let list = null; // 'ul' | 'ol'
 
+  const href = (raw) => {
+    let h = raw;
+    if (h.startsWith('../')) h = `/${h.slice(3)}`;
+    if (h === '/#contact') h = '/contact';
+    return h;
+  };
   const inline = (t) =>
     esc(t)
-      .replace(/\[([^\]]+)\]\(([^)\s]+)\)/g, '<a href="$2">$1</a>')
+      .replace(/\[([^\]]+)\]\(([^)\s]+)\)/g, (_, text, url) => `<a href="${href(url)}">${text}</a>`)
       .replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>')
       .replace(/(^|[\s(])\*([^*]+)\*/g, '$1<em>$2</em>')
       .replace(/`([^`]+)`/g, '<code>$1</code>');
@@ -270,10 +276,11 @@ function ctaBand(prefix) {
  * post: { slug, title, date, tag, excerpt, image, imageAlt, body (markdown), faq: [{q,a}] }
  */
 export function renderPost(post) {
-  const prefix = '../';
+  const prefix = '/';
   const url = `${SITE}/blog/${post.slug}`;
   const desc = post.excerpt || toPlainText(post.body, 155);
   const img = post.image ? `${SITE}/${post.image.replace(/^\.\.\//, '')}` : `${SITE}/logo.png`;
+  const heroSrc = post.image ? `/${post.image.replace(/^\.\.\//, '')}` : '';
 
   const faqSchema = (post.faq && post.faq.length)
     ? `
@@ -321,7 +328,7 @@ ${post.faq.map(f => `      <div class="faq-item">
     ? `
 <!-- POST IMAGE -->
 <div class="container container--narrow" style="margin-top:clamp(2.5rem,5vw,3.5rem)">
-  <img src="${prefix}${esc(post.image)}" alt="${esc(post.imageAlt || post.title)}" style="width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:var(--radius-md);display:block" />
+  <img src="${esc(heroSrc)}" alt="${esc(post.imageAlt || post.title)}" style="width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:var(--radius-md);display:block" />
 </div>
 `
     : '';
@@ -413,7 +420,7 @@ ${renderMarkdown(post.body)}
       Questions about your own windows? Call <a href="tel:${PHONE_HREF}" style="color:var(--accent)">${PHONE_DISPLAY}</a>.
     </p>
     <p style="margin-top:1.5rem">
-      <a href="${prefix}blog" class="btn btn--ghost">&larr; All Articles</a>
+      <a href="/blog" class="btn btn--ghost">&larr; All Articles</a>
     </p>
   </div>
 </section>
