@@ -49,6 +49,13 @@ const STATIC_PAGES = [
   { loc: '/faq',       priority: '0.7', changefreq: 'monthly' },
   { loc: '/contact',   priority: '0.8', changefreq: 'monthly' },
   { loc: '/contract',  priority: '0.3', changefreq: 'yearly'  },
+  { loc: '/window-replacement-redmond-oregon',   priority: '0.8', changefreq: 'monthly' },
+  { loc: '/window-replacement-sisters-oregon',   priority: '0.8', changefreq: 'monthly' },
+  { loc: '/window-replacement-sunriver-oregon',  priority: '0.8', changefreq: 'monthly' },
+  { loc: '/window-replacement-la-pine-oregon',   priority: '0.8', changefreq: 'monthly' },
+  { loc: '/window-replacement-prineville-oregon',priority: '0.8', changefreq: 'monthly' },
+  { loc: '/patio-doors-bend',                    priority: '0.8', changefreq: 'monthly' },
+  { loc: '/entry-doors-bend',                    priority: '0.8', changefreq: 'monthly' },
 ];
 
 const today = () => new Date().toISOString().slice(0, 10);

@@ -203,7 +203,7 @@ function footer(prefix) {
         <img src="/logo.png" alt="Peak View Windows &amp; Doors" width="64" height="64" />
         <p>Luxury window replacement for homes across Central Oregon. Based in Bend. Licensed, insured, and accountable on every job.</p>
         <p class="license">CCB Licensed, Bonded &amp; Insured &nbsp;·&nbsp; License #260230</p>
-        <p class="footer-nap">18550 Walton Rd<br>Bend, OR 97703<br><a href="tel:${PHONE_HREF}">${PHONE_DISPLAY}</a><br><a href="mailto:${EMAIL}">${EMAIL}</a><br>CCB #260230</p>
+        <p class="footer-nap">Bend, OR<br><a href="tel:${PHONE_HREF}">${PHONE_DISPLAY}</a><br><a href="mailto:${EMAIL}">${EMAIL}</a><br>CCB #260230</p>
       </div>
       <div class="footer-col">
         <h4>Services</h4>
@@ -212,21 +212,22 @@ function footer(prefix) {
           <a href="/andersen">Andersen Window Replacement</a>
           <a href="/windows#energy">Energy Efficient Windows</a>
           <a href="/doors">Door Replacement</a>
-          <a href="/doors#patio">Patio Door Replacement</a>
+          <a href="/patio-doors-bend">Patio Door Replacement</a>
+          <a href="/entry-doors-bend">Entry Door Replacement</a>
           <a href="/blog">Blog</a>
         </nav>
       </div>
       <div class="footer-col">
         <h4>Service Area</h4>
         <nav aria-label="Service area">
-          <a href="/#contact">Bend</a>
-          <a href="/#contact">Redmond</a>
-          <a href="/#contact">Sisters</a>
-          <a href="/#contact">Sunriver</a>
-          <a href="/#contact">La Pine</a>
-          <a href="/#contact">Tumalo</a>
-          <a href="/#contact">Prineville</a>
-          <a href="/#contact">Terrebonne</a>
+          <a href="/contact">Bend</a>
+          <a href="/window-replacement-redmond-oregon">Redmond</a>
+          <a href="/window-replacement-sisters-oregon">Sisters</a>
+          <a href="/window-replacement-sunriver-oregon">Sunriver</a>
+          <a href="/window-replacement-la-pine-oregon">La Pine</a>
+          <a href="/contact">Tumalo</a>
+          <a href="/window-replacement-prineville-oregon">Prineville</a>
+          <a href="/contact">Terrebonne</a>
         </nav>
       </div>
       <div class="footer-col">
@@ -252,7 +253,79 @@ function footer(prefix) {
   <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.68A2 2 0 012 .18h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.09-1.09a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
 </a>
 
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 <script src="/script.js?v=8"></script>`;
+}
+
+
+/** Quote form used on money posts so script.js form[name^=contact] can submit. */
+function quoteForm(slug) {
+  const prefix = 'b' + String(slug || 'post').replace(/[^a-z0-9]+/g, '').slice(0, 10);
+  const name = 'contact-' + String(slug || 'post').replace(/[^a-z0-9]+/g, '-').slice(0, 28).replace(/^-|-$/g, '');
+  return `<!-- QUOTE FORM -->
+<section id="contact" class="contact-section section--spacious" aria-labelledby="${prefix}-contact-h2">
+  <div class="container">
+    <div class="contact-grid">
+      <div class="contact-info">
+        <p class="eyebrow" style="margin-bottom:.875rem">Free In-Home Quote</p>
+        <h2 id="${prefix}-contact-h2" style="font-size:clamp(2rem,4vw,3rem);margin-bottom:1rem">Get a Fast, Firm Replacement Quote.</h2>
+        <p style="font-size:1.05rem;color:var(--text-muted);margin-bottom:1.5rem">Serving Bend, Redmond, Sisters, and all of Central Oregon within about 50 miles of Bend.</p>
+        <p>We come to you, measure every opening you want replaced, talk through your options, and give you a clear itemized quote.</p>
+        <div class="c-detail">
+          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true"><path d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z"/></svg>
+          <a href="tel:${PHONE_HREF}">${PHONE_DISPLAY}</a>
+        </div>
+        <div class="c-detail">
+          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true"><path d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75"/></svg>
+          <a href="mailto:${EMAIL}">${EMAIL}</a>
+        </div>
+        <div class="c-detail">
+          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"/><path d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"/></svg>
+          <span>Bend, OR &nbsp;·&nbsp; CCB #260230</span>
+        </div>
+      </div>
+      <div class="c-form">
+        <h3>Request a Free Replacement Quote</h3>
+        <form name="${name}" method="POST">
+          <div class="f-row">
+            <div class="f-group">
+              <label for="${prefix}-name">Your Name</label>
+              <input type="text" id="${prefix}-name" name="name" placeholder="Jane Smith" required autocomplete="name" />
+            </div>
+            <div class="f-group">
+              <label for="${prefix}-phone">Phone Number</label>
+              <input type="tel" id="${prefix}-phone" name="phone" placeholder="541-555-0100" required autocomplete="tel" />
+            </div>
+          </div>
+          <div class="f-group">
+            <label for="${prefix}-email">Email Address</label>
+            <input type="email" id="${prefix}-email" name="email" placeholder="you@example.com" required autocomplete="email" />
+          </div>
+          <div class="f-group">
+            <label for="${prefix}-type">Project Type</label>
+            <select id="${prefix}-type" name="project_type" required>
+              <option value="" disabled selected>Select a project type</option>
+              <option value="whole-home-window-replacement">Whole-Home Window Replacement</option>
+              <option value="window-replacement">A Few Windows</option>
+              <option value="door-replacement">Door Replacement</option>
+              <option value="windows-and-doors">Windows &amp; Doors</option>
+              <option value="millwork-trim">Millwork / Trim Only</option>
+              <option value="not-sure">Not Sure Yet</option>
+            </select>
+          </div>
+          <div class="f-group">
+            <label for="${prefix}-message">Tell Us About Your Project</label>
+            <textarea id="${prefix}-message" name="message" placeholder="Number of windows, door type, neighborhood, any other details..."></textarea>
+          </div>
+          <div class="cf-turnstile" data-sitekey="0x4AAAAAADT7OZdh-mCzf-mp" data-theme="light"></div>
+          <button type="submit" class="f-submit">GET MY FREE REPLACEMENT QUOTE &rarr;</button>
+          <p class="f-note">We get back to you fast.</p>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+`;
 }
 
 /** Closing CTA band shared by posts. */
@@ -414,6 +487,7 @@ ${heroImg}
   <div class="container container--narrow">
     <div class="about-body post-body">
 ${renderMarkdown(post.body)}
+      <p style="margin:2rem 0;padding:1.25rem 1.5rem;background:var(--bg-alt);border-left:3px solid var(--accent)">Ready for a number on your house? <a href="/contact">Request a free in-home quote</a> or call <a href="tel:${PHONE_HREF}">${PHONE_DISPLAY}</a>.</p>
     </div>
     <p style="margin-top:2.5rem;font-size:.875rem;color:var(--text-light)">
       From the team at Peak View Windows &amp; Doors — CCB #260230, Bend, Oregon.
@@ -425,6 +499,7 @@ ${renderMarkdown(post.body)}
   </div>
 </section>
 ${faqBlock}
+${quoteForm(post.slug)}
 ${ctaBand(prefix)}
 
 ${footer(prefix)}
