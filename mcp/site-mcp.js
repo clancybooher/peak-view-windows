@@ -54,8 +54,8 @@ const STATIC_PAGES = [
   { loc: '/window-replacement-sunriver-oregon',  priority: '0.8', changefreq: 'monthly' },
   { loc: '/window-replacement-la-pine-oregon',   priority: '0.8', changefreq: 'monthly' },
   { loc: '/window-replacement-prineville-oregon',priority: '0.8', changefreq: 'monthly' },
-  { loc: '/patio-doors-bend',                    priority: '0.8', changefreq: 'monthly' },
-  { loc: '/entry-doors-bend',                    priority: '0.8', changefreq: 'monthly' },
+  { loc: '/patio-door-replacement-bend-oregon',                    priority: '0.8', changefreq: 'monthly' },
+  { loc: '/entry-door-replacement-bend-oregon',                    priority: '0.8', changefreq: 'monthly' },
 ];
 
 const today = () => new Date().toISOString().slice(0, 10);
