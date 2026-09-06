@@ -176,13 +176,14 @@ section + section { border-top: 1px solid var(--border); }
   position: relative;
 }
 .btn--primary {
-  background: transparent;
-  color: var(--text);
-  border-color: var(--border);
+  background: var(--accent);
+  color: var(--white);
+  border-color: var(--accent);
 }
 .btn--primary:hover {
-  color: var(--accent);
-  border-color: var(--accent);
+  background: var(--accent-dark);
+  color: var(--white);
+  border-color: var(--accent-dark);
 }
 .btn--outline {
   background: transparent;
