@@ -466,7 +466,7 @@ ${post.faq.map(f => `      <div class="faq-item">
   }
   </script>${faqSchema}
 
-  <link rel="stylesheet" href="/styles.css?v=14" />
+  <link rel="stylesheet" href="/styles.css?v=15" />
   <link rel="icon" type="image/png" href="/logo.png" />
 </head>
 <body>
@@ -583,7 +583,7 @@ ${itemList}
   }
   </script>
 ` : ''}
-  <link rel="stylesheet" href="/styles.css?v=14" />
+  <link rel="stylesheet" href="/styles.css?v=15" />
   <link rel="icon" type="image/png" href="/logo.png" />
 </head>
 <body>
