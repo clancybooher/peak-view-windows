@@ -73,6 +73,15 @@
   <link rel="icon" type="image/png" href="/logo.png" />
 </head>
 <body>
+<script>
+(function () {
+  var dest = {
+    '#patio': '/patio-door-replacement-bend-oregon',
+    '#entry': '/entry-door-replacement-bend-oregon'
+  }[location.hash];
+  if (dest) location.replace(dest);
+})();
+</script>
 
 <!-- NAV -->
 <nav class="nav scrolled" id="nav" aria-label="Main navigation">
