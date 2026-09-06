@@ -883,6 +883,17 @@ section + section { border-top: 1px solid var(--border); }
 }
 @media (max-width: 900px) {
   .page-hero { padding: calc(var(--nav-h-mobile) + 2rem) 0 2rem; }
+  /* Long city/door lander labels overflow at ~390px when nowrap.
+     Keep desktop .eyebrow one-line; only unwrap on mobile. */
+  .page-hero--center .eyebrow,
+  .cta-band .eyebrow {
+    flex-wrap: wrap;
+    white-space: normal;
+    justify-content: center;
+    row-gap: 0.35rem;
+    text-align: center;
+    min-width: 0;
+  }
 }
 .page-hero .eyebrow { margin-bottom: 0.875rem; }
 .page-hero h1 { font-size: clamp(2.5rem,5vw,4.25rem); max-width: 22ch; margin-bottom: 1.125rem; }
@@ -903,26 +914,6 @@ section + section { border-top: 1px solid var(--border); }
 }
 .page-hero--center h1,
 .page-hero--center p { margin-inline: auto; }
-
-/* City/door lander heroes (and other centered page-heroes) may wrap on
-   narrow phones. Sitewide .eyebrow stays nowrap so desktop section labels
-   stay one line. */
-.page-hero--center .eyebrow {
-  flex-wrap: wrap;
-  white-space: normal;
-  justify-content: center;
-  row-gap: 0.35rem;
-  text-align: center;
-  min-width: 0;
-}
-.cta-band .eyebrow {
-  flex-wrap: wrap;
-  white-space: normal;
-  justify-content: center;
-  row-gap: 0.35rem;
-  text-align: center;
-  min-width: 0;
-}
 
 .sec-head { margin-bottom: clamp(3rem,5vw,5rem); }
 .sec-head--center {
