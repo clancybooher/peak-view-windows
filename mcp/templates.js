@@ -201,7 +201,7 @@ function footer(prefix) {
     <div class="footer-top">
       <div class="footer-brand">
         <img src="/logo.png" alt="Peak View Windows &amp; Doors" width="64" height="64" />
-        <p>Luxury window replacement for homes across Central Oregon. Based in Bend. Licensed, insured, and accountable on every job.</p>
+        <p>Window replacement for Central Oregon homes. Bend-based. CCB #260230.</p>
         <p class="license">CCB Licensed, Bonded &amp; Insured &nbsp;·&nbsp; License #260230</p>
         <p class="footer-nap">Bend, OR<br><a href="tel:${PHONE_HREF}">${PHONE_DISPLAY}</a><br><a href="mailto:${EMAIL}">${EMAIL}</a><br>CCB #260230</p>
       </div>
@@ -318,7 +318,7 @@ function quoteForm(slug) {
             <textarea id="${prefix}-message" name="message" placeholder="Number of windows, door type, neighborhood, any other details..."></textarea>
           </div>
           <div class="cf-turnstile" data-sitekey="0x4AAAAAADT7OZdh-mCzf-mp" data-theme="light"></div>
-          <button type="submit" class="f-submit">GET MY FREE REPLACEMENT QUOTE &rarr;</button>
+          <button type="submit" class="f-submit">Request a quote</button>
           <p class="f-note">We get back to you fast.</p>
         </form>
       </div>
