@@ -159,7 +159,7 @@
       btn.textContent = 'SENDING…';
     } else {
       btn.disabled = false;
-      btn.textContent = btn.dataset.orig || 'GET MY FREE EVALUATION →';
+      btn.textContent = btn.dataset.orig || 'Request a quote';
     }
   }
 
