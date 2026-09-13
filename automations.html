@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Automations | Peak View</title>
+  <meta name="description" content="Custom automations and full setup for email, CRM, and the tools you already use. AI to make the day simpler. Fewer tasks. More done. Call Clancy at 541-639-3968." />
+  <meta name="robots" content="noindex, follow" />
+  <link rel="canonical" href="https://peakvieworegon.com/automations" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Automations | Peak View" />
+  <meta property="og:description" content="Custom automations and full setup for email, CRM, and the tools you already use. AI to make the day simpler." />
+  <meta property="og:url" content="https://peakvieworegon.com/automations" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:site_name" content="Peak View" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Automations | Peak View" />
+  <meta name="twitter:description" content="Custom automations and full setup for email, CRM, and the tools you already use." />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "Peak View Automation Consulting",
+    "url": "https://peakvieworegon.com/automations",
+    "telephone": "+1-541-639-3968",
+    "email": "clancy@peakvieworegon.com",
+    "description": "Custom automations and full setup for email, CRM, and the tools you already use. AI to make the day simpler. Fewer tasks. More done.",
+    "founder": {
+      "@type": "Person",
+      "name": "Clancy Booher"
+    },
+    "areaServed": {
+      "@type": "City",
+      "name": "Bend",
+      "containedInPlace": { "@type": "State", "name": "Oregon" }
+    }
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://peakvieworegon.com/"},
+      {"@type": "ListItem", "position": 2, "name": "Automations", "item": "https://peakvieworegon.com/automations"}
+    ]
+  }
+  </script>
+
+  <link rel="icon" type="image/png" href="logo.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <style>
+    /* Scoped to this page only. Does not load styles.css. */
+    body.automations {
+      --auto-bg: #0c0c0b;
+      --auto-raised: #141412;
+      --auto-text: #f3f0e6;
+      --auto-muted: #9b9688;
+      --auto-faint: #6e6a60;
+      --auto-accent: #fef47a;
+      --auto-line: rgba(254, 244, 122, 0.14);
+      --auto-font: "Inter", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      margin: 0;
+      background: var(--auto-bg);
+      color: var(--auto-text);
+      font-family: var(--auto-font);
+      font-size: 1.0625rem;
+      line-height: 1.7;
+      font-weight: 400;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    body.automations *,
+    body.automations *::before,
+    body.automations *::after {
+      box-sizing: border-box;
+    }
+
+    body.automations a {
+      color: inherit;
+    }
+
+    body.automations a:focus-visible,
+    body.automations .auto-cta:focus-visible {
+      outline: 2px solid var(--auto-accent);
+      outline-offset: 3px;
+    }
+
+    body.automations .auto-skip {
+      position: absolute;
+      left: 1rem;
+      top: -3rem;
+      background: var(--auto-accent);
+      color: #14140f;
+      padding: 0.4rem 0.7rem;
+      font-size: 0.85rem;
+      text-decoration: none;
+      z-index: 20;
+    }
+
+    body.automations .auto-skip:focus {
+      top: 0.75rem;
+    }
+
+    body.automations .auto-wrap {
+      width: min(42rem, calc(100% - 2.5rem));
+      margin: 0 auto;
+    }
+
+    body.automations .auto-header {
+      padding: 1.15rem 0 0;
+    }
+
+    body.automations .auto-header__inner {
+      width: min(42rem, calc(100% - 2.5rem));
+      margin: 0 auto;
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    body.automations .auto-brand {
+      text-decoration: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.1rem;
+    }
+
+    body.automations .auto-brand__name {
+      font-size: 0.92rem;
+      font-weight: 500;
+      letter-spacing: -0.02em;
+    }
+
+    body.automations .auto-brand__mark {
+      font-size: 0.72rem;
+      color: var(--auto-muted);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    body.automations .auto-header__call {
+      font-size: 0.88rem;
+      color: var(--auto-muted);
+      text-decoration: none;
+    }
+
+    body.automations .auto-header__call:hover {
+      color: var(--auto-accent);
+    }
+
+    body.automations .auto-hero {
+      padding: 5.5rem 0 4.5rem;
+    }
+
+    body.automations .auto-kicker {
+      margin: 0 0 1.1rem;
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--auto-accent);
+    }
+
+    body.automations .auto-hero h1 {
+      margin: 0 0 1.15rem;
+      font-size: clamp(2.05rem, 7.2vw, 3.25rem);
+      font-weight: 500;
+      line-height: 1.12;
+      letter-spacing: -0.035em;
+    }
+
+    body.automations .auto-hero__sub {
+      margin: 0 0 2rem;
+      max-width: 34rem;
+      color: var(--auto-muted);
+      font-size: 1.05rem;
+    }
+
+    body.automations .auto-cta {
+      display: inline-flex;
+      align-items: center;
+      height: 2.45rem;
+      padding: 0 1.05rem;
+      border-radius: 999px;
+      background: var(--auto-accent);
+      color: #14140f;
+      font-size: 0.88rem;
+      font-weight: 550;
+      letter-spacing: -0.01em;
+      text-decoration: none;
+    }
+
+    body.automations .auto-cta:hover {
+      filter: brightness(1.04);
+    }
+
+    body.automations .auto-cta--ghost {
+      background: transparent;
+      color: var(--auto-text);
+      border: 1px solid var(--auto-line);
+    }
+
+    body.automations .auto-cta--ghost:hover {
+      border-color: var(--auto-accent);
+      color: var(--auto-accent);
+      filter: none;
+    }
+
+    body.automations .auto-section {
+      padding: 0 0 4.25rem;
+    }
+
+    body.automations .auto-section h2 {
+      margin: 0 0 1.35rem;
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--auto-accent);
+    }
+
+    body.automations .auto-list {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    body.automations .auto-list li {
+      padding: 0.85rem 0;
+      border-top: 1px solid var(--auto-line);
+      color: var(--auto-text);
+    }
+
+    body.automations .auto-list li:last-child {
+      border-bottom: 1px solid var(--auto-line);
+    }
+
+    body.automations .auto-steps {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: grid;
+      gap: 1.65rem;
+    }
+
+    body.automations .auto-steps li {
+      display: grid;
+      grid-template-columns: 2.1rem 1fr;
+      gap: 0.85rem;
+      align-items: start;
+    }
+
+    body.automations .auto-steps span {
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      color: var(--auto-accent);
+      padding-top: 0.2rem;
+    }
+
+    body.automations .auto-steps p {
+      margin: 0;
+    }
+
+    body.automations .auto-steps strong {
+      display: block;
+      font-weight: 500;
+      margin-bottom: 0.2rem;
+    }
+
+    body.automations .auto-steps em,
+    body.automations .auto-for p {
+      font-style: normal;
+      color: var(--auto-muted);
+    }
+
+    body.automations .auto-for p {
+      margin: 0 0 1.1rem;
+      max-width: 34rem;
+    }
+
+    body.automations .auto-note {
+      margin: 0;
+      font-size: 0.88rem;
+      color: var(--auto-faint);
+      max-width: 32rem;
+    }
+
+    body.automations .auto-band {
+      background: var(--auto-raised);
+      border-top: 1px solid var(--auto-line);
+      border-bottom: 1px solid var(--auto-line);
+      padding: 3.25rem 0;
+    }
+
+    body.automations .auto-band h2 {
+      margin: 0 0 0.65rem;
+      font-size: clamp(1.45rem, 4vw, 1.85rem);
+      font-weight: 500;
+      letter-spacing: -0.03em;
+      text-transform: none;
+      color: var(--auto-text);
+    }
+
+    body.automations .auto-band p {
+      margin: 0 0 1.4rem;
+      color: var(--auto-muted);
+    }
+
+    body.automations .auto-band__links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.65rem 0.75rem;
+    }
+
+    body.automations .auto-footer {
+      padding: 2.25rem 0 2.75rem;
+      font-size: 0.8rem;
+      color: var(--auto-faint);
+    }
+
+    body.automations .auto-footer p {
+      margin: 0;
+    }
+
+    body.automations .auto-footer a {
+      color: var(--auto-muted);
+      text-decoration: none;
+    }
+
+    body.automations .auto-footer a:hover {
+      color: var(--auto-accent);
+    }
+
+    @media (min-width: 720px) {
+      body.automations .auto-hero {
+        padding: 7.25rem 0 5.5rem;
+      }
+
+      body.automations .auto-section {
+        padding-bottom: 5rem;
+      }
+    }
+  </style>
+</head>
+<body class="automations">
+  <a class="auto-skip" href="#main">Skip to content</a>
+
+  <header class="auto-header">
+    <div class="auto-header__inner">
+      <a class="auto-brand" href="/automations">
+        <span class="auto-brand__name">Peak View</span>
+        <span class="auto-brand__mark">Automations</span>
+      </a>
+      <a class="auto-header__call" href="tel:+15416393968">541-639-3968</a>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="auto-hero">
+      <div class="auto-wrap">
+        <p class="auto-kicker">Automation consulting</p>
+        <h1>Custom automations. Full setup.</h1>
+        <p class="auto-hero__sub">Automate email, CRM, and the tools you already use. AI to make the day simpler. Fewer tasks. More done.</p>
+        <a class="auto-cta" href="tel:+15416393968">Book a consultation</a>
+      </div>
+    </section>
+
+    <section class="auto-section" aria-labelledby="what-we-do">
+      <div class="auto-wrap">
+        <h2 id="what-we-do">What we do</h2>
+        <ul class="auto-list">
+          <li>AI education and business consulting</li>
+          <li>Custom integrations and setups</li>
+          <li>Automate daily tasks and routines</li>
+          <li>Custom business software</li>
+          <li>Automated websites</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="auto-section" aria-labelledby="how-it-works">
+      <div class="auto-wrap">
+        <h2 id="how-it-works">How it works</h2>
+        <ol class="auto-steps">
+          <li>
+            <span>01</span>
+            <p><strong>Consultation</strong> On-site or remote audit of your systems.</p>
+          </li>
+          <li>
+            <span>02</span>
+            <p><strong>Review</strong> Look at what you already use.</p>
+          </li>
+          <li>
+            <span>03</span>
+            <p><strong>Propose</strong> Custom integrations and automations that fit.</p>
+          </li>
+          <li>
+            <span>04</span>
+            <p><strong>Build</strong> Then set it up so it actually runs.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="auto-section auto-for" aria-labelledby="who-its-for">
+      <div class="auto-wrap">
+        <h2 id="who-its-for">Who it's for</h2>
+        <p>Small businesses and contractors who want ops automation without a big agency.</p>
+        <p class="auto-note">Peak View Windows &amp; Doors is the window company. This page is automation consulting. Same owner.</p>
+      </div>
+    </section>
+
+    <section class="auto-band" aria-labelledby="book">
+      <div class="auto-wrap">
+        <h2 id="book">Book a consultation</h2>
+        <p>Call or text 541-639-3968. Email clancy@peakvieworegon.com.</p>
+        <div class="auto-band__links">
+          <a class="auto-cta" href="tel:+15416393968">Call or text 541-639-3968</a>
+          <a class="auto-cta auto-cta--ghost" href="mailto:clancy@peakvieworegon.com">Email Clancy</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="auto-footer">
+    <div class="auto-wrap">
+      <p>Clancy Booher · Peak View / automation consulting · <a href="https://peakvieworegon.com/automations">peakvieworegon.com/automations</a> · B. <a href="tel:+15416393968">541-639-3968</a></p>
+    </div>
+  </footer>
+</body>
+</html>
