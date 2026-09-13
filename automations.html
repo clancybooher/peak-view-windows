@@ -84,18 +84,19 @@
     body.automations *::before,
     body.automations *::after { box-sizing: border-box; }
 
-    body.automations a { color: inherit; }
-    body.automations p { margin: 0; }
-    body.automations button { font: inherit; color: inherit; cursor: pointer; letter-spacing: inherit; }
+    /* :where() keeps these element resets at zero specificity so cb- classes always win. */
+    :where(body.automations) a { color: inherit; }
+    :where(body.automations) p { margin: 0; }
+    :where(body.automations) button { font: inherit; color: inherit; cursor: pointer; letter-spacing: inherit; }
 
     body.automations :focus-visible {
       outline: 2px solid var(--cb-ink);
       outline-offset: 3px;
     }
 
-    body.automations h1,
-    body.automations h2,
-    body.automations h3 {
+    :where(body.automations) h1,
+    :where(body.automations) h2,
+    :where(body.automations) h3 {
       margin: 0;
       font-weight: 700;
       letter-spacing: -0.04em;
@@ -243,6 +244,13 @@
 
     .cb-btn--sm { min-height: 2.4rem; font-size: 0.86rem; gap: 0.9rem; padding-left: 0.85rem; }
     .cb-btn--sm .cb-btn__box { width: 1.8rem; height: 1.8rem; }
+
+    @media (max-width: 639px) {
+      .cb-actions .cb-btn,
+      .cb-cta__actions .cb-btn { white-space: normal; text-align: left; min-width: 0; }
+      .cb-actions .cb-btn > span:first-child,
+      .cb-cta__actions .cb-btn > span:first-child { overflow-wrap: anywhere; }
+    }
 
     /* Hero */
     .cb-hero { padding: 3.5rem 0 0; }
@@ -534,10 +542,10 @@
 
     .cb-cap svg {
       position: absolute;
-      top: 1.25rem;
+      top: 1rem;
       right: 1.25rem;
-      width: 7.5rem;
-      height: 7.5rem;
+      width: 9rem;
+      height: 9rem;
       transition: transform 0.5s var(--cb-ease);
     }
 
@@ -834,11 +842,12 @@
       border: 1px solid var(--cb-line-2);
       display: grid;
       place-items: center;
-      transition: transform 0.35s var(--cb-ease), background 0.2s;
+      transition: background 0.2s, color 0.2s, border-color 0.2s;
       margin-top: 0.2rem;
     }
-    .cb-use__chev svg { width: 0.8rem; height: 0.8rem; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
-    .cb-use.is-open .cb-use__chev { transform: rotate(45deg); background: var(--cb-ink); color: #fff; border-color: var(--cb-ink); }
+    .cb-use__chev svg { width: 0.8rem; height: 0.8rem; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; transition: transform 0.35s var(--cb-ease); }
+    .cb-use.is-open .cb-use__chev { background: var(--cb-ink); color: #fff; border-color: var(--cb-ink); }
+    .cb-use.is-open .cb-use__chev svg { transform: rotate(45deg); }
 
     .cb-use__body { display: grid; grid-template-rows: 0fr; transition: grid-template-rows 0.45s var(--cb-ease); }
     .cb-use.is-open .cb-use__body { grid-template-rows: 1fr; }
@@ -1045,11 +1054,11 @@
       .cb-pain__statement { max-width: 46rem; }
       .cb-chips { position: absolute; inset: 0; pointer-events: none; }
       .cb-chip { position: absolute; pointer-events: auto; animation: cb-float 7s ease-in-out infinite; }
-      .cb-chip:nth-child(1) { left: 4%; top: 6%; }
+      .cb-chip:nth-child(1) { left: 4%; top: 8%; }
       .cb-chip:nth-child(2) { right: 3%; top: 16%; animation-delay: -2s; }
-      .cb-chip:nth-child(3) { left: 12%; bottom: 20%; animation-delay: -4s; }
-      .cb-chip:nth-child(4) { right: 10%; bottom: 8%; animation-delay: -1s; }
-      .cb-chip:nth-child(5) { left: 40%; bottom: 0; animation-delay: -3s; }
+      .cb-chip:nth-child(3) { left: 9%; bottom: 22%; animation-delay: -4s; }
+      .cb-chip:nth-child(4) { right: 7%; bottom: 16%; animation-delay: -1s; }
+      .cb-chip:nth-child(5) { left: 36%; bottom: 0; animation-delay: -3s; }
       .cb-caps { grid-template-columns: repeat(6, 1fr); }
       .cb-cap { grid-column: span 2; }
       .cb-cap--wide { grid-column: span 3; }
