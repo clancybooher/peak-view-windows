@@ -56,6 +56,7 @@ const STATIC_PAGES = [
   { loc: '/window-replacement-prineville-oregon',priority: '0.8', changefreq: 'monthly' },
   { loc: '/patio-door-replacement-bend-oregon',                    priority: '0.8', changefreq: 'monthly' },
   { loc: '/entry-door-replacement-bend-oregon',                    priority: '0.8', changefreq: 'monthly' },
+  // /automations stays off the sitemap (email-ad URL only; do not feature).
 ];
 
 const today = () => new Date().toISOString().slice(0, 10);
