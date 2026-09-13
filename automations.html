@@ -3,29 +3,30 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Automations | Peak View</title>
-  <meta name="description" content="Custom automations and full setup for email, CRM, and the tools you already use. AI to make the day simpler. Fewer tasks. More done. Call Clancy at 541-639-3968." />
+  <title>Clancy Booher | Grok bot setup and custom connectors for small companies</title>
+  <meta name="description" content="Clancy Booher sets up a Grok chief of staff bot for your company, adds specialist bots for quotes, leads, and books, and keeps it working month to month. Custom connectors between your CRM, QuickBooks, Gmail, Slack, and calendar. Call or text 541-639-3968." />
   <meta name="robots" content="noindex, follow" />
   <link rel="canonical" href="https://peakvieworegon.com/automations" />
+  <meta name="theme-color" content="#f9f9f9" />
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="Automations | Peak View" />
-  <meta property="og:description" content="Custom automations and full setup for email, CRM, and the tools you already use. AI to make the day simpler." />
+  <meta property="og:title" content="Clancy Booher | Grok bot setup for your company" />
+  <meta property="og:description" content="A chief of staff bot on Grok, wired into the tools you already pay for. Setup, Team, Care. Plus connectors so your CRM, QuickBooks, and inbox finally talk." />
   <meta property="og:url" content="https://peakvieworegon.com/automations" />
   <meta property="og:locale" content="en_US" />
-  <meta property="og:site_name" content="Peak View" />
+  <meta property="og:site_name" content="Clancy Booher" />
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Automations | Peak View" />
-  <meta name="twitter:description" content="Custom automations and full setup for email, CRM, and the tools you already use." />
+  <meta name="twitter:title" content="Clancy Booher | Grok bot setup for your company" />
+  <meta name="twitter:description" content="A chief of staff bot on Grok, wired into the tools you already pay for. Setup, Team, Care. Plus connectors so your CRM, QuickBooks, and inbox finally talk." />
 
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "ProfessionalService",
-    "name": "Peak View Automation Consulting",
+    "name": "Clancy Booher",
     "url": "https://peakvieworegon.com/automations",
     "telephone": "+1-541-639-3968",
     "email": "clancy@peakvieworegon.com",
-    "description": "Custom automations and full setup for email, CRM, and the tools you already use. AI to make the day simpler. Fewer tasks. More done.",
+    "description": "Grok bot setup for small companies. One chief of staff bot wired into email, calendar, and phone, specialist bots for quotes, leads, and books, and monthly care. Custom connectors between CRM, QuickBooks, Gmail, Slack or Teams, and calendar.",
     "founder": {
       "@type": "Person",
       "name": "Clancy Booher"
@@ -34,407 +35,2702 @@
       "@type": "City",
       "name": "Bend",
       "containedInPlace": { "@type": "State", "name": "Oregon" }
+    },
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Packages",
+      "itemListElement": [
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Setup", "description": "One chief of staff bot on Grok plus core connectors. Fixed build." } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Team", "description": "Specialist bots for quotes, leads, books, and field work." } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Care", "description": "Monthly. Keeps the bots working, fixes breaks, adds one automation a month." } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Custom connectors", "description": "CRM, QuickBooks, Gmail, Slack or Teams, calendar, and other tools wired together." } }
+      ]
     }
   }
   </script>
 
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": [
-      {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://peakvieworegon.com/"},
-      {"@type": "ListItem", "position": 2, "name": "Automations", "item": "https://peakvieworegon.com/automations"}
-    ]
-  }
-  </script>
-
-  <link rel="icon" type="image/png" href="logo.png" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23131313'/%3E%3Cpath d='M16 16h32v32H16z' fill='none' stroke='%23d2e9fe' stroke-width='5'/%3E%3Cpath d='M32 16v32' stroke='%23d2e9fe' stroke-width='5'/%3E%3C/svg%3E" />
+  <link rel="preconnect" href="https://api.fontshare.com" crossorigin />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://api.fontshare.com/v2/css?f[]=satoshi@500,700,900&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet" />
 
   <style>
-    /* Scoped to this page only. Does not load styles.css. */
+    /* Standalone page. Does not load styles.css. Every class is cb- prefixed. */
     body.automations {
-      --auto-bg: #0c0c0b;
-      --auto-raised: #141412;
-      --auto-text: #f3f0e6;
-      --auto-muted: #9b9688;
-      --auto-faint: #6e6a60;
-      --auto-accent: #fef47a;
-      --auto-line: rgba(254, 244, 122, 0.14);
-      --auto-font: "Inter", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      --cb-bg: #f9f9f9;
+      --cb-panel: #f3f3f3;
+      --cb-line: #e5e5e5;
+      --cb-line-2: #d3d3d3;
+      --cb-ink: #131313;
+      --cb-ink-2: #3a3a3a;
+      --cb-muted: #7d8082;
+      --cb-faint: #b4b6b8;
+      --cb-blue: #d2e9fe;
+      --cb-blue-soft: #dfeefc;
+      --cb-blue-2: #8fc5f2;
+      --cb-lime: #98fe00;
+      --cb-r: 6px;
+      --cb-r-sm: 4px;
+      --cb-orange: #ff9500;
+      --cb-dark: #131313;
+      --cb-darker: #090909;
+      --cb-sans: "Satoshi", "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+      --cb-mono: "Roboto Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+      --cb-ease: cubic-bezier(0.22, 0.61, 0.36, 1);
+      --cb-cut: 3.5rem;
       margin: 0;
-      background: var(--auto-bg);
-      color: var(--auto-text);
-      font-family: var(--auto-font);
-      font-size: 1.0625rem;
-      line-height: 1.7;
-      font-weight: 400;
+      background: var(--cb-bg);
+      color: var(--cb-ink);
+      font-family: var(--cb-sans);
+      font-size: 1rem;
+      line-height: 1.5;
+      font-weight: 500;
+      letter-spacing: -0.01em;
       -webkit-font-smoothing: antialiased;
       text-rendering: optimizeLegibility;
+      overflow-x: hidden;
     }
 
     body.automations *,
     body.automations *::before,
-    body.automations *::after {
-      box-sizing: border-box;
-    }
+    body.automations *::after { box-sizing: border-box; }
 
-    body.automations a {
-      color: inherit;
-    }
+    /* :where() keeps these element resets at zero specificity so cb- classes always win. */
+    :where(body.automations) a { color: inherit; }
+    :where(body.automations) p { margin: 0; }
+    :where(body.automations) button { font: inherit; color: inherit; cursor: pointer; letter-spacing: inherit; }
 
-    body.automations a:focus-visible,
-    body.automations .auto-cta:focus-visible {
-      outline: 2px solid var(--auto-accent);
+    body.automations :focus-visible {
+      outline: 2px solid var(--cb-ink);
       outline-offset: 3px;
     }
 
-    body.automations .auto-skip {
+    :where(body.automations) h1,
+    :where(body.automations) h2,
+    :where(body.automations) h3 {
+      margin: 0;
+      font-weight: 700;
+      letter-spacing: -0.04em;
+      line-height: 1.05;
+    }
+
+    .cb-skip {
       position: absolute;
       left: 1rem;
       top: -3rem;
-      background: var(--auto-accent);
-      color: #14140f;
-      padding: 0.4rem 0.7rem;
+      background: var(--cb-ink);
+      color: #fff;
+      padding: 0.5rem 0.8rem;
       font-size: 0.85rem;
       text-decoration: none;
-      z-index: 20;
+      z-index: 50;
     }
+    .cb-skip:focus { top: 0.75rem; }
 
-    body.automations .auto-skip:focus {
-      top: 0.75rem;
-    }
-
-    body.automations .auto-wrap {
-      width: min(42rem, calc(100% - 2.5rem));
+    .cb-wrap {
+      width: min(82rem, calc(100% - 2.5rem));
       margin: 0 auto;
     }
 
-    body.automations .auto-header {
-      padding: 1.15rem 0 0;
+    /* Mono micro labels */
+    .cb-mono {
+      font-family: var(--cb-mono);
+      font-size: 0.72rem;
+      font-weight: 400;
+      letter-spacing: 0;
+      line-height: 1;
+      text-transform: uppercase;
+      color: var(--cb-muted);
     }
 
-    body.automations .auto-header__inner {
-      width: min(42rem, calc(100% - 2.5rem));
-      margin: 0 auto;
+    /* Header: sticky, picks up a hairline and a frosted field once the page scrolls. */
+    .cb-header {
+      position: sticky;
+      top: 0;
+      z-index: 40;
+      padding: 1.1rem 0;
+      background: rgba(249, 249, 249, 0);
+      border-bottom: 1px solid transparent;
+      transition: background 0.35s, border-color 0.35s, padding 0.35s var(--cb-ease);
+    }
+    .cb-header.is-scrolled {
+      padding: 0.75rem 0;
+      background: rgba(249, 249, 249, 0.82);
+      border-bottom-color: var(--cb-line);
+      -webkit-backdrop-filter: blur(14px) saturate(1.2);
+      backdrop-filter: blur(14px) saturate(1.2);
+    }
+
+    /* Over the dark sections the header flips to a dark frosted field. */
+    .cb-header.is-dark {
+      color: #fff;
+      background: rgba(19, 19, 19, 0.78);
+      border-bottom-color: rgba(255, 255, 255, 0.1);
+    }
+    .cb-header.is-dark .cb-brand__mark { background: #fff; }
+    .cb-header.is-dark .cb-brand__mark::before { border-color: var(--cb-dark); box-shadow: 0.2rem 0 0 -0.1rem var(--cb-dark); }
+    .cb-header.is-dark .cb-nav a { color: #fff; }
+    .cb-header.is-dark .cb-nav a:hover { color: var(--cb-faint); }
+    .cb-header.is-dark .cb-nav a::after { background: #fff; }
+    .cb-header.is-dark .cb-btn { border-color: rgba(255, 255, 255, 0.3); }
+
+    .cb-header__inner {
       display: flex;
-      align-items: baseline;
+      align-items: center;
       justify-content: space-between;
       gap: 1rem;
     }
 
-    body.automations .auto-brand {
-      text-decoration: none;
+    .cb-brand {
       display: flex;
-      flex-direction: column;
-      gap: 0.1rem;
-    }
-
-    body.automations .auto-brand__name {
-      font-size: 0.92rem;
-      font-weight: 500;
-      letter-spacing: -0.02em;
-    }
-
-    body.automations .auto-brand__mark {
-      font-size: 0.72rem;
-      color: var(--auto-muted);
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-    }
-
-    body.automations .auto-header__call {
-      font-size: 0.88rem;
-      color: var(--auto-muted);
+      align-items: center;
+      gap: 0.65rem;
       text-decoration: none;
-    }
-
-    body.automations .auto-header__call:hover {
-      color: var(--auto-accent);
-    }
-
-    body.automations .auto-hero {
-      padding: 5.5rem 0 4.5rem;
-    }
-
-    body.automations .auto-kicker {
-      margin: 0 0 1.1rem;
-      font-size: 0.72rem;
-      font-weight: 500;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--auto-accent);
-    }
-
-    body.automations .auto-hero h1 {
-      margin: 0 0 1.15rem;
-      font-size: clamp(2.05rem, 7.2vw, 3.25rem);
-      font-weight: 500;
-      line-height: 1.12;
-      letter-spacing: -0.035em;
-    }
-
-    body.automations .auto-hero__sub {
-      margin: 0 0 2rem;
-      max-width: 34rem;
-      color: var(--auto-muted);
+      font-weight: 700;
       font-size: 1.05rem;
+      letter-spacing: -0.03em;
     }
 
-    body.automations .auto-cta {
+    .cb-brand__mark {
+      width: 1.5rem;
+      height: 1.5rem;
+      display: grid;
+      place-items: center;
+      background: var(--cb-ink);
+      flex: 0 0 auto;
+    }
+
+    .cb-brand__mark::before {
+      content: "";
+      width: 0.75rem;
+      height: 0.75rem;
+      border: 2px solid var(--cb-blue);
+      border-right-width: 0;
+      box-shadow: 0.2rem 0 0 -0.1rem var(--cb-blue);
+    }
+
+    .cb-nav { display: none; gap: 1.75rem; }
+    .cb-nav a {
+      position: relative;
+      text-decoration: none;
+      transition: color 0.2s;
+      color: var(--cb-ink);
+      padding-bottom: 0.35rem;
+    }
+    .cb-nav a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 1px;
+      background: var(--cb-ink);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.35s var(--cb-ease);
+    }
+    .cb-nav a:hover { color: var(--cb-muted); }
+    .cb-nav a:hover::after,
+    .cb-nav a.is-active::after { transform: scaleX(1); }
+    .cb-nav a.is-active { color: var(--cb-ink); }
+
+    /* Buttons: label + square arrow box */
+    .cb-btn {
       display: inline-flex;
       align-items: center;
-      height: 2.45rem;
-      padding: 0 1.05rem;
-      border-radius: 999px;
-      background: var(--auto-accent);
-      color: #14140f;
-      font-size: 0.88rem;
-      font-weight: 550;
-      letter-spacing: -0.01em;
-      text-decoration: none;
-    }
-
-    body.automations .auto-cta:hover {
-      filter: brightness(1.04);
-    }
-
-    body.automations .auto-cta--ghost {
-      background: transparent;
-      color: var(--auto-text);
-      border: 1px solid var(--auto-line);
-    }
-
-    body.automations .auto-cta--ghost:hover {
-      border-color: var(--auto-accent);
-      color: var(--auto-accent);
-      filter: none;
-    }
-
-    body.automations .auto-section {
-      padding: 0 0 4.25rem;
-    }
-
-    body.automations .auto-section h2 {
-      margin: 0 0 1.35rem;
-      font-size: 0.72rem;
+      justify-content: space-between;
+      gap: 1.25rem;
+      min-height: 2.75rem;
+      padding: 0.3rem 0.3rem 0.3rem 1rem;
+      border: 1px solid var(--cb-ink);
+      border-radius: var(--cb-r-sm);
+      background: var(--cb-ink);
+      color: #fff;
+      font-size: 0.95rem;
       font-weight: 500;
-      letter-spacing: 0.14em;
+      text-decoration: none;
+      transition: background 0.2s, border-color 0.2s, color 0.2s;
+      white-space: nowrap;
+    }
+
+    .cb-btn__box {
+      width: 2.1rem;
+      height: 2.1rem;
+      flex: 0 0 auto;
+      display: grid;
+      place-items: center;
+      background: var(--cb-blue);
+      color: var(--cb-ink);
+      border-radius: 2px;
+      transition: background 0.2s;
+    }
+
+    .cb-btn__box svg {
+      width: 0.85rem;
+      height: 0.85rem;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 1.8;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      transition: transform 0.25s var(--cb-ease);
+    }
+
+    .cb-btn:hover { background: #000; }
+    .cb-btn:hover .cb-btn__box svg { transform: translate(2px, -2px); }
+    .cb-btn:hover .cb-btn__box { transform: scale(1.06); }
+    .cb-btn__box { transition: background 0.2s, transform 0.3s var(--cb-ease); }
+    .cb-btn--play:hover .cb-btn__box svg { transform: translateX(2px); }
+
+    .cb-btn--light {
+      background: var(--cb-bg);
+      border-color: var(--cb-line-2);
+      color: var(--cb-ink);
+    }
+    .cb-btn--light .cb-btn__box { background: var(--cb-line); }
+    .cb-btn--light:hover { background: #fff; border-color: var(--cb-ink); }
+
+    .cb-btn--blue {
+      background: var(--cb-blue);
+      border-color: var(--cb-blue);
+      color: var(--cb-ink);
+    }
+    .cb-btn--blue .cb-btn__box { background: var(--cb-ink); color: #fff; }
+    .cb-btn--blue:hover { background: var(--cb-blue-soft); border-color: var(--cb-blue-soft); }
+
+    .cb-btn--ghost-dark {
+      background: transparent;
+      border-color: rgba(255, 255, 255, 0.22);
+      color: #fff;
+    }
+    .cb-btn--ghost-dark .cb-btn__box { background: rgba(255, 255, 255, 0.1); color: #fff; }
+    .cb-btn--ghost-dark:hover { background: rgba(255, 255, 255, 0.05); border-color: rgba(255, 255, 255, 0.5); }
+
+    .cb-btn--sm { min-height: 2.4rem; font-size: 0.86rem; gap: 0.9rem; padding-left: 0.85rem; }
+    .cb-btn--sm .cb-btn__box { width: 1.8rem; height: 1.8rem; }
+
+    @media (max-width: 639px) {
+      .cb-actions .cb-btn,
+      .cb-cta__actions .cb-btn { white-space: normal; text-align: left; min-width: 0; }
+      .cb-actions .cb-btn > span:first-child,
+      .cb-cta__actions .cb-btn > span:first-child { overflow-wrap: anywhere; }
+    }
+
+    /* Hero */
+    .cb-hero { padding: 3.5rem 0 0; }
+
+    .cb-hero__top {
+      display: grid;
+      gap: 2.5rem;
+      align-items: end;
+    }
+
+    .cb-hero h1 {
+      font-size: clamp(2.5rem, 7.4vw, 5rem);
+      line-height: 1;
+      max-width: 16ch;
+    }
+
+    .cb-word {
+      display: inline-block;
+      opacity: 0;
+      transform: translateY(0.35em);
+      transition: opacity 0.7s var(--cb-ease), transform 0.7s var(--cb-ease);
+    }
+
+    .is-in .cb-word { opacity: 1; transform: none; }
+
+    /* Status card in the hero (stands where the reference puts a small photo) */
+    .cb-status {
+      background: var(--cb-dark);
+      color: #fff;
+      padding: 1rem 1.1rem 1.1rem;
+      font-family: var(--cb-mono);
+      font-size: 0.74rem;
+      letter-spacing: 0;
+      display: grid;
+      gap: 0.6rem;
+      clip-path: polygon(0 0, calc(100% - 1.4rem) 0, 100% 1.4rem, 100% 100%, 0 100%);
+      justify-self: start;
+      width: min(100%, 24rem);
+    }
+
+    .cb-status__head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: var(--cb-faint);
       text-transform: uppercase;
-      color: var(--auto-accent);
+      padding-bottom: 0.6rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.12);
     }
 
-    body.automations .auto-list {
-      margin: 0;
-      padding: 0;
-      list-style: none;
+    .cb-status__live {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      color: #fff;
     }
 
-    body.automations .auto-list li {
-      padding: 0.85rem 0;
-      border-top: 1px solid var(--auto-line);
-      color: var(--auto-text);
+    .cb-status__live::before {
+      content: "";
+      width: 0.45rem;
+      height: 0.45rem;
+      background: var(--cb-lime);
+      animation: cb-blink 1.6s steps(2, end) infinite;
     }
 
-    body.automations .auto-list li:last-child {
-      border-bottom: 1px solid var(--auto-line);
+    .cb-status__row {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      text-transform: uppercase;
     }
 
-    body.automations .auto-steps {
-      margin: 0;
-      padding: 0;
-      list-style: none;
+    .cb-status__row span:last-child { color: var(--cb-faint); }
+    .cb-status__row.is-wait span:last-child { color: var(--cb-orange); }
+    .cb-status__row.is-ok span:last-child { color: var(--cb-blue-2); }
+
+    @keyframes cb-blink { 50% { opacity: 0.2; } }
+
+    .cb-hero__bottom {
       display: grid;
-      gap: 1.65rem;
-    }
-
-    body.automations .auto-steps li {
-      display: grid;
-      grid-template-columns: 2.1rem 1fr;
-      gap: 0.85rem;
+      gap: 2.5rem;
+      margin-top: 3rem;
       align-items: start;
     }
 
-    body.automations .auto-steps span {
+    .cb-hero__copy { display: grid; gap: 1.5rem; align-content: start; }
+
+    .cb-hero__copy > p {
+      font-size: 1.15rem;
+      line-height: 1.45;
+      letter-spacing: -0.02em;
+      max-width: 30rem;
+    }
+
+    .cb-actions { display: flex; flex-wrap: wrap; gap: 0.75rem; }
+    .cb-actions .cb-btn { flex: 1 1 auto; }
+
+    .cb-hero__note { font-size: 0.9rem; color: var(--cb-muted); }
+    .cb-hero__note a { color: var(--cb-ink); text-decoration: none; border-bottom: 1px solid var(--cb-line-2); }
+
+    /* Wiring panel */
+    .cb-art {
+      background: var(--cb-panel);
+      padding: 1.25rem;
+      clip-path: polygon(0 0, 100% 0, 100% calc(100% - var(--cb-cut)), calc(100% - var(--cb-cut)) 100%, 0 100%);
+    }
+
+    .cb-art svg { display: block; width: 100%; height: auto; will-change: transform; }
+
+    .cb-node { fill: #fff; stroke: var(--cb-line-2); stroke-width: 1.2; }
+    .cb-node--core { fill: var(--cb-dark); stroke: var(--cb-dark); }
+    .cb-glyph { fill: none; stroke: var(--cb-ink); stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+    .cb-glyph--light { stroke: var(--cb-blue); }
+    .cb-label { fill: var(--cb-muted); font-family: var(--cb-mono); font-size: 10px; text-transform: uppercase; }
+    .cb-wire { fill: none; stroke: var(--cb-line-2); stroke-width: 1.2; }
+
+    /* Wires draw themselves on load (pathLength="1" on each path), then the flow dashes fade in. */
+    .cb-wire--draw {
+      stroke-dasharray: 1;
+      stroke-dashoffset: 1;
+      animation: cb-draw 1.3s var(--cb-ease) forwards;
+      animation-delay: var(--d, 0s);
+    }
+    @keyframes cb-draw { to { stroke-dashoffset: 0; } }
+
+    .cb-wire--flow {
+      stroke: var(--cb-blue-2);
+      stroke-width: 1.6;
+      stroke-dasharray: 6 16;
+      opacity: 0;
+      animation: cb-flow 1.9s linear infinite, cb-fade 0.8s var(--cb-ease) 1.3s forwards;
+    }
+    @keyframes cb-flow { to { stroke-dashoffset: -44; } }
+    @keyframes cb-fade { to { opacity: 1; } }
+
+    .cb-pop {
+      opacity: 0;
+      transform-box: fill-box;
+      transform-origin: center;
+      transform: scale(0.85);
+      animation: cb-pop 0.7s var(--cb-ease) forwards;
+      animation-delay: var(--d, 0s);
+    }
+    @keyframes cb-pop { to { opacity: 1; transform: none; } }
+
+    .cb-ring {
+      fill: none;
+      stroke: var(--cb-blue-2);
+      stroke-width: 1;
+      opacity: 0;
+      transform-box: fill-box;
+      transform-origin: center;
+      animation: cb-ring 2.8s ease-out infinite;
+    }
+    @keyframes cb-ring {
+      0% { transform: scale(0.9); opacity: 0.7; }
+      100% { transform: scale(1.5); opacity: 0; }
+    }
+
+    /* Runs-on strip */
+    .cb-strip {
+      margin-top: 2.5rem;
+      padding: 1.25rem 0 0;
+      border-top: 1px solid var(--cb-line);
+      display: grid;
+      gap: 1rem;
+    }
+
+    /* Marquee: two copies of the list, track slides one list-width, pauses on hover. */
+    .cb-marquee {
+      overflow: hidden;
+      -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+      mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+    }
+    .cb-marquee__track {
+      display: flex;
+      width: max-content;
+      animation: cb-marquee 32s linear infinite;
+    }
+    .cb-marquee:hover .cb-marquee__track { animation-play-state: paused; }
+    @keyframes cb-marquee { to { transform: translateX(-50%); } }
+
+    .cb-strip ul {
+      margin: 0;
+      padding: 0 1.75rem 0 0;
+      list-style: none;
+      display: flex;
+      flex: 0 0 auto;
+      gap: 0.6rem 1.75rem;
+      font-family: var(--cb-mono);
       font-size: 0.78rem;
-      font-weight: 500;
-      letter-spacing: 0.06em;
-      color: var(--auto-accent);
-      padding-top: 0.2rem;
+      text-transform: uppercase;
+      color: var(--cb-faint);
+      white-space: nowrap;
+    }
+    .cb-strip li { display: inline-flex; align-items: center; gap: 1.75rem; }
+    .cb-strip li::after { content: ""; width: 0.3rem; height: 0.3rem; background: var(--cb-line-2); }
+
+    /* Section header pattern */
+    .cb-section { padding: 6rem 0; }
+
+    .cb-head { display: grid; gap: 0.9rem; }
+
+    .cb-rule { height: 1px; background: var(--cb-line); position: relative; }
+    .cb-rule span {
+      position: absolute;
+      left: 0;
+      top: 0;
+      height: 1px;
+      width: 0;
+      background: var(--cb-faint);
+      transition: width 1.1s var(--cb-ease);
+    }
+    .is-in .cb-rule span,
+    .cb-rule.is-in span { width: 8rem; }
+
+    .cb-head__row {
+      display: grid;
+      gap: 1.25rem 2rem;
+      margin-top: 1.25rem;
+      align-items: start;
     }
 
-    body.automations .auto-steps p {
+    .cb-head h2 { font-size: clamp(1.75rem, 3.4vw, 2.4rem); }
+
+    .cb-head__lead {
+      font-size: 0.98rem;
+      color: var(--cb-ink-2);
+      max-width: 27rem;
+    }
+
+    .cb-head__lead a { color: var(--cb-ink); text-decoration: none; border-bottom: 1px solid var(--cb-line-2); }
+
+    /* Reveal */
+    [data-reveal] {
+      opacity: 0;
+      transform: translateY(16px);
+      transition: opacity 0.8s var(--cb-ease), transform 0.8s var(--cb-ease), filter 0.8s var(--cb-ease);
+    }
+    [data-reveal].is-in { opacity: 1; transform: none; filter: none; }
+
+    /* Headings and statements also sharpen from a light blur. Kept off big panels for smoothness. */
+    .cb-head[data-reveal]:not(.is-in),
+    .cb-pain__statement[data-reveal]:not(.is-in),
+    .cb-cta__row[data-reveal]:not(.is-in) { filter: blur(6px); }
+
+    /* Mono labels fade in behind the scramble. */
+    [data-scramble] {
+      opacity: 0;
+      transition: opacity 0.6s var(--cb-ease);
+    }
+    [data-scramble].is-in { opacity: 1; }
+
+    /* Parallax targets: JS writes --py; kept in a var so it composes with hover transforms. */
+    [data-parallax] {
+      transform: translate3d(0, var(--py, 0px), 0);
+      will-change: transform;
+    }
+
+    /* Cursor glow: JS writes --mx/--my on hover. */
+    [data-glow] { position: relative; overflow: hidden; }
+    [data-glow]::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0;
+      background: radial-gradient(22rem circle at var(--mx, 50%) var(--my, 50%), var(--cb-glow, rgba(210, 233, 254, 0.7)), transparent 60%);
+      transition: opacity 0.45s var(--cb-ease);
+      z-index: 0;
+    }
+    [data-glow]:hover::before { opacity: 1; }
+    [data-glow] > * { position: relative; z-index: 1; }
+
+    [data-reveal-stagger] > * {
+      opacity: 0;
+      transform: translateY(14px);
+      transition: opacity 0.7s var(--cb-ease), transform 0.7s var(--cb-ease);
+    }
+    [data-reveal-stagger].is-in > * { opacity: 1; transform: none; }
+    [data-reveal-stagger].is-in > *:nth-child(2) { transition-delay: 0.07s; }
+    [data-reveal-stagger].is-in > *:nth-child(3) { transition-delay: 0.14s; }
+    [data-reveal-stagger].is-in > *:nth-child(4) { transition-delay: 0.21s; }
+    [data-reveal-stagger].is-in > *:nth-child(5) { transition-delay: 0.28s; }
+    [data-reveal-stagger].is-in > *:nth-child(6) { transition-delay: 0.35s; }
+    [data-reveal-stagger].is-in > *:nth-child(7) { transition-delay: 0.42s; }
+    [data-reveal-stagger].is-in > *:nth-child(8) { transition-delay: 0.49s; }
+    [data-reveal-stagger].is-in > *:nth-child(9) { transition-delay: 0.56s; }
+    [data-reveal-stagger].is-in > *:nth-child(10) { transition-delay: 0.63s; }
+    [data-reveal-stagger].is-in > *:nth-child(11) { transition-delay: 0.70s; }
+    [data-reveal-stagger].is-in > *:nth-child(12) { transition-delay: 0.77s; }
+
+    /* Pain chips */
+    .cb-pain { padding: 5rem 0 2rem; }
+
+    .cb-pain__stage {
+      position: relative;
+      display: grid;
+      gap: 2rem;
+    }
+
+    .cb-pain__statement {
+      font-size: clamp(1.35rem, 2.6vw, 1.85rem);
+      font-weight: 700;
+      letter-spacing: -0.04em;
+      line-height: 1.15;
+      max-width: 40rem;
+    }
+
+    .cb-chips {
       margin: 0;
-    }
-
-    body.automations .auto-steps strong {
-      display: block;
-      font-weight: 500;
-      margin-bottom: 0.2rem;
-    }
-
-    body.automations .auto-steps em,
-    body.automations .auto-for p {
-      font-style: normal;
-      color: var(--auto-muted);
-    }
-
-    body.automations .auto-for p {
-      margin: 0 0 1.1rem;
-      max-width: 34rem;
-    }
-
-    body.automations .auto-note {
-      margin: 0;
-      font-size: 0.88rem;
-      color: var(--auto-faint);
-      max-width: 32rem;
-    }
-
-    body.automations .auto-band {
-      background: var(--auto-raised);
-      border-top: 1px solid var(--auto-line);
-      border-bottom: 1px solid var(--auto-line);
-      padding: 3.25rem 0;
-    }
-
-    body.automations .auto-band h2 {
-      margin: 0 0 0.65rem;
-      font-size: clamp(1.45rem, 4vw, 1.85rem);
-      font-weight: 500;
-      letter-spacing: -0.03em;
-      text-transform: none;
-      color: var(--auto-text);
-    }
-
-    body.automations .auto-band p {
-      margin: 0 0 1.4rem;
-      color: var(--auto-muted);
-    }
-
-    body.automations .auto-band__links {
+      padding: 0;
+      list-style: none;
       display: flex;
       flex-wrap: wrap;
-      gap: 0.65rem 0.75rem;
+      gap: 0.6rem;
     }
 
-    body.automations .auto-footer {
-      padding: 2.25rem 0 2.75rem;
-      font-size: 0.8rem;
-      color: var(--auto-faint);
+    .cb-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      background: var(--cb-panel);
+      border: 1px solid var(--cb-line);
+      border-radius: var(--cb-r-sm);
+      padding: 0.7rem 1rem;
+      font-size: 0.86rem;
+      white-space: nowrap;
+      box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+      transition: border-color 0.3s, box-shadow 0.3s, background 0.3s, opacity 0.7s var(--cb-ease), transform 0.7s var(--cb-ease);
+    }
+    .cb-chip:hover {
+      background: #fff;
+      border-color: var(--cb-line-2);
+      box-shadow: 0 10px 24px -14px rgba(0, 0, 0, 0.35);
     }
 
-    body.automations .auto-footer p {
+    .cb-chip svg {
+      width: 0.9rem;
+      height: 0.9rem;
+      fill: none;
+      stroke: var(--cb-orange);
+      stroke-width: 1.8;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      flex: 0 0 auto;
+    }
+
+    /* Capability cards */
+    .cb-caps {
+      display: grid;
+      gap: 0.6rem;
+      margin-top: 3rem;
+    }
+
+    .cb-cap {
+      position: relative;
+      background: var(--cb-panel);
+      border-radius: var(--cb-r);
+      padding: 1.5rem 1.35rem 1.5rem;
+      min-height: 19.5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      gap: 0.5rem;
+      overflow: hidden;
+      box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+      transition: background 0.3s, box-shadow 0.5s var(--cb-ease), opacity 0.7s var(--cb-ease), transform 0.7s var(--cb-ease);
+    }
+
+    /* Hover: the card lifts, the clay icon floats a touch higher and tilts. */
+    [data-reveal-stagger].is-in > .cb-cap:hover {
+      background: #f0f0f0;
+      transform: translateY(-4px);
+      box-shadow: 0 24px 40px -28px rgba(0, 0, 0, 0.35);
+    }
+
+    .cb-cap svg {
+      position: absolute;
+      top: 0.75rem;
+      right: 1rem;
+      width: 10.5rem;
+      height: 10.5rem;
+      transition: transform 0.6s var(--cb-ease);
+    }
+
+    .cb-cap:hover svg { transform: translateY(-6px) rotate(-2deg); }
+
+    .cb-cap__kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--cb-muted);
+    }
+    .cb-cap__kicker::before { content: ""; width: 0.35rem; height: 0.35rem; background: var(--cb-orange); }
+
+    .cb-cap h3 { font-size: 1.35rem; }
+    .cb-cap p { font-size: 0.9rem; color: var(--cb-ink-2); max-width: 24rem; }
+    .cb-cap p.cb-cap__kicker { max-width: none; }
+
+    .cb-cap--wide { grid-column: span 1; }
+
+    /* Clay art: three grey faces plus a soft shadow. */
+    .cb-clay { filter: url(#clay-shadow); }
+    .cb-clay-top { fill: #f6f6f6; }
+    .cb-clay-left { fill: #e1e1e1; }
+    .cb-clay-right { fill: #cfcfcf; }
+    .cb-clay-front { fill: #e8e8e8; }
+    .cb-clay-back { fill: #cbcbcb; }
+    .cb-clay-mark { fill: none; stroke: #9a9a9a; stroke-width: 2.4; stroke-linecap: round; stroke-linejoin: round; }
+    .cb-clay-dot { fill: #b4b6b8; }
+    .cb-clay-hole { fill: var(--cb-panel); }
+    .cb-cap:hover .cb-clay-hole { fill: #f0f0f0; }
+
+    /* Dark sections */
+    .cb-dark {
+      background: var(--cb-dark);
+      color: #fff;
+      clip-path: polygon(0 0, calc(100% - var(--cb-cut)) 0, 100% var(--cb-cut), 100% 100%, 0 100%);
+      --cb-line: rgba(255, 255, 255, 0.12);
+      --cb-line-2: rgba(255, 255, 255, 0.2);
+      --cb-ink-2: #d3d3d3;
+      --cb-muted: #b4b6b8;
+      --cb-faint: #7d8082;
+    }
+
+    .cb-dark .cb-head h2 { color: #fff; }
+    .cb-dark .cb-rule span { background: #fff; }
+
+    /* Demo */
+    .cb-demo__shell {
+      margin-top: 3rem;
+      border: 1px solid var(--cb-line);
+      border-radius: var(--cb-r);
+      overflow: hidden;
+      background: #171717;
+    }
+
+    .cb-tabs {
+      display: flex;
+      border-bottom: 1px solid var(--cb-line);
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+    .cb-tabs::-webkit-scrollbar { display: none; }
+
+    .cb-tab {
+      flex: 0 0 auto;
+      background: transparent;
+      border: 0;
+      border-right: 1px solid var(--cb-line);
+      border-bottom: 2px solid transparent;
+      padding: 0.95rem 1.1rem 0.85rem;
+      font-family: var(--cb-mono);
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      color: var(--cb-muted);
+      transition: color 0.2s, background 0.2s, border-color 0.2s;
+      white-space: nowrap;
+    }
+
+    .cb-tab:hover { color: #fff; background: rgba(255, 255, 255, 0.03); }
+    .cb-tab[aria-selected="true"] { color: #fff; border-bottom-color: var(--cb-blue-2); }
+
+    .cb-demo__head {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.9rem 1.5rem;
+      padding: 1rem 1.15rem;
+      border-bottom: 1px solid var(--cb-line);
+    }
+
+    .cb-demo__trigger {
+      display: flex;
+      align-items: baseline;
+      gap: 0.75rem;
+      font-size: 0.95rem;
+      min-width: 0;
+    }
+
+    .cb-demo__trigger .cb-mono { flex: 0 0 auto; }
+
+    .cb-demo__controls { display: flex; align-items: center; gap: 0.5rem; }
+
+    .cb-icon-btn {
+      width: 2.4rem;
+      height: 2.4rem;
+      display: grid;
+      place-items: center;
+      border: 1px solid var(--cb-line-2);
+      border-radius: var(--cb-r-sm);
+      background: transparent;
+      color: #fff;
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .cb-icon-btn:hover { border-color: #fff; background: rgba(255, 255, 255, 0.05); }
+    .cb-icon-btn svg { width: 0.9rem; height: 0.9rem; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+
+    .cb-demo__grid { display: grid; }
+
+    .cb-stage {
+      padding: 1.15rem;
+      min-height: 15rem;
+      border-top: 1px solid var(--cb-line);
+    }
+    .cb-stage:first-child { border-top: 0; }
+
+    .cb-stage h3 {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-family: var(--cb-mono);
+      font-weight: 400;
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0;
+      color: var(--cb-muted);
+      margin-bottom: 1rem;
+    }
+
+    .cb-conn-list,
+    .cb-steps { margin: 0; padding: 0; list-style: none; display: grid; gap: 0.5rem; }
+
+    .cb-conn {
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+      padding: 0.6rem 0.75rem;
+      border: 1px solid var(--cb-line);
+      border-radius: var(--cb-r-sm);
+      font-size: 0.88rem;
+      opacity: 0.35;
+      transition: opacity 0.4s var(--cb-ease), border-color 0.4s;
+    }
+    .cb-conn.is-on { opacity: 1; border-color: rgba(143, 197, 242, 0.5); }
+
+    .cb-conn__dot {
+      width: 0.45rem;
+      height: 0.45rem;
+      background: var(--cb-faint);
+      flex: 0 0 auto;
+      transition: background 0.3s;
+    }
+    .cb-conn.is-on .cb-conn__dot { background: var(--cb-blue-2); }
+
+    .cb-conn__glyph { width: 1.05rem; height: 1.05rem; flex: 0 0 auto; color: #fff; }
+    .cb-conn__glyph svg { width: 100%; height: 100%; display: block; }
+    .cb-conn small { margin-left: auto; font-family: var(--cb-mono); font-size: 0.66rem; text-transform: uppercase; color: var(--cb-faint); }
+
+    .cb-step {
+      display: grid;
+      grid-template-columns: 1rem 1fr;
+      gap: 0.7rem;
+      align-items: start;
+      font-size: 0.9rem;
+      opacity: 0;
+      transform: translateY(6px);
+      transition: opacity 0.45s var(--cb-ease), transform 0.45s var(--cb-ease);
+    }
+    .cb-step.is-in { opacity: 1; transform: none; }
+
+    .cb-step__mark {
+      width: 1rem;
+      height: 1rem;
+      margin-top: 0.2rem;
+      border: 1.5px solid var(--cb-line-2);
+      display: grid;
+      place-items: center;
+    }
+    .cb-step.is-running .cb-step__mark { border-color: var(--cb-blue-2); border-top-color: transparent; border-radius: 50%; animation: cb-spin 0.9s linear infinite; }
+    .cb-step.is-done .cb-step__mark { border-color: var(--cb-blue-2); background: rgba(143, 197, 242, 0.15); }
+    .cb-step.is-done .cb-step__mark::after {
+      content: "";
+      width: 0.3rem;
+      height: 0.16rem;
+      border-left: 1.5px solid var(--cb-blue-2);
+      border-bottom: 1.5px solid var(--cb-blue-2);
+      transform: translateY(-1px) rotate(-45deg);
+    }
+    .cb-step.is-hold .cb-step__mark { border-color: var(--cb-orange); background: rgba(255, 149, 0, 0.14); }
+    .cb-step.is-hold .cb-step__mark::after { content: ""; width: 0.28rem; height: 0.28rem; background: var(--cb-orange); }
+    .cb-step.is-hold p { color: var(--cb-orange); }
+    @keyframes cb-spin { to { transform: rotate(360deg); } }
+
+    .cb-step__time {
+      display: block;
+      font-family: var(--cb-mono);
+      font-size: 0.66rem;
+      text-transform: uppercase;
+      color: var(--cb-faint);
+      margin-bottom: 0.1rem;
+    }
+
+    .cb-stage--out { background: rgba(255, 255, 255, 0.02); }
+
+    .cb-out {
+      border: 1px solid var(--cb-line-2);
+      border-radius: var(--cb-r-sm);
+      overflow: hidden;
+      background: #0f0f0f;
+      font-size: 0.88rem;
+      opacity: 0;
+      transform: translateY(8px);
+      transition: opacity 0.55s var(--cb-ease), transform 0.55s var(--cb-ease);
+    }
+    .cb-out.is-in { opacity: 1; transform: none; }
+
+    .cb-out__bar {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.55rem 0.85rem;
+      border-bottom: 1px solid var(--cb-line);
+      font-family: var(--cb-mono);
+      font-size: 0.66rem;
+      text-transform: uppercase;
+      color: var(--cb-muted);
+    }
+    .cb-out__bar::before { content: ""; width: 0.4rem; height: 0.4rem; background: var(--cb-blue-2); }
+
+    .cb-out__body { padding: 0.9rem 0.95rem; display: grid; gap: 0.55rem; }
+    .cb-out__row { display: grid; grid-template-columns: 4rem 1fr; gap: 0.5rem; font-size: 0.84rem; }
+    .cb-out__row span { color: var(--cb-faint); }
+    .cb-out__text { white-space: pre-line; line-height: 1.5; color: #fff; }
+    .cb-out__foot { padding: 0.6rem 0.95rem; border-top: 1px solid var(--cb-line); font-size: 0.78rem; color: var(--cb-faint); }
+
+    .cb-cal { display: flex; align-items: center; gap: 0.9rem; }
+    .cb-cal__date { width: 3.4rem; border: 1px solid var(--cb-line-2); border-radius: var(--cb-r-sm); overflow: hidden; text-align: center; flex: 0 0 auto; }
+    .cb-cal__date b { display: block; font-family: var(--cb-mono); font-size: 0.62rem; font-weight: 400; text-transform: uppercase; padding: 0.25rem 0; background: var(--cb-blue); color: var(--cb-ink); }
+    .cb-cal__date span { display: block; font-size: 1.15rem; font-weight: 700; padding: 0.3rem 0 0.35rem; letter-spacing: -0.03em; }
+    .cb-cal__meta { color: var(--cb-muted); font-size: 0.82rem; }
+
+    .cb-msg { display: grid; grid-template-columns: 1.6rem 1fr; gap: 0.6rem; align-items: start; font-size: 0.86rem; }
+    .cb-msg__avatar { width: 1.6rem; height: 1.6rem; background: #1f2228; border: 1px solid var(--cb-line-2); display: grid; place-items: center; font-family: var(--cb-mono); font-size: 0.62rem; text-transform: uppercase; color: var(--cb-muted); }
+    .cb-msg--bot .cb-msg__avatar { background: var(--cb-blue); border-color: var(--cb-blue); color: var(--cb-ink); }
+    .cb-msg b { display: block; font-weight: 700; font-size: 0.8rem; margin-bottom: 0.05rem; }
+    .cb-msg b small { font-family: var(--cb-mono); font-size: 0.62rem; font-weight: 400; color: var(--cb-faint); margin-left: 0.4rem; text-transform: uppercase; }
+    .cb-msg p { color: var(--cb-muted); }
+    .cb-msg--bot p { color: #fff; }
+
+    .cb-table { width: 100%; border-collapse: collapse; font-size: 0.78rem; }
+    .cb-table th, .cb-table td { text-align: left; padding: 0.45rem 0.5rem; border-bottom: 1px solid var(--cb-line); white-space: nowrap; }
+    .cb-table th { font-family: var(--cb-mono); font-weight: 400; font-size: 0.62rem; text-transform: uppercase; color: var(--cb-faint); }
+    .cb-table tr.is-new td { background: rgba(143, 197, 242, 0.08); color: #fff; }
+
+    .cb-digest { margin: 0; padding: 0 0 0 1.1rem; display: grid; gap: 0.35rem; color: #fff; }
+    .cb-digest li::marker { color: var(--cb-blue-2); }
+
+    .cb-progress { height: 2px; background: rgba(255, 255, 255, 0.06); }
+    .cb-progress span { display: block; height: 100%; width: 0; background: var(--cb-blue-2); transition: width 0.5s var(--cb-ease); }
+
+    .cb-demo__foot {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem 1.5rem;
+      justify-content: space-between;
+      margin-top: 1.1rem;
+      font-size: 0.84rem;
+      color: var(--cb-muted);
+    }
+
+    /* Packages */
+    .cb-pkgs {
+      display: grid;
+      gap: 0.6rem;
+      margin-top: 3rem;
+    }
+
+    .cb-pkg {
+      background: var(--cb-panel);
+      border-radius: var(--cb-r);
+      padding: 1.5rem 1.35rem 1.6rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.1rem;
+      min-height: 26rem;
+      box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+      transition: box-shadow 0.5s var(--cb-ease), opacity 0.7s var(--cb-ease), transform 0.7s var(--cb-ease), background 0.3s;
+    }
+    [data-reveal-stagger].is-in > .cb-pkg:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 24px 40px -28px rgba(0, 0, 0, 0.4);
+    }
+
+    .cb-pkg__top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid var(--cb-line);
+    }
+    .cb-pkg__tag {
+      font-family: var(--cb-mono);
+      font-size: 0.66rem;
+      text-transform: uppercase;
+      padding: 0.4rem 0.6rem;
+      border-radius: 2px;
+      background: var(--cb-blue);
+      color: var(--cb-ink);
+    }
+
+    .cb-pkg h3 { font-size: 1.5rem; }
+    .cb-pkg__lead { font-size: 0.95rem; color: var(--cb-ink-2); }
+
+    .cb-pkg__facts { margin: auto 0 0; display: grid; gap: 0.75rem; padding-top: 1rem; border-top: 1px solid var(--cb-line); }
+    .cb-pkg__facts div { display: grid; gap: 0.3rem; font-size: 0.9rem; }
+    .cb-pkg__facts dt { font-family: var(--cb-mono); font-size: 0.66rem; text-transform: uppercase; color: var(--cb-muted); }
+    .cb-pkg__facts dd { margin: 0; color: var(--cb-ink); }
+
+    .cb-pkg__fixes { display: flex; flex-wrap: wrap; gap: 0.4rem; margin: 0.15rem 0 0; padding: 0; list-style: none; }
+    .cb-pkg__fixes li {
+      font-size: 0.78rem;
+      padding: 0.35rem 0.6rem;
+      border: 1px solid var(--cb-line-2);
+      border-radius: var(--cb-r-sm);
+      color: var(--cb-ink-2);
+      background: var(--cb-bg);
+    }
+
+    .cb-pkg--dark {
+      background: var(--cb-dark);
+      color: #fff;
+      --cb-line: rgba(255, 255, 255, 0.12);
+      --cb-line-2: rgba(255, 255, 255, 0.22);
+      --cb-ink-2: #d3d3d3;
+      --cb-muted: #b4b6b8;
+      --cb-bg: rgba(255, 255, 255, 0.04);
+      --cb-glow: rgba(143, 197, 242, 0.16);
+    }
+    .cb-pkg--dark h3, .cb-pkg--dark .cb-pkg__facts dd { color: #fff; }
+    .cb-pkg--dark .cb-pkg__tag { background: var(--cb-blue); color: var(--cb-dark); }
+
+    .cb-pkgs__note { margin-top: 1.25rem; font-size: 0.9rem; color: var(--cb-muted); max-width: 40rem; }
+    .cb-pkgs__note a { color: var(--cb-ink); text-decoration: none; border-bottom: 1px solid var(--cb-line-2); }
+
+    /* Connector pairs */
+    .cb-pairs {
+      margin: 3rem 0 0;
+      padding: 0;
+      list-style: none;
+      border-top: 1px solid var(--cb-line);
+    }
+    .cb-pair {
+      display: grid;
+      gap: 0.35rem 2rem;
+      padding: 1.1rem 0;
+      border-bottom: 1px solid var(--cb-line);
+      transition: opacity 0.7s var(--cb-ease), transform 0.7s var(--cb-ease), background 0.25s;
+    }
+    .cb-pair:hover { background: linear-gradient(90deg, var(--cb-panel), transparent 70%); }
+    .cb-pair__route {
+      display: inline-flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      font-family: var(--cb-mono);
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      color: var(--cb-ink);
+    }
+    .cb-pair__route svg { width: 0.85rem; height: 0.85rem; color: var(--cb-blue-2); fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; transition: transform 0.35s var(--cb-ease); }
+    .cb-pair:hover .cb-pair__route svg { transform: translateX(3px); }
+    .cb-pair p { font-size: 0.95rem; color: var(--cb-ink-2); }
+
+    .cb-glyph-svg { fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+
+    /* Compare */
+    .cb-why { display: grid; gap: 2.5rem; margin-top: 3rem; align-items: start; }
+
+    .cb-why__prose { display: grid; gap: 1rem; font-size: 0.98rem; color: var(--cb-ink-2); max-width: 30rem; }
+    .cb-why__prose strong { color: var(--cb-ink); font-weight: 700; }
+
+    .cb-compare { border: 1px solid var(--cb-line); border-radius: var(--cb-r); overflow: hidden; background: var(--cb-bg); }
+
+    .cb-compare__head,
+    .cb-compare__row {
+      display: grid;
+      grid-template-columns: 5.5rem 1fr 1fr;
+      gap: 0.75rem;
+      padding: 0.9rem 1rem;
+      border-top: 1px solid var(--cb-line);
+      font-size: 0.88rem;
+    }
+
+    .cb-compare__head { border-top: 0; background: var(--cb-panel); }
+    .cb-compare__head b { font-family: var(--cb-mono); font-weight: 400; font-size: 0.66rem; text-transform: uppercase; color: var(--cb-muted); }
+    .cb-compare__head b:last-child { color: var(--cb-ink); }
+    .cb-compare__row > span:first-child { font-family: var(--cb-mono); font-size: 0.66rem; text-transform: uppercase; color: var(--cb-muted); padding-top: 0.25rem; }
+    .cb-compare__row > span:nth-child(2) { color: var(--cb-muted); }
+    .cb-compare__row > span:last-child { color: var(--cb-ink); }
+
+    /* Connector cells */
+    .cb-cells {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      margin-top: 3rem;
+      border-top: 1px solid var(--cb-line);
+      border-left: 1px solid var(--cb-line);
+    }
+
+    .cb-cell {
+      position: relative;
+      isolation: isolate;
+      aspect-ratio: 1.35;
+      border: 0;
+      border-right: 1px solid var(--cb-line);
+      border-bottom: 1px solid var(--cb-line);
+      background: var(--cb-bg);
+      display: grid;
+      place-items: center;
+      color: var(--cb-muted);
+      transition: background 0.25s, color 0.25s;
+    }
+
+    .cb-cell:hover { background: var(--cb-panel); color: var(--cb-ink); }
+    .cb-cell[aria-pressed="true"] { background: var(--cb-panel); color: var(--cb-ink); box-shadow: inset 0 0 0 1px var(--cb-ink); z-index: 1; }
+
+    .cb-cell__glyph { width: 1.9rem; height: 1.9rem; transition: transform 0.4s var(--cb-ease); }
+    .cb-cell__glyph svg { width: 100%; height: 100%; }
+    .cb-cell:hover .cb-cell__glyph { transform: translateY(-3px) scale(1.08); }
+    .cb-cell[aria-pressed="true"] .cb-cell__glyph { transform: scale(1.08); }
+
+    /* Ice blue pulse behind the selected cell */
+    .cb-cell::after {
+      content: "";
+      position: absolute;
+      width: 4.5rem;
+      height: 4.5rem;
+      border-radius: 50%;
+      background: var(--cb-blue);
+      opacity: 0;
+      transform: scale(0.4);
+      transition: opacity 0.4s, transform 0.5s var(--cb-ease);
+      z-index: -1;
+    }
+    .cb-cell[aria-pressed="true"]::after { opacity: 0.8; transform: scale(1); }
+    .cb-cell > * { position: relative; z-index: 1; }
+
+    .cb-cell__name {
+      position: absolute;
+      right: 0.7rem;
+      bottom: 0.6rem;
+      font-family: var(--cb-mono);
+      font-size: 0.64rem;
+      text-transform: uppercase;
+      color: var(--cb-ink);
+      letter-spacing: 0;
+    }
+
+    .cb-cell-detail {
+      margin-top: 1rem;
+      padding: 1.1rem 1.2rem;
+      background: var(--cb-panel);
+      border-radius: var(--cb-r);
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      gap: 0.5rem 1rem;
+      font-size: 0.95rem;
+      min-height: 3.6rem;
+    }
+    .cb-cell-detail strong { font-family: var(--cb-mono); font-weight: 400; font-size: 0.7rem; text-transform: uppercase; color: var(--cb-muted); }
+
+    /* Process: stacked full-bleed panels */
+    .cb-process { margin-top: 3rem; }
+
+    .cb-proc {
+      border-top: 1px solid var(--cb-line);
+      padding: 3.5rem 0;
+    }
+
+    .cb-proc__inner {
+      display: grid;
+      gap: 1.5rem;
+      align-items: center;
+    }
+
+    .cb-proc__num {
+      font-weight: 700;
+      font-size: clamp(2rem, 4vw, 3rem);
+      letter-spacing: -0.05em;
+      line-height: 1;
+      color: var(--cb-faint);
+    }
+
+    .cb-proc__art svg { width: min(100%, 22rem); height: auto; display: block; overflow: visible; }
+
+    .cb-proc__text h3 { font-size: 1.6rem; margin-bottom: 0.7rem; }
+    .cb-proc__text p { font-size: 0.98rem; color: var(--cb-ink-2); max-width: 28rem; }
+
+    /* Process art choreography. Each panel's graphic assembles when the panel scrolls in. */
+    .cb-bar {
+      fill: url(#lg-blue-v);
+      transform-box: fill-box;
+      transform-origin: bottom;
+      transform: scaleY(0);
+      transition: transform 0.9s var(--cb-ease);
+    }
+    .cb-proc.is-in .cb-bar { transform: none; }
+    .cb-proc.is-in .cb-bar:nth-child(2) { transition-delay: 0.08s; }
+    .cb-proc.is-in .cb-bar:nth-child(3) { transition-delay: 0.16s; }
+    .cb-proc.is-in .cb-bar:nth-child(4) { transition-delay: 0.24s; }
+    .cb-proc.is-in .cb-bar:nth-child(5) { transition-delay: 0.32s; }
+    .cb-proc.is-in .cb-bar:nth-child(6) { transition-delay: 0.40s; }
+
+    .cb-plane { fill: url(#lg-blue-d); stroke: var(--cb-blue-2); stroke-width: 1; }
+    .cb-plane--line { fill: none; stroke: var(--cb-blue); stroke-width: 1; }
+    .cb-plane,
+    .cb-plane--line,
+    .cb-proc__art .cb-core {
+      transform-box: fill-box;
+      transform-origin: center;
+      opacity: 0;
+      transform: translateY(14px);
+      transition: opacity 0.7s var(--cb-ease), transform 0.9s var(--cb-ease);
+    }
+    .cb-proc.is-in .cb-plane,
+    .cb-proc.is-in .cb-plane--line,
+    .cb-proc.is-in .cb-core { opacity: 1; transform: none; }
+    .cb-proc.is-in .cb-proc__art > svg > *:nth-child(2) { transition-delay: 0.1s; }
+    .cb-proc.is-in .cb-proc__art > svg > *:nth-child(3) { transition-delay: 0.2s; }
+    .cb-proc.is-in .cb-proc__art > svg > *:nth-child(4) { transition-delay: 0.3s; }
+    .cb-proc.is-in .cb-proc__art > svg > *:nth-child(5) { transition-delay: 0.4s; }
+    .cb-proc.is-in .cb-proc__art > svg > *:nth-child(6) { transition-delay: 0.5s; }
+
+    /* The big index slides in from the left a beat after the panel. */
+    .cb-proc__num {
+      opacity: 0;
+      transform: translateX(-16px);
+      transition: opacity 0.8s var(--cb-ease) 0.15s, transform 0.8s var(--cb-ease) 0.15s;
+    }
+    .cb-proc.is-in .cb-proc__num { opacity: 1; transform: none; }
+
+    /* Slow spin on the outer ring of step four */
+    .cb-proc.is-in .cb-orbit {
+      animation: cb-orbit 24s linear infinite;
+      transform-box: fill-box;
+      transform-origin: center;
+    }
+    @keyframes cb-orbit { to { transform: rotate(360deg); } }
+
+    /* End block: CTA and footer share one black field with the chamfer and the glow. */
+    .cb-end {
+      position: relative;
+      background: var(--cb-darker);
+      color: #fff;
+      clip-path: polygon(0 0, calc(100% - var(--cb-cut)) 0, 100% var(--cb-cut), 100% 100%, 0 100%);
+      overflow: hidden;
+      --cb-line: rgba(255, 255, 255, 0.12);
+      --cb-line-2: rgba(255, 255, 255, 0.2);
+      --cb-ink-2: #d3d3d3;
+      --cb-muted: #b4b6b8;
+      --cb-faint: #7d8082;
+    }
+
+    .cb-end::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: -5rem;
+      height: 18rem;
+      background: radial-gradient(55% 100% at 50% 100%, rgba(143, 197, 242, 0.45), rgba(143, 197, 242, 0.08) 55%, transparent 75%);
+      pointer-events: none;
+      transform-origin: 50% 100%;
+      animation: cb-breathe 9s ease-in-out infinite;
+    }
+    @keyframes cb-breathe {
+      0%, 100% { opacity: 0.85; transform: scaleX(1); }
+      50% { opacity: 1; transform: scaleX(1.12); }
+    }
+
+    .cb-end > .cb-wrap { position: relative; z-index: 1; }
+
+    .cb-cta { padding: 6.5rem 0 5rem; }
+
+    .cb-cta__row {
+      display: grid;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .cb-cta h2 { font-size: clamp(1.9rem, 4vw, 2.8rem); }
+    .cb-cta p { margin-top: 1rem; max-width: 34rem; color: var(--cb-ink-2); }
+
+    .cb-cta__actions { display: grid; gap: 0.75rem; justify-items: stretch; }
+
+    .cb-end .cb-rule { background: var(--cb-line); }
+    .cb-end .cb-rule span { background: #fff; }
+
+    .cb-footer { padding: 4rem 0 8rem; }
+
+    .cb-footer__grid {
+      position: relative;
+      display: grid;
+      gap: 2rem;
+    }
+
+    .cb-marks {
       margin: 0;
+      padding: 0;
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
     }
 
-    body.automations .auto-footer a {
-      color: var(--auto-muted);
-      text-decoration: none;
+    .cb-mark {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.45rem 0.7rem 0.45rem 0.55rem;
+      border: 1px solid var(--cb-line);
+      border-radius: var(--cb-r-sm);
+      font-family: var(--cb-mono);
+      font-size: 0.64rem;
+      text-transform: uppercase;
+      color: var(--cb-muted);
     }
 
-    body.automations .auto-footer a:hover {
-      color: var(--auto-accent);
+    .cb-mark svg { width: 0.95rem; height: 0.95rem; color: #fff; }
+
+    .cb-footer__col { display: grid; gap: 1.1rem; align-content: start; }
+    .cb-footer__col .cb-mono { color: var(--cb-faint); }
+    .cb-footer__about { font-size: 0.88rem; color: var(--cb-muted); max-width: 20rem; }
+    .cb-footer__links { margin: 0; padding: 0; list-style: none; display: grid; gap: 0.7rem; font-size: 1.05rem; }
+    .cb-footer a { text-decoration: none; transition: color 0.2s; }
+    .cb-footer a:hover { color: var(--cb-lime); }
+    .cb-footer__stack { display: grid; gap: 0.35rem; }
+    .cb-footer__stack .cb-mono { margin-top: 0.4rem; }
+
+    .cb-footer__bottom {
+      position: relative;
+      margin-top: 3rem;
+      padding-top: 1.25rem;
+      border-top: 1px solid var(--cb-line);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem 2rem;
+      justify-content: space-between;
     }
 
-    @media (min-width: 720px) {
-      body.automations .auto-hero {
-        padding: 7.25rem 0 5.5rem;
+    .cb-footer__bottom .cb-mono { color: var(--cb-faint); }
+
+    /* Layout at width */
+    @media (min-width: 640px) {
+      .cb-caps { grid-template-columns: repeat(2, 1fr); }
+      .cb-cells { grid-template-columns: repeat(3, 1fr); }
+      .cb-actions .cb-btn { flex: 0 1 auto; }
+      .cb-cta__actions { grid-auto-flow: column; justify-content: start; }
+    }
+
+    @media (min-width: 900px) {
+      .cb-nav { display: flex; }
+      .cb-hero { padding-top: 4.5rem; }
+      .cb-hero__top { grid-template-columns: 1.4fr 0.6fr; }
+      .cb-status { justify-self: end; }
+      .cb-hero__bottom { grid-template-columns: 1fr 1fr; gap: 3rem; margin-top: 4rem; }
+      .cb-hero__copy { padding-top: 0.5rem; }
+      .cb-strip { grid-template-columns: 10rem 1fr; align-items: baseline; }
+      .cb-head__row { grid-template-columns: 1fr 1fr; }
+      .cb-head__lead { justify-self: start; }
+      .cb-pain { padding: 8rem 0 3rem; }
+      .cb-pain__stage { min-height: 28rem; place-items: center; text-align: center; }
+      .cb-pain__statement { max-width: 46rem; }
+      .cb-chips { position: absolute; inset: 0; pointer-events: none; }
+      .cb-chip { position: absolute; pointer-events: auto; animation: cb-float 7s ease-in-out infinite; }
+      .cb-chip:nth-child(1) { left: 4%; top: 8%; }
+      .cb-chip:nth-child(2) { right: 3%; top: 16%; animation-delay: -2s; }
+      .cb-chip:nth-child(3) { left: 9%; bottom: 22%; animation-delay: -4s; }
+      .cb-chip:nth-child(4) { right: 7%; bottom: 16%; animation-delay: -1s; }
+      .cb-chip:nth-child(5) { left: 36%; bottom: 0; animation-delay: -3s; }
+      .cb-caps { grid-template-columns: repeat(6, 1fr); }
+      .cb-cap { grid-column: span 2; }
+      .cb-cap--wide { grid-column: span 3; }
+      .cb-demo__grid { grid-template-columns: 0.85fr 1.15fr 1fr; }
+      .cb-stage { border-top: 0; border-left: 1px solid var(--cb-line); }
+      .cb-stage:first-child { border-left: 0; }
+      .cb-pkgs { grid-template-columns: repeat(3, 1fr); }
+      .cb-pair { grid-template-columns: 18rem 1fr; align-items: baseline; }
+      .cb-why { grid-template-columns: 0.9fr 1.1fr; gap: 4rem; }
+      .cb-cells { grid-template-columns: repeat(6, 1fr); }
+      .cb-proc { padding: 5rem 0; min-height: 30rem; display: grid; align-items: center; }
+      .cb-proc__inner { grid-template-columns: 8rem 1fr 1fr; gap: 2rem; }
+      .cb-proc__art { justify-self: center; }
+      .cb-cta__row { grid-template-columns: 1.2fr 0.8fr; }
+      .cb-cta__actions { justify-content: end; grid-auto-flow: row; justify-items: end; }
+      .cb-footer__grid { grid-template-columns: 1.3fr 1fr 1fr 1fr; }
+      .cb-section { padding: 7.5rem 0; }
+    }
+
+    @keyframes cb-float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-6px); }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      body.automations *,
+      body.automations *::before,
+      body.automations *::after {
+        animation: none !important;
+        transition: none !important;
       }
-
-      body.automations .auto-section {
-        padding-bottom: 5rem;
-      }
+      [data-reveal],
+      [data-reveal-stagger] > *,
+      [data-scramble],
+      .cb-word,
+      .cb-pop,
+      .cb-proc__num,
+      .cb-plane,
+      .cb-plane--line,
+      .cb-proc__art .cb-core { opacity: 1; transform: none; filter: none; }
+      .cb-head[data-reveal]:not(.is-in),
+      .cb-pain__statement[data-reveal]:not(.is-in),
+      .cb-cta__row[data-reveal]:not(.is-in) { filter: none; }
+      .cb-bar { transform: none; }
+      [data-parallax] { transform: none; }
+      [data-glow]::before { display: none; }
+      .cb-rule span { width: 8rem; }
+      .cb-wire--draw { stroke-dasharray: none; stroke-dashoffset: 0; }
+      .cb-wire--flow { stroke-dasharray: none; opacity: 0.6; }
+      .cb-ring { display: none; }
+      .cb-marquee { mask-image: none; -webkit-mask-image: none; }
+      .cb-marquee__track { width: auto; }
+      .cb-marquee__track ul { flex-wrap: wrap; white-space: normal; padding: 0; }
+      .cb-marquee__track ul[aria-hidden="true"] { display: none; }
+      .cb-end::after { opacity: 0.85; }
     }
   </style>
 </head>
 <body class="automations">
-  <a class="auto-skip" href="#main">Skip to content</a>
+  <a class="cb-skip" href="#main">Skip to content</a>
 
-  <header class="auto-header">
-    <div class="auto-header__inner">
-      <a class="auto-brand" href="/automations">
-        <span class="auto-brand__name">Peak View</span>
-        <span class="auto-brand__mark">Automations</span>
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <defs>
+      <linearGradient id="lg-blue" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" stop-color="#8fc5f2"/>
+        <stop offset="1" stop-color="#d2e9fe"/>
+      </linearGradient>
+      <linearGradient id="lg-blue-v" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="#8fc5f2"/>
+        <stop offset="1" stop-color="#d2e9fe" stop-opacity="0"/>
+      </linearGradient>
+      <linearGradient id="lg-blue-d" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" stop-color="#8fc5f2"/>
+        <stop offset="1" stop-color="#d2e9fe" stop-opacity="0.35"/>
+      </linearGradient>
+      <filter id="clay-shadow" x="-20%" y="-20%" width="140%" height="150%">
+        <feDropShadow dx="0" dy="10" stdDeviation="8" flood-color="#000" flood-opacity="0.12"/>
+      </filter>
+      <symbol id="g-mail" viewBox="0 0 24 24"><path class="cb-glyph-svg" d="M4 6h16v12H4z M4 7l8 6 8-6"/></symbol>
+      <symbol id="g-cal" viewBox="0 0 24 24"><path class="cb-glyph-svg" d="M4 6h16v14H4z M4 10h16 M8 3v4 M16 3v4"/></symbol>
+      <symbol id="g-chat" viewBox="0 0 24 24"><path class="cb-glyph-svg" d="M5 5h14v10H10l-4 4v-4H5z"/></symbol>
+      <symbol id="g-team" viewBox="0 0 24 24"><path class="cb-glyph-svg" d="M8 12a3 3 0 1 0 0-6 3 3 0 0 0 0 6z M16 11a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z M3 20c0-3 2.5-5 5-5s5 2 5 5 M14 19c0-2.5 1.5-4 3.5-4S21 16.5 21 19"/></symbol>
+      <symbol id="g-bolt" viewBox="0 0 24 24"><path class="cb-glyph-svg" d="M13 3L5 14h6l-1 7 8-11h-6z"/></symbol>
+      <symbol id="g-sheet" viewBox="0 0 24 24"><path class="cb-glyph-svg" d="M4 5h16v14H4z M4 10h16 M4 15h16 M10 5v14"/></symbol>
+      <symbol id="g-sms" viewBox="0 0 24 24"><path class="cb-glyph-svg" d="M8 3h8a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2z M10 17h4"/></symbol>
+      <symbol id="g-db" viewBox="0 0 24 24"><path class="cb-glyph-svg" d="M12 3c4.4 0 8 1.3 8 3s-3.6 3-8 3-8-1.3-8-3 3.6-3 8-3z M4 6v12c0 1.7 3.6 3 8 3s8-1.3 8-3V6 M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"/></symbol>
+      <symbol id="g-plug" viewBox="0 0 24 24"><path class="cb-glyph-svg" d="M9 3v5 M15 3v5 M6 8h12v3a6 6 0 0 1-12 0z M12 17v4"/></symbol>
+      <symbol id="g-form" viewBox="0 0 24 24"><path class="cb-glyph-svg" d="M5 4h14v16H5z M8 9h8 M8 13h8 M8 17h5"/></symbol>
+      <symbol id="g-note" viewBox="0 0 24 24"><path class="cb-glyph-svg" d="M6 3h9l4 4v14H6z M15 3v4h4 M9 12h6 M9 16h6"/></symbol>
+      <symbol id="g-clock" viewBox="0 0 24 24"><circle class="cb-glyph-svg" cx="12" cy="12" r="8"/><path class="cb-glyph-svg" d="M12 8v4l3 2"/></symbol>
+      <symbol id="g-invoice" viewBox="0 0 24 24"><path class="cb-glyph-svg" d="M6 3h12v18l-3-2-3 2-3-2-3 2z M9 8h6 M9 12h6"/></symbol>
+      <symbol id="g-warn" viewBox="0 0 24 24"><path d="M12 4l9 16H3z M12 10v4 M12 17v.5"/></symbol>
+      <symbol id="g-inbox" viewBox="0 0 24 24"><path class="cb-glyph-svg" d="M4 5h16v14H4z M4 13h5l1.5 2h3L15 13h5"/></symbol>
+      <symbol id="g-phone" viewBox="0 0 24 24"><path class="cb-glyph-svg" d="M6 3h4l2 5-2.5 1.5a9 9 0 0 0 5 5L16 12l5 2v4a2 2 0 0 1-2 2A15 15 0 0 1 4 5a2 2 0 0 1 2-2z"/></symbol>
+      <symbol id="g-right" viewBox="0 0 16 16"><path d="M3 8h10 M9 4l4 4-4 4"/></symbol>
+      <symbol id="g-arrow" viewBox="0 0 16 16"><path d="M4 12L12 4 M6 4h6v6"/></symbol>
+      <symbol id="g-play" viewBox="0 0 16 16"><path d="M5 3l8 5-8 5z"/></symbol>
+    </defs>
+  </svg>
+
+  <header class="cb-header">
+    <div class="cb-wrap cb-header__inner">
+      <a class="cb-brand" href="/automations">
+        <span class="cb-brand__mark" aria-hidden="true"></span>
+        <span>Clancy Booher</span>
       </a>
-      <a class="auto-header__call" href="tel:+15416393968">541-639-3968</a>
+      <nav class="cb-nav cb-mono" aria-label="Page sections">
+        <a href="#fixes">Fixes</a>
+        <a href="#demo">Demo</a>
+        <a href="#packages">Packages</a>
+        <a href="#connectors">Connectors</a>
+        <a href="#how">How it works</a>
+      </nav>
+      <a class="cb-btn cb-btn--sm" href="tel:+15416393968">
+        <span>Call or text</span>
+        <span class="cb-btn__box" aria-hidden="true"><svg viewBox="0 0 16 16"><use href="#g-arrow"/></svg></span>
+      </a>
     </div>
   </header>
 
   <main id="main">
-    <section class="auto-hero">
-      <div class="auto-wrap">
-        <p class="auto-kicker">Automation consulting</p>
-        <h1>Custom automations. Full setup.</h1>
-        <p class="auto-hero__sub">Automate email, CRM, and the tools you already use. AI to make the day simpler. Fewer tasks. More done.</p>
-        <a class="auto-cta" href="tel:+15416393968">Book a consultation</a>
-      </div>
-    </section>
+    <section class="cb-hero">
+      <div class="cb-wrap">
+        <div class="cb-hero__top">
+          <h1 id="hero-title" data-words>Your inbox is running the company. Let's fix that.</h1>
 
-    <section class="auto-section" aria-labelledby="what-we-do">
-      <div class="auto-wrap">
-        <h2 id="what-we-do">What we do</h2>
-        <ul class="auto-list">
-          <li>AI education and business consulting</li>
-          <li>Custom integrations and setups</li>
-          <li>Automate daily tasks and routines</li>
-          <li>Custom business software</li>
-          <li>Automated websites</li>
-        </ul>
-      </div>
-    </section>
+          <div class="cb-status" data-reveal aria-label="Example of the status a chief of staff bot keeps">
+            <div class="cb-status__head">
+              <span>Chief of staff</span>
+              <span class="cb-status__live">Live</span>
+            </div>
+            <div class="cb-status__row is-ok"><span>Inbox</span><span>6:43 am, 14 drafts</span></div>
+            <div class="cb-status__row is-ok"><span>Follow-ups</span><span>3 sent, 1 answered</span></div>
+            <div class="cb-status__row is-wait"><span>Books</span><span>invoice needs you</span></div>
+            <div class="cb-status__row"><span>Digest</span><span>9:00 pm</span></div>
+          </div>
+        </div>
 
-    <section class="auto-section" aria-labelledby="how-it-works">
-      <div class="auto-wrap">
-        <h2 id="how-it-works">How it works</h2>
-        <ol class="auto-steps">
-          <li>
-            <span>01</span>
-            <p><strong>Consultation</strong> On-site or remote audit of your systems.</p>
-          </li>
-          <li>
-            <span>02</span>
-            <p><strong>Review</strong> Look at what you already use.</p>
-          </li>
-          <li>
-            <span>03</span>
-            <p><strong>Propose</strong> Custom integrations and automations that fit.</p>
-          </li>
-          <li>
-            <span>04</span>
-            <p><strong>Build</strong> Then set it up so it actually runs.</p>
-          </li>
-        </ol>
-      </div>
-    </section>
+        <div class="cb-hero__bottom">
+          <div class="cb-art" data-reveal aria-hidden="true">
+            <svg viewBox="0 0 560 400" role="img" aria-label="Diagram: Gmail, calendar, phone, and your CRM feed one bot, which produces drafts, calendar holds, and invoices." data-parallax="-0.04">
+              <path class="cb-wire cb-wire--draw" pathLength="1" d="M112 76 C176 76, 176 200, 232 200" style="--d:0.1s"/>
+              <path class="cb-wire cb-wire--draw" pathLength="1" d="M112 158 C176 158, 176 200, 232 200" style="--d:0.2s"/>
+              <path class="cb-wire cb-wire--draw" pathLength="1" d="M112 242 C176 242, 176 200, 232 200" style="--d:0.3s"/>
+              <path class="cb-wire cb-wire--draw" pathLength="1" d="M112 324 C176 324, 176 200, 232 200" style="--d:0.4s"/>
+              <path class="cb-wire cb-wire--flow" d="M112 76 C176 76, 176 200, 232 200" style="animation-delay:-0.2s, 1.3s"/>
+              <path class="cb-wire cb-wire--flow" d="M112 158 C176 158, 176 200, 232 200" style="animation-delay:-0.9s, 1.3s"/>
+              <path class="cb-wire cb-wire--flow" d="M112 242 C176 242, 176 200, 232 200" style="animation-delay:-1.4s, 1.3s"/>
+              <path class="cb-wire cb-wire--flow" d="M112 324 C176 324, 176 200, 232 200" style="animation-delay:-0.5s, 1.3s"/>
+              <path class="cb-wire cb-wire--draw" pathLength="1" d="M328 200 C384 200, 384 112, 448 112" style="--d:0.7s"/>
+              <path class="cb-wire cb-wire--draw" pathLength="1" d="M328 200 C384 200, 384 200, 448 200" style="--d:0.8s"/>
+              <path class="cb-wire cb-wire--draw" pathLength="1" d="M328 200 C384 200, 384 288, 448 288" style="--d:0.9s"/>
+              <path class="cb-wire cb-wire--flow" d="M328 200 C384 200, 384 112, 448 112" style="animation-delay:-1.1s, 1.6s"/>
+              <path class="cb-wire cb-wire--flow" d="M328 200 C384 200, 384 200, 448 200" style="animation-delay:-0.3s, 1.6s"/>
+              <path class="cb-wire cb-wire--flow" d="M328 200 C384 200, 384 288, 448 288" style="animation-delay:-1.6s, 1.6s"/>
 
-    <section class="auto-section auto-for" aria-labelledby="who-its-for">
-      <div class="auto-wrap">
-        <h2 id="who-its-for">Who it's for</h2>
-        <p>Small businesses and contractors who want ops automation without a big agency.</p>
-        <p class="auto-note">Peak View Windows &amp; Doors is the window company. This page is automation consulting. Same owner.</p>
-      </div>
-    </section>
+              <g transform="translate(84 76)">
+                <g class="cb-pop" style="--d:0s">
+                  <rect class="cb-node" x="-26" y="-26" width="52" height="52"/>
+                  <path class="cb-glyph" d="M-9 -6h18v12h-18z M-9 -5l9 7 9-7"/>
+                  <text class="cb-label" x="0" y="42" text-anchor="middle">Gmail</text>
+                </g>
+              </g>
+              <g transform="translate(84 158)">
+                <g class="cb-pop" style="--d:0.1s">
+                  <rect class="cb-node" x="-26" y="-26" width="52" height="52"/>
+                  <path class="cb-glyph" d="M-9 -7h18v15h-18z M-9 -2h18 M-4 -10v4 M4 -10v4"/>
+                  <text class="cb-label" x="0" y="42" text-anchor="middle">Calendar</text>
+                </g>
+              </g>
+              <g transform="translate(84 242)">
+                <g class="cb-pop" style="--d:0.2s">
+                  <rect class="cb-node" x="-26" y="-26" width="52" height="52"/>
+                  <path class="cb-glyph" d="M-5 -10h10a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2h-10a2 2 0 0 1-2-2v-16a2 2 0 0 1 2-2z M-2 6h4"/>
+                  <text class="cb-label" x="0" y="42" text-anchor="middle">Phone / texts</text>
+                </g>
+              </g>
+              <g transform="translate(84 324)">
+                <g class="cb-pop" style="--d:0.3s">
+                  <rect class="cb-node" x="-26" y="-26" width="52" height="52"/>
+                  <path class="cb-glyph" d="M-9 -8h18v16h-18z M-9 -2h18 M-9 3h18 M-2 -8v16"/>
+                  <text class="cb-label" x="0" y="42" text-anchor="middle">Your CRM</text>
+                </g>
+              </g>
 
-    <section class="auto-band" aria-labelledby="book">
-      <div class="auto-wrap">
-        <h2 id="book">Book a consultation</h2>
-        <p>Call or text 541-639-3968. Email clancy@peakvieworegon.com.</p>
-        <div class="auto-band__links">
-          <a class="auto-cta" href="tel:+15416393968">Call or text 541-639-3968</a>
-          <a class="auto-cta auto-cta--ghost" href="mailto:clancy@peakvieworegon.com">Email Clancy</a>
+              <g transform="translate(280 200)">
+                <g class="cb-pop" style="--d:0.5s">
+                  <circle class="cb-ring" r="58"/>
+                  <rect class="cb-node cb-node--core" x="-48" y="-40" width="96" height="80"/>
+                  <path class="cb-glyph cb-glyph--light" d="M0 -18v36 M-18 0h36 M-12.7 -12.7l25.4 25.4 M12.7 -12.7l-25.4 25.4"/>
+                  <text class="cb-label" x="0" y="58" text-anchor="middle">Your bot on Grok</text>
+                  <rect x="34" y="-32" width="6" height="6" fill="#98fe00"/>
+                </g>
+              </g>
+
+              <g transform="translate(476 112)">
+                <g class="cb-pop" style="--d:1s">
+                  <rect class="cb-node" x="-26" y="-26" width="52" height="52"/>
+                  <path class="cb-glyph" d="M-6 -9h8l5 5v13h-13z M2 -9v5h5 M-2 1h6 M-2 5h6"/>
+                  <text class="cb-label" x="0" y="42" text-anchor="middle">Draft reply</text>
+                </g>
+              </g>
+              <g transform="translate(476 200)">
+                <g class="cb-pop" style="--d:1.1s">
+                  <rect class="cb-node" x="-26" y="-26" width="52" height="52"/>
+                  <circle class="cb-glyph" r="9"/>
+                  <path class="cb-glyph" d="M0 -5v5l4 3"/>
+                  <text class="cb-label" x="0" y="42" text-anchor="middle">Calendar hold</text>
+                </g>
+              </g>
+              <g transform="translate(476 288)">
+                <g class="cb-pop" style="--d:1.2s">
+                  <rect class="cb-node" x="-26" y="-26" width="52" height="52"/>
+                  <path class="cb-glyph" d="M-6 -9h12v18l-3-2-3 2-3-2-3 2z M-3 -4h6 M-3 0h6"/>
+                  <text class="cb-label" x="0" y="42" text-anchor="middle">Invoice drafted</text>
+                </g>
+              </g>
+            </svg>
+          </div>
+
+          <div class="cb-hero__copy" data-reveal>
+            <p>I set up a Grok bot that works like a chief of staff. It reads your email, holds your calendar, texts back missed calls, and chases the follow-ups that die on your desk. Then I keep it working so you can stop babysitting software.</p>
+            <div class="cb-actions">
+              <a class="cb-btn" href="tel:+15416393968">
+                <span>Call or text 541-639-3968</span>
+                <span class="cb-btn__box" aria-hidden="true"><svg viewBox="0 0 16 16"><use href="#g-arrow"/></svg></span>
+              </a>
+              <a class="cb-btn cb-btn--light" href="#demo">
+                <span>See it work</span>
+                <span class="cb-btn__box" aria-hidden="true"><svg viewBox="0 0 16 16"><use href="#g-arrow"/></svg></span>
+              </a>
+            </div>
+            <p class="cb-hero__note">Or email <a href="mailto:clancy@peakvieworegon.com">clancy@peakvieworegon.com</a>. I read everything myself.</p>
+
+            <div class="cb-strip">
+              <p class="cb-mono" data-scramble>/Runs on</p>
+              <div class="cb-marquee">
+                <div class="cb-marquee__track">
+                  <ul>
+                    <li>Grok</li><li>Gmail</li><li>Outlook</li><li>Google Calendar</li><li>QuickBooks</li><li>Slack</li><li>Teams</li><li>Your CRM</li><li>Your phone line</li>
+                  </ul>
+                  <ul aria-hidden="true">
+                    <li>Grok</li><li>Gmail</li><li>Outlook</li><li>Google Calendar</li><li>QuickBooks</li><li>Slack</li><li>Teams</li><li>Your CRM</li><li>Your phone line</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
+
+    <section class="cb-pain" id="problem" aria-label="The problem">
+      <div class="cb-wrap">
+        <div class="cb-pain__stage">
+          <p class="cb-pain__statement" data-reveal>Most owners I talk to carry the same list. The work is real. It doesn't have to be you doing it.</p>
+          <ul class="cb-chips" data-reveal-stagger>
+            <li class="cb-chip"><svg viewBox="0 0 24 24"><use href="#g-warn"/></svg>Drowning in the inbox</li>
+            <li class="cb-chip"><svg viewBox="0 0 24 24"><use href="#g-warn"/></svg>Follow-ups that die</li>
+            <li class="cb-chip"><svg viewBox="0 0 24 24"><use href="#g-warn"/></svg>CRM and QuickBooks don't talk</li>
+            <li class="cb-chip"><svg viewBox="0 0 24 24"><use href="#g-warn"/></svg>Too many tabs open</li>
+            <li class="cb-chip"><svg viewBox="0 0 24 24"><use href="#g-warn"/></svg>Can't afford another admin yet</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="cb-section" id="fixes" aria-labelledby="fixes-title">
+      <div class="cb-wrap">
+        <div class="cb-head" data-reveal>
+          <div class="cb-rule"><span></span></div>
+          <p class="cb-mono" data-scramble>/What changes</p>
+          <div class="cb-head__row">
+            <h2 id="fixes-title">Each one of those has a fix.</h2>
+            <p class="cb-head__lead">Here's what the bot takes off your desk, one problem at a time. The <a href="#packages">packages</a> below are how you get there.</p>
+          </div>
+        </div>
+
+        <div class="cb-caps" data-reveal-stagger>
+          <article class="cb-cap cb-cap--wide" data-glow>
+            <svg viewBox="0 0 160 160" aria-hidden="true">
+              <g class="cb-clay">
+                <polygon class="cb-clay-left" points="36,106 80,128 80,140 36,118"/>
+                <polygon class="cb-clay-right" points="80,128 124,106 124,118 80,140"/>
+                <polygon class="cb-clay-top" points="80,84 124,106 80,128 36,106"/>
+                <polygon class="cb-clay-left" points="36,74 80,96 80,108 36,86"/>
+                <polygon class="cb-clay-right" points="80,96 124,74 124,86 80,108"/>
+                <polygon class="cb-clay-top" points="80,52 124,74 80,96 36,74"/>
+                <polygon class="cb-clay-left" points="36,42 80,64 80,76 36,54"/>
+                <polygon class="cb-clay-right" points="80,64 124,42 124,54 80,76"/>
+                <polygon class="cb-clay-top" points="80,20 124,42 80,64 36,42"/>
+                <polygon class="cb-clay-dot" points="80,34 96,42 80,50 64,42"/>
+              </g>
+            </svg>
+            <p class="cb-mono cb-cap__kicker">Drowning in the inbox</p>
+            <h3>You open Gmail to drafts, not a pile.</h3>
+            <p>The chief of staff bot reads every message before you do. It sorts, labels, and drafts the replies you would have written anyway, in your words. Ten minutes at 7 am. Nothing sends without you.</p>
+          </article>
+          <article class="cb-cap cb-cap--wide" data-glow>
+            <svg viewBox="0 0 160 160" aria-hidden="true">
+              <g class="cb-clay">
+                <path class="cb-clay-right" fill-rule="evenodd" d="M26 92a54 30 0 1 0 108 0a54 30 0 1 0-108 0z M50 92a30 15 0 1 0 60 0a30 15 0 1 0-60 0z"/>
+                <path class="cb-clay-left" d="M26 78a54 30 0 0 0 108 0v14a54 30 0 0 1-108 0z"/>
+                <path class="cb-clay-right" d="M50 78A30 15 0 0 1 110 78L110 92A30 15 0 0 0 50 92Z"/>
+                <path class="cb-clay-top" fill-rule="evenodd" d="M26 78a54 30 0 1 0 108 0a54 30 0 1 0-108 0z M50 78a30 15 0 1 0 60 0a30 15 0 1 0-60 0z"/>
+                <circle class="cb-clay-back" cx="122" cy="66" r="11"/>
+                <circle class="cb-clay-top" cx="120" cy="64" r="9"/>
+                <circle class="cb-clay-dot" cx="118" cy="62" r="3"/>
+              </g>
+            </svg>
+            <p class="cb-mono cb-cap__kicker">Follow-ups that die</p>
+            <h3>Every quote gets a clock.</h3>
+            <p>Leads, quotes, supplier requests. The bot times each one, nudges when the clock runs out, and tells you the minute someone answers. Nothing goes quiet because you forgot.</p>
+          </article>
+          <article class="cb-cap" data-glow>
+            <svg viewBox="0 0 160 160" aria-hidden="true">
+              <g class="cb-clay">
+                <path class="cb-clay-back" d="M74 28h60a8 8 0 0 1 8 8v34a8 8 0 0 1-8 8h-32l-12 12v-12h-16a8 8 0 0 1-8-8V36a8 8 0 0 1 8-8z"/>
+                <path class="cb-clay-top" d="M66 36h60a8 8 0 0 1 8 8v34a8 8 0 0 1-8 8H94l-12 12V86H66a8 8 0 0 1-8-8V44a8 8 0 0 1 8-8z"/>
+                <path class="cb-clay-back" d="M30 70h60a8 8 0 0 1 8 8v34a8 8 0 0 1-8 8H60l-12 12v-12H30a8 8 0 0 1-8-8V78a8 8 0 0 1 8-8z"/>
+                <path class="cb-clay-front" d="M22 78h60a8 8 0 0 1 8 8v34a8 8 0 0 1-8 8H52l-12 12v-12H22a8 8 0 0 1-8-8V86a8 8 0 0 1 8-8z"/>
+                <circle class="cb-clay-dot" cx="38" cy="103" r="4"/>
+                <circle class="cb-clay-dot" cx="52" cy="103" r="4"/>
+                <circle class="cb-clay-dot" cx="66" cy="103" r="4"/>
+              </g>
+            </svg>
+            <p class="cb-mono cb-cap__kicker">CRM and QuickBooks don't talk</p>
+            <h3>A closed job becomes an invoice.</h3>
+            <p>I write the connector. Customer, line items, deposit, all carried over. A paid invoice marks the job paid in the CRM. Nobody retypes anything.</p>
+          </article>
+          <article class="cb-cap" data-glow>
+            <svg viewBox="0 0 160 160" aria-hidden="true">
+              <g class="cb-clay">
+                <path class="cb-clay-back" d="M62 20h50l20 20v80H62z"/>
+                <path class="cb-clay-right" d="M112 20v20h20z"/>
+                <path class="cb-clay-front" d="M48 34h50l20 20v80H48z"/>
+                <path class="cb-clay-back" d="M98 34v20h20z"/>
+                <path class="cb-clay-mark" d="M62 72h40 M62 86h40 M62 100h24"/>
+              </g>
+            </svg>
+            <p class="cb-mono cb-cap__kicker">Too many tabs open</p>
+            <h3>One text at 9 pm with what matters.</h3>
+            <p>Tomorrow's schedule, the money that's late, the three emails that need you. One message. Your crew asks the bot in Slack or Teams instead of texting you at 6 am.</p>
+          </article>
+          <article class="cb-cap" data-glow>
+            <svg viewBox="0 0 160 160" aria-hidden="true">
+              <g class="cb-clay">
+                <polygon class="cb-clay-left" points="34,70 80,93 80,143 34,120"/>
+                <polygon class="cb-clay-right" points="80,93 126,70 126,120 80,143"/>
+                <polygon class="cb-clay-top" points="80,47 126,70 80,93 34,70"/>
+                <path class="cb-clay-mark" d="M64 70l12 8 20-16"/>
+              </g>
+            </svg>
+            <p class="cb-mono cb-cap__kicker">Can't afford another admin yet</p>
+            <h3>The desk work costs a fixed build.</h3>
+            <p>A bot handles the repeat work for a set price and a small monthly. Hire people for the work that needs people.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="cb-section cb-dark" id="demo" aria-labelledby="demo-title">
+      <div class="cb-wrap">
+        <div class="cb-head" data-reveal>
+          <div class="cb-rule"><span></span></div>
+          <p class="cb-mono" data-scramble>/Demo</p>
+          <div class="cb-head__row">
+            <h2 id="demo-title">Watch it work</h2>
+            <p class="cb-head__lead">Pick a problem from the list and press play. This is a scripted walkthrough, not a live account. The steps match what the real bot does.</p>
+          </div>
+        </div>
+
+        <div class="cb-demo__shell" data-reveal data-glow style="--cb-glow: rgba(143, 197, 242, 0.14)">
+          <div class="cb-tabs" role="tablist" aria-label="Demo scenarios" id="demo-tabs"></div>
+
+          <div class="cb-demo__head">
+            <p class="cb-demo__trigger"><span class="cb-mono">Trigger</span><strong id="demo-trigger"></strong></p>
+            <div class="cb-demo__controls">
+              <button class="cb-icon-btn" type="button" id="demo-prev" aria-label="Previous scenario">
+                <svg viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6"/></svg>
+              </button>
+              <button class="cb-btn cb-btn--blue cb-btn--sm cb-btn--play" type="button" id="demo-play">
+                <span id="demo-play-label">Play</span>
+                <span class="cb-btn__box" aria-hidden="true"><svg viewBox="0 0 16 16" style="fill:currentColor;stroke:none"><use href="#g-play"/></svg></span>
+              </button>
+              <button class="cb-icon-btn" type="button" id="demo-next" aria-label="Next scenario">
+                <svg viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></svg>
+              </button>
+            </div>
+          </div>
+
+          <div class="cb-demo__grid" role="tabpanel" id="demo-panel" aria-labelledby="demo-title">
+            <div class="cb-stage cb-stage--connect">
+              <h3>01 / Connected</h3>
+              <ul class="cb-conn-list" id="demo-connectors"></ul>
+            </div>
+            <div class="cb-stage cb-stage--run">
+              <h3>02 / Bot run</h3>
+              <ol class="cb-steps" id="demo-steps" aria-live="polite" aria-relevant="additions"></ol>
+            </div>
+            <div class="cb-stage cb-stage--out">
+              <h3>03 / What you see</h3>
+              <div id="demo-outcome"></div>
+            </div>
+          </div>
+
+          <div class="cb-progress" aria-hidden="true"><span id="demo-bar"></span></div>
+        </div>
+
+        <div class="cb-demo__foot" data-reveal>
+          <p>Every run has a stop point. Anything that sends money, moves a job, or talks to a customer for the first time waits for you.</p>
+          <p class="cb-mono" id="demo-status" aria-live="polite"></p>
+        </div>
+      </div>
+    </section>
+
+    <section class="cb-section" id="packages" aria-labelledby="packages-title">
+      <div class="cb-wrap">
+        <div class="cb-head" data-reveal>
+          <div class="cb-rule"><span></span></div>
+          <p class="cb-mono" data-scramble>/Packages</p>
+          <div class="cb-head__row">
+            <h2 id="packages-title">Three ways in. Pick the one that matches the mess.</h2>
+            <p class="cb-head__lead">Start with one bot. Add specialists when the next pile shows up. Keep me on so it all stays working. Setup is a fixed price and I'll quote it on the first call.</p>
+          </div>
+        </div>
+
+        <div class="cb-pkgs" data-reveal-stagger>
+          <article class="cb-pkg" data-glow>
+            <div class="cb-pkg__top">
+              <p class="cb-mono">/01 Setup</p>
+              <p class="cb-pkg__tag">Fixed build</p>
+            </div>
+            <h3>One chief of staff bot</h3>
+            <p class="cb-pkg__lead">Start here. One bot on Grok, wired into your email, calendar, and phone line, or whatever your stack is. It sorts the inbox, holds the calendar, drafts the follow-ups, and texts you what needs a decision.</p>
+            <dl class="cb-pkg__facts">
+              <div>
+                <dt>Fixes</dt>
+                <dd>
+                  <ul class="cb-pkg__fixes">
+                    <li>Drowning in the inbox</li>
+                    <li>Follow-ups that die</li>
+                    <li>Too many tabs</li>
+                  </ul>
+                </dd>
+              </div>
+              <div>
+                <dt>You get</dt>
+                <dd>An inbox you can clear before the first job. Follow-ups that go out whether you remembered or not. The bot, the logins, and the docs are yours.</dd>
+              </div>
+            </dl>
+          </article>
+
+          <article class="cb-pkg" data-glow>
+            <div class="cb-pkg__top">
+              <p class="cb-mono">/02 Team</p>
+              <p class="cb-pkg__tag">Add specialists</p>
+            </div>
+            <h3>Bots for the work that piles up</h3>
+            <p class="cb-pkg__lead">Quotes, leads, books, field updates, scheduling. Each specialist bot handles one lane and reports to the chief of staff. Add the ones that match your mess. Skip the rest.</p>
+            <dl class="cb-pkg__facts">
+              <div>
+                <dt>Fixes</dt>
+                <dd>
+                  <ul class="cb-pkg__fixes">
+                    <li>CRM and QuickBooks don't talk</li>
+                    <li>Can't afford another admin</li>
+                    <li>Quotes that sit for days</li>
+                  </ul>
+                </dd>
+              </div>
+              <div>
+                <dt>You get</dt>
+                <dd>Quotes drafted the day of the visit. A closed job that turns into an invoice on its own. The desk work covered without adding a desk.</dd>
+              </div>
+            </dl>
+          </article>
+
+          <article class="cb-pkg cb-pkg--dark" data-glow>
+            <div class="cb-pkg__top">
+              <p class="cb-mono">/03 Care</p>
+              <p class="cb-pkg__tag">Monthly</p>
+            </div>
+            <h3>I keep it working</h3>
+            <p class="cb-pkg__lead">Apps change. Logins expire. Something breaks at 6 am. I watch for it and fix it. Every month we add one automation you pick, so the setup keeps up with the business instead of falling behind it.</p>
+            <dl class="cb-pkg__facts">
+              <div>
+                <dt>Fixes</dt>
+                <dd>
+                  <ul class="cb-pkg__fixes">
+                    <li>Bots that quietly stop</li>
+                    <li>Nobody to call when it breaks</li>
+                    <li>The next thing on the list</li>
+                  </ul>
+                </dd>
+              </div>
+              <div>
+                <dt>You get</dt>
+                <dd>Bots that still work in a year. One new automation a month. A growing list of things you no longer do by hand.</dd>
+              </div>
+            </dl>
+          </article>
+        </div>
+
+        <p class="cb-pkgs__note" data-reveal>Not sure which one? Start with Setup. Run it for a month. Add the first specialist bot once you can see what's still eating your time. <a href="tel:+15416393968">Call or text</a> and we'll sort it out in fifteen minutes.</p>
+      </div>
+    </section>
+
+    <section class="cb-section" id="why" aria-labelledby="why-title">
+      <div class="cb-wrap">
+        <div class="cb-head" data-reveal>
+          <div class="cb-rule"><span></span></div>
+          <p class="cb-mono" data-scramble>/Why a bot</p>
+          <div class="cb-head__row">
+            <h2 id="why-title">Cheaper than a hire. Built around how you already work.</h2>
+            <p class="cb-head__lead">Hiring is the right call for a lot of work. For the desk work that repeats every day, a bot wins on cost, hours, and how fast it learns your customers.</p>
+          </div>
+        </div>
+
+        <div class="cb-why">
+          <div class="cb-why__prose" data-reveal>
+            <p><strong>The bot runs on accounts you already have.</strong> Your Gmail, your calendar, your QuickBooks. There's no per-seat fee that climbs every year and no template you bend your day around.</p>
+            <p>Most companies I talk to need one good bot and a handful of connectors, not a platform. Build it once. Run it for hosting and API usage. Change it when the business changes.</p>
+          </div>
+
+          <div class="cb-compare" data-reveal-stagger role="table" aria-label="Hiring another admin compared with a bot plus Care">
+            <div class="cb-compare__head" role="row">
+              <b role="columnheader"></b>
+              <b role="columnheader">Another admin</b>
+              <b role="columnheader">Bot plus Care</b>
+            </div>
+            <div class="cb-compare__row" role="row">
+              <span role="rowheader">Cost</span>
+              <span role="cell">Salary, taxes, training, turnover.</span>
+              <span role="cell">Fixed build, then a small monthly.</span>
+            </div>
+            <div class="cb-compare__row" role="row">
+              <span role="rowheader">Hours</span>
+              <span role="cell">Forty a week, then they go home.</span>
+              <span role="cell">Runs at 6 am and 9 pm. Weekends too.</span>
+            </div>
+            <div class="cb-compare__row" role="row">
+              <span role="rowheader">Ramp-up</span>
+              <span role="cell">Weeks to learn your customers.</span>
+              <span role="cell">Reads your past emails on day one.</span>
+            </div>
+            <div class="cb-compare__row" role="row">
+              <span role="rowheader">When it breaks</span>
+              <span role="cell">They quit. You start over.</span>
+              <span role="cell">I fix it. That's what Care is for.</span>
+            </div>
+            <div class="cb-compare__row" role="row">
+              <span role="rowheader">Ownership</span>
+              <span role="cell">The know-how walks out with them.</span>
+              <span role="cell">The bot, the logins, and the docs are yours.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cb-section" id="connectors" aria-labelledby="connectors-title">
+      <div class="cb-wrap">
+        <div class="cb-head" data-reveal>
+          <div class="cb-rule"><span></span></div>
+          <p class="cb-mono" data-scramble>/Connectors</p>
+          <div class="cb-head__row">
+            <h2 id="connectors-title">Your software finally talks to itself.</h2>
+            <p class="cb-head__lead">CRM, QuickBooks, Gmail, Slack or Teams, calendar. You already pay for these. I write the connectors so a change in one shows up in the others, with or without a bot on top.</p>
+          </div>
+        </div>
+
+        <ul class="cb-pairs" data-reveal-stagger aria-label="Common connectors">
+          <li class="cb-pair">
+            <p class="cb-pair__route">CRM <svg viewBox="0 0 16 16" aria-hidden="true"><use href="#g-right"/></svg> QuickBooks</p>
+            <p>A closed job becomes an invoice. A payment marks the job paid. Same customer record on both sides.</p>
+          </li>
+          <li class="cb-pair">
+            <p class="cb-pair__route">Gmail <svg viewBox="0 0 16 16" aria-hidden="true"><use href="#g-right"/></svg> CRM</p>
+            <p>A new customer email creates the contact and logs the thread. No copy and paste.</p>
+          </li>
+          <li class="cb-pair">
+            <p class="cb-pair__route">Form <svg viewBox="0 0 16 16" aria-hidden="true"><use href="#g-right"/></svg> Calendar <svg viewBox="0 0 16 16" aria-hidden="true"><use href="#g-right"/></svg> Text</p>
+            <p>A website lead gets a text back with two open slots, a booked hold, and a reminder the day before.</p>
+          </li>
+          <li class="cb-pair">
+            <p class="cb-pair__route">Calendar <svg viewBox="0 0 16 16" aria-hidden="true"><use href="#g-right"/></svg> Slack or Teams</p>
+            <p>Tomorrow's schedule posts to the crew channel every evening. Changes post as they happen.</p>
+          </li>
+          <li class="cb-pair">
+            <p class="cb-pair__route">QuickBooks <svg viewBox="0 0 16 16" aria-hidden="true"><use href="#g-right"/></svg> Text</p>
+            <p>A past due invoice gets one polite nudge in your words. Still unpaid a week later and it hands the thread to you.</p>
+          </li>
+        </ul>
+
+        <p class="cb-head__lead" style="margin-top: 3rem" data-reveal>Tap a tool to see what usually gets wired there.</p>
+        <div class="cb-cells" id="conn-grid" data-reveal-stagger style="margin-top: 1.25rem"></div>
+        <p class="cb-cell-detail" id="conn-detail" data-reveal aria-live="polite"></p>
+      </div>
+    </section>
+
+    <section class="cb-section" id="how" aria-labelledby="how-title">
+      <div class="cb-wrap">
+        <div class="cb-head" data-reveal>
+          <div class="cb-rule"><span></span></div>
+          <p class="cb-mono" data-scramble>/How it works</p>
+          <div class="cb-head__row">
+            <h2 id="how-title">Four steps. No long discovery phase.</h2>
+            <p class="cb-head__lead">Most of this happens in a couple of calls and a screen share. On-site in Bend if you'd rather. You'll know on the first call whether it's a fit.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="cb-process">
+        <div class="cb-proc" data-reveal>
+          <div class="cb-wrap cb-proc__inner">
+            <p class="cb-proc__num">/01</p>
+            <div class="cb-proc__art" aria-hidden="true" data-parallax="-0.05">
+              <svg viewBox="0 0 240 200">
+                <rect class="cb-bar" x="20" y="110" width="26" height="80"/>
+                <rect class="cb-bar" x="56" y="70" width="26" height="120"/>
+                <rect class="cb-bar" x="92" y="30" width="26" height="160"/>
+                <rect class="cb-bar" x="128" y="60" width="26" height="130"/>
+                <rect class="cb-bar" x="164" y="96" width="26" height="94"/>
+                <rect class="cb-bar" x="200" y="126" width="26" height="64"/>
+              </svg>
+            </div>
+            <div class="cb-proc__text">
+              <h3>Call or text</h3>
+              <p>Tell me what's piling up. Fifteen minutes is enough for a first pass. If it's not a fit I'll say so.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="cb-proc" data-reveal>
+          <div class="cb-wrap cb-proc__inner">
+            <p class="cb-proc__num">/02</p>
+            <div class="cb-proc__art" aria-hidden="true" data-parallax="-0.05">
+              <svg viewBox="0 0 240 200">
+                <path class="cb-plane--line" d="M120 150l90-45-90-45-90 45z"/>
+                <path class="cb-plane--line" d="M120 125l90-45-90-45-90 45z"/>
+                <path class="cb-plane" d="M120 100l90-45-90-45-90 45z"/>
+                <path class="cb-plane--line" d="M120 100v50"/>
+              </svg>
+            </div>
+            <div class="cb-proc__text">
+              <h3>I look at your tools</h3>
+              <p>Inbox, calendar, phone, CRM, books. I'm looking for the work that repeats and the places it falls through the cracks.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="cb-proc" data-reveal>
+          <div class="cb-wrap cb-proc__inner">
+            <p class="cb-proc__num">/03</p>
+            <div class="cb-proc__art" aria-hidden="true" data-parallax="-0.05">
+              <svg viewBox="0 0 240 200">
+                <rect class="cb-plane--line" x="40" y="120" width="50" height="50"/>
+                <rect class="cb-plane--line" x="95" y="120" width="50" height="50"/>
+                <rect class="cb-plane" x="150" y="120" width="50" height="50"/>
+                <rect class="cb-plane--line" x="67" y="65" width="50" height="50"/>
+                <rect class="cb-plane" x="122" y="65" width="50" height="50"/>
+                <rect class="cb-plane" x="95" y="10" width="50" height="50"/>
+              </svg>
+            </div>
+            <div class="cb-proc__text">
+              <h3>Setup goes live</h3>
+              <p>Your chief of staff bot starts on real traffic with the guardrails on. We tune it together for the first couple of weeks. Nothing sends money or talks to a new customer without you.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="cb-proc" data-reveal>
+          <div class="cb-wrap cb-proc__inner">
+            <p class="cb-proc__num">/04</p>
+            <div class="cb-proc__art" aria-hidden="true" data-parallax="-0.05">
+              <svg viewBox="0 0 240 200">
+                <circle class="cb-plane--line" cx="120" cy="100" r="80"/>
+                <circle class="cb-plane--line cb-orbit" cx="120" cy="100" r="56" stroke-dasharray="3 7"/>
+                <circle class="cb-plane" cx="120" cy="100" r="30"/>
+                <rect class="cb-core" x="114" y="94" width="12" height="12" fill="#131313"/>
+              </svg>
+            </div>
+            <div class="cb-proc__text">
+              <h3>Team and Care</h3>
+              <p>Add specialist bots when the next pile shows up. Care keeps everything running and adds one automation a month. Either way you own the bot, the accounts, and the docs.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
   </main>
 
-  <footer class="auto-footer">
-    <div class="auto-wrap">
-      <p>Clancy Booher · Peak View / automation consulting · <a href="https://peakvieworegon.com/automations">peakvieworegon.com/automations</a> · B. <a href="tel:+15416393968">541-639-3968</a></p>
-    </div>
-  </footer>
+  <div class="cb-end">
+      <section class="cb-cta" aria-labelledby="cta-title">
+        <div class="cb-wrap">
+          <div class="cb-cta__row" data-reveal>
+            <div>
+              <h2 id="cta-title">Tell me what's piling up.</h2>
+              <p>Call or text 541-639-3968, or send an email. I read everything myself. Fifteen minutes and you'll know which package fits, or that none of them do. I'll tell you either way.</p>
+            </div>
+            <div class="cb-cta__actions">
+              <a class="cb-btn cb-btn--blue" href="tel:+15416393968">
+                <span>Call or text 541-639-3968</span>
+                <span class="cb-btn__box" aria-hidden="true"><svg viewBox="0 0 16 16"><use href="#g-arrow"/></svg></span>
+              </a>
+              <a class="cb-btn cb-btn--ghost-dark" href="mailto:clancy@peakvieworegon.com?subject=Automation%20question">
+                <span>Email clancy@peakvieworegon.com</span>
+                <span class="cb-btn__box" aria-hidden="true"><svg viewBox="0 0 16 16"><use href="#g-arrow"/></svg></span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    <footer class="cb-footer">
+      <div class="cb-wrap">
+        <div class="cb-rule" data-reveal><span></span></div>
+        <div class="cb-footer__grid" style="margin-top: 3.5rem">
+          <div class="cb-footer__col">
+            <p class="cb-mono" data-scramble>About Clancy</p>
+            <p class="cb-footer__about">Clancy Booher sets up Grok bots and custom connectors for companies that have outgrown their inbox. Based in Bend, Oregon. Remote works fine for most of this.</p>
+            <div class="cb-footer__stack">
+              <p class="cb-mono">Email</p>
+              <a href="mailto:clancy@peakvieworegon.com">clancy@peakvieworegon.com</a>
+              <p class="cb-mono">Phone</p>
+              <a href="tel:+15416393968">541-639-3968</a>
+            </div>
+            <div class="cb-footer__stack">
+              <p class="cb-mono">Runs on</p>
+              <ul class="cb-marks" aria-label="Tools these bots connect to">
+                <li class="cb-mark"><svg viewBox="0 0 24 24"><use href="#g-bolt"/></svg>Grok</li>
+                <li class="cb-mark"><svg viewBox="0 0 24 24"><use href="#g-mail"/></svg>Gmail</li>
+                <li class="cb-mark"><svg viewBox="0 0 24 24"><use href="#g-inbox"/></svg>Outlook</li>
+                <li class="cb-mark"><svg viewBox="0 0 24 24"><use href="#g-cal"/></svg>Calendar</li>
+                <li class="cb-mark"><svg viewBox="0 0 24 24"><use href="#g-invoice"/></svg>QuickBooks</li>
+                <li class="cb-mark"><svg viewBox="0 0 24 24"><use href="#g-chat"/></svg>Slack</li>
+                <li class="cb-mark"><svg viewBox="0 0 24 24"><use href="#g-team"/></svg>Teams</li>
+                <li class="cb-mark"><svg viewBox="0 0 24 24"><use href="#g-db"/></svg>Your CRM</li>
+              </ul>
+            </div>
+          </div>
+          <div class="cb-footer__col">
+            <p class="cb-mono" data-scramble>Sections</p>
+            <ul class="cb-footer__links">
+              <li><a href="#problem">The problem</a></li>
+              <li><a href="#fixes">What changes</a></li>
+              <li><a href="#demo">Demo</a></li>
+              <li><a href="#packages">Packages</a></li>
+            </ul>
+          </div>
+          <div class="cb-footer__col">
+            <p class="cb-mono" data-scramble>Work</p>
+            <ul class="cb-footer__links">
+              <li><a href="#connectors">Connectors</a></li>
+              <li><a href="#why">Why a bot</a></li>
+              <li><a href="#how">How it works</a></li>
+              <li><a href="mailto:clancy@peakvieworegon.com">Contact</a></li>
+            </ul>
+          </div>
+          <div class="cb-footer__col">
+            <p class="cb-mono" data-scramble>Area</p>
+            <ul class="cb-footer__links">
+              <li>Bend, Oregon</li>
+              <li>Central Oregon</li>
+              <li>Remote</li>
+            </ul>
+          </div>
+        </div>
+        <div class="cb-footer__bottom">
+          <p class="cb-mono">&copy; 2026 Clancy Booher. Bend, Oregon.</p>
+          <p class="cb-mono">Built first for my own company, Peak View Windows and Doors.</p>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+  (function () {
+    'use strict';
+
+    var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    // ---- Data -------------------------------------------------------------
+
+    var SCENARIOS = [
+      {
+        id: 'inbox',
+        label: 'Inbox triage',
+        trigger: 'New email lands at 6:42 am',
+        connectors: [
+          { name: 'Gmail', glyph: 'g-mail', role: 'read, label, draft' },
+          { name: 'Grok', glyph: 'g-bolt', role: 'reads and writes' },
+          { name: 'Your past replies', glyph: 'g-note', role: 'for tone' }
+        ],
+        steps: [
+          { t: '6:42', text: 'Reads the new message. A customer asking where their quote stands.' },
+          { t: '6:42', text: 'Checks the thread. You sent the quote nine days ago.' },
+          { t: '6:43', text: 'Pulls three of your past replies on the same question to match your tone.' },
+          { t: '6:43', text: 'Drafts a reply in your voice. Two short paragraphs.' },
+          { t: '6:43', text: 'Saves the draft and labels the thread "Needs you". Nothing sends without you.', hold: true }
+        ],
+        outcome: {
+          kind: 'email',
+          bar: 'Draft saved in Gmail',
+          to: 'Dana R.',
+          subject: 'Re: Quote from last week',
+          text: 'Hi Dana,\n\nThanks for checking in. Your quote is good through the end of the month. If you want to lock in a start date, reply here or call me and I\'ll get you on the calendar.\n\nThanks',
+          foot: 'Labeled: Needs you. Not sent. You review at 7.'
+        }
+      },
+      {
+        id: 'lead',
+        label: 'Lead to calendar',
+        trigger: 'Website form comes in at 8:15 pm',
+        connectors: [
+          { name: 'Website form', glyph: 'g-form', role: 'trigger' },
+          { name: 'Google Calendar', glyph: 'g-cal', role: 'find and hold slots' },
+          { name: 'Text messaging', glyph: 'g-sms', role: 'reply and remind' },
+          { name: 'Gmail', glyph: 'g-mail', role: 'confirmation' }
+        ],
+        steps: [
+          { t: '8:15', text: 'Form comes in. Name, phone, what they need.' },
+          { t: '8:16', text: 'Texts them back in under a minute. Offers two open slots from your calendar.' },
+          { t: '8:31', text: 'They pick Thursday at 10. Holds it on your calendar with their info in the notes.' },
+          { t: '8:31', text: 'Sends a confirmation email with what to have ready.' },
+          { t: 'Wed', text: 'Day before: reminder text. No reply by noon and it pings you once.' }
+        ],
+        outcome: {
+          kind: 'calendar',
+          bar: 'Google Calendar hold',
+          day: 'Thu',
+          time: '10:00 am',
+          title: 'Estimate: Mike T.',
+          meta: '541-555-0142. From website form. Confirmed by text at 8:31 pm.',
+          foot: 'Reminder text goes out Wednesday at 5 pm.'
+        }
+      },
+      {
+        id: 'rfq',
+        label: 'Supplier chase',
+        trigger: 'RFQ sent Monday. Two days of silence.',
+        connectors: [
+          { name: 'Gmail', glyph: 'g-mail', role: 'watch the thread' },
+          { name: 'Timer', glyph: 'g-clock', role: '48 hour clock' },
+          { name: 'Google Sheets', glyph: 'g-sheet', role: 'price log' },
+          { name: 'Grok', glyph: 'g-bolt', role: 'pulls the numbers' }
+        ],
+        steps: [
+          { t: 'Mon', text: 'You send a quote request for hardware. It logs the thread and starts a two-day clock.' },
+          { t: 'Wed 9:00', text: 'No reply. Drafts a short nudge that quotes your original request.' },
+          { t: 'Wed 9:00', text: 'Sends it. Your rule: nudges go out on their own. Anything with a dollar amount waits for you.' },
+          { t: 'Wed 2:10', text: 'Supplier replies with pricing. Pulls the numbers into your price sheet.' },
+          { t: 'Wed 2:11', text: 'Texts you one line: hardware quote in, three percent over last time.' }
+        ],
+        outcome: {
+          kind: 'sheet',
+          bar: 'Price log, row added',
+          head: ['Date', 'Item', 'Quote', 'vs last'],
+          rows: [
+            ['Jun 3', 'Hinges, 40 sets', '$1,148', ''],
+            ['Sep 10', 'Hinges, 40 sets', '$1,184', '+3%']
+          ],
+          message: 'Hardware quote in. Three percent over last time. Sheet updated.'
+        }
+      },
+      {
+        id: 'bot',
+        label: 'Hours and status bot',
+        trigger: 'Someone asks a question in Slack',
+        connectors: [
+          { name: 'Slack', glyph: 'g-chat', role: 'listens in #crew' },
+          { name: 'Google Calendar', glyph: 'g-cal', role: 'read only' },
+          { name: 'Grok', glyph: 'g-bolt', role: 'answers in plain English' }
+        ],
+        steps: [
+          { t: '7:02', text: 'Jordan asks in #crew: are we still on for the Miller job Friday?' },
+          { t: '7:02', text: 'Looks up Friday on the shared calendar. Miller job is confirmed, 8 am.' },
+          { t: '7:02', text: 'Answers in the channel with the time and who\'s on it.' },
+          { t: '7:05', text: 'Jordan asks it to push the job to Monday. It declines and tags you. It reads. It does not reschedule.', hold: true },
+          { t: '7:05', text: 'Logs the question so you can see what people keep asking.' }
+        ],
+        outcome: {
+          kind: 'chat',
+          bar: '#crew in Slack',
+          messages: [
+            { who: 'Jordan', time: '7:02 am', text: 'Are we still on for the Miller job Friday?' },
+            { who: 'Ops bot', time: '7:02 am', bot: true, text: 'Yes. Friday 8:00 am, confirmed Tuesday. Crew: Jordan, Sam, and the boss.' },
+            { who: 'Jordan', time: '7:05 am', text: 'Can you push it to Monday?' },
+            { who: 'Ops bot', time: '7:05 am', bot: true, text: 'I can\'t move jobs. Tagging the boss so this gets seen.' }
+          ]
+        }
+      },
+      {
+        id: 'digest',
+        label: 'Nightly digest',
+        trigger: '9:00 pm, every night',
+        connectors: [
+          { name: 'Gmail', glyph: 'g-mail', role: 'unread that matters' },
+          { name: 'Google Calendar', glyph: 'g-cal', role: 'next two days' },
+          { name: 'QuickBooks', glyph: 'g-invoice', role: 'past due' },
+          { name: 'Grok', glyph: 'g-bolt', role: 'writes it up' }
+        ],
+        steps: [
+          { t: '9:00', text: 'Pulls unread mail that mentions money, a date, or ends in a question mark.' },
+          { t: '9:00', text: 'Reads tomorrow\'s calendar and the day after.' },
+          { t: '9:01', text: 'Checks invoices past due and quotes with no answer in a week.' },
+          { t: '9:01', text: 'Writes it up in under 200 words. Plain text. Most important thing first.' },
+          { t: '9:02', text: 'Sends it to your phone. One message, same time every night.' }
+        ],
+        outcome: {
+          kind: 'digest',
+          bar: '9:02 pm, text to you',
+          title: 'Tonight',
+          items: [
+            'Two quotes with no answer in 7+ days: Hale, Ortiz. Nudges drafted.',
+            'One invoice past due, 12 days. $2,340.',
+            'Tomorrow: 8 am site visit, 1 pm supplier call.',
+            'Three emails need you. Drafts are in Gmail.'
+          ]
+        }
+      },
+      {
+        id: 'books',
+        label: 'Job to invoice',
+        trigger: 'Job marked done in your CRM at 4:30 pm',
+        connectors: [
+          { name: 'Your CRM', glyph: 'g-db', role: 'job status' },
+          { name: 'QuickBooks', glyph: 'g-invoice', role: 'invoice and payments' },
+          { name: 'Grok', glyph: 'g-bolt', role: 'checks the numbers' },
+          { name: 'Text messaging', glyph: 'g-sms', role: 'one line to you' }
+        ],
+        steps: [
+          { t: '4:30', text: 'Job closes in the CRM. Pulls the customer, the line items, and the deposit already paid.' },
+          { t: '4:30', text: 'Finds the customer in QuickBooks. Same name, same email. No duplicate record.' },
+          { t: '4:31', text: 'Drafts the invoice. Line items match the signed quote. Deposit applied.' },
+          { t: '4:31', text: 'Total comes in $140 under the signed quote. Flags it and waits for you.', hold: true },
+          { t: '4:38', text: 'You approve from your phone. Invoice goes out. CRM now shows invoiced.' }
+        ],
+        outcome: {
+          kind: 'sheet',
+          bar: 'QuickBooks invoice, draft',
+          head: ['Invoice', 'Customer', 'Amount', 'Status'],
+          rows: [
+            ['#1041', 'Ortiz, M.', '$3,200', 'Paid'],
+            ['#1042', 'Miller, K.', '$6,850', 'Needs you']
+          ],
+          message: 'Miller invoice drafted. $140 under the signed quote. Approve or fix?'
+        }
+      }
+    ];
+
+    var CONNECTORS = [
+      { name: 'Grok', glyph: 'g-bolt', detail: 'The brain. It reads, decides, and drafts inside limits you set. Your account, your data.' },
+      { name: 'Gmail', glyph: 'g-mail', detail: 'Read, label, draft. Send only when you say so.' },
+      { name: 'Outlook', glyph: 'g-inbox', detail: 'Same as Gmail for Microsoft shops. Mail and calendar both.' },
+      { name: 'Calendar', glyph: 'g-cal', detail: 'Hold slots, check conflicts, send reminders. Google or Microsoft.' },
+      { name: 'QuickBooks', glyph: 'g-invoice', detail: 'Invoices from closed jobs. Payments back to the CRM. One polite nudge on past due.' },
+      { name: 'Your CRM', glyph: 'g-db', detail: 'Jobber, HubSpot, Housecall Pro, others. If it has an API or an export, it connects.' },
+      { name: 'Slack', glyph: 'g-chat', detail: 'A bot in your channels that answers from the real calendar and job list.' },
+      { name: 'Teams', glyph: 'g-team', detail: 'Same bot, different room. Works with your Microsoft accounts.' },
+      { name: 'Texting', glyph: 'g-sms', detail: 'Missed calls get a text back. Confirmations and reminders from your business number.' },
+      { name: 'Sheets', glyph: 'g-sheet', detail: 'Where a lot of shops keep the truth. It reads and writes rows.' },
+      { name: 'Forms', glyph: 'g-form', detail: 'A website form fill starts the run. No copy and paste from an inbox.' },
+      { name: 'Custom', glyph: 'g-plug', detail: 'Your supplier portal, your scheduler, your payroll. I write the connector.' }
+    ];
+
+    // ---- Helpers ----------------------------------------------------------
+
+    function el(tag, attrs, children) {
+      var node = document.createElement(tag);
+      if (attrs) {
+        Object.keys(attrs).forEach(function (k) {
+          if (k === 'class') node.className = attrs[k];
+          else if (k === 'text') node.textContent = attrs[k];
+          else node.setAttribute(k, attrs[k]);
+        });
+      }
+      (children || []).forEach(function (c) { if (c) node.appendChild(c); });
+      return node;
+    }
+
+    function glyph(id, className) {
+      var wrap = el('span', { class: className, 'aria-hidden': 'true' });
+      wrap.innerHTML = '<svg viewBox="0 0 24 24"><use href="#' + id + '"></use></svg>';
+      return wrap;
+    }
+
+    function wait(ms) {
+      return new Promise(function (resolve) { setTimeout(resolve, reduceMotion ? 0 : ms); });
+    }
+
+    function pad2(n) { return (n < 10 ? '0' : '') + n; }
+
+    // ---- Hero word reveal -------------------------------------------------
+
+    var heroTitle = document.querySelector('[data-words]');
+    if (heroTitle) {
+      var words = heroTitle.textContent.trim().split(/\s+/);
+      heroTitle.textContent = '';
+      words.forEach(function (w, i) {
+        var span = el('span', { class: 'cb-word', text: w });
+        span.style.transitionDelay = (i * 0.045) + 's';
+        heroTitle.appendChild(span);
+        if (i < words.length - 1) heroTitle.appendChild(document.createTextNode(' '));
+      });
+      requestAnimationFrame(function () { heroTitle.classList.add('is-in'); });
+    }
+
+    // ---- Mono label scramble ---------------------------------------------
+
+    var GLYPHS = '!<>-_\\/[]{}=+*^?#_';
+
+    function scramble(node) {
+      if (reduceMotion || node.dataset.scrambled) return;
+      node.dataset.scrambled = '1';
+      var target = node.textContent;
+      var frames = 18;
+      var frame = 0;
+      var timer = setInterval(function () {
+        frame += 1;
+        var out = '';
+        for (var i = 0; i < target.length; i++) {
+          var ch = target[i];
+          if (ch === ' ' || ch === '/') { out += ch; continue; }
+          var reveal = (i / target.length) * frames * 0.9;
+          out += frame > reveal ? ch : GLYPHS[Math.floor(Math.random() * GLYPHS.length)];
+        }
+        node.textContent = out;
+        if (frame >= frames) { clearInterval(timer); node.textContent = target; }
+      }, 34);
+    }
+
+    // ---- Demo -------------------------------------------------------------
+
+    var tabsEl = document.getElementById('demo-tabs');
+    var triggerEl = document.getElementById('demo-trigger');
+    var connEl = document.getElementById('demo-connectors');
+    var stepsEl = document.getElementById('demo-steps');
+    var outEl = document.getElementById('demo-outcome');
+    var barEl = document.getElementById('demo-bar');
+    var statusEl = document.getElementById('demo-status');
+    var playBtn = document.getElementById('demo-play');
+    var playLabel = document.getElementById('demo-play-label');
+    var current = 0;
+    var runToken = 0;
+    var hasAutoPlayed = false;
+
+    SCENARIOS.forEach(function (s, i) {
+      var tab = el('button', {
+        class: 'cb-tab', role: 'tab', type: 'button', id: 'tab-' + s.id,
+        'aria-selected': i === 0 ? 'true' : 'false', 'aria-controls': 'demo-panel',
+        tabindex: i === 0 ? '0' : '-1', text: pad2(i + 1) + ' ' + s.label
+      });
+      tab.addEventListener('click', function () { select(i, true); });
+      tab.addEventListener('keydown', function (e) {
+        var n = null;
+        if (e.key === 'ArrowRight') n = (i + 1) % SCENARIOS.length;
+        if (e.key === 'ArrowLeft') n = (i - 1 + SCENARIOS.length) % SCENARIOS.length;
+        if (e.key === 'Home') n = 0;
+        if (e.key === 'End') n = SCENARIOS.length - 1;
+        if (n !== null) { e.preventDefault(); select(n, true); tabsEl.children[n].focus(); }
+      });
+      tabsEl.appendChild(tab);
+    });
+
+    function renderOutcome(o) {
+      var box = el('div', { class: 'cb-out' });
+      box.appendChild(el('div', { class: 'cb-out__bar', text: o.bar }));
+      var body = el('div', { class: 'cb-out__body' });
+
+      if (o.kind === 'email') {
+        body.appendChild(el('div', { class: 'cb-out__row' }, [el('span', { text: 'To' }), el('div', { text: o.to })]));
+        body.appendChild(el('div', { class: 'cb-out__row' }, [el('span', { text: 'Subject' }), el('div', { text: o.subject })]));
+        body.appendChild(el('p', { class: 'cb-out__text', text: o.text }));
+      } else if (o.kind === 'calendar') {
+        var date = el('div', { class: 'cb-cal__date' }, [el('b', { text: o.day }), el('span', { text: o.time.split(' ')[0] })]);
+        var info = el('div', {}, [el('strong', { text: o.title }), el('p', { class: 'cb-cal__meta', text: o.meta })]);
+        body.appendChild(el('div', { class: 'cb-cal' }, [date, info]));
+      } else if (o.kind === 'chat') {
+        o.messages.forEach(function (m) {
+          var msg = el('div', { class: 'cb-msg' + (m.bot ? ' cb-msg--bot' : '') });
+          msg.appendChild(el('span', { class: 'cb-msg__avatar', text: m.who.charAt(0), 'aria-hidden': 'true' }));
+          var who = el('b', { text: m.who });
+          who.appendChild(el('small', { text: m.time }));
+          msg.appendChild(el('div', {}, [who, el('p', { text: m.text })]));
+          body.appendChild(msg);
+        });
+      } else if (o.kind === 'sheet') {
+        var table = el('table', { class: 'cb-table' });
+        table.appendChild(el('tr', {}, o.head.map(function (h) { return el('th', { text: h }); })));
+        o.rows.forEach(function (r, idx) {
+          table.appendChild(el('tr', { class: idx === o.rows.length - 1 ? 'is-new' : '' }, r.map(function (c) { return el('td', { text: c }); })));
+        });
+        body.appendChild(table);
+        var m2 = el('div', { class: 'cb-msg cb-msg--bot' });
+        m2.appendChild(el('span', { class: 'cb-msg__avatar', text: 'B', 'aria-hidden': 'true' }));
+        m2.appendChild(el('div', {}, [el('b', { text: 'Text to you' }), el('p', { text: o.message })]));
+        body.appendChild(m2);
+      } else if (o.kind === 'digest') {
+        body.appendChild(el('strong', { text: o.title }));
+        body.appendChild(el('ul', { class: 'cb-digest' }, o.items.map(function (t) { return el('li', { text: t }); })));
+      }
+
+      box.appendChild(body);
+      if (o.foot) box.appendChild(el('div', { class: 'cb-out__foot', text: o.foot }));
+      return box;
+    }
+
+    function select(i, autoplay) {
+      current = (i + SCENARIOS.length) % SCENARIOS.length;
+      Array.prototype.forEach.call(tabsEl.children, function (t, idx) {
+        var on = idx === current;
+        t.setAttribute('aria-selected', on ? 'true' : 'false');
+        t.setAttribute('tabindex', on ? '0' : '-1');
+      });
+      var tab = tabsEl.children[current];
+      if (tab && tab.scrollIntoView) {
+        try { tab.scrollIntoView({ block: 'nearest', inline: 'center', behavior: reduceMotion ? 'auto' : 'smooth' }); } catch (e) { /* older browsers */ }
+      }
+      if (autoplay) run();
+      else layout(SCENARIOS[current]);
+    }
+
+    function layout(s) {
+      runToken += 1;
+      triggerEl.textContent = s.trigger;
+      connEl.innerHTML = '';
+      stepsEl.innerHTML = '';
+      outEl.innerHTML = '';
+      barEl.style.width = '0%';
+      statusEl.textContent = '';
+      s.connectors.forEach(function (c) {
+        connEl.appendChild(el('li', { class: 'cb-conn' }, [
+          el('span', { class: 'cb-conn__dot', 'aria-hidden': 'true' }),
+          glyph(c.glyph, 'cb-conn__glyph'),
+          el('span', { text: c.name }),
+          el('small', { text: c.role })
+        ]));
+      });
+      playLabel.textContent = 'Play';
+    }
+
+    function run() {
+      var s = SCENARIOS[current];
+      layout(s);
+      var token = runToken;
+      var total = s.connectors.length + s.steps.length + 1;
+      var done = 0;
+      var alive = function () { return token === runToken; };
+      var tick = function () { done += 1; barEl.style.width = Math.round((done / total) * 100) + '%'; };
+
+      playLabel.textContent = 'Replay';
+      statusEl.textContent = 'Running / ' + s.label;
+
+      var p = Promise.resolve();
+      s.connectors.forEach(function (_, idx) {
+        p = p.then(function () {
+          if (!alive()) return;
+          connEl.children[idx].classList.add('is-on');
+          tick();
+          return wait(260);
+        });
+      });
+
+      p = p.then(function () { return wait(200); });
+
+      s.steps.forEach(function (step) {
+        p = p.then(function () {
+          if (!alive()) return;
+          var li = el('li', { class: 'cb-step is-running' }, [
+            el('span', { class: 'cb-step__mark', 'aria-hidden': 'true' }),
+            el('div', {}, [el('span', { class: 'cb-step__time', text: step.t }), el('p', { text: step.text })])
+          ]);
+          stepsEl.appendChild(li);
+          requestAnimationFrame(function () { li.classList.add('is-in'); });
+          return wait(step.hold ? 900 : 700).then(function () {
+            if (!alive()) return;
+            li.classList.remove('is-running');
+            li.classList.add(step.hold ? 'is-hold' : 'is-done');
+            tick();
+            return wait(180);
+          });
+        });
+      });
+
+      p.then(function () {
+        if (!alive()) return;
+        var out = renderOutcome(s.outcome);
+        outEl.appendChild(out);
+        requestAnimationFrame(function () { out.classList.add('is-in'); });
+        tick();
+        statusEl.textContent = 'Done / press play to run it again';
+      });
+    }
+
+    playBtn.addEventListener('click', run);
+    document.getElementById('demo-prev').addEventListener('click', function () { select(current - 1, true); });
+    document.getElementById('demo-next').addEventListener('click', function () { select(current + 1, true); });
+
+    layout(SCENARIOS[0]);
+
+    if ('IntersectionObserver' in window) {
+      var demoShell = document.querySelector('.cb-demo__shell');
+      var demoIO = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting && !hasAutoPlayed) {
+            hasAutoPlayed = true;
+            run();
+            demoIO.disconnect();
+          }
+        });
+      }, { threshold: 0.3 });
+      demoIO.observe(demoShell);
+    } else {
+      run();
+    }
+
+    // ---- Connector cells --------------------------------------------------
+
+    var grid = document.getElementById('conn-grid');
+    var detail = document.getElementById('conn-detail');
+
+    function showDetail(c) {
+      detail.innerHTML = '';
+      detail.appendChild(el('strong', { text: c.name }));
+      detail.appendChild(el('span', { text: c.detail }));
+    }
+
+    CONNECTORS.forEach(function (c, i) {
+      var cell = el('button', { class: 'cb-cell', type: 'button', 'aria-pressed': i === 0 ? 'true' : 'false' }, [
+        glyph(c.glyph, 'cb-cell__glyph'),
+        el('span', { class: 'cb-cell__name', text: c.name })
+      ]);
+      cell.addEventListener('click', function () {
+        Array.prototype.forEach.call(grid.children, function (t) { t.setAttribute('aria-pressed', 'false'); });
+        cell.setAttribute('aria-pressed', 'true');
+        showDetail(c);
+      });
+      grid.appendChild(cell);
+    });
+    showDetail(CONNECTORS[0]);
+
+    // ---- Reveal on scroll -------------------------------------------------
+
+    var revealables = document.querySelectorAll('[data-reveal], [data-reveal-stagger]');
+    var scrambles = document.querySelectorAll('[data-scramble]');
+
+    if (reduceMotion || !('IntersectionObserver' in window)) {
+      Array.prototype.forEach.call(revealables, function (n) { n.classList.add('is-in'); });
+      Array.prototype.forEach.call(scrambles, function (n) { n.classList.add('is-in'); });
+    } else {
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting) { e.target.classList.add('is-in'); io.unobserve(e.target); }
+        });
+      }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+      Array.prototype.forEach.call(revealables, function (n) { io.observe(n); });
+
+      var sio = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting) { e.target.classList.add('is-in'); scramble(e.target); sio.unobserve(e.target); }
+        });
+      }, { threshold: 0.5 });
+      Array.prototype.forEach.call(scrambles, function (n) { sio.observe(n); });
+    }
+
+    // ---- Sticky header state + active nav ---------------------------------
+
+    var header = document.querySelector('.cb-header');
+    var navLinks = Array.prototype.slice.call(document.querySelectorAll('.cb-nav a[href^="#"]'));
+    // Every section is observed so the underline clears on sections that are not in the nav.
+    var navTargets = Array.prototype.slice.call(document.querySelectorAll('main section[id]'));
+
+    var darkBlocks = Array.prototype.slice.call(document.querySelectorAll('.cb-dark, .cb-end'));
+
+    function onHeaderScroll() {
+      header.classList.toggle('is-scrolled', window.scrollY > 24);
+      var h = header.offsetHeight;
+      var overDark = darkBlocks.some(function (b) {
+        var r = b.getBoundingClientRect();
+        return r.top <= h && r.bottom >= h;
+      });
+      header.classList.toggle('is-dark', overDark);
+    }
+    window.addEventListener('scroll', onHeaderScroll, { passive: true });
+    onHeaderScroll();
+
+    if ('IntersectionObserver' in window && navTargets.length) {
+      var nio = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (!e.isIntersecting) return;
+          navLinks.forEach(function (a) { a.classList.toggle('is-active', a.getAttribute('href') === '#' + e.target.id); });
+        });
+      }, { rootMargin: '-40% 0px -55% 0px', threshold: 0 });
+      navTargets.forEach(function (t) { nio.observe(t); });
+    }
+
+    // ---- Parallax ---------------------------------------------------------
+    // Each [data-parallax] drifts by (distance from viewport center) * factor.
+
+    var parallaxNodes = Array.prototype.slice.call(document.querySelectorAll('[data-parallax]'));
+    var parallaxQueued = false;
+
+    function applyParallax() {
+      parallaxQueued = false;
+      var vh = window.innerHeight;
+      parallaxNodes.forEach(function (n) {
+        var r = n.getBoundingClientRect();
+        if (r.bottom < -vh || r.top > vh * 2) return;
+        var factor = parseFloat(n.getAttribute('data-parallax')) || 0;
+        var offset = (r.top + r.height / 2 - vh / 2) * factor;
+        n.style.setProperty('--py', offset.toFixed(1) + 'px');
+      });
+    }
+
+    function queueParallax() {
+      if (!parallaxQueued) { parallaxQueued = true; requestAnimationFrame(applyParallax); }
+    }
+
+    if (!reduceMotion && parallaxNodes.length) {
+      window.addEventListener('scroll', queueParallax, { passive: true });
+      window.addEventListener('resize', queueParallax);
+      applyParallax();
+    }
+
+    // ---- Cursor glow on cards ---------------------------------------------
+
+    if (!reduceMotion && window.matchMedia && window.matchMedia('(hover: hover)').matches) {
+      Array.prototype.forEach.call(document.querySelectorAll('[data-glow]'), function (card) {
+        card.addEventListener('pointermove', function (e) {
+          var r = card.getBoundingClientRect();
+          card.style.setProperty('--mx', ((e.clientX - r.left) / r.width * 100).toFixed(1) + '%');
+          card.style.setProperty('--my', ((e.clientY - r.top) / r.height * 100).toFixed(1) + '%');
+        });
+      });
+    }
+  })();
+  </script>
 </body>
 </html>
