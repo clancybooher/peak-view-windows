@@ -3,29 +3,30 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Automations | Peak View</title>
-  <meta name="description" content="Custom automations and full setup for email, CRM, and the tools you already use. AI to make the day simpler. Fewer tasks. More done. Call Clancy at 541-639-3968." />
+  <title>Clancy Booher | Custom automations for small businesses in Bend, Oregon</title>
+  <meta name="description" content="Clancy Booher builds custom automations that run inside the tools you already use. Gmail, calendar, chat, ChatGPT, Claude. Call or text 541-639-3968." />
   <meta name="robots" content="noindex, follow" />
   <link rel="canonical" href="https://peakvieworegon.com/automations" />
+  <meta name="theme-color" content="#f9f9f9" />
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="Automations | Peak View" />
-  <meta property="og:description" content="Custom automations and full setup for email, CRM, and the tools you already use. AI to make the day simpler." />
+  <meta property="og:title" content="Clancy Booher | Custom automations" />
+  <meta property="og:description" content="Custom automations that run inside the tools you already use. Built for your business. You own the code." />
   <meta property="og:url" content="https://peakvieworegon.com/automations" />
   <meta property="og:locale" content="en_US" />
-  <meta property="og:site_name" content="Peak View" />
+  <meta property="og:site_name" content="Clancy Booher" />
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Automations | Peak View" />
-  <meta name="twitter:description" content="Custom automations and full setup for email, CRM, and the tools you already use." />
+  <meta name="twitter:title" content="Clancy Booher | Custom automations" />
+  <meta name="twitter:description" content="Custom automations that run inside the tools you already use. Built for your business. You own the code." />
 
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "ProfessionalService",
-    "name": "Peak View Automation Consulting",
+    "name": "Clancy Booher Automation Consulting",
     "url": "https://peakvieworegon.com/automations",
     "telephone": "+1-541-639-3968",
     "email": "clancy@peakvieworegon.com",
-    "description": "Custom automations and full setup for email, CRM, and the tools you already use. AI to make the day simpler. Fewer tasks. More done.",
+    "description": "Custom automations and connectors for small businesses. Gmail, calendar, chat apps, ChatGPT, Claude, and custom agents that run in the background.",
     "founder": {
       "@type": "Person",
       "name": "Clancy Booher"
@@ -38,403 +39,2192 @@
   }
   </script>
 
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": [
-      {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://peakvieworegon.com/"},
-      {"@type": "ListItem", "position": 2, "name": "Automations", "item": "https://peakvieworegon.com/automations"}
-    ]
-  }
-  </script>
-
-  <link rel="icon" type="image/png" href="logo.png" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23131313'/%3E%3Cpath d='M16 16h32v32H16z' fill='none' stroke='%23d2e9fe' stroke-width='5'/%3E%3Cpath d='M32 16v32' stroke='%23d2e9fe' stroke-width='5'/%3E%3C/svg%3E" />
+  <link rel="preconnect" href="https://api.fontshare.com" crossorigin />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://api.fontshare.com/v2/css?f[]=satoshi@500,700,900&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet" />
 
   <style>
-    /* Scoped to this page only. Does not load styles.css. */
+    /* Standalone page. Does not load styles.css. Every class is cb- prefixed. */
     body.automations {
-      --auto-bg: #0c0c0b;
-      --auto-raised: #141412;
-      --auto-text: #f3f0e6;
-      --auto-muted: #9b9688;
-      --auto-faint: #6e6a60;
-      --auto-accent: #fef47a;
-      --auto-line: rgba(254, 244, 122, 0.14);
-      --auto-font: "Inter", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      --cb-bg: #f9f9f9;
+      --cb-panel: #f3f3f3;
+      --cb-line: #e5e5e5;
+      --cb-line-2: #d3d3d3;
+      --cb-ink: #131313;
+      --cb-ink-2: #3a3a3a;
+      --cb-muted: #7d8082;
+      --cb-faint: #b4b6b8;
+      --cb-blue: #d2e9fe;
+      --cb-blue-2: #8fc5f2;
+      --cb-lime: #98fe00;
+      --cb-orange: #ff9500;
+      --cb-dark: #131313;
+      --cb-darker: #090909;
+      --cb-sans: "Satoshi", "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+      --cb-mono: "Roboto Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+      --cb-ease: cubic-bezier(0.22, 0.61, 0.36, 1);
+      --cb-cut: 3.5rem;
       margin: 0;
-      background: var(--auto-bg);
-      color: var(--auto-text);
-      font-family: var(--auto-font);
-      font-size: 1.0625rem;
-      line-height: 1.7;
-      font-weight: 400;
+      background: var(--cb-bg);
+      color: var(--cb-ink);
+      font-family: var(--cb-sans);
+      font-size: 1rem;
+      line-height: 1.5;
+      font-weight: 500;
+      letter-spacing: -0.01em;
       -webkit-font-smoothing: antialiased;
       text-rendering: optimizeLegibility;
+      overflow-x: hidden;
     }
 
     body.automations *,
     body.automations *::before,
-    body.automations *::after {
-      box-sizing: border-box;
-    }
+    body.automations *::after { box-sizing: border-box; }
 
-    body.automations a {
-      color: inherit;
-    }
+    body.automations a { color: inherit; }
+    body.automations p { margin: 0; }
+    body.automations button { font: inherit; color: inherit; cursor: pointer; letter-spacing: inherit; }
 
-    body.automations a:focus-visible,
-    body.automations .auto-cta:focus-visible {
-      outline: 2px solid var(--auto-accent);
+    body.automations :focus-visible {
+      outline: 2px solid var(--cb-ink);
       outline-offset: 3px;
     }
 
-    body.automations .auto-skip {
+    body.automations h1,
+    body.automations h2,
+    body.automations h3 {
+      margin: 0;
+      font-weight: 700;
+      letter-spacing: -0.04em;
+      line-height: 1.05;
+    }
+
+    .cb-skip {
       position: absolute;
       left: 1rem;
       top: -3rem;
-      background: var(--auto-accent);
-      color: #14140f;
-      padding: 0.4rem 0.7rem;
+      background: var(--cb-ink);
+      color: #fff;
+      padding: 0.5rem 0.8rem;
       font-size: 0.85rem;
       text-decoration: none;
-      z-index: 20;
+      z-index: 50;
     }
+    .cb-skip:focus { top: 0.75rem; }
 
-    body.automations .auto-skip:focus {
-      top: 0.75rem;
-    }
-
-    body.automations .auto-wrap {
-      width: min(42rem, calc(100% - 2.5rem));
+    .cb-wrap {
+      width: min(82rem, calc(100% - 2.5rem));
       margin: 0 auto;
     }
 
-    body.automations .auto-header {
-      padding: 1.15rem 0 0;
+    /* Mono micro labels */
+    .cb-mono {
+      font-family: var(--cb-mono);
+      font-size: 0.72rem;
+      font-weight: 400;
+      letter-spacing: 0;
+      line-height: 1;
+      text-transform: uppercase;
+      color: var(--cb-muted);
     }
 
-    body.automations .auto-header__inner {
-      width: min(42rem, calc(100% - 2.5rem));
-      margin: 0 auto;
+    /* Header */
+    .cb-header { padding: 1.1rem 0; }
+
+    .cb-header__inner {
       display: flex;
-      align-items: baseline;
+      align-items: center;
       justify-content: space-between;
       gap: 1rem;
     }
 
-    body.automations .auto-brand {
-      text-decoration: none;
+    .cb-brand {
       display: flex;
-      flex-direction: column;
-      gap: 0.1rem;
-    }
-
-    body.automations .auto-brand__name {
-      font-size: 0.92rem;
-      font-weight: 500;
-      letter-spacing: -0.02em;
-    }
-
-    body.automations .auto-brand__mark {
-      font-size: 0.72rem;
-      color: var(--auto-muted);
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-    }
-
-    body.automations .auto-header__call {
-      font-size: 0.88rem;
-      color: var(--auto-muted);
+      align-items: center;
+      gap: 0.65rem;
       text-decoration: none;
-    }
-
-    body.automations .auto-header__call:hover {
-      color: var(--auto-accent);
-    }
-
-    body.automations .auto-hero {
-      padding: 5.5rem 0 4.5rem;
-    }
-
-    body.automations .auto-kicker {
-      margin: 0 0 1.1rem;
-      font-size: 0.72rem;
-      font-weight: 500;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--auto-accent);
-    }
-
-    body.automations .auto-hero h1 {
-      margin: 0 0 1.15rem;
-      font-size: clamp(2.05rem, 7.2vw, 3.25rem);
-      font-weight: 500;
-      line-height: 1.12;
-      letter-spacing: -0.035em;
-    }
-
-    body.automations .auto-hero__sub {
-      margin: 0 0 2rem;
-      max-width: 34rem;
-      color: var(--auto-muted);
+      font-weight: 700;
       font-size: 1.05rem;
+      letter-spacing: -0.03em;
     }
 
-    body.automations .auto-cta {
+    .cb-brand__mark {
+      width: 1.5rem;
+      height: 1.5rem;
+      display: grid;
+      place-items: center;
+      background: var(--cb-ink);
+      flex: 0 0 auto;
+    }
+
+    .cb-brand__mark::before {
+      content: "";
+      width: 0.75rem;
+      height: 0.75rem;
+      border: 2px solid var(--cb-blue);
+      border-right-width: 0;
+      box-shadow: 0.2rem 0 0 -0.1rem var(--cb-blue);
+    }
+
+    .cb-nav { display: none; gap: 1.75rem; }
+    .cb-nav a { text-decoration: none; transition: color 0.2s; color: var(--cb-ink); }
+    .cb-nav a:hover { color: var(--cb-muted); }
+
+    /* Buttons: label + square arrow box */
+    .cb-btn {
       display: inline-flex;
       align-items: center;
-      height: 2.45rem;
-      padding: 0 1.05rem;
-      border-radius: 999px;
-      background: var(--auto-accent);
-      color: #14140f;
-      font-size: 0.88rem;
-      font-weight: 550;
-      letter-spacing: -0.01em;
-      text-decoration: none;
-    }
-
-    body.automations .auto-cta:hover {
-      filter: brightness(1.04);
-    }
-
-    body.automations .auto-cta--ghost {
-      background: transparent;
-      color: var(--auto-text);
-      border: 1px solid var(--auto-line);
-    }
-
-    body.automations .auto-cta--ghost:hover {
-      border-color: var(--auto-accent);
-      color: var(--auto-accent);
-      filter: none;
-    }
-
-    body.automations .auto-section {
-      padding: 0 0 4.25rem;
-    }
-
-    body.automations .auto-section h2 {
-      margin: 0 0 1.35rem;
-      font-size: 0.72rem;
+      justify-content: space-between;
+      gap: 1.25rem;
+      min-height: 2.75rem;
+      padding: 0.3rem 0.3rem 0.3rem 1rem;
+      border: 1px solid var(--cb-ink);
+      background: var(--cb-ink);
+      color: #fff;
+      font-size: 0.95rem;
       font-weight: 500;
-      letter-spacing: 0.14em;
+      text-decoration: none;
+      transition: background 0.2s, border-color 0.2s, color 0.2s;
+      white-space: nowrap;
+    }
+
+    .cb-btn__box {
+      width: 2.1rem;
+      height: 2.1rem;
+      flex: 0 0 auto;
+      display: grid;
+      place-items: center;
+      background: var(--cb-blue);
+      color: var(--cb-ink);
+      transition: background 0.2s;
+    }
+
+    .cb-btn__box svg {
+      width: 0.85rem;
+      height: 0.85rem;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 1.8;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      transition: transform 0.25s var(--cb-ease);
+    }
+
+    .cb-btn:hover { background: #000; }
+    .cb-btn:hover .cb-btn__box svg { transform: translate(2px, -2px); }
+    .cb-btn--play:hover .cb-btn__box svg { transform: translateX(2px); }
+
+    .cb-btn--light {
+      background: var(--cb-bg);
+      border-color: var(--cb-line-2);
+      color: var(--cb-ink);
+    }
+    .cb-btn--light .cb-btn__box { background: var(--cb-line); }
+    .cb-btn--light:hover { background: #fff; border-color: var(--cb-ink); }
+
+    .cb-btn--blue {
+      background: var(--cb-blue);
+      border-color: var(--cb-blue);
+      color: var(--cb-ink);
+    }
+    .cb-btn--blue .cb-btn__box { background: var(--cb-bg); }
+    .cb-btn--blue:hover { background: #e4f1fe; border-color: #e4f1fe; }
+
+    .cb-btn--ghost-dark {
+      background: transparent;
+      border-color: rgba(255, 255, 255, 0.22);
+      color: #fff;
+    }
+    .cb-btn--ghost-dark .cb-btn__box { background: rgba(255, 255, 255, 0.1); color: #fff; }
+    .cb-btn--ghost-dark:hover { background: rgba(255, 255, 255, 0.05); border-color: rgba(255, 255, 255, 0.5); }
+
+    .cb-btn--sm { min-height: 2.4rem; font-size: 0.86rem; gap: 0.9rem; padding-left: 0.85rem; }
+    .cb-btn--sm .cb-btn__box { width: 1.8rem; height: 1.8rem; }
+
+    /* Hero */
+    .cb-hero { padding: 3.5rem 0 0; }
+
+    .cb-hero__top {
+      display: grid;
+      gap: 2.5rem;
+      align-items: end;
+    }
+
+    .cb-hero h1 {
+      font-size: clamp(2.5rem, 7.4vw, 5rem);
+      line-height: 1;
+      max-width: 16ch;
+    }
+
+    .cb-word {
+      display: inline-block;
+      opacity: 0;
+      transform: translateY(0.35em);
+      transition: opacity 0.7s var(--cb-ease), transform 0.7s var(--cb-ease);
+    }
+
+    .is-in .cb-word { opacity: 1; transform: none; }
+
+    /* Status card in the hero (stands where the reference puts a small photo) */
+    .cb-status {
+      background: var(--cb-dark);
+      color: #fff;
+      padding: 1rem 1.1rem 1.1rem;
+      font-family: var(--cb-mono);
+      font-size: 0.74rem;
+      letter-spacing: 0;
+      display: grid;
+      gap: 0.6rem;
+      clip-path: polygon(0 0, calc(100% - 1.4rem) 0, 100% 1.4rem, 100% 100%, 0 100%);
+      justify-self: start;
+      width: min(100%, 24rem);
+    }
+
+    .cb-status__head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: var(--cb-faint);
       text-transform: uppercase;
-      color: var(--auto-accent);
+      padding-bottom: 0.6rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.12);
     }
 
-    body.automations .auto-list {
-      margin: 0;
-      padding: 0;
-      list-style: none;
+    .cb-status__live {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      color: #fff;
     }
 
-    body.automations .auto-list li {
-      padding: 0.85rem 0;
-      border-top: 1px solid var(--auto-line);
-      color: var(--auto-text);
+    .cb-status__live::before {
+      content: "";
+      width: 0.45rem;
+      height: 0.45rem;
+      background: var(--cb-lime);
+      animation: cb-blink 1.6s steps(2, end) infinite;
     }
 
-    body.automations .auto-list li:last-child {
-      border-bottom: 1px solid var(--auto-line);
+    .cb-status__row {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      text-transform: uppercase;
     }
 
-    body.automations .auto-steps {
-      margin: 0;
-      padding: 0;
-      list-style: none;
+    .cb-status__row span:last-child { color: var(--cb-faint); }
+    .cb-status__row.is-wait span:last-child { color: var(--cb-orange); }
+    .cb-status__row.is-ok span:last-child { color: var(--cb-blue-2); }
+
+    @keyframes cb-blink { 50% { opacity: 0.2; } }
+
+    .cb-hero__bottom {
       display: grid;
-      gap: 1.65rem;
-    }
-
-    body.automations .auto-steps li {
-      display: grid;
-      grid-template-columns: 2.1rem 1fr;
-      gap: 0.85rem;
+      gap: 2.5rem;
+      margin-top: 3rem;
       align-items: start;
     }
 
-    body.automations .auto-steps span {
-      font-size: 0.78rem;
-      font-weight: 500;
-      letter-spacing: 0.06em;
-      color: var(--auto-accent);
-      padding-top: 0.2rem;
+    .cb-hero__copy { display: grid; gap: 1.5rem; align-content: start; }
+
+    .cb-hero__copy > p {
+      font-size: 1.15rem;
+      line-height: 1.45;
+      letter-spacing: -0.02em;
+      max-width: 30rem;
     }
 
-    body.automations .auto-steps p {
+    .cb-actions { display: flex; flex-wrap: wrap; gap: 0.75rem; }
+    .cb-actions .cb-btn { flex: 1 1 auto; }
+
+    .cb-hero__note { font-size: 0.9rem; color: var(--cb-muted); }
+    .cb-hero__note a { color: var(--cb-ink); text-decoration: none; border-bottom: 1px solid var(--cb-line-2); }
+
+    /* Wiring panel */
+    .cb-art {
+      background: var(--cb-panel);
+      padding: 1.25rem;
+      clip-path: polygon(0 0, 100% 0, 100% calc(100% - var(--cb-cut)), calc(100% - var(--cb-cut)) 100%, 0 100%);
+    }
+
+    .cb-art svg { display: block; width: 100%; height: auto; }
+
+    .cb-node { fill: #fff; stroke: var(--cb-line-2); stroke-width: 1.2; }
+    .cb-node--core { fill: var(--cb-dark); stroke: var(--cb-dark); }
+    .cb-glyph { fill: none; stroke: var(--cb-ink); stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+    .cb-glyph--light { stroke: var(--cb-blue); }
+    .cb-label { fill: var(--cb-muted); font-family: var(--cb-mono); font-size: 10px; text-transform: uppercase; }
+    .cb-wire { fill: none; stroke: var(--cb-line-2); stroke-width: 1.2; }
+    .cb-wire--flow {
+      stroke: var(--cb-blue-2);
+      stroke-width: 1.6;
+      stroke-dasharray: 6 16;
+      animation: cb-flow 1.9s linear infinite;
+    }
+    @keyframes cb-flow { to { stroke-dashoffset: -44; } }
+
+    .cb-ring {
+      fill: none;
+      stroke: var(--cb-blue-2);
+      stroke-width: 1;
+      opacity: 0;
+      transform-box: fill-box;
+      transform-origin: center;
+      animation: cb-ring 2.8s ease-out infinite;
+    }
+    @keyframes cb-ring {
+      0% { transform: scale(0.9); opacity: 0.7; }
+      100% { transform: scale(1.5); opacity: 0; }
+    }
+
+    /* Runs-on strip */
+    .cb-strip {
+      margin-top: 2.5rem;
+      padding: 1.25rem 0 0;
+      border-top: 1px solid var(--cb-line);
+      display: grid;
+      gap: 1rem;
+    }
+
+    .cb-strip ul {
       margin: 0;
-    }
-
-    body.automations .auto-steps strong {
-      display: block;
-      font-weight: 500;
-      margin-bottom: 0.2rem;
-    }
-
-    body.automations .auto-steps em,
-    body.automations .auto-for p {
-      font-style: normal;
-      color: var(--auto-muted);
-    }
-
-    body.automations .auto-for p {
-      margin: 0 0 1.1rem;
-      max-width: 34rem;
-    }
-
-    body.automations .auto-note {
-      margin: 0;
-      font-size: 0.88rem;
-      color: var(--auto-faint);
-      max-width: 32rem;
-    }
-
-    body.automations .auto-band {
-      background: var(--auto-raised);
-      border-top: 1px solid var(--auto-line);
-      border-bottom: 1px solid var(--auto-line);
-      padding: 3.25rem 0;
-    }
-
-    body.automations .auto-band h2 {
-      margin: 0 0 0.65rem;
-      font-size: clamp(1.45rem, 4vw, 1.85rem);
-      font-weight: 500;
-      letter-spacing: -0.03em;
-      text-transform: none;
-      color: var(--auto-text);
-    }
-
-    body.automations .auto-band p {
-      margin: 0 0 1.4rem;
-      color: var(--auto-muted);
-    }
-
-    body.automations .auto-band__links {
+      padding: 0;
+      list-style: none;
       display: flex;
       flex-wrap: wrap;
-      gap: 0.65rem 0.75rem;
+      gap: 0.6rem 1.75rem;
+      font-family: var(--cb-mono);
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      color: var(--cb-faint);
     }
 
-    body.automations .auto-footer {
-      padding: 2.25rem 0 2.75rem;
-      font-size: 0.8rem;
-      color: var(--auto-faint);
+    /* Section header pattern */
+    .cb-section { padding: 6rem 0; }
+
+    .cb-head { display: grid; gap: 0.9rem; }
+
+    .cb-rule { height: 1px; background: var(--cb-line); position: relative; }
+    .cb-rule span {
+      position: absolute;
+      left: 0;
+      top: 0;
+      height: 1px;
+      width: 0;
+      background: var(--cb-faint);
+      transition: width 1.1s var(--cb-ease);
+    }
+    .is-in .cb-rule span { width: 8rem; }
+
+    .cb-head__row {
+      display: grid;
+      gap: 1.25rem 2rem;
+      margin-top: 1.25rem;
+      align-items: start;
     }
 
-    body.automations .auto-footer p {
+    .cb-head h2 { font-size: clamp(1.75rem, 3.4vw, 2.4rem); }
+
+    .cb-head__lead {
+      font-size: 0.98rem;
+      color: var(--cb-ink-2);
+      max-width: 27rem;
+    }
+
+    .cb-head__lead a { color: var(--cb-ink); text-decoration: none; border-bottom: 1px solid var(--cb-line-2); }
+
+    /* Reveal */
+    [data-reveal] {
+      opacity: 0;
+      transform: translateY(16px);
+      transition: opacity 0.8s var(--cb-ease), transform 0.8s var(--cb-ease);
+    }
+    [data-reveal].is-in { opacity: 1; transform: none; }
+
+    [data-reveal-stagger] > * {
+      opacity: 0;
+      transform: translateY(14px);
+      transition: opacity 0.7s var(--cb-ease), transform 0.7s var(--cb-ease);
+    }
+    [data-reveal-stagger].is-in > * { opacity: 1; transform: none; }
+    [data-reveal-stagger].is-in > *:nth-child(2) { transition-delay: 0.07s; }
+    [data-reveal-stagger].is-in > *:nth-child(3) { transition-delay: 0.14s; }
+    [data-reveal-stagger].is-in > *:nth-child(4) { transition-delay: 0.21s; }
+    [data-reveal-stagger].is-in > *:nth-child(5) { transition-delay: 0.28s; }
+    [data-reveal-stagger].is-in > *:nth-child(6) { transition-delay: 0.35s; }
+    [data-reveal-stagger].is-in > *:nth-child(7) { transition-delay: 0.42s; }
+    [data-reveal-stagger].is-in > *:nth-child(8) { transition-delay: 0.49s; }
+    [data-reveal-stagger].is-in > *:nth-child(9) { transition-delay: 0.56s; }
+    [data-reveal-stagger].is-in > *:nth-child(10) { transition-delay: 0.63s; }
+    [data-reveal-stagger].is-in > *:nth-child(11) { transition-delay: 0.70s; }
+    [data-reveal-stagger].is-in > *:nth-child(12) { transition-delay: 0.77s; }
+
+    /* Pain chips */
+    .cb-pain { padding: 5rem 0 2rem; }
+
+    .cb-pain__stage {
+      position: relative;
+      display: grid;
+      gap: 2rem;
+    }
+
+    .cb-pain__statement {
+      font-size: clamp(1.35rem, 2.6vw, 1.85rem);
+      font-weight: 700;
+      letter-spacing: -0.04em;
+      line-height: 1.15;
+      max-width: 40rem;
+    }
+
+    .cb-chips {
       margin: 0;
+      padding: 0;
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
     }
 
-    body.automations .auto-footer a {
-      color: var(--auto-muted);
-      text-decoration: none;
+    .cb-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      background: var(--cb-panel);
+      border: 1px solid var(--cb-line);
+      padding: 0.7rem 1rem;
+      font-size: 0.86rem;
+      white-space: nowrap;
     }
 
-    body.automations .auto-footer a:hover {
-      color: var(--auto-accent);
+    .cb-chip svg {
+      width: 0.9rem;
+      height: 0.9rem;
+      fill: none;
+      stroke: var(--cb-orange);
+      stroke-width: 1.8;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      flex: 0 0 auto;
     }
 
-    @media (min-width: 720px) {
-      body.automations .auto-hero {
-        padding: 7.25rem 0 5.5rem;
+    /* Capability cards */
+    .cb-caps {
+      display: grid;
+      gap: 0.6rem;
+      margin-top: 3rem;
+    }
+
+    .cb-cap {
+      position: relative;
+      background: var(--cb-panel);
+      padding: 1.5rem 1.35rem 1.5rem;
+      min-height: 17rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      gap: 0.5rem;
+      overflow: hidden;
+      transition: background 0.3s;
+    }
+
+    .cb-cap:hover { background: #efefef; }
+
+    .cb-cap svg {
+      position: absolute;
+      top: 1.25rem;
+      right: 1.25rem;
+      width: 7.5rem;
+      height: 7.5rem;
+      transition: transform 0.5s var(--cb-ease);
+    }
+
+    .cb-cap:hover svg { transform: translateY(-4px); }
+
+    .cb-cap h3 { font-size: 1.35rem; }
+    .cb-cap p { font-size: 0.9rem; color: var(--cb-ink-2); max-width: 24rem; }
+
+    .cb-cap--wide { grid-column: span 1; }
+
+    .cb-ill-grey { fill: #e6e7e8; stroke: var(--cb-line-2); stroke-width: 1; }
+    .cb-ill-grey-2 { fill: #d3d3d3; stroke: #c4c6c8; stroke-width: 1; }
+    .cb-ill-blue { fill: url(#lg-blue); stroke: var(--cb-blue-2); stroke-width: 1; }
+    .cb-ill-line { fill: none; stroke: var(--cb-line-2); stroke-width: 1.2; stroke-linecap: round; }
+    .cb-ill-dark { fill: var(--cb-dark); }
+
+    /* Dark sections */
+    .cb-dark {
+      background: var(--cb-dark);
+      color: #fff;
+      clip-path: polygon(0 0, calc(100% - var(--cb-cut)) 0, 100% var(--cb-cut), 100% 100%, 0 100%);
+      --cb-line: rgba(255, 255, 255, 0.12);
+      --cb-line-2: rgba(255, 255, 255, 0.2);
+      --cb-ink-2: #d3d3d3;
+      --cb-muted: #b4b6b8;
+      --cb-faint: #7d8082;
+    }
+
+    .cb-dark .cb-head h2 { color: #fff; }
+    .cb-dark .cb-rule span { background: #fff; }
+
+    /* Demo */
+    .cb-demo__shell {
+      margin-top: 3rem;
+      border: 1px solid var(--cb-line);
+      background: #171717;
+    }
+
+    .cb-tabs {
+      display: flex;
+      border-bottom: 1px solid var(--cb-line);
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+    .cb-tabs::-webkit-scrollbar { display: none; }
+
+    .cb-tab {
+      flex: 0 0 auto;
+      background: transparent;
+      border: 0;
+      border-right: 1px solid var(--cb-line);
+      border-bottom: 2px solid transparent;
+      padding: 0.95rem 1.1rem 0.85rem;
+      font-family: var(--cb-mono);
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      color: var(--cb-muted);
+      transition: color 0.2s, background 0.2s, border-color 0.2s;
+      white-space: nowrap;
+    }
+
+    .cb-tab:hover { color: #fff; background: rgba(255, 255, 255, 0.03); }
+    .cb-tab[aria-selected="true"] { color: #fff; border-bottom-color: var(--cb-blue-2); }
+
+    .cb-demo__head {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.9rem 1.5rem;
+      padding: 1rem 1.15rem;
+      border-bottom: 1px solid var(--cb-line);
+    }
+
+    .cb-demo__trigger {
+      display: flex;
+      align-items: baseline;
+      gap: 0.75rem;
+      font-size: 0.95rem;
+      min-width: 0;
+    }
+
+    .cb-demo__trigger .cb-mono { flex: 0 0 auto; }
+
+    .cb-demo__controls { display: flex; align-items: center; gap: 0.5rem; }
+
+    .cb-icon-btn {
+      width: 2.4rem;
+      height: 2.4rem;
+      display: grid;
+      place-items: center;
+      border: 1px solid var(--cb-line-2);
+      background: transparent;
+      color: #fff;
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .cb-icon-btn:hover { border-color: #fff; background: rgba(255, 255, 255, 0.05); }
+    .cb-icon-btn svg { width: 0.9rem; height: 0.9rem; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+
+    .cb-demo__grid { display: grid; }
+
+    .cb-stage {
+      padding: 1.15rem;
+      min-height: 15rem;
+      border-top: 1px solid var(--cb-line);
+    }
+    .cb-stage:first-child { border-top: 0; }
+
+    .cb-stage h3 {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-family: var(--cb-mono);
+      font-weight: 400;
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0;
+      color: var(--cb-muted);
+      margin-bottom: 1rem;
+    }
+
+    .cb-conn-list,
+    .cb-steps { margin: 0; padding: 0; list-style: none; display: grid; gap: 0.5rem; }
+
+    .cb-conn {
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+      padding: 0.6rem 0.75rem;
+      border: 1px solid var(--cb-line);
+      font-size: 0.88rem;
+      opacity: 0.35;
+      transition: opacity 0.4s var(--cb-ease), border-color 0.4s;
+    }
+    .cb-conn.is-on { opacity: 1; border-color: rgba(143, 197, 242, 0.5); }
+
+    .cb-conn__dot {
+      width: 0.45rem;
+      height: 0.45rem;
+      background: var(--cb-faint);
+      flex: 0 0 auto;
+      transition: background 0.3s;
+    }
+    .cb-conn.is-on .cb-conn__dot { background: var(--cb-blue-2); }
+
+    .cb-conn__glyph { width: 1.05rem; height: 1.05rem; flex: 0 0 auto; color: #fff; }
+    .cb-conn__glyph svg { width: 100%; height: 100%; display: block; }
+    .cb-conn small { margin-left: auto; font-family: var(--cb-mono); font-size: 0.66rem; text-transform: uppercase; color: var(--cb-faint); }
+
+    .cb-step {
+      display: grid;
+      grid-template-columns: 1rem 1fr;
+      gap: 0.7rem;
+      align-items: start;
+      font-size: 0.9rem;
+      opacity: 0;
+      transform: translateY(6px);
+      transition: opacity 0.45s var(--cb-ease), transform 0.45s var(--cb-ease);
+    }
+    .cb-step.is-in { opacity: 1; transform: none; }
+
+    .cb-step__mark {
+      width: 1rem;
+      height: 1rem;
+      margin-top: 0.2rem;
+      border: 1.5px solid var(--cb-line-2);
+      display: grid;
+      place-items: center;
+    }
+    .cb-step.is-running .cb-step__mark { border-color: var(--cb-blue-2); border-top-color: transparent; border-radius: 50%; animation: cb-spin 0.9s linear infinite; }
+    .cb-step.is-done .cb-step__mark { border-color: var(--cb-blue-2); background: rgba(143, 197, 242, 0.15); }
+    .cb-step.is-done .cb-step__mark::after {
+      content: "";
+      width: 0.3rem;
+      height: 0.16rem;
+      border-left: 1.5px solid var(--cb-blue-2);
+      border-bottom: 1.5px solid var(--cb-blue-2);
+      transform: translateY(-1px) rotate(-45deg);
+    }
+    .cb-step.is-hold .cb-step__mark { border-color: var(--cb-orange); background: rgba(255, 149, 0, 0.14); }
+    .cb-step.is-hold .cb-step__mark::after { content: ""; width: 0.28rem; height: 0.28rem; background: var(--cb-orange); }
+    .cb-step.is-hold p { color: var(--cb-orange); }
+    @keyframes cb-spin { to { transform: rotate(360deg); } }
+
+    .cb-step__time {
+      display: block;
+      font-family: var(--cb-mono);
+      font-size: 0.66rem;
+      text-transform: uppercase;
+      color: var(--cb-faint);
+      margin-bottom: 0.1rem;
+    }
+
+    .cb-stage--out { background: rgba(255, 255, 255, 0.02); }
+
+    .cb-out {
+      border: 1px solid var(--cb-line-2);
+      background: #0f0f0f;
+      font-size: 0.88rem;
+      opacity: 0;
+      transform: translateY(8px);
+      transition: opacity 0.55s var(--cb-ease), transform 0.55s var(--cb-ease);
+    }
+    .cb-out.is-in { opacity: 1; transform: none; }
+
+    .cb-out__bar {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.55rem 0.85rem;
+      border-bottom: 1px solid var(--cb-line);
+      font-family: var(--cb-mono);
+      font-size: 0.66rem;
+      text-transform: uppercase;
+      color: var(--cb-muted);
+    }
+    .cb-out__bar::before { content: ""; width: 0.4rem; height: 0.4rem; background: var(--cb-blue-2); }
+
+    .cb-out__body { padding: 0.9rem 0.95rem; display: grid; gap: 0.55rem; }
+    .cb-out__row { display: grid; grid-template-columns: 4rem 1fr; gap: 0.5rem; font-size: 0.84rem; }
+    .cb-out__row span { color: var(--cb-faint); }
+    .cb-out__text { white-space: pre-line; line-height: 1.5; color: #fff; }
+    .cb-out__foot { padding: 0.6rem 0.95rem; border-top: 1px solid var(--cb-line); font-size: 0.78rem; color: var(--cb-faint); }
+
+    .cb-cal { display: flex; align-items: center; gap: 0.9rem; }
+    .cb-cal__date { width: 3.4rem; border: 1px solid var(--cb-line-2); text-align: center; flex: 0 0 auto; }
+    .cb-cal__date b { display: block; font-family: var(--cb-mono); font-size: 0.62rem; font-weight: 400; text-transform: uppercase; padding: 0.25rem 0; background: var(--cb-blue); color: var(--cb-ink); }
+    .cb-cal__date span { display: block; font-size: 1.15rem; font-weight: 700; padding: 0.3rem 0 0.35rem; letter-spacing: -0.03em; }
+    .cb-cal__meta { color: var(--cb-muted); font-size: 0.82rem; }
+
+    .cb-msg { display: grid; grid-template-columns: 1.6rem 1fr; gap: 0.6rem; align-items: start; font-size: 0.86rem; }
+    .cb-msg__avatar { width: 1.6rem; height: 1.6rem; background: #1f2228; border: 1px solid var(--cb-line-2); display: grid; place-items: center; font-family: var(--cb-mono); font-size: 0.62rem; text-transform: uppercase; color: var(--cb-muted); }
+    .cb-msg--bot .cb-msg__avatar { background: var(--cb-blue); border-color: var(--cb-blue); color: var(--cb-ink); }
+    .cb-msg b { display: block; font-weight: 700; font-size: 0.8rem; margin-bottom: 0.05rem; }
+    .cb-msg b small { font-family: var(--cb-mono); font-size: 0.62rem; font-weight: 400; color: var(--cb-faint); margin-left: 0.4rem; text-transform: uppercase; }
+    .cb-msg p { color: var(--cb-muted); }
+    .cb-msg--bot p { color: #fff; }
+
+    .cb-table { width: 100%; border-collapse: collapse; font-size: 0.78rem; }
+    .cb-table th, .cb-table td { text-align: left; padding: 0.45rem 0.5rem; border-bottom: 1px solid var(--cb-line); white-space: nowrap; }
+    .cb-table th { font-family: var(--cb-mono); font-weight: 400; font-size: 0.62rem; text-transform: uppercase; color: var(--cb-faint); }
+    .cb-table tr.is-new td { background: rgba(143, 197, 242, 0.08); color: #fff; }
+
+    .cb-digest { margin: 0; padding: 0 0 0 1.1rem; display: grid; gap: 0.35rem; color: #fff; }
+    .cb-digest li::marker { color: var(--cb-blue-2); }
+
+    .cb-progress { height: 2px; background: rgba(255, 255, 255, 0.06); }
+    .cb-progress span { display: block; height: 100%; width: 0; background: var(--cb-blue-2); transition: width 0.5s var(--cb-ease); }
+
+    .cb-demo__foot {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem 1.5rem;
+      justify-content: space-between;
+      margin-top: 1.1rem;
+      font-size: 0.84rem;
+      color: var(--cb-muted);
+    }
+
+    /* Use cases grid */
+    .cb-uses {
+      display: grid;
+      gap: 0;
+      margin-top: 3rem;
+      border-top: 1px solid var(--cb-line);
+    }
+
+    .cb-use {
+      border-bottom: 1px solid var(--cb-line);
+      transition: background 0.25s;
+    }
+
+    .cb-use__btn {
+      width: 100%;
+      text-align: left;
+      background: transparent;
+      border: 0;
+      padding: 1.6rem 0.5rem 1.6rem 0;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 1rem;
+      align-items: start;
+    }
+
+    .cb-use__icon { width: 1.35rem; height: 1.35rem; color: var(--cb-ink); margin-bottom: 0.75rem; display: block; }
+    .cb-use__icon svg { width: 100%; height: 100%; }
+
+    .cb-use h3 { font-size: 1.35rem; margin-bottom: 0.5rem; }
+    .cb-use__sub { font-size: 0.9rem; color: var(--cb-ink-2); max-width: 30rem; }
+
+    .cb-use__chev {
+      width: 2rem;
+      height: 2rem;
+      border: 1px solid var(--cb-line-2);
+      display: grid;
+      place-items: center;
+      transition: transform 0.35s var(--cb-ease), background 0.2s;
+      margin-top: 0.2rem;
+    }
+    .cb-use__chev svg { width: 0.8rem; height: 0.8rem; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+    .cb-use.is-open .cb-use__chev { transform: rotate(45deg); background: var(--cb-ink); color: #fff; border-color: var(--cb-ink); }
+
+    .cb-use__body { display: grid; grid-template-rows: 0fr; transition: grid-template-rows 0.45s var(--cb-ease); }
+    .cb-use.is-open .cb-use__body { grid-template-rows: 1fr; }
+    .cb-use__body > div { overflow: hidden; }
+
+    .cb-use__inner { padding: 0 0 1.75rem; display: grid; gap: 1.1rem; }
+
+    .cb-facts { margin: 0; display: grid; gap: 0.55rem; }
+    .cb-facts div { display: grid; grid-template-columns: 6rem 1fr; gap: 0.75rem; font-size: 0.9rem; }
+    .cb-facts dt { font-family: var(--cb-mono); font-size: 0.66rem; text-transform: uppercase; color: var(--cb-muted); padding-top: 0.3rem; }
+    .cb-facts dd { margin: 0; color: var(--cb-ink); }
+
+    .cb-glyph-svg { fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+
+    /* Compare */
+    .cb-why { display: grid; gap: 2.5rem; margin-top: 3rem; align-items: start; }
+
+    .cb-why__prose { display: grid; gap: 1rem; font-size: 0.98rem; color: var(--cb-ink-2); max-width: 30rem; }
+    .cb-why__prose strong { color: var(--cb-ink); font-weight: 700; }
+
+    .cb-compare { border: 1px solid var(--cb-line); background: var(--cb-bg); }
+
+    .cb-compare__head,
+    .cb-compare__row {
+      display: grid;
+      grid-template-columns: 5.5rem 1fr 1fr;
+      gap: 0.75rem;
+      padding: 0.9rem 1rem;
+      border-top: 1px solid var(--cb-line);
+      font-size: 0.88rem;
+    }
+
+    .cb-compare__head { border-top: 0; background: var(--cb-panel); }
+    .cb-compare__head b { font-family: var(--cb-mono); font-weight: 400; font-size: 0.66rem; text-transform: uppercase; color: var(--cb-muted); }
+    .cb-compare__head b:last-child { color: var(--cb-ink); }
+    .cb-compare__row > span:first-child { font-family: var(--cb-mono); font-size: 0.66rem; text-transform: uppercase; color: var(--cb-muted); padding-top: 0.25rem; }
+    .cb-compare__row > span:nth-child(2) { color: var(--cb-muted); }
+    .cb-compare__row > span:last-child { color: var(--cb-ink); }
+
+    /* Connector cells */
+    .cb-cells {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      margin-top: 3rem;
+      border-top: 1px solid var(--cb-line);
+      border-left: 1px solid var(--cb-line);
+    }
+
+    .cb-cell {
+      position: relative;
+      aspect-ratio: 1.35;
+      border: 0;
+      border-right: 1px solid var(--cb-line);
+      border-bottom: 1px solid var(--cb-line);
+      background: var(--cb-bg);
+      display: grid;
+      place-items: center;
+      color: var(--cb-muted);
+      transition: background 0.25s, color 0.25s;
+    }
+
+    .cb-cell:hover { background: var(--cb-panel); color: var(--cb-ink); }
+    .cb-cell[aria-pressed="true"] { background: var(--cb-panel); color: var(--cb-ink); box-shadow: inset 0 0 0 1px var(--cb-ink); z-index: 1; }
+
+    .cb-cell__glyph { width: 1.9rem; height: 1.9rem; }
+    .cb-cell__glyph svg { width: 100%; height: 100%; }
+
+    .cb-cell__name {
+      position: absolute;
+      right: 0.7rem;
+      bottom: 0.6rem;
+      font-family: var(--cb-mono);
+      font-size: 0.64rem;
+      text-transform: uppercase;
+      color: var(--cb-ink);
+      letter-spacing: 0;
+    }
+
+    .cb-cell-detail {
+      margin-top: 1rem;
+      padding: 1.1rem 1.2rem;
+      background: var(--cb-panel);
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      gap: 0.5rem 1rem;
+      font-size: 0.95rem;
+      min-height: 3.6rem;
+    }
+    .cb-cell-detail strong { font-family: var(--cb-mono); font-weight: 400; font-size: 0.7rem; text-transform: uppercase; color: var(--cb-muted); }
+
+    /* Process */
+    .cb-process { margin-top: 1rem; }
+
+    .cb-proc {
+      display: grid;
+      gap: 1.5rem;
+      padding: 3.5rem 0;
+      border-top: 1px solid var(--cb-line);
+      align-items: center;
+    }
+
+    .cb-proc__num {
+      font-weight: 700;
+      font-size: 1.6rem;
+      letter-spacing: -0.04em;
+      color: var(--cb-faint);
+    }
+
+    .cb-proc__art svg { width: min(100%, 16rem); height: auto; display: block; }
+
+    .cb-proc__text h3 { font-size: 1.5rem; margin-bottom: 0.6rem; }
+    .cb-proc__text p { font-size: 0.95rem; color: var(--cb-ink-2); max-width: 28rem; }
+
+    .cb-bar { fill: url(#lg-blue-v); }
+    .cb-plane { fill: url(#lg-blue-d); stroke: var(--cb-blue-2); stroke-width: 1; }
+    .cb-plane--line { fill: none; stroke: var(--cb-blue); stroke-width: 1; }
+
+    /* CTA (dark) */
+    .cb-cta { padding: 6rem 0 5rem; }
+
+    .cb-cta__row {
+      display: grid;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .cb-cta h2 { font-size: clamp(1.9rem, 4vw, 2.8rem); }
+    .cb-cta p { margin-top: 1rem; max-width: 34rem; color: var(--cb-ink-2); }
+
+    .cb-cta__actions { display: grid; gap: 0.75rem; justify-items: stretch; }
+
+    /* Footer (darker) */
+    .cb-footer {
+      position: relative;
+      background: var(--cb-darker);
+      color: #fff;
+      padding: 4rem 0 7rem;
+      overflow: hidden;
+      --cb-line: rgba(255, 255, 255, 0.12);
+      --cb-muted: #b4b6b8;
+      --cb-faint: #7d8082;
+    }
+
+    .cb-footer::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: -4rem;
+      height: 14rem;
+      background: radial-gradient(55% 100% at 50% 100%, rgba(143, 197, 242, 0.42), transparent 72%);
+      pointer-events: none;
+    }
+
+    .cb-footer__grid {
+      position: relative;
+      display: grid;
+      gap: 2rem;
+    }
+
+    .cb-footer__col { display: grid; gap: 1.1rem; align-content: start; }
+    .cb-footer__col .cb-mono { color: var(--cb-faint); }
+    .cb-footer__about { font-size: 0.88rem; color: var(--cb-muted); max-width: 20rem; }
+    .cb-footer__links { margin: 0; padding: 0; list-style: none; display: grid; gap: 0.7rem; font-size: 1.05rem; }
+    .cb-footer a { text-decoration: none; transition: color 0.2s; }
+    .cb-footer a:hover { color: var(--cb-lime); }
+    .cb-footer__stack { display: grid; gap: 0.35rem; }
+    .cb-footer__stack .cb-mono { margin-top: 0.4rem; }
+
+    .cb-footer__bottom {
+      position: relative;
+      margin-top: 3rem;
+      padding-top: 1.25rem;
+      border-top: 1px solid var(--cb-line);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem 2rem;
+      justify-content: space-between;
+    }
+
+    .cb-footer__bottom .cb-mono { color: var(--cb-faint); }
+
+    /* Layout at width */
+    @media (min-width: 640px) {
+      .cb-caps { grid-template-columns: repeat(2, 1fr); }
+      .cb-cells { grid-template-columns: repeat(3, 1fr); }
+      .cb-actions .cb-btn { flex: 0 1 auto; }
+      .cb-cta__actions { grid-auto-flow: column; justify-content: start; }
+    }
+
+    @media (min-width: 900px) {
+      .cb-nav { display: flex; }
+      .cb-hero { padding-top: 4.5rem; }
+      .cb-hero__top { grid-template-columns: 1.4fr 0.6fr; }
+      .cb-status { justify-self: end; }
+      .cb-hero__bottom { grid-template-columns: 1fr 1fr; gap: 3rem; margin-top: 4rem; }
+      .cb-hero__copy { padding-top: 0.5rem; }
+      .cb-strip { grid-template-columns: 10rem 1fr; align-items: baseline; }
+      .cb-head__row { grid-template-columns: 1fr 1fr; }
+      .cb-head__lead { justify-self: start; }
+      .cb-pain { padding: 8rem 0 3rem; }
+      .cb-pain__stage { min-height: 28rem; place-items: center; text-align: center; }
+      .cb-pain__statement { max-width: 46rem; }
+      .cb-chips { position: absolute; inset: 0; pointer-events: none; }
+      .cb-chip { position: absolute; pointer-events: auto; animation: cb-float 7s ease-in-out infinite; }
+      .cb-chip:nth-child(1) { left: 4%; top: 6%; }
+      .cb-chip:nth-child(2) { right: 3%; top: 16%; animation-delay: -2s; }
+      .cb-chip:nth-child(3) { left: 12%; bottom: 20%; animation-delay: -4s; }
+      .cb-chip:nth-child(4) { right: 10%; bottom: 8%; animation-delay: -1s; }
+      .cb-chip:nth-child(5) { left: 40%; bottom: 0; animation-delay: -3s; }
+      .cb-caps { grid-template-columns: repeat(6, 1fr); }
+      .cb-cap { grid-column: span 2; }
+      .cb-cap--wide { grid-column: span 3; }
+      .cb-demo__grid { grid-template-columns: 0.85fr 1.15fr 1fr; }
+      .cb-stage { border-top: 0; border-left: 1px solid var(--cb-line); }
+      .cb-stage:first-child { border-left: 0; }
+      .cb-uses { grid-template-columns: 1fr 1fr; column-gap: 3rem; }
+      .cb-why { grid-template-columns: 0.9fr 1.1fr; gap: 4rem; }
+      .cb-cells { grid-template-columns: repeat(6, 1fr); }
+      .cb-proc { grid-template-columns: 8rem 1fr 1fr; padding: 4.5rem 0; min-height: 22rem; }
+      .cb-cta__row { grid-template-columns: 1.2fr 0.8fr; }
+      .cb-cta__actions { justify-content: end; grid-auto-flow: row; justify-items: end; }
+      .cb-footer__grid { grid-template-columns: 1.3fr 1fr 1fr 1fr; }
+      .cb-section { padding: 7.5rem 0; }
+    }
+
+    @keyframes cb-float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-6px); }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      body.automations *,
+      body.automations *::before,
+      body.automations *::after {
+        animation: none !important;
+        transition: none !important;
       }
-
-      body.automations .auto-section {
-        padding-bottom: 5rem;
-      }
+      [data-reveal],
+      [data-reveal-stagger] > *,
+      .cb-word { opacity: 1; transform: none; }
+      .cb-rule span { width: 8rem; }
+      .cb-wire--flow { stroke-dasharray: none; opacity: 0.6; }
+      .cb-ring { display: none; }
     }
   </style>
 </head>
 <body class="automations">
-  <a class="auto-skip" href="#main">Skip to content</a>
+  <a class="cb-skip" href="#main">Skip to content</a>
 
-  <header class="auto-header">
-    <div class="auto-header__inner">
-      <a class="auto-brand" href="/automations">
-        <span class="auto-brand__name">Peak View</span>
-        <span class="auto-brand__mark">Automations</span>
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <defs>
+      <linearGradient id="lg-blue" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" stop-color="#8fc5f2"/>
+        <stop offset="1" stop-color="#d2e9fe"/>
+      </linearGradient>
+      <linearGradient id="lg-blue-v" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="#8fc5f2"/>
+        <stop offset="1" stop-color="#d2e9fe" stop-opacity="0"/>
+      </linearGradient>
+      <linearGradient id="lg-blue-d" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" stop-color="#8fc5f2"/>
+        <stop offset="1" stop-color="#d2e9fe" stop-opacity="0.35"/>
+      </linearGradient>
+      <symbol id="g-mail" viewBox="0 0 24 24"><path class="cb-glyph-svg" d="M4 6h16v12H4z M4 7l8 6 8-6"/></symbol>
+      <symbol id="g-cal" viewBox="0 0 24 24"><path class="cb-glyph-svg" d="M4 6h16v14H4z M4 10h16 M8 3v4 M16 3v4"/></symbol>
+      <symbol id="g-chat" viewBox="0 0 24 24"><path class="cb-glyph-svg" d="M5 5h14v10H10l-4 4v-4H5z"/></symbol>
+      <symbol id="g-team" viewBox="0 0 24 24"><path class="cb-glyph-svg" d="M8 12a3 3 0 1 0 0-6 3 3 0 0 0 0 6z M16 11a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z M3 20c0-3 2.5-5 5-5s5 2 5 5 M14 19c0-2.5 1.5-4 3.5-4S21 16.5 21 19"/></symbol>
+      <symbol id="g-spark" viewBox="0 0 24 24"><path class="cb-glyph-svg" d="M12 3v18 M3 12h18 M5.6 5.6l12.8 12.8 M18.4 5.6L5.6 18.4"/></symbol>
+      <symbol id="g-ring" viewBox="0 0 24 24"><circle class="cb-glyph-svg" cx="12" cy="12" r="7"/><circle class="cb-glyph-svg" cx="12" cy="12" r="2.2" fill="currentColor"/></symbol>
+      <symbol id="g-bolt" viewBox="0 0 24 24"><path class="cb-glyph-svg" d="M13 3L5 14h6l-1 7 8-11h-6z"/></symbol>
+      <symbol id="g-sheet" viewBox="0 0 24 24"><path class="cb-glyph-svg" d="M4 5h16v14H4z M4 10h16 M4 15h16 M10 5v14"/></symbol>
+      <symbol id="g-sms" viewBox="0 0 24 24"><path class="cb-glyph-svg" d="M8 3h8a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2z M10 17h4"/></symbol>
+      <symbol id="g-db" viewBox="0 0 24 24"><path class="cb-glyph-svg" d="M12 3c4.4 0 8 1.3 8 3s-3.6 3-8 3-8-1.3-8-3 3.6-3 8-3z M4 6v12c0 1.7 3.6 3 8 3s8-1.3 8-3V6 M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"/></symbol>
+      <symbol id="g-plug" viewBox="0 0 24 24"><path class="cb-glyph-svg" d="M9 3v5 M15 3v5 M6 8h12v3a6 6 0 0 1-12 0z M12 17v4"/></symbol>
+      <symbol id="g-form" viewBox="0 0 24 24"><path class="cb-glyph-svg" d="M5 4h14v16H5z M8 9h8 M8 13h8 M8 17h5"/></symbol>
+      <symbol id="g-note" viewBox="0 0 24 24"><path class="cb-glyph-svg" d="M6 3h9l4 4v14H6z M15 3v4h4 M9 12h6 M9 16h6"/></symbol>
+      <symbol id="g-clock" viewBox="0 0 24 24"><circle class="cb-glyph-svg" cx="12" cy="12" r="8"/><path class="cb-glyph-svg" d="M12 8v4l3 2"/></symbol>
+      <symbol id="g-invoice" viewBox="0 0 24 24"><path class="cb-glyph-svg" d="M6 3h12v18l-3-2-3 2-3-2-3 2z M9 8h6 M9 12h6"/></symbol>
+      <symbol id="g-shield" viewBox="0 0 24 24"><path class="cb-glyph-svg" d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6z M9 12l2 2 4-4"/></symbol>
+      <symbol id="g-star" viewBox="0 0 24 24"><path class="cb-glyph-svg" d="M12 3l2.6 5.6 6 .7-4.5 4.1 1.2 6L12 16.4 6.7 19.4l1.2-6L3.4 9.3l6-.7z"/></symbol>
+      <symbol id="g-warn" viewBox="0 0 24 24"><path d="M12 4l9 16H3z M12 10v4 M12 17v.5"/></symbol>
+      <symbol id="g-arrow" viewBox="0 0 16 16"><path d="M4 12L12 4 M6 4h6v6"/></symbol>
+      <symbol id="g-play" viewBox="0 0 16 16"><path d="M5 3l8 5-8 5z"/></symbol>
+    </defs>
+  </svg>
+
+  <header class="cb-header">
+    <div class="cb-wrap cb-header__inner">
+      <a class="cb-brand" href="/automations">
+        <span class="cb-brand__mark" aria-hidden="true"></span>
+        <span>Clancy Booher</span>
       </a>
-      <a class="auto-header__call" href="tel:+15416393968">541-639-3968</a>
+      <nav class="cb-nav cb-mono" aria-label="Page sections">
+        <a href="#demo">Demo</a>
+        <a href="#examples">Examples</a>
+        <a href="#connectors">Connectors</a>
+        <a href="#how">How it works</a>
+      </nav>
+      <a class="cb-btn cb-btn--sm" href="tel:+15416393968">
+        <span>Call or text</span>
+        <span class="cb-btn__box" aria-hidden="true"><svg viewBox="0 0 16 16"><use href="#g-arrow"/></svg></span>
+      </a>
     </div>
   </header>
 
   <main id="main">
-    <section class="auto-hero">
-      <div class="auto-wrap">
-        <p class="auto-kicker">Automation consulting</p>
-        <h1>Custom automations. Full setup.</h1>
-        <p class="auto-hero__sub">Automate email, CRM, and the tools you already use. AI to make the day simpler. Fewer tasks. More done.</p>
-        <a class="auto-cta" href="tel:+15416393968">Book a consultation</a>
+    <section class="cb-hero">
+      <div class="cb-wrap">
+        <div class="cb-hero__top">
+          <h1 id="hero-title" data-words>I build automations that run inside the tools you already use.</h1>
+
+          <div class="cb-status" data-reveal aria-label="Example of the nightly status an automation sends">
+            <div class="cb-status__head">
+              <span>Agent status</span>
+              <span class="cb-status__live">Live</span>
+            </div>
+            <div class="cb-status__row is-ok"><span>Inbox triage</span><span>6:43 am, done</span></div>
+            <div class="cb-status__row is-ok"><span>Lead to calendar</span><span>2 booked</span></div>
+            <div class="cb-status__row is-wait"><span>Supplier chase</span><span>waiting 41h</span></div>
+            <div class="cb-status__row"><span>Nightly digest</span><span>9:00 pm</span></div>
+          </div>
+        </div>
+
+        <div class="cb-hero__bottom">
+          <div class="cb-art" data-reveal aria-hidden="true">
+            <svg viewBox="0 0 560 400" role="img" aria-label="Diagram: Gmail, calendar, chat, and a spreadsheet feed an agent, which produces drafts, calendar holds, and texts.">
+              <path class="cb-wire" d="M112 76 C176 76, 176 200, 232 200"/>
+              <path class="cb-wire" d="M112 158 C176 158, 176 200, 232 200"/>
+              <path class="cb-wire" d="M112 242 C176 242, 176 200, 232 200"/>
+              <path class="cb-wire" d="M112 324 C176 324, 176 200, 232 200"/>
+              <path class="cb-wire cb-wire--flow" d="M112 76 C176 76, 176 200, 232 200" style="animation-delay:-0.2s"/>
+              <path class="cb-wire cb-wire--flow" d="M112 158 C176 158, 176 200, 232 200" style="animation-delay:-0.9s"/>
+              <path class="cb-wire cb-wire--flow" d="M112 242 C176 242, 176 200, 232 200" style="animation-delay:-1.4s"/>
+              <path class="cb-wire cb-wire--flow" d="M112 324 C176 324, 176 200, 232 200" style="animation-delay:-0.5s"/>
+              <path class="cb-wire" d="M328 200 C384 200, 384 112, 448 112"/>
+              <path class="cb-wire" d="M328 200 C384 200, 384 200, 448 200"/>
+              <path class="cb-wire" d="M328 200 C384 200, 384 288, 448 288"/>
+              <path class="cb-wire cb-wire--flow" d="M328 200 C384 200, 384 112, 448 112" style="animation-delay:-1.1s"/>
+              <path class="cb-wire cb-wire--flow" d="M328 200 C384 200, 384 200, 448 200" style="animation-delay:-0.3s"/>
+              <path class="cb-wire cb-wire--flow" d="M328 200 C384 200, 384 288, 448 288" style="animation-delay:-1.6s"/>
+
+              <g transform="translate(84 76)">
+                <rect class="cb-node" x="-26" y="-26" width="52" height="52"/>
+                <path class="cb-glyph" d="M-9 -6h18v12h-18z M-9 -5l9 7 9-7"/>
+                <text class="cb-label" x="0" y="42" text-anchor="middle">Gmail</text>
+              </g>
+              <g transform="translate(84 158)">
+                <rect class="cb-node" x="-26" y="-26" width="52" height="52"/>
+                <path class="cb-glyph" d="M-9 -7h18v15h-18z M-9 -2h18 M-4 -10v4 M4 -10v4"/>
+                <text class="cb-label" x="0" y="42" text-anchor="middle">Calendar</text>
+              </g>
+              <g transform="translate(84 242)">
+                <rect class="cb-node" x="-26" y="-26" width="52" height="52"/>
+                <path class="cb-glyph" d="M-9 -7h18v11h-11l-4 4v-4h-3z"/>
+                <text class="cb-label" x="0" y="42" text-anchor="middle">Slack / Teams</text>
+              </g>
+              <g transform="translate(84 324)">
+                <rect class="cb-node" x="-26" y="-26" width="52" height="52"/>
+                <path class="cb-glyph" d="M-9 -8h18v16h-18z M-9 -2h18 M-9 3h18 M-2 -8v16"/>
+                <text class="cb-label" x="0" y="42" text-anchor="middle">Sheets / CRM</text>
+              </g>
+
+              <g transform="translate(280 200)">
+                <circle class="cb-ring" r="58"/>
+                <rect class="cb-node cb-node--core" x="-48" y="-40" width="96" height="80"/>
+                <path class="cb-glyph cb-glyph--light" d="M0 -18v36 M-18 0h36 M-12.7 -12.7l25.4 25.4 M12.7 -12.7l-25.4 25.4"/>
+                <text class="cb-label" x="0" y="58" text-anchor="middle">Your agent</text>
+                <rect x="34" y="-32" width="6" height="6" fill="#98fe00"/>
+              </g>
+
+              <g transform="translate(476 112)">
+                <rect class="cb-node" x="-26" y="-26" width="52" height="52"/>
+                <path class="cb-glyph" d="M-6 -9h8l5 5v13h-13z M2 -9v5h5 M-2 1h6 M-2 5h6"/>
+                <text class="cb-label" x="0" y="42" text-anchor="middle">Draft reply</text>
+              </g>
+              <g transform="translate(476 200)">
+                <rect class="cb-node" x="-26" y="-26" width="52" height="52"/>
+                <circle class="cb-glyph" r="9"/>
+                <path class="cb-glyph" d="M0 -5v5l4 3"/>
+                <text class="cb-label" x="0" y="42" text-anchor="middle">Calendar hold</text>
+              </g>
+              <g transform="translate(476 288)">
+                <rect class="cb-node" x="-26" y="-26" width="52" height="52"/>
+                <path class="cb-glyph" d="M-5 -10h10a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2h-10a2 2 0 0 1-2-2v-16a2 2 0 0 1 2-2z M-2 6h4"/>
+                <text class="cb-label" x="0" y="42" text-anchor="middle">Text sent</text>
+              </g>
+            </svg>
+          </div>
+
+          <div class="cb-hero__copy" data-reveal>
+            <p>Gmail, your calendar, your chat app, ChatGPT or Claude. I connect them and write the small programs that handle the repetitive work in the background. You keep your accounts. You own what I build.</p>
+            <div class="cb-actions">
+              <a class="cb-btn" href="tel:+15416393968">
+                <span>Call or text 541-639-3968</span>
+                <span class="cb-btn__box" aria-hidden="true"><svg viewBox="0 0 16 16"><use href="#g-arrow"/></svg></span>
+              </a>
+              <a class="cb-btn cb-btn--light" href="#demo">
+                <span>Watch one run</span>
+                <span class="cb-btn__box" aria-hidden="true"><svg viewBox="0 0 16 16"><use href="#g-arrow"/></svg></span>
+              </a>
+            </div>
+            <p class="cb-hero__note">Or email <a href="mailto:clancy@peakvieworegon.com">clancy@peakvieworegon.com</a>. I read everything myself.</p>
+
+            <div class="cb-strip">
+              <p class="cb-mono" data-scramble>/Runs on</p>
+              <ul>
+                <li>Gmail</li><li>Google Calendar</li><li>Slack</li><li>Teams</li><li>ChatGPT</li><li>Claude</li><li>Grok</li><li>Google Sheets</li>
+              </ul>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
-    <section class="auto-section" aria-labelledby="what-we-do">
-      <div class="auto-wrap">
-        <h2 id="what-we-do">What we do</h2>
-        <ul class="auto-list">
-          <li>AI education and business consulting</li>
-          <li>Custom integrations and setups</li>
-          <li>Automate daily tasks and routines</li>
-          <li>Custom business software</li>
-          <li>Automated websites</li>
-        </ul>
+    <section class="cb-pain" aria-label="The problem">
+      <div class="cb-wrap">
+        <div class="cb-pain__stage" data-reveal>
+          <p class="cb-pain__statement">A lot of the day goes to work that doesn't need you. That's the part I take off your plate.</p>
+          <ul class="cb-chips" data-reveal-stagger>
+            <li class="cb-chip"><svg viewBox="0 0 24 24"><use href="#g-warn"/></svg>Leads that go cold overnight</li>
+            <li class="cb-chip"><svg viewBox="0 0 24 24"><use href="#g-warn"/></svg>Supplier quotes you have to chase</li>
+            <li class="cb-chip"><svg viewBox="0 0 24 24"><use href="#g-warn"/></svg>The same five questions from the crew</li>
+            <li class="cb-chip"><svg viewBox="0 0 24 24"><use href="#g-warn"/></svg>Checking five tabs before bed</li>
+            <li class="cb-chip"><svg viewBox="0 0 24 24"><use href="#g-warn"/></svg>A per-seat suite you barely use</li>
+          </ul>
+        </div>
       </div>
     </section>
 
-    <section class="auto-section" aria-labelledby="how-it-works">
-      <div class="auto-wrap">
-        <h2 id="how-it-works">How it works</h2>
-        <ol class="auto-steps">
-          <li>
-            <span>01</span>
-            <p><strong>Consultation</strong> On-site or remote audit of your systems.</p>
-          </li>
-          <li>
-            <span>02</span>
-            <p><strong>Review</strong> Look at what you already use.</p>
-          </li>
-          <li>
-            <span>03</span>
-            <p><strong>Propose</strong> Custom integrations and automations that fit.</p>
-          </li>
-          <li>
-            <span>04</span>
-            <p><strong>Build</strong> Then set it up so it actually runs.</p>
-          </li>
-        </ol>
+    <section class="cb-section" id="capabilities" aria-labelledby="caps-title">
+      <div class="cb-wrap">
+        <div class="cb-head" data-reveal>
+          <div class="cb-rule"><span></span></div>
+          <p class="cb-mono" data-scramble>/What I do</p>
+          <div class="cb-head__row">
+            <h2 id="caps-title">Capabilities</h2>
+            <p class="cb-head__lead">Five things, done well. Each one plugs into accounts you already have. Nothing new to log into.</p>
+          </div>
+        </div>
+
+        <div class="cb-caps" data-reveal-stagger>
+          <article class="cb-cap cb-cap--wide">
+            <svg viewBox="0 0 120 120" aria-hidden="true">
+              <rect class="cb-ill-grey" x="18" y="46" width="60" height="40"/>
+              <rect class="cb-ill-grey-2" x="30" y="34" width="60" height="40"/>
+              <rect class="cb-ill-blue" x="42" y="22" width="60" height="40"/>
+              <path class="cb-ill-line" d="M18 96h84"/>
+            </svg>
+            <h3>Connectors into your tools</h3>
+            <p>Gmail, Google Calendar, Slack, Teams, ChatGPT, Claude, Grok, Sheets, your CRM. If it has an API or an export, I can wire it.</p>
+          </article>
+          <article class="cb-cap cb-cap--wide">
+            <svg viewBox="0 0 120 120" aria-hidden="true">
+              <circle class="cb-ill-line" cx="60" cy="60" r="40"/>
+              <circle class="cb-ill-line" cx="60" cy="60" r="28" stroke-dasharray="4 6"/>
+              <path class="cb-ill-blue" d="M60 20a40 40 0 0 1 40 40h-12a28 28 0 0 0-28-28z"/>
+              <circle class="cb-ill-dark" cx="60" cy="60" r="6"/>
+            </svg>
+            <h3>Background agents</h3>
+            <p>Small programs that run on a schedule or a trigger. They read, decide, and act inside limits you set. They stop and ask when they should.</p>
+          </article>
+          <article class="cb-cap">
+            <svg viewBox="0 0 120 120" aria-hidden="true">
+              <path class="cb-ill-grey" d="M18 30h60v34H38l-12 12V64h-8z"/>
+              <path class="cb-ill-blue" d="M46 54h56v34H66l-10 10V88h-10z"/>
+            </svg>
+            <h3>Chat-app bots</h3>
+            <p>A bot in Slack or Teams that answers from your real calendar and sheets. Read only unless you say otherwise.</p>
+          </article>
+          <article class="cb-cap">
+            <svg viewBox="0 0 120 120" aria-hidden="true">
+              <path class="cb-ill-grey" d="M30 18h44l16 16v68H30z"/>
+              <path class="cb-ill-grey-2" d="M74 18v16h16z"/>
+              <path class="cb-ill-line" d="M42 52h36 M42 64h36 M42 76h22"/>
+              <rect class="cb-ill-blue" x="42" y="86" width="20" height="4"/>
+            </svg>
+            <h3>Drafts in your voice</h3>
+            <p>Replies, follow-ups, and nudges written from your own past emails. Saved as drafts. You hit send.</p>
+          </article>
+          <article class="cb-cap">
+            <svg viewBox="0 0 120 120" aria-hidden="true">
+              <rect class="cb-ill-grey" x="22" y="40" width="76" height="56"/>
+              <rect class="cb-ill-blue" x="22" y="26" width="76" height="14"/>
+              <path class="cb-ill-line" d="M48 70l8 8 18-18" stroke="#131313" stroke-width="2"/>
+            </svg>
+            <h3>Setup, docs, and handoff</h3>
+            <p>I set it up, write down how it works, and hand you the keys. Keep me on for changes or don't.</p>
+          </article>
+        </div>
       </div>
     </section>
 
-    <section class="auto-section auto-for" aria-labelledby="who-its-for">
-      <div class="auto-wrap">
-        <h2 id="who-its-for">Who it's for</h2>
-        <p>Small businesses and contractors who want ops automation without a big agency.</p>
-        <p class="auto-note">Peak View Windows &amp; Doors is the window company. This page is automation consulting. Same owner.</p>
+    <section class="cb-section cb-dark" id="demo" aria-labelledby="demo-title">
+      <div class="cb-wrap">
+        <div class="cb-head" data-reveal>
+          <div class="cb-rule"><span></span></div>
+          <p class="cb-mono" data-scramble>/Demo</p>
+          <div class="cb-head__row">
+            <h2 id="demo-title">Watch one run</h2>
+            <p class="cb-head__lead">Pick a job and press play. This is a scripted walkthrough, not a live account. The steps are what the real one does.</p>
+          </div>
+        </div>
+
+        <div class="cb-demo__shell" data-reveal>
+          <div class="cb-tabs" role="tablist" aria-label="Demo scenarios" id="demo-tabs"></div>
+
+          <div class="cb-demo__head">
+            <p class="cb-demo__trigger"><span class="cb-mono">Trigger</span><strong id="demo-trigger"></strong></p>
+            <div class="cb-demo__controls">
+              <button class="cb-icon-btn" type="button" id="demo-prev" aria-label="Previous scenario">
+                <svg viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6"/></svg>
+              </button>
+              <button class="cb-btn cb-btn--blue cb-btn--sm cb-btn--play" type="button" id="demo-play">
+                <span id="demo-play-label">Play</span>
+                <span class="cb-btn__box" aria-hidden="true"><svg viewBox="0 0 16 16" style="fill:currentColor;stroke:none"><use href="#g-play"/></svg></span>
+              </button>
+              <button class="cb-icon-btn" type="button" id="demo-next" aria-label="Next scenario">
+                <svg viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></svg>
+              </button>
+            </div>
+          </div>
+
+          <div class="cb-demo__grid" role="tabpanel" id="demo-panel" aria-labelledby="demo-title">
+            <div class="cb-stage cb-stage--connect">
+              <h3>01 / Connected</h3>
+              <ul class="cb-conn-list" id="demo-connectors"></ul>
+            </div>
+            <div class="cb-stage cb-stage--run">
+              <h3>02 / Agent run</h3>
+              <ol class="cb-steps" id="demo-steps" aria-live="polite" aria-relevant="additions"></ol>
+            </div>
+            <div class="cb-stage cb-stage--out">
+              <h3>03 / What you see</h3>
+              <div id="demo-outcome"></div>
+            </div>
+          </div>
+
+          <div class="cb-progress" aria-hidden="true"><span id="demo-bar"></span></div>
+        </div>
+
+        <div class="cb-demo__foot" data-reveal>
+          <p>Every run has a stop point. Anything that sends money, moves a job, or talks to a customer for the first time waits for you.</p>
+          <p class="cb-mono" id="demo-status" aria-live="polite"></p>
+        </div>
       </div>
     </section>
 
-    <section class="auto-band" aria-labelledby="book">
-      <div class="auto-wrap">
-        <h2 id="book">Book a consultation</h2>
-        <p>Call or text 541-639-3968. Email clancy@peakvieworegon.com.</p>
-        <div class="auto-band__links">
-          <a class="auto-cta" href="tel:+15416393968">Call or text 541-639-3968</a>
-          <a class="auto-cta auto-cta--ghost" href="mailto:clancy@peakvieworegon.com">Email Clancy</a>
+    <section class="cb-section" id="examples" aria-labelledby="examples-title">
+      <div class="cb-wrap">
+        <div class="cb-head" data-reveal>
+          <div class="cb-rule"><span></span></div>
+          <p class="cb-mono" data-scramble>/Examples</p>
+          <div class="cb-head__row">
+            <h2 id="examples-title">Things I build</h2>
+            <p class="cb-head__lead">Open one for the details. Each has a play button that runs it in the demo above.</p>
+          </div>
+        </div>
+        <div class="cb-uses" id="example-cards" data-reveal-stagger></div>
+      </div>
+    </section>
+
+    <section class="cb-section" id="why" aria-labelledby="why-title">
+      <div class="cb-wrap">
+        <div class="cb-head" data-reveal>
+          <div class="cb-rule"><span></span></div>
+          <p class="cb-mono" data-scramble>/Why custom</p>
+          <div class="cb-head__row">
+            <h2 id="why-title">Built for you beats renting a suite</h2>
+            <p class="cb-head__lead">Always-on ops help is a good idea. The big all-in-one suites prove people want it. The difference here is fit and cost.</p>
+          </div>
+        </div>
+
+        <div class="cb-why">
+          <div class="cb-why__prose" data-reveal>
+            <p><strong>I write the automation around how your business already runs.</strong> It uses your Gmail, your calendar, your sheet. There's no per-seat fee that climbs every year, and no template you have to bend your day around.</p>
+            <p>Most small shops need five or six well-built routines, not a platform. Build them once. Run them for the cost of hosting and API usage. Change them when the business changes.</p>
+          </div>
+
+          <div class="cb-compare" data-reveal role="table" aria-label="Rented suite compared with a custom build">
+            <div class="cb-compare__head" role="row">
+              <b role="columnheader"></b>
+              <b role="columnheader">Rented suite</b>
+              <b role="columnheader">Built for you</b>
+            </div>
+            <div class="cb-compare__row" role="row">
+              <span role="rowheader">Fit</span>
+              <span role="cell">Their template. Your workaround.</span>
+              <span role="cell">Written around how you already work.</span>
+            </div>
+            <div class="cb-compare__row" role="row">
+              <span role="rowheader">Cost</span>
+              <span role="cell">Per seat, per month, goes up.</span>
+              <span role="cell">Build once. Small monthly for hosting and API usage.</span>
+            </div>
+            <div class="cb-compare__row" role="row">
+              <span role="rowheader">Your data</span>
+              <span role="cell">Copied into their system.</span>
+              <span role="cell">Stays in your Gmail, calendar, and sheets.</span>
+            </div>
+            <div class="cb-compare__row" role="row">
+              <span role="rowheader">Changes</span>
+              <span role="cell">Wait for their roadmap.</span>
+              <span role="cell">Text me. I change it.</span>
+            </div>
+            <div class="cb-compare__row" role="row">
+              <span role="rowheader">Ownership</span>
+              <span role="cell">Cancel and it's gone.</span>
+              <span role="cell">The code is yours. Keep me on or don't.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cb-section" id="connectors" aria-labelledby="connectors-title">
+      <div class="cb-wrap">
+        <div class="cb-head" data-reveal>
+          <div class="cb-rule"><span></span></div>
+          <p class="cb-mono" data-scramble>/Connectors</p>
+          <div class="cb-head__row">
+            <h2 id="connectors-title">Plugs into what you already pay for</h2>
+            <p class="cb-head__lead">No new dashboard. The work shows up as drafts, calendar holds, texts, and messages in the channels you already read. Tap one to see what I usually wire there.</p>
+          </div>
+        </div>
+
+        <div class="cb-cells" id="conn-grid" data-reveal-stagger></div>
+        <p class="cb-cell-detail" id="conn-detail" data-reveal aria-live="polite"></p>
+      </div>
+    </section>
+
+    <section class="cb-section" id="how" aria-labelledby="how-title">
+      <div class="cb-wrap">
+        <div class="cb-head" data-reveal>
+          <div class="cb-rule"><span></span></div>
+          <p class="cb-mono" data-scramble>/How it works</p>
+          <div class="cb-head__row">
+            <h2 id="how-title">Four steps. No long discovery phase.</h2>
+            <p class="cb-head__lead">Most of this happens in a couple of calls and a screen share. On-site in Bend if you'd rather.</p>
+          </div>
+        </div>
+
+        <div class="cb-process">
+          <div class="cb-proc" data-reveal>
+            <p class="cb-proc__num">/01</p>
+            <div class="cb-proc__art" aria-hidden="true">
+              <svg viewBox="0 0 240 200">
+                <rect class="cb-bar" x="20" y="110" width="26" height="80"/>
+                <rect class="cb-bar" x="56" y="70" width="26" height="120"/>
+                <rect class="cb-bar" x="92" y="30" width="26" height="160"/>
+                <rect class="cb-bar" x="128" y="60" width="26" height="130"/>
+                <rect class="cb-bar" x="164" y="96" width="26" height="94"/>
+                <rect class="cb-bar" x="200" y="126" width="26" height="64"/>
+              </svg>
+            </div>
+            <div class="cb-proc__text">
+              <h3>Call or text</h3>
+              <p>Tell me what eats your afternoon. Fifteen minutes is enough for a first pass. If it's not a fit I'll say so.</p>
+            </div>
+          </div>
+
+          <div class="cb-proc" data-reveal>
+            <p class="cb-proc__num">/02</p>
+            <div class="cb-proc__art" aria-hidden="true">
+              <svg viewBox="0 0 240 200">
+                <path class="cb-plane--line" d="M120 150l90-45-90-45-90 45z"/>
+                <path class="cb-plane--line" d="M120 125l90-45-90-45-90 45z"/>
+                <path class="cb-plane" d="M120 100l90-45-90-45-90 45z"/>
+                <path class="cb-plane--line" d="M120 100v50"/>
+              </svg>
+            </div>
+            <div class="cb-proc__text">
+              <h3>I look at your tools</h3>
+              <p>Inbox, calendar, chat, spreadsheet, CRM. I'm looking for the work that repeats and the places it falls through.</p>
+            </div>
+          </div>
+
+          <div class="cb-proc" data-reveal>
+            <p class="cb-proc__num">/03</p>
+            <div class="cb-proc__art" aria-hidden="true">
+              <svg viewBox="0 0 240 200">
+                <rect class="cb-plane--line" x="40" y="120" width="50" height="50"/>
+                <rect class="cb-plane--line" x="95" y="120" width="50" height="50"/>
+                <rect class="cb-plane" x="150" y="120" width="50" height="50"/>
+                <rect class="cb-plane--line" x="67" y="65" width="50" height="50"/>
+                <rect class="cb-plane" x="122" y="65" width="50" height="50"/>
+                <rect class="cb-plane" x="95" y="10" width="50" height="50"/>
+              </svg>
+            </div>
+            <div class="cb-proc__text">
+              <h3>I build it</h3>
+              <p>You get a working version, then we tune it on real traffic. Guardrails first, speed second.</p>
+            </div>
+          </div>
+
+          <div class="cb-proc" data-reveal>
+            <p class="cb-proc__num">/04</p>
+            <div class="cb-proc__art" aria-hidden="true">
+              <svg viewBox="0 0 240 200">
+                <circle class="cb-plane--line" cx="120" cy="100" r="80"/>
+                <circle class="cb-plane--line" cx="120" cy="100" r="56" stroke-dasharray="3 7"/>
+                <circle class="cb-plane" cx="120" cy="100" r="30"/>
+                <rect x="114" y="94" width="12" height="12" fill="#131313"/>
+              </svg>
+            </div>
+            <div class="cb-proc__text">
+              <h3>You own it</h3>
+              <p>The code, the accounts, the keys. I write it down so anyone can pick it up later. Keep me on for changes or don't.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cb-cta cb-dark" aria-labelledby="cta-title">
+      <div class="cb-wrap">
+        <div class="cb-cta__row" data-reveal>
+          <div>
+            <h2 id="cta-title">Tell me what eats your afternoon.</h2>
+            <p>Call or text 541-639-3968, or send an email. I read everything myself. If it's a fit I'll say so. If it isn't, I'll tell you that too.</p>
+          </div>
+          <div class="cb-cta__actions">
+            <a class="cb-btn cb-btn--blue" href="tel:+15416393968">
+              <span>Call or text 541-639-3968</span>
+              <span class="cb-btn__box" aria-hidden="true"><svg viewBox="0 0 16 16"><use href="#g-arrow"/></svg></span>
+            </a>
+            <a class="cb-btn cb-btn--ghost-dark" href="mailto:clancy@peakvieworegon.com?subject=Automation%20question">
+              <span>Email clancy@peakvieworegon.com</span>
+              <span class="cb-btn__box" aria-hidden="true"><svg viewBox="0 0 16 16"><use href="#g-arrow"/></svg></span>
+            </a>
+          </div>
         </div>
       </div>
     </section>
   </main>
 
-  <footer class="auto-footer">
-    <div class="auto-wrap">
-      <p>Clancy Booher · Peak View / automation consulting · <a href="https://peakvieworegon.com/automations">peakvieworegon.com/automations</a> · B. <a href="tel:+15416393968">541-639-3968</a></p>
+  <footer class="cb-footer">
+    <div class="cb-wrap">
+      <div class="cb-footer__grid">
+        <div class="cb-footer__col">
+          <p class="cb-mono" data-scramble>About Clancy</p>
+          <p class="cb-footer__about">Clancy Booher builds custom automations and connectors for small businesses. Based in Bend, Oregon. Remote works fine for most of this.</p>
+          <div class="cb-footer__stack">
+            <p class="cb-mono">Email</p>
+            <a href="mailto:clancy@peakvieworegon.com">clancy@peakvieworegon.com</a>
+            <p class="cb-mono">Phone</p>
+            <a href="tel:+15416393968">541-639-3968</a>
+          </div>
+        </div>
+        <div class="cb-footer__col">
+          <p class="cb-mono" data-scramble>Sections</p>
+          <ul class="cb-footer__links">
+            <li><a href="#capabilities">Capabilities</a></li>
+            <li><a href="#demo">Demo</a></li>
+            <li><a href="#examples">Examples</a></li>
+            <li><a href="#connectors">Connectors</a></li>
+          </ul>
+        </div>
+        <div class="cb-footer__col">
+          <p class="cb-mono" data-scramble>Work</p>
+          <ul class="cb-footer__links">
+            <li><a href="#why">Why custom</a></li>
+            <li><a href="#how">How it works</a></li>
+            <li><a href="mailto:clancy@peakvieworegon.com">Contact</a></li>
+          </ul>
+        </div>
+        <div class="cb-footer__col">
+          <p class="cb-mono" data-scramble>Area</p>
+          <ul class="cb-footer__links">
+            <li>Bend, Oregon</li>
+            <li>Central Oregon</li>
+            <li>Remote</li>
+          </ul>
+        </div>
+      </div>
+      <div class="cb-footer__bottom">
+        <p class="cb-mono">&copy; 2026 Clancy Booher. Bend, Oregon.</p>
+        <p class="cb-mono">Same owner as Peak View Windows and Doors. Different work.</p>
+      </div>
     </div>
   </footer>
+
+  <script>
+  (function () {
+    'use strict';
+
+    var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    // ---- Data -------------------------------------------------------------
+
+    var SCENARIOS = [
+      {
+        id: 'inbox',
+        label: 'Inbox triage',
+        trigger: 'New email lands at 6:42 am',
+        connectors: [
+          { name: 'Gmail', glyph: 'g-mail', role: 'read, label, draft' },
+          { name: 'Claude', glyph: 'g-spark', role: 'reads and writes' },
+          { name: 'Your past replies', glyph: 'g-note', role: 'for tone' }
+        ],
+        steps: [
+          { t: '6:42', text: 'Reads the new message. A customer asking where their quote stands.' },
+          { t: '6:42', text: 'Checks the thread. You sent the quote nine days ago.' },
+          { t: '6:43', text: 'Pulls three of your past replies on the same question to match your tone.' },
+          { t: '6:43', text: 'Drafts a reply in your voice. Two short paragraphs.' },
+          { t: '6:43', text: 'Saves the draft and labels the thread "Needs Clancy". Nothing sends without you.', hold: true }
+        ],
+        outcome: {
+          kind: 'email',
+          bar: 'Draft saved in Gmail',
+          to: 'Dana R.',
+          subject: 'Re: Quote from last week',
+          text: 'Hi Dana,\n\nThanks for checking in. Your quote is good through the end of the month. If you want to lock in a start date, reply here or call me and I\'ll get you on the calendar.\n\nClancy',
+          foot: 'Labeled: Needs Clancy. Not sent. You review at 7.'
+        }
+      },
+      {
+        id: 'lead',
+        label: 'Lead to calendar',
+        trigger: 'Website form comes in at 8:15 pm',
+        connectors: [
+          { name: 'Website form', glyph: 'g-form', role: 'trigger' },
+          { name: 'Google Calendar', glyph: 'g-cal', role: 'find and hold slots' },
+          { name: 'Text messaging', glyph: 'g-sms', role: 'reply and remind' },
+          { name: 'Gmail', glyph: 'g-mail', role: 'confirmation' }
+        ],
+        steps: [
+          { t: '8:15', text: 'Form comes in. Name, phone, what they need.' },
+          { t: '8:16', text: 'Texts them back in under a minute. Offers two open slots from your calendar.' },
+          { t: '8:31', text: 'They pick Thursday at 10. Holds it on your calendar with their info in the notes.' },
+          { t: '8:31', text: 'Sends a confirmation email with what to have ready.' },
+          { t: 'Wed', text: 'Day before: reminder text. No reply by noon and it pings you once.' }
+        ],
+        outcome: {
+          kind: 'calendar',
+          bar: 'Google Calendar hold',
+          day: 'Thu',
+          time: '10:00 am',
+          title: 'Estimate: Mike T.',
+          meta: '541-555-0142. From website form. Confirmed by text at 8:31 pm.',
+          foot: 'Reminder text goes out Wednesday at 5 pm.'
+        }
+      },
+      {
+        id: 'rfq',
+        label: 'Supplier chase',
+        trigger: 'RFQ sent Monday. Two days of silence.',
+        connectors: [
+          { name: 'Gmail', glyph: 'g-mail', role: 'watch the thread' },
+          { name: 'Timer', glyph: 'g-clock', role: '48 hour clock' },
+          { name: 'Google Sheets', glyph: 'g-sheet', role: 'price log' },
+          { name: 'ChatGPT', glyph: 'g-ring', role: 'pulls the numbers' }
+        ],
+        steps: [
+          { t: 'Mon', text: 'You send a quote request for hardware. It logs the thread and starts a two-day clock.' },
+          { t: 'Wed 9:00', text: 'No reply. Drafts a short nudge that quotes your original request.' },
+          { t: 'Wed 9:00', text: 'Sends it. Your rule: nudges go out on their own. Anything with a dollar amount waits for you.' },
+          { t: 'Wed 2:10', text: 'Supplier replies with pricing. Pulls the numbers into your price sheet.' },
+          { t: 'Wed 2:11', text: 'Texts you one line: hardware quote in, three percent over last time.' }
+        ],
+        outcome: {
+          kind: 'sheet',
+          bar: 'Price log, row added',
+          rows: [
+            ['Jun 3', 'Hinges, 40 sets', '$1,148', ''],
+            ['Sep 10', 'Hinges, 40 sets', '$1,184', '+3%']
+          ],
+          message: 'Hardware quote in. Three percent over last time. Sheet updated.'
+        }
+      },
+      {
+        id: 'bot',
+        label: 'Hours and status bot',
+        trigger: 'Someone asks a question in Slack',
+        connectors: [
+          { name: 'Slack', glyph: 'g-chat', role: 'listens in #crew' },
+          { name: 'Google Calendar', glyph: 'g-cal', role: 'read only' },
+          { name: 'ChatGPT', glyph: 'g-ring', role: 'answers in plain English' }
+        ],
+        steps: [
+          { t: '7:02', text: 'Jordan asks in #crew: are we still on for the Miller job Friday?' },
+          { t: '7:02', text: 'Looks up Friday on the shared calendar. Miller job is confirmed, 8 am.' },
+          { t: '7:02', text: 'Answers in the channel with the time and who\'s on it.' },
+          { t: '7:05', text: 'Jordan asks it to push the job to Monday. It declines and tags you. It reads. It does not reschedule.', hold: true },
+          { t: '7:05', text: 'Logs the question so you can see what people keep asking.' }
+        ],
+        outcome: {
+          kind: 'chat',
+          bar: '#crew in Slack',
+          messages: [
+            { who: 'Jordan', time: '7:02 am', text: 'Are we still on for the Miller job Friday?' },
+            { who: 'Ops bot', time: '7:02 am', bot: true, text: 'Yes. Friday 8:00 am, confirmed Tuesday. On it: Jordan, Sam, Clancy.' },
+            { who: 'Jordan', time: '7:05 am', text: 'Can you push it to Monday?' },
+            { who: 'Ops bot', time: '7:05 am', bot: true, text: 'I can\'t move jobs. Tagging @clancy so he sees this.' }
+          ]
+        }
+      },
+      {
+        id: 'digest',
+        label: 'Nightly digest',
+        trigger: '9:00 pm, every night',
+        connectors: [
+          { name: 'Gmail', glyph: 'g-mail', role: 'unread that matters' },
+          { name: 'Google Calendar', glyph: 'g-cal', role: 'next two days' },
+          { name: 'Invoicing', glyph: 'g-invoice', role: 'past due' },
+          { name: 'Claude', glyph: 'g-spark', role: 'writes it up' }
+        ],
+        steps: [
+          { t: '9:00', text: 'Pulls unread mail that mentions money, a date, or ends in a question mark.' },
+          { t: '9:00', text: 'Reads tomorrow\'s calendar and the day after.' },
+          { t: '9:01', text: 'Checks invoices past due and quotes with no answer in a week.' },
+          { t: '9:01', text: 'Writes it up in under 200 words. Plain text. Most important thing first.' },
+          { t: '9:02', text: 'Sends it to your phone. One message, same time every night.' }
+        ],
+        outcome: {
+          kind: 'digest',
+          bar: '9:02 pm, text to Clancy',
+          title: 'Tonight',
+          items: [
+            'Two quotes with no answer in 7+ days: Hale, Ortiz. Nudges drafted.',
+            'One invoice past due, 12 days. $2,340.',
+            'Tomorrow: 8 am site visit, 1 pm supplier call.',
+            'Three emails need you. Drafts are in Gmail.'
+          ]
+        }
+      },
+      {
+        id: 'review',
+        label: 'Review request',
+        trigger: 'Job marked done at 4:30 pm',
+        connectors: [
+          { name: 'Your CRM', glyph: 'g-db', role: 'job status' },
+          { name: 'Timer', glyph: 'g-clock', role: 'two-day wait' },
+          { name: 'Gmail', glyph: 'g-mail', role: 'checks the thread' },
+          { name: 'Text messaging', glyph: 'g-sms', role: 'sends the ask' }
+        ],
+        steps: [
+          { t: 'Tue 4:30', text: 'Job closes in your CRM. Starts a two-day timer.' },
+          { t: 'Thu 10:00', text: 'Checks the thread for complaints or open items. None.' },
+          { t: 'Thu 10:00', text: 'Sends a short thank-you text with the review link. Your words, not a template.' },
+          { t: 'Thu +7d', text: 'No review after a week: one more nudge, then it stops.', hold: true },
+          { t: 'Later', text: 'Review comes in. Logs it and sends you the link.' }
+        ],
+        outcome: {
+          kind: 'chat',
+          bar: 'Text to customer',
+          messages: [
+            { who: 'You', time: 'Thu 10:00 am', bot: true, text: 'Hi Sam, thanks for the work this week. If you have a minute, a short review helps a small shop more than you\'d think. Link below. Clancy' },
+            { who: 'Sam', time: 'Thu 6:12 pm', text: 'Done. Thanks again for getting it in before the weekend.' }
+          ]
+        }
+      }
+    ];
+
+    var CONNECTORS = [
+      { name: 'Gmail', glyph: 'g-mail', detail: 'Read, label, draft. Send only when you say so.' },
+      { name: 'Calendar', glyph: 'g-cal', detail: 'Hold slots, check conflicts, send reminders. Google or Microsoft.' },
+      { name: 'ChatGPT', glyph: 'g-ring', detail: 'Summaries, drafts, sorting. Your account and your data settings.' },
+      { name: 'Claude', glyph: 'g-spark', detail: 'Long reads. Contracts, long threads, careful drafts.' },
+      { name: 'Grok', glyph: 'g-bolt', detail: 'Fast answers and search when the job calls for it.' },
+      { name: 'Slack', glyph: 'g-chat', detail: 'A bot in your channels that answers from your real calendar and sheets.' },
+      { name: 'Teams', glyph: 'g-team', detail: 'Same bot, different room. Works with your Microsoft accounts.' },
+      { name: 'Sheets', glyph: 'g-sheet', detail: 'Where a lot of small shops keep the truth. It reads and writes rows.' },
+      { name: 'Texting', glyph: 'g-sms', detail: 'Quick confirmations and reminders to customers and crew, from your business number.' },
+      { name: 'Your CRM', glyph: 'g-db', detail: 'Jobber, HubSpot, others. If it has an API or an export, it connects.' },
+      { name: 'Forms', glyph: 'g-form', detail: 'A website form fill starts the run. No copy and paste from an inbox.' },
+      { name: 'Custom', glyph: 'g-plug', detail: 'Your supplier portal, your scheduler, your bookkeeping. I write the connector.' }
+    ];
+
+    var EXAMPLES = [
+      {
+        scenario: 'inbox', icon: 'g-mail',
+        title: 'Inbox triage with drafts in your voice',
+        sub: 'Reads new mail, sorts it, drafts the ones you\'d answer the same way every time.',
+        facts: [
+          ['Watches', 'Your Gmail inbox, every few minutes.'],
+          ['Does', 'Labels by type. Drafts replies to the common questions using your past emails as the pattern.'],
+          ['You get', 'An inbox where the easy ones already have a draft waiting. Ten minutes at 7 am instead of forty.'],
+          ['Guardrail', 'Nothing sends on its own. Drafts only.']
+        ]
+      },
+      {
+        scenario: 'lead', icon: 'g-cal',
+        title: 'Lead to calendar to follow-up',
+        sub: 'A form fill turns into a booked slot and a reminder without you touching it.',
+        facts: [
+          ['Watches', 'Your website form and your calendar.'],
+          ['Does', 'Texts the lead back fast with real open times. Books the slot. Sends the confirmation. Reminds them the day before.'],
+          ['You get', 'Fewer leads going cold overnight. A calendar that fills itself.'],
+          ['Guardrail', 'If they go quiet or ask something odd, it hands the thread to you.']
+        ]
+      },
+      {
+        scenario: 'rfq', icon: 'g-clock',
+        title: 'Supplier chase after two days of silence',
+        sub: 'Follows up on quote requests so you don\'t have to remember who owes you numbers.',
+        facts: [
+          ['Watches', 'Outgoing quote requests in Gmail.'],
+          ['Does', 'Starts a clock. Nudges politely at 48 hours. Logs the reply into your price sheet and flags the change from last time.'],
+          ['You get', 'Pricing on time and a running history of what each supplier charged.'],
+          ['Guardrail', 'It never accepts a quote or places an order. It reports.']
+        ]
+      },
+      {
+        scenario: 'bot', icon: 'g-shield',
+        title: 'A chat bot for hours and status, with guardrails',
+        sub: 'Answers the same five questions in Slack or Teams so nobody has to text you at 6 am.',
+        facts: [
+          ['Watches', 'A channel you choose.'],
+          ['Does', 'Answers what time, where, who\'s on it, and whether a job is confirmed. Pulls from the calendar you already keep.'],
+          ['You get', 'Fewer interruptions and a log of what people ask most.'],
+          ['Guardrail', 'Read only. It cannot move, cancel, or add anything. It tags you instead.']
+        ]
+      },
+      {
+        scenario: 'digest', icon: 'g-invoice',
+        title: 'A nightly digest instead of checking five tabs',
+        sub: 'One text at 9 pm with what matters tomorrow.',
+        facts: [
+          ['Watches', 'Mail, calendar, invoices, open quotes.'],
+          ['Does', 'Pulls the few things that need a decision and writes them up short.'],
+          ['You get', 'You close the laptop knowing nothing is on fire.'],
+          ['Guardrail', 'It summarizes. It does not act on anything in the digest.']
+        ]
+      },
+      {
+        scenario: 'review', icon: 'g-star',
+        title: 'Review request after the job',
+        sub: 'Two days after a job closes, a short thank-you and a review link. Skips anyone who had a problem.',
+        facts: [
+          ['Watches', 'Job status in your CRM or your sheet.'],
+          ['Does', 'Waits two days. Checks the thread for trouble. Sends one text in your words, one nudge a week later, then stops.'],
+          ['You get', 'Steady reviews without remembering to ask.'],
+          ['Guardrail', 'Only after you mark the job done. Never to a customer with an open issue.']
+        ]
+      }
+    ];
+
+    // ---- Helpers ----------------------------------------------------------
+
+    function el(tag, attrs, children) {
+      var node = document.createElement(tag);
+      if (attrs) {
+        Object.keys(attrs).forEach(function (k) {
+          if (k === 'class') node.className = attrs[k];
+          else if (k === 'text') node.textContent = attrs[k];
+          else node.setAttribute(k, attrs[k]);
+        });
+      }
+      (children || []).forEach(function (c) { if (c) node.appendChild(c); });
+      return node;
+    }
+
+    function glyph(id, className) {
+      var wrap = el('span', { class: className, 'aria-hidden': 'true' });
+      wrap.innerHTML = '<svg viewBox="0 0 24 24"><use href="#' + id + '"></use></svg>';
+      return wrap;
+    }
+
+    function wait(ms) {
+      return new Promise(function (resolve) { setTimeout(resolve, reduceMotion ? 0 : ms); });
+    }
+
+    function pad2(n) { return (n < 10 ? '0' : '') + n; }
+
+    // ---- Hero word reveal -------------------------------------------------
+
+    var heroTitle = document.querySelector('[data-words]');
+    if (heroTitle) {
+      var words = heroTitle.textContent.trim().split(/\s+/);
+      heroTitle.textContent = '';
+      words.forEach(function (w, i) {
+        var span = el('span', { class: 'cb-word', text: w });
+        span.style.transitionDelay = (i * 0.045) + 's';
+        heroTitle.appendChild(span);
+        if (i < words.length - 1) heroTitle.appendChild(document.createTextNode(' '));
+      });
+      requestAnimationFrame(function () { heroTitle.classList.add('is-in'); });
+    }
+
+    // ---- Mono label scramble ---------------------------------------------
+
+    var GLYPHS = '!<>-_\\/[]{}=+*^?#_';
+
+    function scramble(node) {
+      if (reduceMotion || node.dataset.scrambled) return;
+      node.dataset.scrambled = '1';
+      var target = node.textContent;
+      var frames = 18;
+      var frame = 0;
+      var timer = setInterval(function () {
+        frame += 1;
+        var out = '';
+        for (var i = 0; i < target.length; i++) {
+          var ch = target[i];
+          if (ch === ' ' || ch === '/') { out += ch; continue; }
+          var reveal = (i / target.length) * frames * 0.9;
+          out += frame > reveal ? ch : GLYPHS[Math.floor(Math.random() * GLYPHS.length)];
+        }
+        node.textContent = out;
+        if (frame >= frames) { clearInterval(timer); node.textContent = target; }
+      }, 34);
+    }
+
+    // ---- Demo -------------------------------------------------------------
+
+    var tabsEl = document.getElementById('demo-tabs');
+    var triggerEl = document.getElementById('demo-trigger');
+    var connEl = document.getElementById('demo-connectors');
+    var stepsEl = document.getElementById('demo-steps');
+    var outEl = document.getElementById('demo-outcome');
+    var barEl = document.getElementById('demo-bar');
+    var statusEl = document.getElementById('demo-status');
+    var playBtn = document.getElementById('demo-play');
+    var playLabel = document.getElementById('demo-play-label');
+    var current = 0;
+    var runToken = 0;
+    var hasAutoPlayed = false;
+
+    SCENARIOS.forEach(function (s, i) {
+      var tab = el('button', {
+        class: 'cb-tab', role: 'tab', type: 'button', id: 'tab-' + s.id,
+        'aria-selected': i === 0 ? 'true' : 'false', 'aria-controls': 'demo-panel',
+        tabindex: i === 0 ? '0' : '-1', text: pad2(i + 1) + ' ' + s.label
+      });
+      tab.addEventListener('click', function () { select(i, true); });
+      tab.addEventListener('keydown', function (e) {
+        var n = null;
+        if (e.key === 'ArrowRight') n = (i + 1) % SCENARIOS.length;
+        if (e.key === 'ArrowLeft') n = (i - 1 + SCENARIOS.length) % SCENARIOS.length;
+        if (e.key === 'Home') n = 0;
+        if (e.key === 'End') n = SCENARIOS.length - 1;
+        if (n !== null) { e.preventDefault(); select(n, true); tabsEl.children[n].focus(); }
+      });
+      tabsEl.appendChild(tab);
+    });
+
+    function renderOutcome(o) {
+      var box = el('div', { class: 'cb-out' });
+      box.appendChild(el('div', { class: 'cb-out__bar', text: o.bar }));
+      var body = el('div', { class: 'cb-out__body' });
+
+      if (o.kind === 'email') {
+        body.appendChild(el('div', { class: 'cb-out__row' }, [el('span', { text: 'To' }), el('div', { text: o.to })]));
+        body.appendChild(el('div', { class: 'cb-out__row' }, [el('span', { text: 'Subject' }), el('div', { text: o.subject })]));
+        body.appendChild(el('p', { class: 'cb-out__text', text: o.text }));
+      } else if (o.kind === 'calendar') {
+        var date = el('div', { class: 'cb-cal__date' }, [el('b', { text: o.day }), el('span', { text: o.time.split(' ')[0] })]);
+        var info = el('div', {}, [el('strong', { text: o.title }), el('p', { class: 'cb-cal__meta', text: o.meta })]);
+        body.appendChild(el('div', { class: 'cb-cal' }, [date, info]));
+      } else if (o.kind === 'chat') {
+        o.messages.forEach(function (m) {
+          var msg = el('div', { class: 'cb-msg' + (m.bot ? ' cb-msg--bot' : '') });
+          msg.appendChild(el('span', { class: 'cb-msg__avatar', text: m.who.charAt(0), 'aria-hidden': 'true' }));
+          var who = el('b', { text: m.who });
+          who.appendChild(el('small', { text: m.time }));
+          msg.appendChild(el('div', {}, [who, el('p', { text: m.text })]));
+          body.appendChild(msg);
+        });
+      } else if (o.kind === 'sheet') {
+        var table = el('table', { class: 'cb-table' });
+        table.appendChild(el('tr', {}, ['Date', 'Item', 'Quote', 'vs last'].map(function (h) { return el('th', { text: h }); })));
+        o.rows.forEach(function (r, idx) {
+          table.appendChild(el('tr', { class: idx === o.rows.length - 1 ? 'is-new' : '' }, r.map(function (c) { return el('td', { text: c }); })));
+        });
+        body.appendChild(table);
+        var m2 = el('div', { class: 'cb-msg cb-msg--bot' });
+        m2.appendChild(el('span', { class: 'cb-msg__avatar', text: 'A', 'aria-hidden': 'true' }));
+        m2.appendChild(el('div', {}, [el('b', { text: 'Text to Clancy' }), el('p', { text: o.message })]));
+        body.appendChild(m2);
+      } else if (o.kind === 'digest') {
+        body.appendChild(el('strong', { text: o.title }));
+        body.appendChild(el('ul', { class: 'cb-digest' }, o.items.map(function (t) { return el('li', { text: t }); })));
+      }
+
+      box.appendChild(body);
+      if (o.foot) box.appendChild(el('div', { class: 'cb-out__foot', text: o.foot }));
+      return box;
+    }
+
+    function select(i, autoplay) {
+      current = (i + SCENARIOS.length) % SCENARIOS.length;
+      Array.prototype.forEach.call(tabsEl.children, function (t, idx) {
+        var on = idx === current;
+        t.setAttribute('aria-selected', on ? 'true' : 'false');
+        t.setAttribute('tabindex', on ? '0' : '-1');
+      });
+      var tab = tabsEl.children[current];
+      if (tab && tab.scrollIntoView) {
+        try { tab.scrollIntoView({ block: 'nearest', inline: 'center', behavior: reduceMotion ? 'auto' : 'smooth' }); } catch (e) { /* older browsers */ }
+      }
+      if (autoplay) run();
+      else layout(SCENARIOS[current]);
+    }
+
+    function layout(s) {
+      runToken += 1;
+      triggerEl.textContent = s.trigger;
+      connEl.innerHTML = '';
+      stepsEl.innerHTML = '';
+      outEl.innerHTML = '';
+      barEl.style.width = '0%';
+      statusEl.textContent = '';
+      s.connectors.forEach(function (c) {
+        connEl.appendChild(el('li', { class: 'cb-conn' }, [
+          el('span', { class: 'cb-conn__dot', 'aria-hidden': 'true' }),
+          glyph(c.glyph, 'cb-conn__glyph'),
+          el('span', { text: c.name }),
+          el('small', { text: c.role })
+        ]));
+      });
+      playLabel.textContent = 'Play';
+    }
+
+    function run() {
+      var s = SCENARIOS[current];
+      layout(s);
+      var token = runToken;
+      var total = s.connectors.length + s.steps.length + 1;
+      var done = 0;
+      var alive = function () { return token === runToken; };
+      var tick = function () { done += 1; barEl.style.width = Math.round((done / total) * 100) + '%'; };
+
+      playLabel.textContent = 'Replay';
+      statusEl.textContent = 'Running / ' + s.label;
+
+      var p = Promise.resolve();
+      s.connectors.forEach(function (_, idx) {
+        p = p.then(function () {
+          if (!alive()) return;
+          connEl.children[idx].classList.add('is-on');
+          tick();
+          return wait(260);
+        });
+      });
+
+      p = p.then(function () { return wait(200); });
+
+      s.steps.forEach(function (step) {
+        p = p.then(function () {
+          if (!alive()) return;
+          var li = el('li', { class: 'cb-step is-running' }, [
+            el('span', { class: 'cb-step__mark', 'aria-hidden': 'true' }),
+            el('div', {}, [el('span', { class: 'cb-step__time', text: step.t }), el('p', { text: step.text })])
+          ]);
+          stepsEl.appendChild(li);
+          requestAnimationFrame(function () { li.classList.add('is-in'); });
+          return wait(step.hold ? 900 : 700).then(function () {
+            if (!alive()) return;
+            li.classList.remove('is-running');
+            li.classList.add(step.hold ? 'is-hold' : 'is-done');
+            tick();
+            return wait(180);
+          });
+        });
+      });
+
+      p.then(function () {
+        if (!alive()) return;
+        var out = renderOutcome(s.outcome);
+        outEl.appendChild(out);
+        requestAnimationFrame(function () { out.classList.add('is-in'); });
+        tick();
+        statusEl.textContent = 'Done / press play to run it again';
+      });
+    }
+
+    playBtn.addEventListener('click', run);
+    document.getElementById('demo-prev').addEventListener('click', function () { select(current - 1, true); });
+    document.getElementById('demo-next').addEventListener('click', function () { select(current + 1, true); });
+
+    layout(SCENARIOS[0]);
+
+    if ('IntersectionObserver' in window) {
+      var demoShell = document.querySelector('.cb-demo__shell');
+      var demoIO = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting && !hasAutoPlayed) {
+            hasAutoPlayed = true;
+            run();
+            demoIO.disconnect();
+          }
+        });
+      }, { threshold: 0.3 });
+      demoIO.observe(demoShell);
+    } else {
+      run();
+    }
+
+    // ---- Connector cells --------------------------------------------------
+
+    var grid = document.getElementById('conn-grid');
+    var detail = document.getElementById('conn-detail');
+
+    function showDetail(c) {
+      detail.innerHTML = '';
+      detail.appendChild(el('strong', { text: c.name }));
+      detail.appendChild(el('span', { text: c.detail }));
+    }
+
+    CONNECTORS.forEach(function (c, i) {
+      var cell = el('button', { class: 'cb-cell', type: 'button', 'aria-pressed': i === 0 ? 'true' : 'false' }, [
+        glyph(c.glyph, 'cb-cell__glyph'),
+        el('span', { class: 'cb-cell__name', text: c.name })
+      ]);
+      cell.addEventListener('click', function () {
+        Array.prototype.forEach.call(grid.children, function (t) { t.setAttribute('aria-pressed', 'false'); });
+        cell.setAttribute('aria-pressed', 'true');
+        showDetail(c);
+      });
+      grid.appendChild(cell);
+    });
+    showDetail(CONNECTORS[0]);
+
+    // ---- Example rows -----------------------------------------------------
+
+    var cards = document.getElementById('example-cards');
+
+    EXAMPLES.forEach(function (x, i) {
+      var bodyId = 'example-body-' + i;
+      var card = el('article', { class: 'cb-use' });
+      var chev = el('span', { class: 'cb-use__chev', 'aria-hidden': 'true' });
+      chev.innerHTML = '<svg viewBox="0 0 24 24"><path d="M12 5v14 M5 12h14"/></svg>';
+
+      var text = el('div', {}, [
+        glyph(x.icon, 'cb-use__icon'),
+        el('h3', { text: x.title }),
+        el('p', { class: 'cb-use__sub', text: x.sub })
+      ]);
+
+      var btn = el('button', { class: 'cb-use__btn', type: 'button', 'aria-expanded': 'false', 'aria-controls': bodyId }, [text, chev]);
+
+      var facts = el('dl', { class: 'cb-facts' }, x.facts.map(function (f) {
+        return el('div', {}, [el('dt', { text: f[0] }), el('dd', { text: f[1] })]);
+      }));
+
+      var play = el('button', { class: 'cb-btn cb-btn--light cb-btn--sm cb-btn--play', type: 'button' }, [
+        el('span', { text: 'Play it in the demo' })
+      ]);
+      var box = el('span', { class: 'cb-btn__box', 'aria-hidden': 'true' });
+      box.innerHTML = '<svg viewBox="0 0 16 16" style="fill:currentColor;stroke:none"><use href="#g-play"></use></svg>';
+      play.appendChild(box);
+      play.addEventListener('click', function () {
+        var idx = SCENARIOS.findIndex(function (s) { return s.id === x.scenario; });
+        hasAutoPlayed = true;
+        select(idx, true);
+        document.getElementById('demo').scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'start' });
+      });
+
+      var inner = el('div', { class: 'cb-use__inner' }, [facts, el('div', {}, [play])]);
+      var body = el('div', { class: 'cb-use__body', id: bodyId }, [el('div', {}, [inner])]);
+
+      btn.addEventListener('click', function () {
+        var open = card.classList.toggle('is-open');
+        btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      });
+
+      card.appendChild(btn);
+      card.appendChild(body);
+      cards.appendChild(card);
+    });
+
+    // ---- Reveal on scroll -------------------------------------------------
+
+    var revealables = document.querySelectorAll('[data-reveal], [data-reveal-stagger]');
+    var scrambles = document.querySelectorAll('[data-scramble]');
+
+    if (reduceMotion || !('IntersectionObserver' in window)) {
+      Array.prototype.forEach.call(revealables, function (n) { n.classList.add('is-in'); });
+    } else {
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting) { e.target.classList.add('is-in'); io.unobserve(e.target); }
+        });
+      }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+      Array.prototype.forEach.call(revealables, function (n) { io.observe(n); });
+
+      var sio = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting) { scramble(e.target); sio.unobserve(e.target); }
+        });
+      }, { threshold: 0.5 });
+      Array.prototype.forEach.call(scrambles, function (n) { sio.observe(n); });
+    }
+  })();
+  </script>
 </body>
 </html>
