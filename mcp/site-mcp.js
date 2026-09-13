@@ -45,8 +45,9 @@ const STATIC_PAGES = [
   { loc: '/doors',     priority: '0.9', changefreq: 'monthly' },
   { loc: '/blog',      priority: '0.8', changefreq: 'weekly'  },
   { loc: '/gallery',   priority: '0.8', changefreq: 'monthly' },
-  { loc: '/about',     priority: '0.7', changefreq: 'yearly'  },
-  { loc: '/faq',       priority: '0.7', changefreq: 'monthly' },
+  { loc: '/about',       priority: '0.7', changefreq: 'yearly'  },
+  { loc: '/faq',         priority: '0.7', changefreq: 'monthly' },
+  { loc: '/automations', priority: '0.7', changefreq: 'monthly' },
 ];
 
 const today = () => new Date().toISOString().slice(0, 10);
