@@ -1183,6 +1183,266 @@
     }
     .cb-cell-detail strong { font-family: var(--cb-mono); font-weight: 400; font-size: 0.7rem; text-transform: uppercase; color: var(--cb-muted); }
 
+    .cb-brand-ico svg { width: 100%; height: 100%; display: block; fill: currentColor; }
+    .cb-cell__glyph.cb-brand-ico { color: var(--cb-brand, var(--cb-ink)); }
+    .cb-conn__glyph.cb-brand-ico { color: var(--cb-brand, #fff); }
+    .cb-mark .cb-brand-ico { width: 0.95rem; height: 0.95rem; color: var(--cb-brand, #fff); }
+    .cb-mark .cb-brand-ico svg { width: 0.95rem; height: 0.95rem; }
+
+    /* Product surfaces: real-looking tool UIs, not gray tiles. */
+    .cb-surfaces { margin-top: 3.5rem; }
+    .cb-surfaces > .cb-mono { margin-bottom: 0.65rem; }
+    .cb-surfaces__lead { max-width: 40rem; color: var(--cb-ink-2); font-size: 0.98rem; }
+
+    .cb-surf {
+      margin-top: 1.35rem;
+      border: 1px solid var(--cb-line);
+      border-radius: var(--cb-r);
+      overflow: hidden;
+      background: #fff;
+      box-shadow: 0 18px 40px -28px rgba(0, 0, 0, 0.28);
+    }
+
+    .cb-surf__tabs {
+      display: flex;
+      overflow-x: auto;
+      scrollbar-width: none;
+      border-bottom: 1px solid var(--cb-line);
+      background: var(--cb-panel);
+    }
+    .cb-surf__tabs::-webkit-scrollbar { display: none; }
+
+    .cb-surf__tab {
+      flex: 0 0 auto;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      background: transparent;
+      border: 0;
+      border-right: 1px solid var(--cb-line);
+      border-bottom: 2px solid transparent;
+      padding: 0.85rem 1rem 0.75rem;
+      font-family: var(--cb-mono);
+      font-size: 0.68rem;
+      text-transform: uppercase;
+      color: var(--cb-muted);
+      white-space: nowrap;
+    }
+    .cb-surf__tab svg { width: 0.95rem; height: 0.95rem; fill: currentColor; }
+    .cb-surf__tab:hover { color: var(--cb-ink); background: #fff; }
+    .cb-surf__tab[aria-selected="true"] { color: var(--cb-ink); background: #fff; border-bottom-color: var(--cb-ink); }
+
+    .cb-surf__stage { min-height: 26rem; background: #ececec; }
+    .cb-pw { min-height: 26rem; height: 26rem; display: flex; flex-direction: column; overflow: hidden; font-weight: 400; letter-spacing: 0; }
+    .cb-pw[hidden] { display: none !important; }
+
+    .cb-surf__note { margin-top: 0.85rem; font-size: 0.82rem; color: var(--cb-muted); max-width: 42rem; }
+
+    /* Gmail. Layout cues from Material inbox clones; mark from simple-icons/gmail. */
+    .cb-pw--gmail { background: #fff; color: #202124; }
+    .cb-gm__bar {
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+      padding: 0.65rem 0.9rem;
+      border-bottom: 1px solid #e0e0e0;
+    }
+    .cb-gm__logo { display: inline-flex; align-items: center; gap: 0.4rem; font-size: 1.15rem; font-weight: 400; color: #5f6368; letter-spacing: -0.02em; }
+    .cb-gm__logo svg, .cb-gm__bar svg { width: 1.45rem; height: 1.45rem; color: #ea4335; }
+    .cb-gm__search {
+      flex: 1;
+      height: 2.4rem;
+      border: 0;
+      border-radius: 1.2rem;
+      background: #eaf1fb;
+      padding: 0 1rem;
+      font: inherit;
+      font-size: 0.88rem;
+      color: #202124;
+    }
+    .cb-gm__body { display: grid; grid-template-columns: 8.5rem 1fr; min-height: 0; flex: 1; }
+    .cb-gm__nav { padding: 0.75rem 0.55rem; display: grid; gap: 0.15rem; align-content: start; background: #fff; }
+    .cb-gm__nav button {
+      text-align: left;
+      border: 0;
+      background: transparent;
+      border-radius: 0 1.1rem 1.1rem 0;
+      padding: 0.45rem 0.75rem;
+      font-size: 0.82rem;
+      color: #202124;
+    }
+    .cb-gm__nav button.is-on { background: #d3e3fd; font-weight: 700; }
+    .cb-gm__list { border-left: 1px solid #e8eaed; overflow: auto; }
+    .cb-gm__row {
+      width: 100%;
+      display: grid;
+      grid-template-columns: 0.55rem 6.2rem 1fr auto;
+      gap: 0.7rem;
+      align-items: baseline;
+      padding: 0.7rem 0.9rem;
+      border: 0;
+      border-bottom: 1px solid #f1f3f4;
+      background: #fff;
+      text-align: left;
+      font-size: 0.84rem;
+    }
+    .cb-gm__row.is-unread { font-weight: 700; }
+    .cb-gm__row.is-on { background: #c2e7ff; }
+    .cb-gm__row.is-draft { background: #fef7e0; }
+    .cb-gm__pip { width: 0.42rem; height: 0.42rem; border-radius: 50%; background: transparent; align-self: center; }
+    .cb-gm__row.is-unread .cb-gm__pip { background: #1a73e8; }
+    .cb-gm__who { color: #202124; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .cb-gm__sub { color: #5f6368; font-weight: 400; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .cb-gm__row.is-unread .cb-gm__sub { color: #202124; font-weight: 700; }
+    .cb-gm__time { font-size: 0.72rem; color: #5f6368; white-space: nowrap; }
+    .cb-gm__draft {
+      margin: 0.7rem;
+      border: 1px solid #dadce0;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 8px 20px -12px rgba(60, 64, 67, 0.4);
+    }
+    .cb-gm__draft-bar { padding: 0.45rem 0.75rem; background: #404040; color: #fff; font-size: 0.78rem; }
+    .cb-gm__draft-body { padding: 0.7rem 0.8rem; display: grid; gap: 0.35rem; font-size: 0.82rem; }
+    .cb-gm__draft-body span { color: #5f6368; }
+    .cb-gm__chip { display: inline-block; margin-top: 0.35rem; padding: 0.15rem 0.4rem; border-radius: 4px; background: #fef7e0; color: #7c5800; font-size: 0.68rem; }
+
+    /* Claude. Warm paper + terracotta from anthropics/claude-quickstarts chat surfaces. */
+    .cb-pw--claude { background: #f7f4ef; color: #141413; }
+    .cb-cl__bar, .cb-gpt__bar, .cb-gk__bar {
+      display: flex;
+      align-items: center;
+      gap: 0.55rem;
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+      font-size: 0.92rem;
+      font-weight: 600;
+    }
+    .cb-cl__bar svg { width: 1.15rem; height: 1.15rem; color: #d97757; }
+    .cb-cl__thread, .cb-gpt__thread, .cb-gk__thread { flex: 1; overflow: auto; padding: 1rem 1.1rem; display: grid; gap: 0.9rem; align-content: start; }
+    .cb-cl__msg { display: grid; gap: 0.25rem; max-width: 36rem; font-size: 0.92rem; line-height: 1.5; }
+    .cb-cl__msg small { font-size: 0.68rem; color: #8a8276; text-transform: uppercase; letter-spacing: 0.06em; }
+    .cb-cl__msg--you { justify-self: end; text-align: right; }
+    .cb-cl__msg--you p { background: #ece6dc; padding: 0.65rem 0.8rem; border-radius: 12px; }
+    .cb-cl__think { font-size: 0.78rem; color: #8a8276; border-left: 2px solid #d97757; padding-left: 0.6rem; }
+    .cb-pw__composer {
+      display: flex;
+      gap: 0.5rem;
+      padding: 0.7rem 0.85rem;
+      border-top: 1px solid rgba(0, 0, 0, 0.08);
+    }
+    .cb-pw__composer input {
+      flex: 1;
+      border: 1px solid rgba(0, 0, 0, 0.12);
+      border-radius: 999px;
+      padding: 0.55rem 0.9rem;
+      font: inherit;
+      font-size: 0.88rem;
+      background: #fff;
+    }
+    .cb-pw__composer button {
+      border: 0;
+      border-radius: 999px;
+      padding: 0.55rem 0.9rem;
+      background: #131313;
+      color: #fff;
+      font-size: 0.82rem;
+    }
+
+    /* ChatGPT. Composer + transcript cues from openai/chatkit-js docs. */
+    .cb-pw--gpt { background: #fff; color: #0d0d0d; }
+    .cb-gpt__bar svg { width: 1.15rem; height: 1.15rem; color: #10a37f; }
+    .cb-gpt__msg { display: grid; gap: 0.2rem; font-size: 0.92rem; line-height: 1.5; }
+    .cb-gpt__msg small { font-size: 0.68rem; color: #6f6f6f; }
+    .cb-gpt__msg--you p { background: #f4f4f4; padding: 0.7rem 0.85rem; border-radius: 18px; }
+    .cb-gpt__composer button { background: #10a37f; }
+
+    /* Grok. Dark grok.com-style pane. No official public embed; surface is original. */
+    .cb-pw--grok { background: #0a0a0a; color: #f4f4f4; }
+    .cb-gk__bar { border-bottom-color: rgba(255, 255, 255, 0.1); }
+    .cb-gk__bar svg { width: 1.05rem; height: 1.05rem; color: #fff; }
+    .cb-gk__msg { font-size: 0.92rem; line-height: 1.5; display: grid; gap: 0.25rem; }
+    .cb-gk__msg small { font-size: 0.66rem; color: #8a8a8a; text-transform: uppercase; letter-spacing: 0.08em; }
+    .cb-gk__msg--you p { color: #cfcfcf; }
+    .cb-gk__tool { display: inline-flex; gap: 0.35rem; align-items: center; padding: 0.25rem 0.5rem; border: 1px solid rgba(255, 255, 255, 0.14); border-radius: 6px; font-size: 0.72rem; color: #cfcfcf; }
+    .cb-pw--grok .cb-pw__composer { border-top-color: rgba(255, 255, 255, 0.1); }
+    .cb-pw--grok .cb-pw__composer input { background: #161616; border-color: rgba(255, 255, 255, 0.14); color: #fff; }
+    .cb-pw--grok .cb-pw__composer button { background: #fff; color: #0a0a0a; }
+
+    /* Slack */
+    .cb-pw--slack { background: #fff; color: #1d1c1d; flex-direction: row; }
+    .cb-sl__side { width: 8.4rem; background: #3f0e40; color: #fff; padding: 0.85rem 0.7rem; display: grid; gap: 0.35rem; align-content: start; }
+    .cb-sl__side strong { font-size: 0.82rem; }
+    .cb-sl__side button { border: 0; background: transparent; color: #c5b6c6; text-align: left; font-size: 0.8rem; padding: 0.28rem 0.4rem; border-radius: 4px; }
+    .cb-sl__side button.is-on { background: #1164a3; color: #fff; }
+    .cb-sl__main { flex: 1; display: flex; flex-direction: column; min-width: 0; }
+    .cb-sl__head { padding: 0.7rem 0.9rem; border-bottom: 1px solid #e8e8e8; font-weight: 700; font-size: 0.92rem; }
+    .cb-sl__thread { flex: 1; overflow: auto; padding: 0.85rem 0.95rem; display: grid; gap: 0.8rem; align-content: start; }
+    .cb-sl__msg { display: grid; grid-template-columns: 2rem 1fr; gap: 0.55rem; font-size: 0.86rem; }
+    .cb-sl__av { width: 2rem; height: 2rem; border-radius: 4px; background: #611f69; color: #fff; display: grid; place-items: center; font-size: 0.7rem; font-weight: 700; }
+    .cb-sl__av--bot { background: #2eb67d; }
+    .cb-sl__msg b { display: block; font-size: 0.84rem; }
+    .cb-sl__msg b small { font-weight: 400; color: #616061; margin-left: 0.4rem; font-size: 0.68rem; }
+
+    /* Teams */
+    .cb-pw--teams { background: #f5f5f5; color: #242424; flex-direction: row; }
+    .cb-tm__side { width: 8.4rem; background: #464775; color: #fff; padding: 0.85rem 0.7rem; display: grid; gap: 0.35rem; align-content: start; }
+    .cb-tm__side strong { font-size: 0.82rem; }
+    .cb-tm__side button { border: 0; background: transparent; color: #d1d1e0; text-align: left; font-size: 0.8rem; padding: 0.28rem 0.4rem; border-radius: 4px; }
+    .cb-tm__side button.is-on { background: #6264a7; color: #fff; }
+    .cb-tm__main { flex: 1; display: flex; flex-direction: column; min-width: 0; background: #fff; }
+    .cb-tm__head { padding: 0.7rem 0.9rem; border-bottom: 1px solid #e1e1e1; font-weight: 700; }
+    .cb-tm__thread { flex: 1; overflow: auto; padding: 0.85rem 0.95rem; display: grid; gap: 0.75rem; align-content: start; }
+    .cb-tm__msg { display: grid; grid-template-columns: 2rem 1fr; gap: 0.55rem; font-size: 0.86rem; }
+    .cb-tm__av { width: 2rem; height: 2rem; border-radius: 50%; background: #6264a7; color: #fff; display: grid; place-items: center; font-size: 0.7rem; }
+
+    /* QuickBooks */
+    .cb-pw--qb { background: #f4f5f8; color: #212b36; }
+    .cb-qb__bar { display: flex; align-items: center; gap: 0.55rem; padding: 0.7rem 0.95rem; background: #2ca01c; color: #fff; font-weight: 700; }
+    .cb-qb__bar svg { width: 1.2rem; height: 1.2rem; color: #fff; }
+    .cb-qb__table { width: 100%; border-collapse: collapse; background: #fff; font-size: 0.84rem; }
+    .cb-qb__table th, .cb-qb__table td { text-align: left; padding: 0.7rem 0.85rem; border-bottom: 1px solid #e4e7eb; }
+    .cb-qb__table th { font-size: 0.68rem; text-transform: uppercase; color: #637381; font-weight: 600; }
+    .cb-qb__table tr.is-on td { background: #e8f5e9; }
+    .cb-qb__pill { display: inline-block; padding: 0.15rem 0.45rem; border-radius: 999px; font-size: 0.68rem; background: #fff4ce; color: #7a5d00; }
+    .cb-qb__pill--ok { background: #d7f7c2; color: #1b5e20; }
+    .cb-qb__note { padding: 0.75rem 0.95rem; font-size: 0.82rem; color: #5c6b73; }
+
+    /* Calendar (FullCalendar host) */
+    .cb-pw--cal { background: #fff; color: #3c4043; }
+    .cb-calw__bar { display: flex; align-items: center; gap: 0.5rem; padding: 0.65rem 0.9rem; border-bottom: 1px solid #e0e0e0; font-weight: 600; }
+    .cb-calw__bar svg { width: 1.15rem; height: 1.15rem; color: #4285f4; }
+    .cb-calw__mount { flex: 1; min-height: 0; padding: 0.4rem 0.55rem 0.6rem; overflow: auto; }
+    .cb-calw__mount .fc { font-family: inherit; height: 100%; }
+    .cb-calw__mount .fc .fc-toolbar { margin-bottom: 0.4rem; }
+    .cb-calw__mount .fc .fc-toolbar-title { font-size: 1rem; font-weight: 700; }
+    .cb-calw__mount .fc .fc-button { background: #fff; border: 1px solid #dadce0; color: #3c4043; box-shadow: none; text-transform: none; }
+    .cb-calw__mount .fc .fc-button-primary:not(:disabled).fc-button-active,
+    .cb-calw__mount .fc .fc-button-primary:not(:disabled):active { background: #e8f0fe; color: #1967d2; border-color: #1967d2; }
+    .cb-calw__mount .fc .fc-day-today { background: #e8f0fe; }
+    .cb-calw__mount .fc .fc-event { background: #1a73e8; border-color: #1a73e8; font-size: 0.72rem; }
+    .cb-calw__fallback { padding: 1rem; display: grid; gap: 0.45rem; }
+    .cb-calw__ev { display: grid; grid-template-columns: 4.5rem 1fr; gap: 0.7rem; padding: 0.55rem 0.65rem; border: 1px solid #e0e0e0; border-left: 3px solid #1a73e8; border-radius: 4px; font-size: 0.86rem; }
+
+    /* CRM */
+    .cb-pw--crm { background: #f7f6f3; color: #1b1b19; }
+    .cb-crm__bar { display: flex; align-items: center; justify-content: space-between; padding: 0.7rem 0.95rem; background: #1b1b19; color: #fff; font-weight: 700; }
+    .cb-crm__list { padding: 0.75rem; display: grid; gap: 0.5rem; overflow: auto; }
+    .cb-crm__job { text-align: left; border: 1px solid #e4e1d8; background: #fff; border-radius: 6px; padding: 0.7rem 0.8rem; display: grid; gap: 0.2rem; }
+    .cb-crm__job.is-on { box-shadow: inset 0 0 0 1px #131313; }
+    .cb-crm__job b { font-size: 0.95rem; }
+    .cb-crm__job span { font-size: 0.78rem; color: #6b675c; }
+    .cb-crm__st { justify-self: start; font-size: 0.66rem; text-transform: uppercase; padding: 0.15rem 0.4rem; border-radius: 3px; background: #ece6dc; }
+    .cb-crm__st--done { background: #d7f7c2; color: #1b5e20; }
+    .cb-crm__st--hold { background: #fff4ce; color: #7a5d00; }
+
+    /* Demo outcome gets the same product chrome. */
+    .cb-stage--out .cb-pw { min-height: 0; height: auto; max-height: 22rem; border-radius: var(--cb-r-sm); }
+    .cb-stage--out .cb-gm__body { grid-template-columns: 1fr; }
+    .cb-stage--out .cb-gm__nav { display: none; }
+    .cb-stage--out .cb-pw--slack, .cb-stage--out .cb-pw--teams { flex-direction: column; }
+    .cb-stage--out .cb-sl__side, .cb-stage--out .cb-tm__side { width: auto; display: none; }
+
     /* Process: stacked full-bleed panels */
     .cb-process { margin-top: 3rem; }
 
@@ -1364,7 +1624,22 @@
 
     .cb-footer__bottom .cb-mono { color: var(--cb-faint); }
 
+    .cb-legal {
+      margin-top: 1.35rem;
+      max-width: 42rem;
+      font-size: 0.72rem;
+      line-height: 1.55;
+      color: #6e6e6e;
+    }
+
     /* Layout at width */
+    @media (max-width: 720px) {
+      .cb-gm__body { grid-template-columns: 1fr; }
+      .cb-gm__nav { display: none; }
+      .cb-pw--slack, .cb-pw--teams { flex-direction: column; }
+      .cb-sl__side, .cb-tm__side { width: auto; display: flex; flex-wrap: wrap; gap: 0.35rem; }
+    }
+
     @media (min-width: 640px) {
       .cb-caps { grid-template-columns: repeat(2, 1fr); }
       .cb-cells { grid-template-columns: repeat(3, 1fr); }
@@ -1401,7 +1676,8 @@
       .cb-pkgs { grid-template-columns: repeat(3, 1fr); }
       .cb-pair { grid-template-columns: 18rem 1fr; align-items: baseline; }
       .cb-why { grid-template-columns: 0.9fr 1.1fr; gap: 4rem; }
-      .cb-cells { grid-template-columns: repeat(6, 1fr); }
+      .cb-cells { grid-template-columns: repeat(7, 1fr); }
+      .cb-surf__stage, .cb-pw { min-height: 28rem; height: 28rem; }
       .cb-proc { padding: 5rem 0; min-height: 30rem; display: grid; align-items: center; }
       .cb-proc__inner { grid-template-columns: 8rem 1fr 1fr; gap: 2rem; }
       .cb-proc__art { justify-self: center; }
@@ -1489,6 +1765,17 @@
       <symbol id="g-right" viewBox="0 0 16 16"><path d="M3 8h10 M9 4l4 4-4 4"/></symbol>
       <symbol id="g-arrow" viewBox="0 0 16 16"><path d="M4 12L12 4 M6 4h6v6"/></symbol>
       <symbol id="g-play" viewBox="0 0 16 16"><path d="M5 3l8 5-8 5z"/></symbol>
+      <symbol id="si-gmail" viewBox="0 0 24 24"><path d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 0 1 0 19.366V5.457c0-2.023 2.309-3.178 3.927-1.964L5.455 4.64 12 9.548l6.545-4.91 1.528-1.145C21.69 2.28 24 3.434 24 5.457z"/></symbol>
+      <symbol id="si-anthropic" viewBox="0 0 24 24"><path d="M17.3041 3.541h-3.6718l6.696 16.918H24Zm-10.6082 0L0 20.459h3.7442l1.3693-3.5527h7.0052l1.3693 3.5528h3.7442L10.5363 3.5409Zm-.3712 10.2232 2.2914-5.9456 2.2914 5.9456Z"/></symbol>
+      <symbol id="si-openai" viewBox="0 0 24 24"><path d="M22.2819 9.8211a5.9847 5.9847 0 0 0-.5157-4.9108 6.0462 6.0462 0 0 0-6.5098-2.9A6.0651 6.0651 0 0 0 4.9807 4.1818a5.9847 5.9847 0 0 0-3.9977 2.9 6.0462 6.0462 0 0 0 .7427 7.0966 5.98 5.98 0 0 0 .511 4.9107 6.051 6.051 0 0 0 6.5146 2.9001A5.9847 5.9847 0 0 0 13.2599 24a6.0557 6.0557 0 0 0 5.7718-4.2058 5.9894 5.9894 0 0 0 3.9977-2.9001 6.0557 6.0557 0 0 0-.7475-7.0729zm-9.022 12.6081a4.4755 4.4755 0 0 1-2.8764-1.0408l.1419-.0804 4.7783-2.7582a.7948.7948 0 0 0 .3927-.6813v-6.7369l2.02 1.1686a.071.071 0 0 1 .038.052v5.5826a4.504 4.504 0 0 1-4.4945 4.4944zm-9.6607-4.1254a4.4708 4.4708 0 0 1-.5346-3.0137l.142.0852 4.783 2.7582a.7712.7712 0 0 0 .7806 0l5.8428-3.3685v2.3324a.0804.0804 0 0 1-.0332.0615L9.74 19.9502a4.4992 4.4992 0 0 1-6.1408-1.6464zM2.3408 7.8956a4.485 4.485 0 0 1 2.3655-1.9728V11.6a.7664.7664 0 0 0 .3879.6765l5.8144 3.3543-2.0201 1.1685a.0757.0757 0 0 1-.071 0l-4.8303-2.7865A4.504 4.504 0 0 1 2.3408 7.872zm16.5963 3.8558L13.1038 8.364 15.1192 7.2a.0757.0757 0 0 1 .071 0l4.8303 2.7913a4.4944 4.4944 0 0 1-.6765 8.1042v-5.6772a.79.79 0 0 0-.407-.667zm2.0107-3.0231l-.142-.0852-4.7735-2.7818a.7759.7759 0 0 0-.7854 0L9.409 9.2297V6.8974a.0662.0662 0 0 1 .0284-.0615l4.8303-2.7866a4.4992 4.4992 0 0 1 6.6802 4.66zM8.3065 12.863l-2.02-1.1638a.0804.0804 0 0 1-.038-.0567V6.0742a4.4992 4.4992 0 0 1 7.3757-3.4537l-.142.0805L8.704 5.459a.7948.7948 0 0 0-.3927.6813zm1.0976-2.3654l2.602-1.4998 2.6069 1.4998v2.9994l-2.5974 1.4997-2.6067-1.4997Z"/></symbol>
+      <symbol id="si-x" viewBox="0 0 24 24"><path d="M14.234 10.162 22.977 0h-2.072l-7.591 8.824L7.251 0H.258l9.168 13.343L.258 24H2.33l8.016-9.318L16.749 24h6.993zm-2.837 3.299-.929-1.329L3.076 1.56h3.182l5.965 8.532.929 1.329 7.754 11.09h-3.182z"/></symbol>
+      <symbol id="si-slack" viewBox="0 0 24 24"><path d="M5.042 15.165a2.528 2.528 0 0 1-2.52 2.523A2.528 2.528 0 0 1 0 15.165a2.527 2.527 0 0 1 2.522-2.52h2.52v2.52zM6.313 15.165a2.527 2.527 0 0 1 2.521-2.52 2.527 2.527 0 0 1 2.521 2.52v6.313A2.528 2.528 0 0 1 8.834 24a2.528 2.528 0 0 1-2.521-2.522v-6.313zM8.834 5.042a2.528 2.528 0 0 1-2.521-2.52A2.528 2.528 0 0 1 8.834 0a2.528 2.528 0 0 1 2.521 2.522v2.52H8.834zM8.834 6.313a2.528 2.528 0 0 1 2.521 2.521 2.528 2.528 0 0 1-2.521 2.521H2.522A2.528 2.528 0 0 1 0 8.834a2.528 2.528 0 0 1 2.522-2.521h6.312zM18.956 8.834a2.528 2.528 0 0 1 2.522-2.521A2.528 2.528 0 0 1 24 8.834a2.528 2.528 0 0 1-2.522 2.521h-2.522V8.834zM17.688 8.834a2.528 2.528 0 0 1-2.523 2.521 2.527 2.527 0 0 1-2.52-2.521V2.522A2.527 2.527 0 0 1 15.165 0a2.528 2.528 0 0 1 2.523 2.522v6.312zM15.165 18.956a2.528 2.528 0 0 1 2.523 2.522A2.528 2.528 0 0 1 15.165 24a2.527 2.527 0 0 1-2.52-2.522v-2.522h2.52zM15.165 17.688a2.527 2.527 0 0 1-2.52-2.523 2.526 2.526 0 0 1 2.52-2.52h6.313A2.527 2.527 0 0 1 24 15.165a2.528 2.528 0 0 1-2.522 2.523h-6.313z"/></symbol>
+      <symbol id="si-teams" viewBox="0 0 24 24"><path d="M20.625 8.127q-.55 0-1.025-.205-.475-.205-.832-.563-.358-.357-.563-.832Q18 6.053 18 5.502q0-.54.205-1.02t.563-.837q.357-.358.832-.563.474-.205 1.025-.205.54 0 1.02.205t.837.563q.358.357.563.837.205.48.205 1.02 0 .55-.205 1.025-.205.475-.563.832-.357.358-.837.563-.48.205-1.02.205zm0-3.75q-.469 0-.797.328-.328.328-.328.797 0 .469.328.797.328.328.797.328.469 0 .797-.328.328-.328.328-.797 0-.469-.328-.797-.328-.328-.797-.328zM24 10.002v5.578q0 .774-.293 1.46-.293.685-.803 1.194-.51.51-1.195.803-.686.293-1.459.293-.445 0-.908-.105-.463-.106-.85-.329-.293.95-.855 1.729-.563.78-1.319 1.336-.756.557-1.67.861-.914.305-1.898.305-1.148 0-2.162-.398-1.014-.399-1.805-1.102-.79-.703-1.312-1.664t-.674-2.086h-5.8q-.411 0-.704-.293T0 16.881V6.873q0-.41.293-.703t.703-.293h8.59q-.34-.715-.34-1.5 0-.727.275-1.365.276-.639.75-1.114.475-.474 1.114-.75.638-.275 1.365-.275t1.365.275q.639.276 1.114.75.474.475.75 1.114.275.638.275 1.365t-.275 1.365q-.276.639-.75 1.113-.475.475-1.114.75-.638.276-1.365.276-.188 0-.375-.024-.188-.023-.375-.058v1.078h10.875q.469 0 .797.328.328.328.328.797zM12.75 2.373q-.41 0-.78.158-.368.158-.638.434-.27.275-.428.639-.158.363-.158.773 0 .41.158.78.159.368.428.638.27.27.639.428.369.158.779.158.41 0 .773-.158.364-.159.64-.428.274-.27.433-.639.158-.369.158-.779 0-.41-.158-.773-.159-.364-.434-.64-.275-.275-.639-.433-.363-.158-.773-.158zM6.937 9.814h2.25V7.94H2.814v1.875h2.25v6h1.875zm10.313 7.313v-6.75H12v6.504q0 .41-.293.703t-.703.293H8.309q.152.809.556 1.5.405.691.985 1.19.58.497 1.318.779.738.281 1.582.281.926 0 1.746-.352.82-.351 1.436-.966.615-.616.966-1.43.352-.815.352-1.752zm5.25-1.547v-5.203h-3.75v6.855q.305.305.691.452.387.146.809.146.469 0 .879-.176.41-.175.715-.48.304-.305.48-.715t.176-.879Z"/></symbol>
+      <symbol id="si-outlook" viewBox="0 0 24 24"><path d="M7.88 12.04q0 .45-.11.87-.1.41-.33.74-.22.33-.58.52-.37.2-.87.2t-.85-.2q-.35-.21-.57-.55-.22-.33-.33-.75-.1-.42-.1-.86t.1-.87q.1-.43.34-.76.22-.34.59-.54.36-.2.87-.2t.86.2q.35.21.57.55.22.34.31.77.1.43.1.88zM24 12v9.38q0 .46-.33.8-.33.32-.8.32H7.13q-.46 0-.8-.33-.32-.33-.32-.8V18H1q-.41 0-.7-.3-.3-.29-.3-.7V7q0-.41.3-.7Q.58 6 1 6h6.5V2.55q0-.44.3-.75.3-.3.75-.3h12.9q.44 0 .75.3.3.3.3.75V10.85l1.24.72h.01q.1.07.18.18.07.12.07.25zm-6-8.25v3h3v-3zm0 4.5v3h3v-3zm0 4.5v1.83l3.05-1.83zm-5.25-9v3h3.75v-3zm0 4.5v3h3.75v-3zm0 4.5v2.03l2.41 1.5 1.34-.8v-2.73zM9 3.75V6h2l.13.01.12.04v-2.3zM5.98 15.98q.9 0 1.6-.3.7-.32 1.19-.86.48-.55.73-1.28.25-.74.25-1.61 0-.83-.25-1.55-.24-.71-.71-1.24t-1.15-.83q-.68-.3-1.55-.3-.92 0-1.64.3-.71.3-1.2.85-.5.54-.75 1.3-.25.74-.25 1.63 0 .85.26 1.56.26.72.74 1.23.48.52 1.17.81.69.3 1.56.3zM7.5 21h12.39L12 16.08V17q0 .41-.3.7-.29.3-.7.3H7.5zm15-.13v-7.24l-5.9 3.54Z"/></symbol>
+      <symbol id="si-quickbooks" viewBox="0 0 24 24"><path d="M12 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0zm.642 4.1335c.9554 0 1.7296.776 1.7296 1.7332v9.0667h1.6c1.614 0 2.9275-1.3156 2.9275-2.933 0-1.6173-1.3136-2.9333-2.9276-2.9333h-.6654V7.3334h.6654c2.5722 0 4.6577 2.0897 4.6577 4.667 0 2.5774-2.0855 4.6666-4.6577 4.6666H12.642zM7.9837 7.333h3.3291v12.533c-.9555 0-1.73-.7759-1.73-1.7332V9.0662H7.9837c-1.6146 0-2.9277 1.316-2.9277 2.9334 0 1.6175 1.3131 2.9333 2.9277 2.9333h.6654v1.7332h-.6654c-2.5725 0-4.6577-2.0892-4.6577-4.6665 0-2.5771 2.0852-4.6666 4.6577-4.6666Z"/></symbol>
+      <symbol id="si-gcal" viewBox="0 0 24 24"><path d="M18.316 5.684H24v12.632h-5.684V5.684zM5.684 24h12.632v-5.684H5.684V24zM18.316 5.684V0H1.895A1.894 1.894 0 0 0 0 1.895v16.421h5.684V5.684h12.632zm-7.207 6.25v-.065c.272-.144.5-.349.687-.617s.279-.595.279-.982c0-.379-.099-.72-.3-1.025a2.05 2.05 0 0 0-.832-.714 2.703 2.703 0 0 0-1.197-.257c-.6 0-1.094.156-1.481.467-.386.311-.65.671-.793 1.078l1.085.452c.086-.249.224-.461.413-.633.189-.172.445-.257.767-.257.33 0 .602.088.816.264a.86.86 0 0 1 .322.703c0 .33-.12.589-.36.778-.24.19-.535.284-.886.284h-.567v1.085h.633c.407 0 .748.109 1.02.327.272.218.407.499.407.843 0 .336-.129.614-.387.832s-.565.327-.924.327c-.351 0-.651-.103-.897-.311-.248-.208-.422-.502-.521-.881l-1.096.452c.178.616.505 1.082.977 1.401.472.319.984.478 1.538.477a2.84 2.84 0 0 0 1.293-.291c.382-.193.684-.458.902-.794.218-.336.327-.72.327-1.149 0-.429-.115-.797-.344-1.105a2.067 2.067 0 0 0-.881-.689zm2.093-1.931l.602.913L15 10.045v5.744h1.187V8.446h-.827l-2.158 1.557zM22.105 0h-3.289v5.184H24V1.895A1.894 1.894 0 0 0 22.105 0zm-3.289 23.5l4.684-4.684h-4.684V23.5zM0 22.105C0 23.152.848 24 1.895 24h3.289v-5.184H0v3.289z"/></symbol>
+      <symbol id="si-sheets" viewBox="0 0 24 24"><path d="M11.318 12.545H7.91v-1.909h3.41v1.91zM14.728 0v6h6l-6-6zm1.363 10.636h-3.41v1.91h3.41v-1.91zm0 3.273h-3.41v1.91h3.41v-1.91zM20.727 6.5v15.864c0 .904-.732 1.636-1.636 1.636H4.909a1.636 1.636 0 0 1-1.636-1.636V1.636C3.273.732 4.005 0 4.909 0h9.318v6.5h6.5zm-3.273 2.773H6.545v7.909h10.91v-7.91zm-6.136 4.636H7.91v1.91h3.41v-1.91z"/></symbol>
+      <symbol id="si-hubspot" viewBox="0 0 24 24"><path d="M18.164 7.93V5.084a2.198 2.198 0 001.267-1.978v-.067A2.2 2.2 0 0017.238.845h-.067a2.2 2.2 0 00-2.193 2.193v.067a2.196 2.196 0 001.252 1.973l.013.006v2.852a6.22 6.22 0 00-2.969 1.31l.012-.01-7.828-6.095A2.497 2.497 0 104.3 4.656l-.012.006 7.697 5.991a6.176 6.176 0 00-1.038 3.446c0 1.343.425 2.588 1.147 3.607l-.013-.02-2.342 2.343a1.968 1.968 0 00-.58-.095h-.002a2.033 2.033 0 102.033 2.033 1.978 1.978 0 00-.1-.595l.005.014 2.317-2.317a6.247 6.247 0 104.782-11.134l-.036-.005zm-.964 9.378a3.206 3.206 0 113.215-3.207v.002a3.206 3.206 0 01-3.207 3.207z"/></symbol>
     </defs>
   </svg>
 
@@ -1987,6 +2274,170 @@
           </li>
         </ul>
 
+        <div class="cb-surfaces" data-reveal>
+          <p class="cb-mono" data-scramble>/Surfaces</p>
+          <p class="cb-surfaces__lead">These are the screens the bot writes into. Sample shop data, not live accounts. The real Gmail, Claude, ChatGPT, and Grok apps need API keys. This page uses official marks and public GitHub UI kits so you can see the surfaces.</p>
+          <div class="cb-surf">
+            <div class="cb-surf__tabs" role="tablist" aria-label="Product surfaces" id="surf-tabs">
+              <button class="cb-surf__tab" type="button" role="tab" id="tab-surf-gmail" aria-controls="surf-gmail" aria-selected="true" data-surf="gmail"><svg viewBox="0 0 24 24"><use href="#si-gmail"/></svg>Gmail</button>
+              <button class="cb-surf__tab" type="button" role="tab" id="tab-surf-claude" aria-controls="surf-claude" aria-selected="false" data-surf="claude" tabindex="-1"><svg viewBox="0 0 24 24"><use href="#si-anthropic"/></svg>Claude</button>
+              <button class="cb-surf__tab" type="button" role="tab" id="tab-surf-gpt" aria-controls="surf-gpt" aria-selected="false" data-surf="gpt" tabindex="-1"><svg viewBox="0 0 24 24"><use href="#si-openai"/></svg>ChatGPT</button>
+              <button class="cb-surf__tab" type="button" role="tab" id="tab-surf-grok" aria-controls="surf-grok" aria-selected="false" data-surf="grok" tabindex="-1"><svg viewBox="0 0 24 24"><use href="#si-x"/></svg>Grok</button>
+              <button class="cb-surf__tab" type="button" role="tab" id="tab-surf-cal" aria-controls="surf-cal" aria-selected="false" data-surf="cal" tabindex="-1"><svg viewBox="0 0 24 24"><use href="#si-gcal"/></svg>Calendar</button>
+              <button class="cb-surf__tab" type="button" role="tab" id="tab-surf-slack" aria-controls="surf-slack" aria-selected="false" data-surf="slack" tabindex="-1"><svg viewBox="0 0 24 24"><use href="#si-slack"/></svg>Slack</button>
+              <button class="cb-surf__tab" type="button" role="tab" id="tab-surf-teams" aria-controls="surf-teams" aria-selected="false" data-surf="teams" tabindex="-1"><svg viewBox="0 0 24 24"><use href="#si-teams"/></svg>Teams</button>
+              <button class="cb-surf__tab" type="button" role="tab" id="tab-surf-qb" aria-controls="surf-qb" aria-selected="false" data-surf="qb" tabindex="-1"><svg viewBox="0 0 24 24"><use href="#si-quickbooks"/></svg>QuickBooks</button>
+              <button class="cb-surf__tab" type="button" role="tab" id="tab-surf-crm" aria-controls="surf-crm" aria-selected="false" data-surf="crm" tabindex="-1"><svg viewBox="0 0 24 24"><use href="#si-hubspot"/></svg>CRM</button>
+            </div>
+            <div class="cb-surf__stage">
+              <article class="cb-pw cb-pw--gmail" id="surf-gmail" role="tabpanel" aria-labelledby="tab-surf-gmail">
+                <div class="cb-gm__bar">
+                  <p class="cb-gm__logo"><svg viewBox="0 0 24 24"><use href="#si-gmail"/></svg>Gmail</p>
+                  <input class="cb-gm__search" type="search" value="quote Miller" aria-label="Search mail" readonly />
+                </div>
+                <div class="cb-gm__body">
+                  <nav class="cb-gm__nav" aria-label="Gmail folders">
+                    <button type="button" class="is-on">Inbox 3</button>
+                    <button type="button">Starred</button>
+                    <button type="button">Sent</button>
+                    <button type="button">Drafts 1</button>
+                  </nav>
+                  <div class="cb-gm__list">
+                    <button type="button" class="cb-gm__row is-draft is-on" data-gm="draft">
+                      <span class="cb-gm__pip"></span>
+                      <span class="cb-gm__who">Draft</span>
+                      <span class="cb-gm__sub">Re: Quote check-in. Two short paragraphs in your voice.</span>
+                      <span class="cb-gm__time">6:43 am</span>
+                    </button>
+                    <button type="button" class="cb-gm__row is-unread" data-gm="miller">
+                      <span class="cb-gm__pip"></span>
+                      <span class="cb-gm__who">Kate Miller</span>
+                      <span class="cb-gm__sub">Quote check-in. Just seeing where we landed on the kitchen windows.</span>
+                      <span class="cb-gm__time">6:42 am</span>
+                    </button>
+                    <button type="button" class="cb-gm__row" data-gm="ortiz">
+                      <span class="cb-gm__pip"></span>
+                      <span class="cb-gm__who">Marcus Ortiz</span>
+                      <span class="cb-gm__sub">Deposit received. Thanks. We are on the calendar for Thursday.</span>
+                      <span class="cb-gm__time">Yesterday</span>
+                    </button>
+                    <div class="cb-gm__draft" id="gm-draft">
+                      <div class="cb-gm__draft-bar">Draft. Saved. Not sent.</div>
+                      <div class="cb-gm__draft-body">
+                        <div><span>To</span> kate.miller@email.com</div>
+                        <div><span>Subject</span> Re: Quote check-in</div>
+                        <p>Kate, the kitchen quote is still good. If you want to lock the September slot, reply here and I will hold it. Otherwise we can look at October.</p>
+                        <span class="cb-gm__chip">Needs you</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </article>
+
+              <article class="cb-pw cb-pw--claude" id="surf-claude" role="tabpanel" aria-labelledby="tab-surf-claude" hidden>
+                <div class="cb-cl__bar"><svg viewBox="0 0 24 24"><use href="#si-anthropic"/></svg>Claude</div>
+                <div class="cb-cl__thread" id="claude-thread">
+                  <div class="cb-cl__msg cb-cl__msg--you"><small>You</small><p>Draft a follow-up on the Miller kitchen quote. Short. My voice.</p></div>
+                  <div class="cb-cl__msg"><small>Claude</small><p class="cb-cl__think">Checking the last three replies on quote follow-ups.</p><p>Kate, the kitchen quote is still good. If you want to lock the September slot, reply here and I will hold it. Otherwise we can look at October.</p></div>
+                </div>
+                <form class="cb-pw__composer" data-chat="claude" action="#">
+                  <input type="text" name="q" placeholder="Ask Claude" aria-label="Message Claude" autocomplete="off" />
+                  <button type="submit">Send</button>
+                </form>
+              </article>
+
+              <article class="cb-pw cb-pw--gpt" id="surf-gpt" role="tabpanel" aria-labelledby="tab-surf-gpt" hidden>
+                <div class="cb-gpt__bar"><svg viewBox="0 0 24 24"><use href="#si-openai"/></svg>ChatGPT</div>
+                <div class="cb-gpt__thread" id="gpt-thread">
+                  <div class="cb-gpt__msg cb-gpt__msg--you"><small>You</small><p>Turn this closed job into invoice language. Customer Miller. Deposit already paid.</p></div>
+                  <div class="cb-gpt__msg"><small>ChatGPT</small><p>Invoice #1042 for Kate Miller. Line items from the signed quote. Deposit applied. Total is $140 under the quote, so it should wait for you before it goes out.</p></div>
+                </div>
+                <form class="cb-pw__composer cb-gpt__composer" data-chat="gpt" action="#">
+                  <input type="text" name="q" placeholder="Message ChatGPT" aria-label="Message ChatGPT" autocomplete="off" />
+                  <button type="submit">Send</button>
+                </form>
+              </article>
+
+              <article class="cb-pw cb-pw--grok" id="surf-grok" role="tabpanel" aria-labelledby="tab-surf-grok" hidden>
+                <div class="cb-gk__bar"><svg viewBox="0 0 24 24"><use href="#si-x"/></svg>Grok</div>
+                <div class="cb-gk__thread" id="grok-thread">
+                  <div class="cb-gk__msg cb-gk__msg--you"><small>You</small><p>What piled up overnight?</p></div>
+                  <div class="cb-gk__msg"><small>Grok</small><p class="cb-gk__tool">Read Gmail</p><p class="cb-gk__tool">Check calendar</p><p>Three emails need you. Drafts are in Gmail. One past-due invoice. Crew is on Sisters at 7:30.</p></div>
+                </div>
+                <form class="cb-pw__composer" data-chat="grok" action="#">
+                  <input type="text" name="q" placeholder="Ask Grok" aria-label="Message Grok" autocomplete="off" />
+                  <button type="submit">Send</button>
+                </form>
+              </article>
+
+              <article class="cb-pw cb-pw--cal" id="surf-cal" role="tabpanel" aria-labelledby="tab-surf-cal" hidden>
+                <div class="cb-calw__bar"><svg viewBox="0 0 24 24"><use href="#si-gcal"/></svg>Google Calendar</div>
+                <div class="cb-calw__mount" id="fc-mount">
+                  <div class="cb-calw__fallback" id="fc-fallback">
+                    <div class="cb-calw__ev"><b>Thu 7:30</b><span>Install. Sisters. Ortiz patio.</span></div>
+                    <div class="cb-calw__ev"><b>Thu 2:00</b><span>Measure. Redmond. Hold for new lead.</span></div>
+                    <div class="cb-calw__ev"><b>Fri 9:00</b><span>Follow-up. Miller kitchen quote.</span></div>
+                  </div>
+                </div>
+              </article>
+
+              <article class="cb-pw cb-pw--slack" id="surf-slack" role="tabpanel" aria-labelledby="tab-surf-slack" hidden>
+                <aside class="cb-sl__side">
+                  <strong>Shop</strong>
+                  <button type="button" class="is-on"># ops</button>
+                  <button type="button"># field</button>
+                  <button type="button"># books</button>
+                </aside>
+                <div class="cb-sl__main">
+                  <div class="cb-sl__head"># ops</div>
+                  <div class="cb-sl__thread">
+                    <div class="cb-sl__msg"><span class="cb-sl__av">CB</span><div><b>Clancy <small>6:12 pm</small></b><p>Who is on Sisters tomorrow?</p></div></div>
+                    <div class="cb-sl__msg"><span class="cb-sl__av cb-sl__av--bot">B</span><div><b>Shop bot <small>6:12 pm</small></b><p>Ortiz patio. 7:30. Crew of two. Measure in Redmond at 2:00 is still a hold.</p></div></div>
+                  </div>
+                </div>
+              </article>
+
+              <article class="cb-pw cb-pw--teams" id="surf-teams" role="tabpanel" aria-labelledby="tab-surf-teams" hidden>
+                <aside class="cb-tm__side">
+                  <strong>Crew</strong>
+                  <button type="button" class="is-on">General</button>
+                  <button type="button">Jobs</button>
+                </aside>
+                <div class="cb-tm__main">
+                  <div class="cb-tm__head">General</div>
+                  <div class="cb-tm__thread">
+                    <div class="cb-tm__msg"><span class="cb-tm__av">CB</span><div><b>Clancy</b><p>Post tomorrow's schedule here.</p></div></div>
+                    <div class="cb-tm__msg"><span class="cb-tm__av">B</span><div><b>Shop bot</b><p>Thursday: Sisters 7:30 Ortiz. Redmond 2:00 measure hold. Friday: Miller follow-up 9:00.</p></div></div>
+                  </div>
+                </div>
+              </article>
+
+              <article class="cb-pw cb-pw--qb" id="surf-qb" role="tabpanel" aria-labelledby="tab-surf-qb" hidden>
+                <div class="cb-qb__bar"><svg viewBox="0 0 24 24"><use href="#si-quickbooks"/></svg>QuickBooks</div>
+                <table class="cb-qb__table">
+                  <thead><tr><th>Invoice</th><th>Customer</th><th>Amount</th><th>Status</th></tr></thead>
+                  <tbody>
+                    <tr><td>#1041</td><td>Ortiz, M.</td><td>$3,200</td><td><span class="cb-qb__pill cb-qb__pill--ok">Paid</span></td></tr>
+                    <tr class="is-on"><td>#1042</td><td>Miller, K.</td><td>$6,850</td><td><span class="cb-qb__pill">Needs you</span></td></tr>
+                    <tr><td>#1038</td><td>Hayes, J.</td><td>$1,140</td><td><span class="cb-qb__pill">Past due</span></td></tr>
+                  </tbody>
+                </table>
+                <p class="cb-qb__note">Miller invoice drafted from the closed CRM job. $140 under the signed quote. Waiting on you.</p>
+              </article>
+
+              <article class="cb-pw cb-pw--crm" id="surf-crm" role="tabpanel" aria-labelledby="tab-surf-crm" hidden>
+                <div class="cb-crm__bar"><span>Jobs</span><span class="cb-mono" style="color:#b4b6b8">Your CRM</span></div>
+                <div class="cb-crm__list">
+                  <button type="button" class="cb-crm__job is-on"><b>Miller. Kitchen windows.</b><span>Bend. Signed quote $6,990.</span><span class="cb-crm__st cb-crm__st--hold">Closed. Invoice draft</span></button>
+                  <button type="button" class="cb-crm__job"><b>Ortiz. Patio door.</b><span>Sisters. Thursday 7:30.</span><span class="cb-crm__st cb-crm__st--done">Invoiced. Paid</span></button>
+                  <button type="button" class="cb-crm__job"><b>New web lead.</b><span>Redmond. Two open slots offered.</span><span class="cb-crm__st">Hold on calendar</span></button>
+                </div>
+              </article>
+            </div>
+          </div>
+          <p class="cb-surf__note">Gmail, Claude, ChatGPT, and Grok here are scripted. Calendar is a live FullCalendar widget. Brand marks come from Simple Icons.</p>
+        </div>
+
         <p class="cb-head__lead" style="margin-top: 3rem" data-reveal>Tap a tool to see what usually gets wired there.</p>
         <div class="cb-cells" id="conn-grid" data-reveal-stagger style="margin-top: 1.25rem"></div>
         <p class="cb-cell-detail" id="conn-detail" data-reveal aria-live="polite"></p>
@@ -2124,14 +2575,16 @@
             <div class="cb-footer__stack">
               <p class="cb-mono">Runs on</p>
               <ul class="cb-marks" aria-label="Tools these bots connect to">
-                <li class="cb-mark"><svg viewBox="0 0 24 24"><use href="#g-bolt"/></svg>Grok</li>
-                <li class="cb-mark"><svg viewBox="0 0 24 24"><use href="#g-mail"/></svg>Gmail</li>
-                <li class="cb-mark"><svg viewBox="0 0 24 24"><use href="#g-inbox"/></svg>Outlook</li>
-                <li class="cb-mark"><svg viewBox="0 0 24 24"><use href="#g-cal"/></svg>Calendar</li>
-                <li class="cb-mark"><svg viewBox="0 0 24 24"><use href="#g-invoice"/></svg>QuickBooks</li>
-                <li class="cb-mark"><svg viewBox="0 0 24 24"><use href="#g-chat"/></svg>Slack</li>
-                <li class="cb-mark"><svg viewBox="0 0 24 24"><use href="#g-team"/></svg>Teams</li>
-                <li class="cb-mark"><svg viewBox="0 0 24 24"><use href="#g-db"/></svg>Your CRM</li>
+                <li class="cb-mark"><span class="cb-brand-ico" style="--cb-brand:#fff"><svg viewBox="0 0 24 24"><use href="#si-x"/></svg></span>Grok</li>
+                <li class="cb-mark"><span class="cb-brand-ico" style="--cb-brand:#ea4335"><svg viewBox="0 0 24 24"><use href="#si-gmail"/></svg></span>Gmail</li>
+                <li class="cb-mark"><span class="cb-brand-ico" style="--cb-brand:#d97757"><svg viewBox="0 0 24 24"><use href="#si-anthropic"/></svg></span>Claude</li>
+                <li class="cb-mark"><span class="cb-brand-ico" style="--cb-brand:#10a37f"><svg viewBox="0 0 24 24"><use href="#si-openai"/></svg></span>ChatGPT</li>
+                <li class="cb-mark"><span class="cb-brand-ico" style="--cb-brand:#0078d4"><svg viewBox="0 0 24 24"><use href="#si-outlook"/></svg></span>Outlook</li>
+                <li class="cb-mark"><span class="cb-brand-ico" style="--cb-brand:#4285f4"><svg viewBox="0 0 24 24"><use href="#si-gcal"/></svg></span>Calendar</li>
+                <li class="cb-mark"><span class="cb-brand-ico" style="--cb-brand:#2ca01c"><svg viewBox="0 0 24 24"><use href="#si-quickbooks"/></svg></span>QuickBooks</li>
+                <li class="cb-mark"><span class="cb-brand-ico" style="--cb-brand:#ecb22e"><svg viewBox="0 0 24 24"><use href="#si-slack"/></svg></span>Slack</li>
+                <li class="cb-mark"><span class="cb-brand-ico" style="--cb-brand:#6264a7"><svg viewBox="0 0 24 24"><use href="#si-teams"/></svg></span>Teams</li>
+                <li class="cb-mark"><span class="cb-brand-ico" style="--cb-brand:#ff7a59"><svg viewBox="0 0 24 24"><use href="#si-hubspot"/></svg></span>Your CRM</li>
               </ul>
             </div>
           </div>
@@ -2166,10 +2619,12 @@
           <p class="cb-mono">&copy; 2026 Clancy Booher. Bend, Oregon.</p>
           <p class="cb-mono">Built first for my own company, Peak View Windows and Doors.</p>
         </div>
+        <p class="cb-legal">Peak View, Clancy Booher, and this automations offer are not affiliated with, endorsed by, or employed by Google, Gmail, Anthropic, Claude, OpenAI, ChatGPT, xAI, Grok, Slack, Microsoft, QuickBooks, Intuit, or any other third-party trademarks shown. Product names and logos are trademarks of their respective owners, used for identification only.</p>
       </div>
     </footer>
   </div>
 
+  <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.19/index.global.min.js"></script>
   <script>
   (function () {
     'use strict';
@@ -2346,19 +2801,36 @@
     ];
 
     var CONNECTORS = [
-      { name: 'Grok', glyph: 'g-bolt', detail: 'The brain. It reads, decides, and drafts inside limits you set. Your account, your data.' },
-      { name: 'Gmail', glyph: 'g-mail', detail: 'Read, label, draft. Send only when you say so.' },
-      { name: 'Outlook', glyph: 'g-inbox', detail: 'Same as Gmail for Microsoft shops. Mail and calendar both.' },
-      { name: 'Calendar', glyph: 'g-cal', detail: 'Hold slots, check conflicts, send reminders. Google or Microsoft.' },
-      { name: 'QuickBooks', glyph: 'g-invoice', detail: 'Invoices from closed jobs. Payments back to the CRM. One polite nudge on past due.' },
-      { name: 'Your CRM', glyph: 'g-db', detail: 'Jobber, HubSpot, Housecall Pro, others. If it has an API or an export, it connects.' },
-      { name: 'Slack', glyph: 'g-chat', detail: 'A bot in your channels that answers from the real calendar and job list.' },
-      { name: 'Teams', glyph: 'g-team', detail: 'Same bot, different room. Works with your Microsoft accounts.' },
+      { name: 'Grok', glyph: 'g-bolt', brand: 'si-x', color: '#111111', detail: 'The brain. It reads, decides, and drafts inside limits you set. Your account, your data.' },
+      { name: 'Gmail', glyph: 'g-mail', brand: 'si-gmail', color: '#EA4335', detail: 'Read, label, draft. Send only when you say so.' },
+      { name: 'Claude', glyph: 'g-bolt', brand: 'si-anthropic', color: '#D97757', detail: 'Same job as Grok when a shop already lives in Claude. Drafts, reviews, and hold points.' },
+      { name: 'ChatGPT', glyph: 'g-bolt', brand: 'si-openai', color: '#10A37F', detail: 'Same job when the shop already pays OpenAI. Wired into the same inbox and books.' },
+      { name: 'Outlook', glyph: 'g-inbox', brand: 'si-outlook', color: '#0078D4', detail: 'Same as Gmail for Microsoft shops. Mail and calendar both.' },
+      { name: 'Calendar', glyph: 'g-cal', brand: 'si-gcal', color: '#4285F4', detail: 'Hold slots, check conflicts, send reminders. Google or Microsoft.' },
+      { name: 'QuickBooks', glyph: 'g-invoice', brand: 'si-quickbooks', color: '#2CA01C', detail: 'Invoices from closed jobs. Payments back to the CRM. One polite nudge on past due.' },
+      { name: 'Your CRM', glyph: 'g-db', brand: 'si-hubspot', color: '#FF7A59', detail: 'Jobber, HubSpot, Housecall Pro, others. If it has an API or an export, it connects.' },
+      { name: 'Slack', glyph: 'g-chat', brand: 'si-slack', color: '#4A154B', detail: 'A bot in your channels that answers from the real calendar and job list.' },
+      { name: 'Teams', glyph: 'g-team', brand: 'si-teams', color: '#6264A7', detail: 'Same bot, different room. Works with your Microsoft accounts.' },
       { name: 'Texting', glyph: 'g-sms', detail: 'Missed calls get a text back. Confirmations and reminders from your business number.' },
-      { name: 'Sheets', glyph: 'g-sheet', detail: 'Where a lot of shops keep the truth. It reads and writes rows.' },
+      { name: 'Sheets', glyph: 'g-sheet', brand: 'si-sheets', color: '#34A853', detail: 'Where a lot of shops keep the truth. It reads and writes rows.' },
       { name: 'Forms', glyph: 'g-form', detail: 'A website form fill starts the run. No copy and paste from an inbox.' },
       { name: 'Custom', glyph: 'g-plug', detail: 'Your supplier portal, your scheduler, your payroll. I write the connector.' }
     ];
+
+    var BRANDS = {
+      Gmail: { brand: 'si-gmail', color: '#EA4335' },
+      Grok: { brand: 'si-x', color: '#111111' },
+      Claude: { brand: 'si-anthropic', color: '#D97757' },
+      ChatGPT: { brand: 'si-openai', color: '#10A37F' },
+      Outlook: { brand: 'si-outlook', color: '#0078D4' },
+      Calendar: { brand: 'si-gcal', color: '#4285F4' },
+      'Google Calendar': { brand: 'si-gcal', color: '#4285F4' },
+      QuickBooks: { brand: 'si-quickbooks', color: '#2CA01C' },
+      Slack: { brand: 'si-slack', color: '#4A154B' },
+      Teams: { brand: 'si-teams', color: '#6264A7' },
+      'Your CRM': { brand: 'si-hubspot', color: '#FF7A59' },
+      Sheets: { brand: 'si-sheets', color: '#34A853' }
+    };
 
     // ---- Helpers ----------------------------------------------------------
 
@@ -2375,10 +2847,17 @@
       return node;
     }
 
-    function glyph(id, className) {
-      var wrap = el('span', { class: className, 'aria-hidden': 'true' });
+    function glyph(id, className, color, branded) {
+      var wrap = el('span', { class: className + (branded ? ' cb-brand-ico' : ''), 'aria-hidden': 'true' });
+      if (color) wrap.style.setProperty('--cb-brand', color);
       wrap.innerHTML = '<svg viewBox="0 0 24 24"><use href="#' + id + '"></use></svg>';
       return wrap;
+    }
+
+    function markFor(name, fallbackId) {
+      var b = BRANDS[name];
+      if (b) return glyph(b.brand, 'cb-conn__glyph', b.color, true);
+      return glyph(fallbackId, 'cb-conn__glyph');
     }
 
     function wait(ms) {
@@ -2459,45 +2938,99 @@
       tabsEl.appendChild(tab);
     });
 
-    function renderOutcome(o) {
-      var box = el('div', { class: 'cb-out' });
-      box.appendChild(el('div', { class: 'cb-out__bar', text: o.bar }));
-      var body = el('div', { class: 'cb-out__body' });
+    function withMark(barClass, icon, color, label) {
+      var bar = el('div', { class: barClass });
+      bar.appendChild(glyph(icon, '', color, true));
+      bar.appendChild(document.createTextNode(label));
+      return bar;
+    }
 
+    function renderOutcome(o) {
       if (o.kind === 'email') {
-        body.appendChild(el('div', { class: 'cb-out__row' }, [el('span', { text: 'To' }), el('div', { text: o.to })]));
-        body.appendChild(el('div', { class: 'cb-out__row' }, [el('span', { text: 'Subject' }), el('div', { text: o.subject })]));
-        body.appendChild(el('p', { class: 'cb-out__text', text: o.text }));
-      } else if (o.kind === 'calendar') {
-        var date = el('div', { class: 'cb-cal__date' }, [el('b', { text: o.day }), el('span', { text: o.time.split(' ')[0] })]);
-        var info = el('div', {}, [el('strong', { text: o.title }), el('p', { class: 'cb-cal__meta', text: o.meta })]);
-        body.appendChild(el('div', { class: 'cb-cal' }, [date, info]));
-      } else if (o.kind === 'chat') {
-        o.messages.forEach(function (m) {
-          var msg = el('div', { class: 'cb-msg' + (m.bot ? ' cb-msg--bot' : '') });
-          msg.appendChild(el('span', { class: 'cb-msg__avatar', text: m.who.charAt(0), 'aria-hidden': 'true' }));
-          var who = el('b', { text: m.who });
-          who.appendChild(el('small', { text: m.time }));
-          msg.appendChild(el('div', {}, [who, el('p', { text: m.text })]));
-          body.appendChild(msg);
-        });
-      } else if (o.kind === 'sheet') {
-        var table = el('table', { class: 'cb-table' });
-        table.appendChild(el('tr', {}, o.head.map(function (h) { return el('th', { text: h }); })));
-        o.rows.forEach(function (r, idx) {
-          table.appendChild(el('tr', { class: idx === o.rows.length - 1 ? 'is-new' : '' }, r.map(function (c) { return el('td', { text: c }); })));
-        });
-        body.appendChild(table);
-        var m2 = el('div', { class: 'cb-msg cb-msg--bot' });
-        m2.appendChild(el('span', { class: 'cb-msg__avatar', text: 'B', 'aria-hidden': 'true' }));
-        m2.appendChild(el('div', {}, [el('b', { text: 'Text to you' }), el('p', { text: o.message })]));
-        body.appendChild(m2);
-      } else if (o.kind === 'digest') {
-        body.appendChild(el('strong', { text: o.title }));
-        body.appendChild(el('ul', { class: 'cb-digest' }, o.items.map(function (t) { return el('li', { text: t }); })));
+        var gm = el('div', { class: 'cb-pw cb-pw--gmail is-in' });
+        gm.appendChild(withMark('cb-gm__bar', 'si-gmail', '#EA4335', ' Gmail'));
+        gm.appendChild(el('div', { class: 'cb-gm__draft' }, [
+          el('div', { class: 'cb-gm__draft-bar', text: o.bar || 'Draft. Saved. Not sent.' }),
+          el('div', { class: 'cb-gm__draft-body' }, [
+            el('div', {}, [el('span', { text: 'To ' }), el('b', { text: o.to })]),
+            el('div', {}, [el('span', { text: 'Subject ' }), el('b', { text: o.subject })]),
+            el('p', { text: o.text }),
+            el('span', { class: 'cb-gm__chip', text: 'Needs you' })
+          ])
+        ]));
+        return gm;
       }
 
-      box.appendChild(body);
+      if (o.kind === 'calendar') {
+        var cal = el('div', { class: 'cb-pw cb-pw--cal is-in' });
+        var cbar = el('div', { class: 'cb-calw__bar' });
+        cbar.appendChild(glyph('si-gcal', '', '#4285F4', true));
+        cbar.appendChild(document.createTextNode('Google Calendar'));
+        cal.appendChild(cbar);
+        cal.appendChild(el('div', { class: 'cb-calw__fallback' }, [
+          el('div', { class: 'cb-calw__ev' }, [el('b', { text: o.day + ' ' + o.time }), el('span', { text: o.title + '. ' + o.meta })])
+        ]));
+        return cal;
+      }
+
+      if (o.kind === 'chat') {
+        var sl = el('div', { class: 'cb-pw cb-pw--slack is-in' });
+        var smain = el('div', { class: 'cb-sl__main' });
+        smain.appendChild(el('div', { class: 'cb-sl__head' }, [
+          glyph('si-slack', '', '#4A154B', true),
+          document.createTextNode(' # ops')
+        ]));
+        var thread = el('div', { class: 'cb-sl__thread' });
+        o.messages.forEach(function (m) {
+          var av = el('span', { class: 'cb-sl__av' + (m.bot ? ' cb-sl__av--bot' : ''), text: m.who.charAt(0) });
+          var who = el('b', { text: m.who + ' ' });
+          who.appendChild(el('small', { text: m.time }));
+          thread.appendChild(el('div', { class: 'cb-sl__msg' }, [av, el('div', {}, [who, el('p', { text: m.text })])]));
+        });
+        smain.appendChild(thread);
+        sl.appendChild(smain);
+        return sl;
+      }
+
+      if (o.kind === 'sheet') {
+        var qb = el('div', { class: 'cb-pw cb-pw--qb is-in' });
+        var qbar = el('div', { class: 'cb-qb__bar' });
+        qbar.appendChild(glyph('si-quickbooks', '', '#fff', true));
+        qbar.appendChild(document.createTextNode(o.bar || 'QuickBooks'));
+        qb.appendChild(qbar);
+        var table = el('table', { class: 'cb-qb__table' });
+        table.appendChild(el('thead', {}, [el('tr', {}, o.head.map(function (h) { return el('th', { text: h }); }))]));
+        var tb = el('tbody');
+        o.rows.forEach(function (r, idx) {
+          var last = idx === o.rows.length - 1;
+          tb.appendChild(el('tr', { class: last ? 'is-on' : '' }, r.map(function (c, ci) {
+            if (ci === r.length - 1) {
+              return el('td', {}, [el('span', { class: 'cb-qb__pill' + (c === 'Paid' ? ' cb-qb__pill--ok' : ''), text: c })]);
+            }
+            return el('td', { text: c });
+          })));
+        });
+        table.appendChild(tb);
+        qb.appendChild(table);
+        if (o.message) qb.appendChild(el('p', { class: 'cb-qb__note', text: o.message }));
+        return qb;
+      }
+
+      if (o.kind === 'digest') {
+        var gk = el('div', { class: 'cb-pw cb-pw--grok is-in' });
+        var gbar = el('div', { class: 'cb-gk__bar' });
+        gbar.appendChild(glyph('si-x', '', '#fff', true));
+        gbar.appendChild(document.createTextNode('Grok'));
+        gk.appendChild(gbar);
+        var items = el('ul', { class: 'cb-digest' }, o.items.map(function (t) { return el('li', { text: t }); }));
+        gk.appendChild(el('div', { class: 'cb-gk__thread' }, [
+          el('div', { class: 'cb-gk__msg' }, [el('small', { text: o.title || 'Nightly digest' }), items])
+        ]));
+        return gk;
+      }
+
+      var box = el('div', { class: 'cb-out is-in' });
+      box.appendChild(el('div', { class: 'cb-out__bar', text: o.bar || '' }));
       if (o.foot) box.appendChild(el('div', { class: 'cb-out__foot', text: o.foot }));
       return box;
     }
@@ -2528,7 +3061,7 @@
       s.connectors.forEach(function (c) {
         connEl.appendChild(el('li', { class: 'cb-conn' }, [
           el('span', { class: 'cb-conn__dot', 'aria-hidden': 'true' }),
-          glyph(c.glyph, 'cb-conn__glyph'),
+          markFor(c.name, c.glyph),
           el('span', { text: c.name }),
           el('small', { text: c.role })
         ]));
@@ -2611,6 +3144,133 @@
       run();
     }
 
+    // ---- Product surfaces -------------------------------------------------
+
+    var surfTabs = document.getElementById('surf-tabs');
+    var surfPanels = {
+      gmail: document.getElementById('surf-gmail'),
+      claude: document.getElementById('surf-claude'),
+      gpt: document.getElementById('surf-gpt'),
+      grok: document.getElementById('surf-grok'),
+      cal: document.getElementById('surf-cal'),
+      slack: document.getElementById('surf-slack'),
+      teams: document.getElementById('surf-teams'),
+      qb: document.getElementById('surf-qb'),
+      crm: document.getElementById('surf-crm')
+    };
+    var calReady = false;
+
+    function isoDay(offset) {
+      var d = new Date();
+      d.setDate(d.getDate() + offset);
+      var m = d.getMonth() + 1;
+      var day = d.getDate();
+      return d.getFullYear() + '-' + pad2(m) + '-' + pad2(day);
+    }
+
+    function initCalendar() {
+      if (calReady) return;
+      var mount = document.getElementById('fc-mount');
+      var fallback = document.getElementById('fc-fallback');
+      if (!mount || typeof window.FullCalendar === 'undefined') return;
+      calReady = true;
+      if (fallback) fallback.remove();
+      var host = document.createElement('div');
+      host.id = 'fc-app';
+      host.style.height = '100%';
+      mount.appendChild(host);
+      var calendar = new window.FullCalendar.Calendar(host, {
+        initialView: window.matchMedia('(max-width: 720px)').matches ? 'listWeek' : 'timeGridWeek',
+        height: '100%',
+        headerToolbar: { left: 'prev,next', center: 'title', right: 'timeGridWeek,listWeek' },
+        nowIndicator: true,
+        allDaySlot: false,
+        slotMinTime: '07:00:00',
+        slotMaxTime: '18:00:00',
+        events: [
+          { title: 'Install. Ortiz patio. Sisters', start: isoDay(1) + 'T07:30:00', end: isoDay(1) + 'T12:00:00' },
+          { title: 'Measure hold. Redmond lead', start: isoDay(1) + 'T14:00:00', end: isoDay(1) + 'T15:00:00' },
+          { title: 'Follow-up. Miller kitchen', start: isoDay(2) + 'T09:00:00', end: isoDay(2) + 'T09:30:00' }
+        ]
+      });
+      calendar.render();
+    }
+
+    function showSurf(id) {
+      Object.keys(surfPanels).forEach(function (key) {
+        var panel = surfPanels[key];
+        if (!panel) return;
+        var on = key === id;
+        panel.hidden = !on;
+      });
+      if (surfTabs) {
+        Array.prototype.forEach.call(surfTabs.querySelectorAll('[role="tab"]'), function (tab) {
+          var on = tab.getAttribute('data-surf') === id;
+          tab.setAttribute('aria-selected', on ? 'true' : 'false');
+          tab.tabIndex = on ? 0 : -1;
+        });
+      }
+      if (id === 'cal') {
+        if (typeof window.FullCalendar !== 'undefined') initCalendar();
+        else setTimeout(function () { if (typeof window.FullCalendar !== 'undefined') initCalendar(); }, 400);
+      }
+    }
+
+    if (surfTabs) {
+      var surfOrder = Array.prototype.map.call(surfTabs.querySelectorAll('[data-surf]'), function (t) { return t.getAttribute('data-surf'); });
+      Array.prototype.forEach.call(surfTabs.querySelectorAll('[data-surf]'), function (tab) {
+        tab.addEventListener('click', function () { showSurf(tab.getAttribute('data-surf')); });
+        tab.addEventListener('keydown', function (e) {
+          var i = surfOrder.indexOf(tab.getAttribute('data-surf'));
+          var n = null;
+          if (e.key === 'ArrowRight') n = (i + 1) % surfOrder.length;
+          if (e.key === 'ArrowLeft') n = (i - 1 + surfOrder.length) % surfOrder.length;
+          if (e.key === 'Home') n = 0;
+          if (e.key === 'End') n = surfOrder.length - 1;
+          if (n !== null) { e.preventDefault(); showSurf(surfOrder[n]); surfTabs.querySelector('[data-surf="' + surfOrder[n] + '"]').focus(); }
+        });
+      });
+    }
+
+    Array.prototype.forEach.call(document.querySelectorAll('.cb-gm__row[data-gm]'), function (row) {
+      row.addEventListener('click', function () {
+        Array.prototype.forEach.call(document.querySelectorAll('.cb-gm__row'), function (r) { r.classList.remove('is-on'); });
+        row.classList.add('is-on');
+      });
+    });
+
+    var canned = {
+      claude: 'I can put that in your voice and leave it as a draft in Gmail. Nothing sends until you tap it.',
+      gpt: 'I would draft the invoice from the closed job, flag the $140 gap, and wait for you.',
+      grok: 'I would sort the inbox, hold the calendar, and text you the three things that need a decision.'
+    };
+
+    Array.prototype.forEach.call(document.querySelectorAll('form[data-chat]'), function (form) {
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        var kind = form.getAttribute('data-chat');
+        var input = form.querySelector('input');
+        var text = (input && input.value || '').trim();
+        if (!text) return;
+        var thread = document.getElementById(kind === 'gpt' ? 'gpt-thread' : kind + '-thread');
+        if (!thread) return;
+        var youClass = kind === 'claude' ? 'cb-cl__msg cb-cl__msg--you' : kind === 'gpt' ? 'cb-gpt__msg cb-gpt__msg--you' : 'cb-gk__msg cb-gk__msg--you';
+        var botClass = kind === 'claude' ? 'cb-cl__msg' : kind === 'gpt' ? 'cb-gpt__msg' : 'cb-gk__msg';
+        var you = el('div', { class: youClass }, [el('small', { text: 'You' }), el('p', { text: text })]);
+        var bot = el('div', { class: botClass }, [el('small', { text: kind === 'gpt' ? 'ChatGPT' : kind === 'claude' ? 'Claude' : 'Grok' }), el('p', { text: canned[kind] })]);
+        thread.appendChild(you);
+        thread.appendChild(bot);
+        input.value = '';
+        thread.scrollTop = thread.scrollHeight;
+      });
+    });
+
+    document.addEventListener('DOMContentLoaded', function () {
+      if (typeof window.FullCalendar !== 'undefined') {
+        /* Calendar mounts on first tab visit so the size is correct. */
+      }
+    });
+
     // ---- Connector cells --------------------------------------------------
 
     var grid = document.getElementById('conn-grid');
@@ -2624,7 +3284,7 @@
 
     CONNECTORS.forEach(function (c, i) {
       var cell = el('button', { class: 'cb-cell', type: 'button', 'aria-pressed': i === 0 ? 'true' : 'false' }, [
-        glyph(c.glyph, 'cb-cell__glyph'),
+        glyph(c.brand || c.glyph, 'cb-cell__glyph', c.color, !!c.brand),
         el('span', { class: 'cb-cell__name', text: c.name })
       ]);
       cell.addEventListener('click', function () {
