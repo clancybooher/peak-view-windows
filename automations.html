@@ -3,30 +3,30 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Clancy Booher | Custom automations for small businesses in Bend, Oregon</title>
-  <meta name="description" content="Clancy Booher builds custom automations that run inside the tools you already use. Gmail, calendar, chat, ChatGPT, Claude. Call or text 541-639-3968." />
+  <title>Clancy Booher | Grok bot setup and custom connectors for small companies</title>
+  <meta name="description" content="Clancy Booher sets up a Grok chief of staff bot for your company, adds specialist bots for quotes, leads, and books, and keeps it working month to month. Custom connectors between your CRM, QuickBooks, Gmail, Slack, and calendar. Call or text 541-639-3968." />
   <meta name="robots" content="noindex, follow" />
   <link rel="canonical" href="https://peakvieworegon.com/automations" />
   <meta name="theme-color" content="#f9f9f9" />
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="Clancy Booher | Custom automations" />
-  <meta property="og:description" content="Custom automations that run inside the tools you already use. Built for your business. You own the code." />
+  <meta property="og:title" content="Clancy Booher | Grok bot setup for your company" />
+  <meta property="og:description" content="A chief of staff bot on Grok, wired into the tools you already pay for. Setup, Team, Care. Plus connectors so your CRM, QuickBooks, and inbox finally talk." />
   <meta property="og:url" content="https://peakvieworegon.com/automations" />
   <meta property="og:locale" content="en_US" />
   <meta property="og:site_name" content="Clancy Booher" />
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Clancy Booher | Custom automations" />
-  <meta name="twitter:description" content="Custom automations that run inside the tools you already use. Built for your business. You own the code." />
+  <meta name="twitter:title" content="Clancy Booher | Grok bot setup for your company" />
+  <meta name="twitter:description" content="A chief of staff bot on Grok, wired into the tools you already pay for. Setup, Team, Care. Plus connectors so your CRM, QuickBooks, and inbox finally talk." />
 
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "ProfessionalService",
-    "name": "Clancy Booher Automation Consulting",
+    "name": "Clancy Booher",
     "url": "https://peakvieworegon.com/automations",
     "telephone": "+1-541-639-3968",
     "email": "clancy@peakvieworegon.com",
-    "description": "Custom automations and connectors for small businesses. Gmail, calendar, chat apps, ChatGPT, Claude, and custom agents that run in the background.",
+    "description": "Grok bot setup for small companies. One chief of staff bot wired into email, calendar, and phone, specialist bots for quotes, leads, and books, and monthly care. Custom connectors between CRM, QuickBooks, Gmail, Slack or Teams, and calendar.",
     "founder": {
       "@type": "Person",
       "name": "Clancy Booher"
@@ -35,6 +35,16 @@
       "@type": "City",
       "name": "Bend",
       "containedInPlace": { "@type": "State", "name": "Oregon" }
+    },
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Packages",
+      "itemListElement": [
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Setup", "description": "One chief of staff bot on Grok plus core connectors. Fixed build." } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Team", "description": "Specialist bots for quotes, leads, books, and field work." } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Care", "description": "Monthly. Keeps the bots working, fixes breaks, adds one automation a month." } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Custom connectors", "description": "CRM, QuickBooks, Gmail, Slack or Teams, calendar, and other tools wired together." } }
+      ]
     }
   }
   </script>
@@ -135,8 +145,36 @@
       color: var(--cb-muted);
     }
 
-    /* Header */
-    .cb-header { padding: 1.1rem 0; }
+    /* Header: sticky, picks up a hairline and a frosted field once the page scrolls. */
+    .cb-header {
+      position: sticky;
+      top: 0;
+      z-index: 40;
+      padding: 1.1rem 0;
+      background: rgba(249, 249, 249, 0);
+      border-bottom: 1px solid transparent;
+      transition: background 0.35s, border-color 0.35s, padding 0.35s var(--cb-ease);
+    }
+    .cb-header.is-scrolled {
+      padding: 0.75rem 0;
+      background: rgba(249, 249, 249, 0.82);
+      border-bottom-color: var(--cb-line);
+      -webkit-backdrop-filter: blur(14px) saturate(1.2);
+      backdrop-filter: blur(14px) saturate(1.2);
+    }
+
+    /* Over the dark sections the header flips to a dark frosted field. */
+    .cb-header.is-dark {
+      color: #fff;
+      background: rgba(19, 19, 19, 0.78);
+      border-bottom-color: rgba(255, 255, 255, 0.1);
+    }
+    .cb-header.is-dark .cb-brand__mark { background: #fff; }
+    .cb-header.is-dark .cb-brand__mark::before { border-color: var(--cb-dark); box-shadow: 0.2rem 0 0 -0.1rem var(--cb-dark); }
+    .cb-header.is-dark .cb-nav a { color: #fff; }
+    .cb-header.is-dark .cb-nav a:hover { color: var(--cb-faint); }
+    .cb-header.is-dark .cb-nav a::after { background: #fff; }
+    .cb-header.is-dark .cb-btn { border-color: rgba(255, 255, 255, 0.3); }
 
     .cb-header__inner {
       display: flex;
@@ -174,8 +212,29 @@
     }
 
     .cb-nav { display: none; gap: 1.75rem; }
-    .cb-nav a { text-decoration: none; transition: color 0.2s; color: var(--cb-ink); }
+    .cb-nav a {
+      position: relative;
+      text-decoration: none;
+      transition: color 0.2s;
+      color: var(--cb-ink);
+      padding-bottom: 0.35rem;
+    }
+    .cb-nav a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 1px;
+      background: var(--cb-ink);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.35s var(--cb-ease);
+    }
     .cb-nav a:hover { color: var(--cb-muted); }
+    .cb-nav a:hover::after,
+    .cb-nav a.is-active::after { transform: scaleX(1); }
+    .cb-nav a.is-active { color: var(--cb-ink); }
 
     /* Buttons: label + square arrow box */
     .cb-btn {
@@ -221,6 +280,8 @@
 
     .cb-btn:hover { background: #000; }
     .cb-btn:hover .cb-btn__box svg { transform: translate(2px, -2px); }
+    .cb-btn:hover .cb-btn__box { transform: scale(1.06); }
+    .cb-btn__box { transition: background 0.2s, transform 0.3s var(--cb-ease); }
     .cb-btn--play:hover .cb-btn__box svg { transform: translateX(2px); }
 
     .cb-btn--light {
@@ -363,7 +424,7 @@
       clip-path: polygon(0 0, 100% 0, 100% calc(100% - var(--cb-cut)), calc(100% - var(--cb-cut)) 100%, 0 100%);
     }
 
-    .cb-art svg { display: block; width: 100%; height: auto; }
+    .cb-art svg { display: block; width: 100%; height: auto; will-change: transform; }
 
     .cb-node { fill: #fff; stroke: var(--cb-line-2); stroke-width: 1.2; }
     .cb-node--core { fill: var(--cb-dark); stroke: var(--cb-dark); }
@@ -371,13 +432,35 @@
     .cb-glyph--light { stroke: var(--cb-blue); }
     .cb-label { fill: var(--cb-muted); font-family: var(--cb-mono); font-size: 10px; text-transform: uppercase; }
     .cb-wire { fill: none; stroke: var(--cb-line-2); stroke-width: 1.2; }
+
+    /* Wires draw themselves on load (pathLength="1" on each path), then the flow dashes fade in. */
+    .cb-wire--draw {
+      stroke-dasharray: 1;
+      stroke-dashoffset: 1;
+      animation: cb-draw 1.3s var(--cb-ease) forwards;
+      animation-delay: var(--d, 0s);
+    }
+    @keyframes cb-draw { to { stroke-dashoffset: 0; } }
+
     .cb-wire--flow {
       stroke: var(--cb-blue-2);
       stroke-width: 1.6;
       stroke-dasharray: 6 16;
-      animation: cb-flow 1.9s linear infinite;
+      opacity: 0;
+      animation: cb-flow 1.9s linear infinite, cb-fade 0.8s var(--cb-ease) 1.3s forwards;
     }
     @keyframes cb-flow { to { stroke-dashoffset: -44; } }
+    @keyframes cb-fade { to { opacity: 1; } }
+
+    .cb-pop {
+      opacity: 0;
+      transform-box: fill-box;
+      transform-origin: center;
+      transform: scale(0.85);
+      animation: cb-pop 0.7s var(--cb-ease) forwards;
+      animation-delay: var(--d, 0s);
+    }
+    @keyframes cb-pop { to { opacity: 1; transform: none; } }
 
     .cb-ring {
       fill: none;
@@ -402,18 +485,35 @@
       gap: 1rem;
     }
 
+    /* Marquee: two copies of the list, track slides one list-width, pauses on hover. */
+    .cb-marquee {
+      overflow: hidden;
+      -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+      mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+    }
+    .cb-marquee__track {
+      display: flex;
+      width: max-content;
+      animation: cb-marquee 32s linear infinite;
+    }
+    .cb-marquee:hover .cb-marquee__track { animation-play-state: paused; }
+    @keyframes cb-marquee { to { transform: translateX(-50%); } }
+
     .cb-strip ul {
       margin: 0;
-      padding: 0;
+      padding: 0 1.75rem 0 0;
       list-style: none;
       display: flex;
-      flex-wrap: wrap;
+      flex: 0 0 auto;
       gap: 0.6rem 1.75rem;
       font-family: var(--cb-mono);
       font-size: 0.78rem;
       text-transform: uppercase;
       color: var(--cb-faint);
+      white-space: nowrap;
     }
+    .cb-strip li { display: inline-flex; align-items: center; gap: 1.75rem; }
+    .cb-strip li::after { content: ""; width: 0.3rem; height: 0.3rem; background: var(--cb-line-2); }
 
     /* Section header pattern */
     .cb-section { padding: 6rem 0; }
@@ -454,9 +554,42 @@
     [data-reveal] {
       opacity: 0;
       transform: translateY(16px);
-      transition: opacity 0.8s var(--cb-ease), transform 0.8s var(--cb-ease);
+      transition: opacity 0.8s var(--cb-ease), transform 0.8s var(--cb-ease), filter 0.8s var(--cb-ease);
     }
-    [data-reveal].is-in { opacity: 1; transform: none; }
+    [data-reveal].is-in { opacity: 1; transform: none; filter: none; }
+
+    /* Headings and statements also sharpen from a light blur. Kept off big panels for smoothness. */
+    .cb-head[data-reveal]:not(.is-in),
+    .cb-pain__statement[data-reveal]:not(.is-in),
+    .cb-cta__row[data-reveal]:not(.is-in) { filter: blur(6px); }
+
+    /* Mono labels fade in behind the scramble. */
+    [data-scramble] {
+      opacity: 0;
+      transition: opacity 0.6s var(--cb-ease);
+    }
+    [data-scramble].is-in { opacity: 1; }
+
+    /* Parallax targets: JS writes --py; kept in a var so it composes with hover transforms. */
+    [data-parallax] {
+      transform: translate3d(0, var(--py, 0px), 0);
+      will-change: transform;
+    }
+
+    /* Cursor glow: JS writes --mx/--my on hover. */
+    [data-glow] { position: relative; overflow: hidden; }
+    [data-glow]::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0;
+      background: radial-gradient(22rem circle at var(--mx, 50%) var(--my, 50%), var(--cb-glow, rgba(210, 233, 254, 0.7)), transparent 60%);
+      transition: opacity 0.45s var(--cb-ease);
+      z-index: 0;
+    }
+    [data-glow]:hover::before { opacity: 1; }
+    [data-glow] > * { position: relative; z-index: 1; }
 
     [data-reveal-stagger] > * {
       opacity: 0;
@@ -512,6 +645,13 @@
       padding: 0.7rem 1rem;
       font-size: 0.86rem;
       white-space: nowrap;
+      box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+      transition: border-color 0.3s, box-shadow 0.3s, background 0.3s, opacity 0.7s var(--cb-ease), transform 0.7s var(--cb-ease);
+    }
+    .cb-chip:hover {
+      background: #fff;
+      border-color: var(--cb-line-2);
+      box-shadow: 0 10px 24px -14px rgba(0, 0, 0, 0.35);
     }
 
     .cb-chip svg {
@@ -543,10 +683,16 @@
       justify-content: flex-end;
       gap: 0.5rem;
       overflow: hidden;
-      transition: background 0.3s;
+      box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+      transition: background 0.3s, box-shadow 0.5s var(--cb-ease), opacity 0.7s var(--cb-ease), transform 0.7s var(--cb-ease);
     }
 
-    .cb-cap:hover { background: #efefef; }
+    /* Hover: the card lifts, the clay icon floats a touch higher and tilts. */
+    [data-reveal-stagger].is-in > .cb-cap:hover {
+      background: #f0f0f0;
+      transform: translateY(-4px);
+      box-shadow: 0 24px 40px -28px rgba(0, 0, 0, 0.35);
+    }
 
     .cb-cap svg {
       position: absolute;
@@ -554,13 +700,22 @@
       right: 1rem;
       width: 10.5rem;
       height: 10.5rem;
-      transition: transform 0.5s var(--cb-ease);
+      transition: transform 0.6s var(--cb-ease);
     }
 
-    .cb-cap:hover svg { transform: translateY(-4px); }
+    .cb-cap:hover svg { transform: translateY(-6px) rotate(-2deg); }
+
+    .cb-cap__kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--cb-muted);
+    }
+    .cb-cap__kicker::before { content: ""; width: 0.35rem; height: 0.35rem; background: var(--cb-orange); }
 
     .cb-cap h3 { font-size: 1.35rem; }
     .cb-cap p { font-size: 0.9rem; color: var(--cb-ink-2); max-width: 24rem; }
+    .cb-cap p.cb-cap__kicker { max-width: none; }
 
     .cb-cap--wide { grid-column: span 1; }
 
@@ -574,7 +729,7 @@
     .cb-clay-mark { fill: none; stroke: #9a9a9a; stroke-width: 2.4; stroke-linecap: round; stroke-linejoin: round; }
     .cb-clay-dot { fill: #b4b6b8; }
     .cb-clay-hole { fill: var(--cb-panel); }
-    .cb-cap:hover .cb-clay-hole { fill: #efefef; }
+    .cb-cap:hover .cb-clay-hole { fill: #f0f0f0; }
 
     /* Dark sections */
     .cb-dark {
@@ -825,61 +980,109 @@
       color: var(--cb-muted);
     }
 
-    /* Use cases grid */
-    .cb-uses {
+    /* Packages */
+    .cb-pkgs {
       display: grid;
-      gap: 0;
+      gap: 0.6rem;
       margin-top: 3rem;
-      border-top: 1px solid var(--cb-line);
     }
 
-    .cb-use {
-      border-bottom: 1px solid var(--cb-line);
-      transition: background 0.25s;
+    .cb-pkg {
+      background: var(--cb-panel);
+      border-radius: var(--cb-r);
+      padding: 1.5rem 1.35rem 1.6rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.1rem;
+      min-height: 26rem;
+      box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+      transition: box-shadow 0.5s var(--cb-ease), opacity 0.7s var(--cb-ease), transform 0.7s var(--cb-ease), background 0.3s;
+    }
+    [data-reveal-stagger].is-in > .cb-pkg:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 24px 40px -28px rgba(0, 0, 0, 0.4);
     }
 
-    .cb-use__btn {
-      width: 100%;
-      text-align: left;
-      background: transparent;
-      border: 0;
-      padding: 1.6rem 0.5rem 1.6rem 0;
-      display: grid;
-      grid-template-columns: 1fr auto;
+    .cb-pkg__top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
       gap: 1rem;
-      align-items: start;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid var(--cb-line);
+    }
+    .cb-pkg__tag {
+      font-family: var(--cb-mono);
+      font-size: 0.66rem;
+      text-transform: uppercase;
+      padding: 0.4rem 0.6rem;
+      border-radius: 2px;
+      background: var(--cb-blue);
+      color: var(--cb-ink);
     }
 
-    .cb-use__icon { width: 1.35rem; height: 1.35rem; color: var(--cb-ink); margin-bottom: 0.75rem; display: block; }
-    .cb-use__icon svg { width: 100%; height: 100%; }
+    .cb-pkg h3 { font-size: 1.5rem; }
+    .cb-pkg__lead { font-size: 0.95rem; color: var(--cb-ink-2); }
 
-    .cb-use h3 { font-size: 1.35rem; margin-bottom: 0.5rem; }
-    .cb-use__sub { font-size: 0.9rem; color: var(--cb-ink-2); max-width: 30rem; }
+    .cb-pkg__facts { margin: auto 0 0; display: grid; gap: 0.75rem; padding-top: 1rem; border-top: 1px solid var(--cb-line); }
+    .cb-pkg__facts div { display: grid; gap: 0.3rem; font-size: 0.9rem; }
+    .cb-pkg__facts dt { font-family: var(--cb-mono); font-size: 0.66rem; text-transform: uppercase; color: var(--cb-muted); }
+    .cb-pkg__facts dd { margin: 0; color: var(--cb-ink); }
 
-    .cb-use__chev {
-      width: 2rem;
-      height: 2rem;
+    .cb-pkg__fixes { display: flex; flex-wrap: wrap; gap: 0.4rem; margin: 0.15rem 0 0; padding: 0; list-style: none; }
+    .cb-pkg__fixes li {
+      font-size: 0.78rem;
+      padding: 0.35rem 0.6rem;
       border: 1px solid var(--cb-line-2);
       border-radius: var(--cb-r-sm);
-      display: grid;
-      place-items: center;
-      transition: background 0.2s, color 0.2s, border-color 0.2s;
-      margin-top: 0.2rem;
+      color: var(--cb-ink-2);
+      background: var(--cb-bg);
     }
-    .cb-use__chev svg { width: 0.8rem; height: 0.8rem; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; transition: transform 0.35s var(--cb-ease); }
-    .cb-use.is-open .cb-use__chev { background: var(--cb-ink); color: #fff; border-color: var(--cb-ink); }
-    .cb-use.is-open .cb-use__chev svg { transform: rotate(45deg); }
 
-    .cb-use__body { display: grid; grid-template-rows: 0fr; transition: grid-template-rows 0.45s var(--cb-ease); }
-    .cb-use.is-open .cb-use__body { grid-template-rows: 1fr; }
-    .cb-use__body > div { overflow: hidden; }
+    .cb-pkg--dark {
+      background: var(--cb-dark);
+      color: #fff;
+      --cb-line: rgba(255, 255, 255, 0.12);
+      --cb-line-2: rgba(255, 255, 255, 0.22);
+      --cb-ink-2: #d3d3d3;
+      --cb-muted: #b4b6b8;
+      --cb-bg: rgba(255, 255, 255, 0.04);
+      --cb-glow: rgba(143, 197, 242, 0.16);
+    }
+    .cb-pkg--dark h3, .cb-pkg--dark .cb-pkg__facts dd { color: #fff; }
+    .cb-pkg--dark .cb-pkg__tag { background: var(--cb-blue); color: var(--cb-dark); }
 
-    .cb-use__inner { padding: 0 0 1.75rem; display: grid; gap: 1.1rem; }
+    .cb-pkgs__note { margin-top: 1.25rem; font-size: 0.9rem; color: var(--cb-muted); max-width: 40rem; }
+    .cb-pkgs__note a { color: var(--cb-ink); text-decoration: none; border-bottom: 1px solid var(--cb-line-2); }
 
-    .cb-facts { margin: 0; display: grid; gap: 0.55rem; }
-    .cb-facts div { display: grid; grid-template-columns: 6rem 1fr; gap: 0.75rem; font-size: 0.9rem; }
-    .cb-facts dt { font-family: var(--cb-mono); font-size: 0.66rem; text-transform: uppercase; color: var(--cb-muted); padding-top: 0.3rem; }
-    .cb-facts dd { margin: 0; color: var(--cb-ink); }
+    /* Connector pairs */
+    .cb-pairs {
+      margin: 3rem 0 0;
+      padding: 0;
+      list-style: none;
+      border-top: 1px solid var(--cb-line);
+    }
+    .cb-pair {
+      display: grid;
+      gap: 0.35rem 2rem;
+      padding: 1.1rem 0;
+      border-bottom: 1px solid var(--cb-line);
+      transition: opacity 0.7s var(--cb-ease), transform 0.7s var(--cb-ease), background 0.25s;
+    }
+    .cb-pair:hover { background: linear-gradient(90deg, var(--cb-panel), transparent 70%); }
+    .cb-pair__route {
+      display: inline-flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      font-family: var(--cb-mono);
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      color: var(--cb-ink);
+    }
+    .cb-pair__route svg { width: 0.85rem; height: 0.85rem; color: var(--cb-blue-2); fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; transition: transform 0.35s var(--cb-ease); }
+    .cb-pair:hover .cb-pair__route svg { transform: translateX(3px); }
+    .cb-pair p { font-size: 0.95rem; color: var(--cb-ink-2); }
 
     .cb-glyph-svg { fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
 
@@ -919,6 +1122,7 @@
 
     .cb-cell {
       position: relative;
+      isolation: isolate;
       aspect-ratio: 1.35;
       border: 0;
       border-right: 1px solid var(--cb-line);
@@ -933,8 +1137,26 @@
     .cb-cell:hover { background: var(--cb-panel); color: var(--cb-ink); }
     .cb-cell[aria-pressed="true"] { background: var(--cb-panel); color: var(--cb-ink); box-shadow: inset 0 0 0 1px var(--cb-ink); z-index: 1; }
 
-    .cb-cell__glyph { width: 1.9rem; height: 1.9rem; }
+    .cb-cell__glyph { width: 1.9rem; height: 1.9rem; transition: transform 0.4s var(--cb-ease); }
     .cb-cell__glyph svg { width: 100%; height: 100%; }
+    .cb-cell:hover .cb-cell__glyph { transform: translateY(-3px) scale(1.08); }
+    .cb-cell[aria-pressed="true"] .cb-cell__glyph { transform: scale(1.08); }
+
+    /* Ice blue pulse behind the selected cell */
+    .cb-cell::after {
+      content: "";
+      position: absolute;
+      width: 4.5rem;
+      height: 4.5rem;
+      border-radius: 50%;
+      background: var(--cb-blue);
+      opacity: 0;
+      transform: scale(0.4);
+      transition: opacity 0.4s, transform 0.5s var(--cb-ease);
+      z-index: -1;
+    }
+    .cb-cell[aria-pressed="true"]::after { opacity: 0.8; transform: scale(1); }
+    .cb-cell > * { position: relative; z-index: 1; }
 
     .cb-cell__name {
       position: absolute;
@@ -983,14 +1205,61 @@
       color: var(--cb-faint);
     }
 
-    .cb-proc__art svg { width: min(100%, 22rem); height: auto; display: block; }
+    .cb-proc__art svg { width: min(100%, 22rem); height: auto; display: block; overflow: visible; }
 
     .cb-proc__text h3 { font-size: 1.6rem; margin-bottom: 0.7rem; }
     .cb-proc__text p { font-size: 0.98rem; color: var(--cb-ink-2); max-width: 28rem; }
 
-    .cb-bar { fill: url(#lg-blue-v); }
+    /* Process art choreography. Each panel's graphic assembles when the panel scrolls in. */
+    .cb-bar {
+      fill: url(#lg-blue-v);
+      transform-box: fill-box;
+      transform-origin: bottom;
+      transform: scaleY(0);
+      transition: transform 0.9s var(--cb-ease);
+    }
+    .cb-proc.is-in .cb-bar { transform: none; }
+    .cb-proc.is-in .cb-bar:nth-child(2) { transition-delay: 0.08s; }
+    .cb-proc.is-in .cb-bar:nth-child(3) { transition-delay: 0.16s; }
+    .cb-proc.is-in .cb-bar:nth-child(4) { transition-delay: 0.24s; }
+    .cb-proc.is-in .cb-bar:nth-child(5) { transition-delay: 0.32s; }
+    .cb-proc.is-in .cb-bar:nth-child(6) { transition-delay: 0.40s; }
+
     .cb-plane { fill: url(#lg-blue-d); stroke: var(--cb-blue-2); stroke-width: 1; }
     .cb-plane--line { fill: none; stroke: var(--cb-blue); stroke-width: 1; }
+    .cb-plane,
+    .cb-plane--line,
+    .cb-proc__art .cb-core {
+      transform-box: fill-box;
+      transform-origin: center;
+      opacity: 0;
+      transform: translateY(14px);
+      transition: opacity 0.7s var(--cb-ease), transform 0.9s var(--cb-ease);
+    }
+    .cb-proc.is-in .cb-plane,
+    .cb-proc.is-in .cb-plane--line,
+    .cb-proc.is-in .cb-core { opacity: 1; transform: none; }
+    .cb-proc.is-in .cb-proc__art > svg > *:nth-child(2) { transition-delay: 0.1s; }
+    .cb-proc.is-in .cb-proc__art > svg > *:nth-child(3) { transition-delay: 0.2s; }
+    .cb-proc.is-in .cb-proc__art > svg > *:nth-child(4) { transition-delay: 0.3s; }
+    .cb-proc.is-in .cb-proc__art > svg > *:nth-child(5) { transition-delay: 0.4s; }
+    .cb-proc.is-in .cb-proc__art > svg > *:nth-child(6) { transition-delay: 0.5s; }
+
+    /* The big index slides in from the left a beat after the panel. */
+    .cb-proc__num {
+      opacity: 0;
+      transform: translateX(-16px);
+      transition: opacity 0.8s var(--cb-ease) 0.15s, transform 0.8s var(--cb-ease) 0.15s;
+    }
+    .cb-proc.is-in .cb-proc__num { opacity: 1; transform: none; }
+
+    /* Slow spin on the outer ring of step four */
+    .cb-proc.is-in .cb-orbit {
+      animation: cb-orbit 24s linear infinite;
+      transform-box: fill-box;
+      transform-origin: center;
+    }
+    @keyframes cb-orbit { to { transform: rotate(360deg); } }
 
     /* End block: CTA and footer share one black field with the chamfer and the glow. */
     .cb-end {
@@ -1015,6 +1284,12 @@
       height: 18rem;
       background: radial-gradient(55% 100% at 50% 100%, rgba(143, 197, 242, 0.45), rgba(143, 197, 242, 0.08) 55%, transparent 75%);
       pointer-events: none;
+      transform-origin: 50% 100%;
+      animation: cb-breathe 9s ease-in-out infinite;
+    }
+    @keyframes cb-breathe {
+      0%, 100% { opacity: 0.85; transform: scaleX(1); }
+      50% { opacity: 1; transform: scaleX(1.12); }
     }
 
     .cb-end > .cb-wrap { position: relative; z-index: 1; }
@@ -1123,7 +1398,8 @@
       .cb-demo__grid { grid-template-columns: 0.85fr 1.15fr 1fr; }
       .cb-stage { border-top: 0; border-left: 1px solid var(--cb-line); }
       .cb-stage:first-child { border-left: 0; }
-      .cb-uses { grid-template-columns: 1fr 1fr; column-gap: 3rem; }
+      .cb-pkgs { grid-template-columns: repeat(3, 1fr); }
+      .cb-pair { grid-template-columns: 18rem 1fr; align-items: baseline; }
       .cb-why { grid-template-columns: 0.9fr 1.1fr; gap: 4rem; }
       .cb-cells { grid-template-columns: repeat(6, 1fr); }
       .cb-proc { padding: 5rem 0; min-height: 30rem; display: grid; align-items: center; }
@@ -1149,10 +1425,28 @@
       }
       [data-reveal],
       [data-reveal-stagger] > *,
-      .cb-word { opacity: 1; transform: none; }
+      [data-scramble],
+      .cb-word,
+      .cb-pop,
+      .cb-proc__num,
+      .cb-plane,
+      .cb-plane--line,
+      .cb-proc__art .cb-core { opacity: 1; transform: none; filter: none; }
+      .cb-head[data-reveal]:not(.is-in),
+      .cb-pain__statement[data-reveal]:not(.is-in),
+      .cb-cta__row[data-reveal]:not(.is-in) { filter: none; }
+      .cb-bar { transform: none; }
+      [data-parallax] { transform: none; }
+      [data-glow]::before { display: none; }
       .cb-rule span { width: 8rem; }
+      .cb-wire--draw { stroke-dasharray: none; stroke-dashoffset: 0; }
       .cb-wire--flow { stroke-dasharray: none; opacity: 0.6; }
       .cb-ring { display: none; }
+      .cb-marquee { mask-image: none; -webkit-mask-image: none; }
+      .cb-marquee__track { width: auto; }
+      .cb-marquee__track ul { flex-wrap: wrap; white-space: normal; padding: 0; }
+      .cb-marquee__track ul[aria-hidden="true"] { display: none; }
+      .cb-end::after { opacity: 0.85; }
     }
   </style>
 </head>
@@ -1180,8 +1474,6 @@
       <symbol id="g-cal" viewBox="0 0 24 24"><path class="cb-glyph-svg" d="M4 6h16v14H4z M4 10h16 M8 3v4 M16 3v4"/></symbol>
       <symbol id="g-chat" viewBox="0 0 24 24"><path class="cb-glyph-svg" d="M5 5h14v10H10l-4 4v-4H5z"/></symbol>
       <symbol id="g-team" viewBox="0 0 24 24"><path class="cb-glyph-svg" d="M8 12a3 3 0 1 0 0-6 3 3 0 0 0 0 6z M16 11a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z M3 20c0-3 2.5-5 5-5s5 2 5 5 M14 19c0-2.5 1.5-4 3.5-4S21 16.5 21 19"/></symbol>
-      <symbol id="g-spark" viewBox="0 0 24 24"><path class="cb-glyph-svg" d="M12 3v18 M3 12h18 M5.6 5.6l12.8 12.8 M18.4 5.6L5.6 18.4"/></symbol>
-      <symbol id="g-ring" viewBox="0 0 24 24"><circle class="cb-glyph-svg" cx="12" cy="12" r="7"/><circle class="cb-glyph-svg" cx="12" cy="12" r="2.2" fill="currentColor"/></symbol>
       <symbol id="g-bolt" viewBox="0 0 24 24"><path class="cb-glyph-svg" d="M13 3L5 14h6l-1 7 8-11h-6z"/></symbol>
       <symbol id="g-sheet" viewBox="0 0 24 24"><path class="cb-glyph-svg" d="M4 5h16v14H4z M4 10h16 M4 15h16 M10 5v14"/></symbol>
       <symbol id="g-sms" viewBox="0 0 24 24"><path class="cb-glyph-svg" d="M8 3h8a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2z M10 17h4"/></symbol>
@@ -1191,9 +1483,10 @@
       <symbol id="g-note" viewBox="0 0 24 24"><path class="cb-glyph-svg" d="M6 3h9l4 4v14H6z M15 3v4h4 M9 12h6 M9 16h6"/></symbol>
       <symbol id="g-clock" viewBox="0 0 24 24"><circle class="cb-glyph-svg" cx="12" cy="12" r="8"/><path class="cb-glyph-svg" d="M12 8v4l3 2"/></symbol>
       <symbol id="g-invoice" viewBox="0 0 24 24"><path class="cb-glyph-svg" d="M6 3h12v18l-3-2-3 2-3-2-3 2z M9 8h6 M9 12h6"/></symbol>
-      <symbol id="g-shield" viewBox="0 0 24 24"><path class="cb-glyph-svg" d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6z M9 12l2 2 4-4"/></symbol>
-      <symbol id="g-star" viewBox="0 0 24 24"><path class="cb-glyph-svg" d="M12 3l2.6 5.6 6 .7-4.5 4.1 1.2 6L12 16.4 6.7 19.4l1.2-6L3.4 9.3l6-.7z"/></symbol>
       <symbol id="g-warn" viewBox="0 0 24 24"><path d="M12 4l9 16H3z M12 10v4 M12 17v.5"/></symbol>
+      <symbol id="g-inbox" viewBox="0 0 24 24"><path class="cb-glyph-svg" d="M4 5h16v14H4z M4 13h5l1.5 2h3L15 13h5"/></symbol>
+      <symbol id="g-phone" viewBox="0 0 24 24"><path class="cb-glyph-svg" d="M6 3h4l2 5-2.5 1.5a9 9 0 0 0 5 5L16 12l5 2v4a2 2 0 0 1-2 2A15 15 0 0 1 4 5a2 2 0 0 1 2-2z"/></symbol>
+      <symbol id="g-right" viewBox="0 0 16 16"><path d="M3 8h10 M9 4l4 4-4 4"/></symbol>
       <symbol id="g-arrow" viewBox="0 0 16 16"><path d="M4 12L12 4 M6 4h6v6"/></symbol>
       <symbol id="g-play" viewBox="0 0 16 16"><path d="M5 3l8 5-8 5z"/></symbol>
     </defs>
@@ -1206,8 +1499,9 @@
         <span>Clancy Booher</span>
       </a>
       <nav class="cb-nav cb-mono" aria-label="Page sections">
+        <a href="#fixes">Fixes</a>
         <a href="#demo">Demo</a>
-        <a href="#examples">Examples</a>
+        <a href="#packages">Packages</a>
         <a href="#connectors">Connectors</a>
         <a href="#how">How it works</a>
       </nav>
@@ -1222,95 +1516,111 @@
     <section class="cb-hero">
       <div class="cb-wrap">
         <div class="cb-hero__top">
-          <h1 id="hero-title" data-words>I build automations that run inside the tools you already use.</h1>
+          <h1 id="hero-title" data-words>Your inbox is running the company. Let's fix that.</h1>
 
-          <div class="cb-status" data-reveal aria-label="Example of the nightly status an automation sends">
+          <div class="cb-status" data-reveal aria-label="Example of the status a chief of staff bot keeps">
             <div class="cb-status__head">
-              <span>Agent status</span>
+              <span>Chief of staff</span>
               <span class="cb-status__live">Live</span>
             </div>
-            <div class="cb-status__row is-ok"><span>Inbox triage</span><span>6:43 am, done</span></div>
-            <div class="cb-status__row is-ok"><span>Lead to calendar</span><span>2 booked</span></div>
-            <div class="cb-status__row is-wait"><span>Supplier chase</span><span>waiting 41h</span></div>
-            <div class="cb-status__row"><span>Nightly digest</span><span>9:00 pm</span></div>
+            <div class="cb-status__row is-ok"><span>Inbox</span><span>6:43 am, 14 drafts</span></div>
+            <div class="cb-status__row is-ok"><span>Follow-ups</span><span>3 sent, 1 answered</span></div>
+            <div class="cb-status__row is-wait"><span>Books</span><span>invoice needs you</span></div>
+            <div class="cb-status__row"><span>Digest</span><span>9:00 pm</span></div>
           </div>
         </div>
 
         <div class="cb-hero__bottom">
           <div class="cb-art" data-reveal aria-hidden="true">
-            <svg viewBox="0 0 560 400" role="img" aria-label="Diagram: Gmail, calendar, chat, and a spreadsheet feed an agent, which produces drafts, calendar holds, and texts.">
-              <path class="cb-wire" d="M112 76 C176 76, 176 200, 232 200"/>
-              <path class="cb-wire" d="M112 158 C176 158, 176 200, 232 200"/>
-              <path class="cb-wire" d="M112 242 C176 242, 176 200, 232 200"/>
-              <path class="cb-wire" d="M112 324 C176 324, 176 200, 232 200"/>
-              <path class="cb-wire cb-wire--flow" d="M112 76 C176 76, 176 200, 232 200" style="animation-delay:-0.2s"/>
-              <path class="cb-wire cb-wire--flow" d="M112 158 C176 158, 176 200, 232 200" style="animation-delay:-0.9s"/>
-              <path class="cb-wire cb-wire--flow" d="M112 242 C176 242, 176 200, 232 200" style="animation-delay:-1.4s"/>
-              <path class="cb-wire cb-wire--flow" d="M112 324 C176 324, 176 200, 232 200" style="animation-delay:-0.5s"/>
-              <path class="cb-wire" d="M328 200 C384 200, 384 112, 448 112"/>
-              <path class="cb-wire" d="M328 200 C384 200, 384 200, 448 200"/>
-              <path class="cb-wire" d="M328 200 C384 200, 384 288, 448 288"/>
-              <path class="cb-wire cb-wire--flow" d="M328 200 C384 200, 384 112, 448 112" style="animation-delay:-1.1s"/>
-              <path class="cb-wire cb-wire--flow" d="M328 200 C384 200, 384 200, 448 200" style="animation-delay:-0.3s"/>
-              <path class="cb-wire cb-wire--flow" d="M328 200 C384 200, 384 288, 448 288" style="animation-delay:-1.6s"/>
+            <svg viewBox="0 0 560 400" role="img" aria-label="Diagram: Gmail, calendar, phone, and your CRM feed one bot, which produces drafts, calendar holds, and invoices." data-parallax="-0.04">
+              <path class="cb-wire cb-wire--draw" pathLength="1" d="M112 76 C176 76, 176 200, 232 200" style="--d:0.1s"/>
+              <path class="cb-wire cb-wire--draw" pathLength="1" d="M112 158 C176 158, 176 200, 232 200" style="--d:0.2s"/>
+              <path class="cb-wire cb-wire--draw" pathLength="1" d="M112 242 C176 242, 176 200, 232 200" style="--d:0.3s"/>
+              <path class="cb-wire cb-wire--draw" pathLength="1" d="M112 324 C176 324, 176 200, 232 200" style="--d:0.4s"/>
+              <path class="cb-wire cb-wire--flow" d="M112 76 C176 76, 176 200, 232 200" style="animation-delay:-0.2s, 1.3s"/>
+              <path class="cb-wire cb-wire--flow" d="M112 158 C176 158, 176 200, 232 200" style="animation-delay:-0.9s, 1.3s"/>
+              <path class="cb-wire cb-wire--flow" d="M112 242 C176 242, 176 200, 232 200" style="animation-delay:-1.4s, 1.3s"/>
+              <path class="cb-wire cb-wire--flow" d="M112 324 C176 324, 176 200, 232 200" style="animation-delay:-0.5s, 1.3s"/>
+              <path class="cb-wire cb-wire--draw" pathLength="1" d="M328 200 C384 200, 384 112, 448 112" style="--d:0.7s"/>
+              <path class="cb-wire cb-wire--draw" pathLength="1" d="M328 200 C384 200, 384 200, 448 200" style="--d:0.8s"/>
+              <path class="cb-wire cb-wire--draw" pathLength="1" d="M328 200 C384 200, 384 288, 448 288" style="--d:0.9s"/>
+              <path class="cb-wire cb-wire--flow" d="M328 200 C384 200, 384 112, 448 112" style="animation-delay:-1.1s, 1.6s"/>
+              <path class="cb-wire cb-wire--flow" d="M328 200 C384 200, 384 200, 448 200" style="animation-delay:-0.3s, 1.6s"/>
+              <path class="cb-wire cb-wire--flow" d="M328 200 C384 200, 384 288, 448 288" style="animation-delay:-1.6s, 1.6s"/>
 
               <g transform="translate(84 76)">
-                <rect class="cb-node" x="-26" y="-26" width="52" height="52"/>
-                <path class="cb-glyph" d="M-9 -6h18v12h-18z M-9 -5l9 7 9-7"/>
-                <text class="cb-label" x="0" y="42" text-anchor="middle">Gmail</text>
+                <g class="cb-pop" style="--d:0s">
+                  <rect class="cb-node" x="-26" y="-26" width="52" height="52"/>
+                  <path class="cb-glyph" d="M-9 -6h18v12h-18z M-9 -5l9 7 9-7"/>
+                  <text class="cb-label" x="0" y="42" text-anchor="middle">Gmail</text>
+                </g>
               </g>
               <g transform="translate(84 158)">
-                <rect class="cb-node" x="-26" y="-26" width="52" height="52"/>
-                <path class="cb-glyph" d="M-9 -7h18v15h-18z M-9 -2h18 M-4 -10v4 M4 -10v4"/>
-                <text class="cb-label" x="0" y="42" text-anchor="middle">Calendar</text>
+                <g class="cb-pop" style="--d:0.1s">
+                  <rect class="cb-node" x="-26" y="-26" width="52" height="52"/>
+                  <path class="cb-glyph" d="M-9 -7h18v15h-18z M-9 -2h18 M-4 -10v4 M4 -10v4"/>
+                  <text class="cb-label" x="0" y="42" text-anchor="middle">Calendar</text>
+                </g>
               </g>
               <g transform="translate(84 242)">
-                <rect class="cb-node" x="-26" y="-26" width="52" height="52"/>
-                <path class="cb-glyph" d="M-9 -7h18v11h-11l-4 4v-4h-3z"/>
-                <text class="cb-label" x="0" y="42" text-anchor="middle">Slack / Teams</text>
+                <g class="cb-pop" style="--d:0.2s">
+                  <rect class="cb-node" x="-26" y="-26" width="52" height="52"/>
+                  <path class="cb-glyph" d="M-5 -10h10a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2h-10a2 2 0 0 1-2-2v-16a2 2 0 0 1 2-2z M-2 6h4"/>
+                  <text class="cb-label" x="0" y="42" text-anchor="middle">Phone / texts</text>
+                </g>
               </g>
               <g transform="translate(84 324)">
-                <rect class="cb-node" x="-26" y="-26" width="52" height="52"/>
-                <path class="cb-glyph" d="M-9 -8h18v16h-18z M-9 -2h18 M-9 3h18 M-2 -8v16"/>
-                <text class="cb-label" x="0" y="42" text-anchor="middle">Sheets / CRM</text>
+                <g class="cb-pop" style="--d:0.3s">
+                  <rect class="cb-node" x="-26" y="-26" width="52" height="52"/>
+                  <path class="cb-glyph" d="M-9 -8h18v16h-18z M-9 -2h18 M-9 3h18 M-2 -8v16"/>
+                  <text class="cb-label" x="0" y="42" text-anchor="middle">Your CRM</text>
+                </g>
               </g>
 
               <g transform="translate(280 200)">
-                <circle class="cb-ring" r="58"/>
-                <rect class="cb-node cb-node--core" x="-48" y="-40" width="96" height="80"/>
-                <path class="cb-glyph cb-glyph--light" d="M0 -18v36 M-18 0h36 M-12.7 -12.7l25.4 25.4 M12.7 -12.7l-25.4 25.4"/>
-                <text class="cb-label" x="0" y="58" text-anchor="middle">Your agent</text>
-                <rect x="34" y="-32" width="6" height="6" fill="#98fe00"/>
+                <g class="cb-pop" style="--d:0.5s">
+                  <circle class="cb-ring" r="58"/>
+                  <rect class="cb-node cb-node--core" x="-48" y="-40" width="96" height="80"/>
+                  <path class="cb-glyph cb-glyph--light" d="M0 -18v36 M-18 0h36 M-12.7 -12.7l25.4 25.4 M12.7 -12.7l-25.4 25.4"/>
+                  <text class="cb-label" x="0" y="58" text-anchor="middle">Your bot on Grok</text>
+                  <rect x="34" y="-32" width="6" height="6" fill="#98fe00"/>
+                </g>
               </g>
 
               <g transform="translate(476 112)">
-                <rect class="cb-node" x="-26" y="-26" width="52" height="52"/>
-                <path class="cb-glyph" d="M-6 -9h8l5 5v13h-13z M2 -9v5h5 M-2 1h6 M-2 5h6"/>
-                <text class="cb-label" x="0" y="42" text-anchor="middle">Draft reply</text>
+                <g class="cb-pop" style="--d:1s">
+                  <rect class="cb-node" x="-26" y="-26" width="52" height="52"/>
+                  <path class="cb-glyph" d="M-6 -9h8l5 5v13h-13z M2 -9v5h5 M-2 1h6 M-2 5h6"/>
+                  <text class="cb-label" x="0" y="42" text-anchor="middle">Draft reply</text>
+                </g>
               </g>
               <g transform="translate(476 200)">
-                <rect class="cb-node" x="-26" y="-26" width="52" height="52"/>
-                <circle class="cb-glyph" r="9"/>
-                <path class="cb-glyph" d="M0 -5v5l4 3"/>
-                <text class="cb-label" x="0" y="42" text-anchor="middle">Calendar hold</text>
+                <g class="cb-pop" style="--d:1.1s">
+                  <rect class="cb-node" x="-26" y="-26" width="52" height="52"/>
+                  <circle class="cb-glyph" r="9"/>
+                  <path class="cb-glyph" d="M0 -5v5l4 3"/>
+                  <text class="cb-label" x="0" y="42" text-anchor="middle">Calendar hold</text>
+                </g>
               </g>
               <g transform="translate(476 288)">
-                <rect class="cb-node" x="-26" y="-26" width="52" height="52"/>
-                <path class="cb-glyph" d="M-5 -10h10a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2h-10a2 2 0 0 1-2-2v-16a2 2 0 0 1 2-2z M-2 6h4"/>
-                <text class="cb-label" x="0" y="42" text-anchor="middle">Text sent</text>
+                <g class="cb-pop" style="--d:1.2s">
+                  <rect class="cb-node" x="-26" y="-26" width="52" height="52"/>
+                  <path class="cb-glyph" d="M-6 -9h12v18l-3-2-3 2-3-2-3 2z M-3 -4h6 M-3 0h6"/>
+                  <text class="cb-label" x="0" y="42" text-anchor="middle">Invoice drafted</text>
+                </g>
               </g>
             </svg>
           </div>
 
           <div class="cb-hero__copy" data-reveal>
-            <p>Gmail, your calendar, your chat app, ChatGPT or Claude. I connect them and write the small programs that handle the repetitive work in the background. You keep your accounts. You own what I build.</p>
+            <p>I set up a Grok bot that works like a chief of staff. It reads your email, holds your calendar, texts back missed calls, and chases the follow-ups that die on your desk. Then I keep it working so you can stop babysitting software.</p>
             <div class="cb-actions">
               <a class="cb-btn" href="tel:+15416393968">
                 <span>Call or text 541-639-3968</span>
                 <span class="cb-btn__box" aria-hidden="true"><svg viewBox="0 0 16 16"><use href="#g-arrow"/></svg></span>
               </a>
               <a class="cb-btn cb-btn--light" href="#demo">
-                <span>Watch one run</span>
+                <span>See it work</span>
                 <span class="cb-btn__box" aria-hidden="true"><svg viewBox="0 0 16 16"><use href="#g-arrow"/></svg></span>
               </a>
             </div>
@@ -1318,43 +1628,50 @@
 
             <div class="cb-strip">
               <p class="cb-mono" data-scramble>/Runs on</p>
-              <ul>
-                <li>Gmail</li><li>Google Calendar</li><li>Slack</li><li>Teams</li><li>ChatGPT</li><li>Claude</li><li>Grok</li><li>Google Sheets</li>
-              </ul>
+              <div class="cb-marquee">
+                <div class="cb-marquee__track">
+                  <ul>
+                    <li>Grok</li><li>Gmail</li><li>Outlook</li><li>Google Calendar</li><li>QuickBooks</li><li>Slack</li><li>Teams</li><li>Your CRM</li><li>Your phone line</li>
+                  </ul>
+                  <ul aria-hidden="true">
+                    <li>Grok</li><li>Gmail</li><li>Outlook</li><li>Google Calendar</li><li>QuickBooks</li><li>Slack</li><li>Teams</li><li>Your CRM</li><li>Your phone line</li>
+                  </ul>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="cb-pain" aria-label="The problem">
+    <section class="cb-pain" id="problem" aria-label="The problem">
       <div class="cb-wrap">
-        <div class="cb-pain__stage" data-reveal>
-          <p class="cb-pain__statement">A lot of the day goes to work that doesn't need you. That's the part I take off your plate.</p>
+        <div class="cb-pain__stage">
+          <p class="cb-pain__statement" data-reveal>Most owners I talk to carry the same list. The work is real. It doesn't have to be you doing it.</p>
           <ul class="cb-chips" data-reveal-stagger>
-            <li class="cb-chip"><svg viewBox="0 0 24 24"><use href="#g-warn"/></svg>Leads that go cold overnight</li>
-            <li class="cb-chip"><svg viewBox="0 0 24 24"><use href="#g-warn"/></svg>Supplier quotes you have to chase</li>
-            <li class="cb-chip"><svg viewBox="0 0 24 24"><use href="#g-warn"/></svg>The same five questions from the crew</li>
-            <li class="cb-chip"><svg viewBox="0 0 24 24"><use href="#g-warn"/></svg>Checking five tabs before bed</li>
-            <li class="cb-chip"><svg viewBox="0 0 24 24"><use href="#g-warn"/></svg>A per-seat suite you barely use</li>
+            <li class="cb-chip"><svg viewBox="0 0 24 24"><use href="#g-warn"/></svg>Drowning in the inbox</li>
+            <li class="cb-chip"><svg viewBox="0 0 24 24"><use href="#g-warn"/></svg>Follow-ups that die</li>
+            <li class="cb-chip"><svg viewBox="0 0 24 24"><use href="#g-warn"/></svg>CRM and QuickBooks don't talk</li>
+            <li class="cb-chip"><svg viewBox="0 0 24 24"><use href="#g-warn"/></svg>Too many tabs open</li>
+            <li class="cb-chip"><svg viewBox="0 0 24 24"><use href="#g-warn"/></svg>Can't afford another admin yet</li>
           </ul>
         </div>
       </div>
     </section>
 
-    <section class="cb-section" id="capabilities" aria-labelledby="caps-title">
+    <section class="cb-section" id="fixes" aria-labelledby="fixes-title">
       <div class="cb-wrap">
         <div class="cb-head" data-reveal>
           <div class="cb-rule"><span></span></div>
-          <p class="cb-mono" data-scramble>/What I do</p>
+          <p class="cb-mono" data-scramble>/What changes</p>
           <div class="cb-head__row">
-            <h2 id="caps-title">Capabilities</h2>
-            <p class="cb-head__lead">Five things, done well. Each one plugs into accounts you already have. Nothing new to log into.</p>
+            <h2 id="fixes-title">Each one of those has a fix.</h2>
+            <p class="cb-head__lead">Here's what the bot takes off your desk, one problem at a time. The <a href="#packages">packages</a> below are how you get there.</p>
           </div>
         </div>
 
         <div class="cb-caps" data-reveal-stagger>
-          <article class="cb-cap cb-cap--wide">
+          <article class="cb-cap cb-cap--wide" data-glow>
             <svg viewBox="0 0 160 160" aria-hidden="true">
               <g class="cb-clay">
                 <polygon class="cb-clay-left" points="36,106 80,128 80,140 36,118"/>
@@ -1369,10 +1686,11 @@
                 <polygon class="cb-clay-dot" points="80,34 96,42 80,50 64,42"/>
               </g>
             </svg>
-            <h3>Connectors into your tools</h3>
-            <p>Gmail, Google Calendar, Slack, Teams, ChatGPT, Claude, Grok, Sheets, your CRM. If it has an API or an export, I can wire it.</p>
+            <p class="cb-mono cb-cap__kicker">Drowning in the inbox</p>
+            <h3>You open Gmail to drafts, not a pile.</h3>
+            <p>The chief of staff bot reads every message before you do. It sorts, labels, and drafts the replies you would have written anyway, in your words. Ten minutes at 7 am. Nothing sends without you.</p>
           </article>
-          <article class="cb-cap cb-cap--wide">
+          <article class="cb-cap cb-cap--wide" data-glow>
             <svg viewBox="0 0 160 160" aria-hidden="true">
               <g class="cb-clay">
                 <path class="cb-clay-right" fill-rule="evenodd" d="M26 92a54 30 0 1 0 108 0a54 30 0 1 0-108 0z M50 92a30 15 0 1 0 60 0a30 15 0 1 0-60 0z"/>
@@ -1384,10 +1702,11 @@
                 <circle class="cb-clay-dot" cx="118" cy="62" r="3"/>
               </g>
             </svg>
-            <h3>Background agents</h3>
-            <p>Small programs that run on a schedule or a trigger. They read, decide, and act inside limits you set. They stop and ask when they should.</p>
+            <p class="cb-mono cb-cap__kicker">Follow-ups that die</p>
+            <h3>Every quote gets a clock.</h3>
+            <p>Leads, quotes, supplier requests. The bot times each one, nudges when the clock runs out, and tells you the minute someone answers. Nothing goes quiet because you forgot.</p>
           </article>
-          <article class="cb-cap">
+          <article class="cb-cap" data-glow>
             <svg viewBox="0 0 160 160" aria-hidden="true">
               <g class="cb-clay">
                 <path class="cb-clay-back" d="M74 28h60a8 8 0 0 1 8 8v34a8 8 0 0 1-8 8h-32l-12 12v-12h-16a8 8 0 0 1-8-8V36a8 8 0 0 1 8-8z"/>
@@ -1399,10 +1718,11 @@
                 <circle class="cb-clay-dot" cx="66" cy="103" r="4"/>
               </g>
             </svg>
-            <h3>Chat-app bots</h3>
-            <p>A bot in Slack or Teams that answers from your real calendar and sheets. Read only unless you say otherwise.</p>
+            <p class="cb-mono cb-cap__kicker">CRM and QuickBooks don't talk</p>
+            <h3>A closed job becomes an invoice.</h3>
+            <p>I write the connector. Customer, line items, deposit, all carried over. A paid invoice marks the job paid in the CRM. Nobody retypes anything.</p>
           </article>
-          <article class="cb-cap">
+          <article class="cb-cap" data-glow>
             <svg viewBox="0 0 160 160" aria-hidden="true">
               <g class="cb-clay">
                 <path class="cb-clay-back" d="M62 20h50l20 20v80H62z"/>
@@ -1412,10 +1732,11 @@
                 <path class="cb-clay-mark" d="M62 72h40 M62 86h40 M62 100h24"/>
               </g>
             </svg>
-            <h3>Drafts in your voice</h3>
-            <p>Replies, follow-ups, and nudges written from your own past emails. Saved as drafts. You hit send.</p>
+            <p class="cb-mono cb-cap__kicker">Too many tabs open</p>
+            <h3>One text at 9 pm with what matters.</h3>
+            <p>Tomorrow's schedule, the money that's late, the three emails that need you. One message. Your crew asks the bot in Slack or Teams instead of texting you at 6 am.</p>
           </article>
-          <article class="cb-cap">
+          <article class="cb-cap" data-glow>
             <svg viewBox="0 0 160 160" aria-hidden="true">
               <g class="cb-clay">
                 <polygon class="cb-clay-left" points="34,70 80,93 80,143 34,120"/>
@@ -1424,8 +1745,9 @@
                 <path class="cb-clay-mark" d="M64 70l12 8 20-16"/>
               </g>
             </svg>
-            <h3>Setup, docs, and handoff</h3>
-            <p>I set it up, write down how it works, and hand you the keys. Keep me on for changes or don't.</p>
+            <p class="cb-mono cb-cap__kicker">Can't afford another admin yet</p>
+            <h3>The desk work costs a fixed build.</h3>
+            <p>A bot handles the repeat work for a set price and a small monthly. Hire people for the work that needs people.</p>
           </article>
         </div>
       </div>
@@ -1437,12 +1759,12 @@
           <div class="cb-rule"><span></span></div>
           <p class="cb-mono" data-scramble>/Demo</p>
           <div class="cb-head__row">
-            <h2 id="demo-title">Watch one run</h2>
-            <p class="cb-head__lead">Pick a job and press play. This is a scripted walkthrough, not a live account. The steps are what the real one does.</p>
+            <h2 id="demo-title">Watch it work</h2>
+            <p class="cb-head__lead">Pick a problem from the list and press play. This is a scripted walkthrough, not a live account. The steps match what the real bot does.</p>
           </div>
         </div>
 
-        <div class="cb-demo__shell" data-reveal>
+        <div class="cb-demo__shell" data-reveal data-glow style="--cb-glow: rgba(143, 197, 242, 0.14)">
           <div class="cb-tabs" role="tablist" aria-label="Demo scenarios" id="demo-tabs"></div>
 
           <div class="cb-demo__head">
@@ -1467,7 +1789,7 @@
               <ul class="cb-conn-list" id="demo-connectors"></ul>
             </div>
             <div class="cb-stage cb-stage--run">
-              <h3>02 / Agent run</h3>
+              <h3>02 / Bot run</h3>
               <ol class="cb-steps" id="demo-steps" aria-live="polite" aria-relevant="additions"></ol>
             </div>
             <div class="cb-stage cb-stage--out">
@@ -1486,17 +1808,95 @@
       </div>
     </section>
 
-    <section class="cb-section" id="examples" aria-labelledby="examples-title">
+    <section class="cb-section" id="packages" aria-labelledby="packages-title">
       <div class="cb-wrap">
         <div class="cb-head" data-reveal>
           <div class="cb-rule"><span></span></div>
-          <p class="cb-mono" data-scramble>/Examples</p>
+          <p class="cb-mono" data-scramble>/Packages</p>
           <div class="cb-head__row">
-            <h2 id="examples-title">Things I build</h2>
-            <p class="cb-head__lead">Open one for the details. Each has a play button that runs it in the demo above.</p>
+            <h2 id="packages-title">Three ways in. Pick the one that matches the mess.</h2>
+            <p class="cb-head__lead">Start with one bot. Add specialists when the next pile shows up. Keep me on so it all stays working. Setup is a fixed price and I'll quote it on the first call.</p>
           </div>
         </div>
-        <div class="cb-uses" id="example-cards" data-reveal-stagger></div>
+
+        <div class="cb-pkgs" data-reveal-stagger>
+          <article class="cb-pkg" data-glow>
+            <div class="cb-pkg__top">
+              <p class="cb-mono">/01 Setup</p>
+              <p class="cb-pkg__tag">Fixed build</p>
+            </div>
+            <h3>One chief of staff bot</h3>
+            <p class="cb-pkg__lead">Start here. One bot on Grok, wired into your email, calendar, and phone line, or whatever your stack is. It sorts the inbox, holds the calendar, drafts the follow-ups, and texts you what needs a decision.</p>
+            <dl class="cb-pkg__facts">
+              <div>
+                <dt>Fixes</dt>
+                <dd>
+                  <ul class="cb-pkg__fixes">
+                    <li>Drowning in the inbox</li>
+                    <li>Follow-ups that die</li>
+                    <li>Too many tabs</li>
+                  </ul>
+                </dd>
+              </div>
+              <div>
+                <dt>You get</dt>
+                <dd>An inbox you can clear before the first job. Follow-ups that go out whether you remembered or not. The bot, the logins, and the docs are yours.</dd>
+              </div>
+            </dl>
+          </article>
+
+          <article class="cb-pkg" data-glow>
+            <div class="cb-pkg__top">
+              <p class="cb-mono">/02 Team</p>
+              <p class="cb-pkg__tag">Add specialists</p>
+            </div>
+            <h3>Bots for the work that piles up</h3>
+            <p class="cb-pkg__lead">Quotes, leads, books, field updates, scheduling. Each specialist bot handles one lane and reports to the chief of staff. Add the ones that match your mess. Skip the rest.</p>
+            <dl class="cb-pkg__facts">
+              <div>
+                <dt>Fixes</dt>
+                <dd>
+                  <ul class="cb-pkg__fixes">
+                    <li>CRM and QuickBooks don't talk</li>
+                    <li>Can't afford another admin</li>
+                    <li>Quotes that sit for days</li>
+                  </ul>
+                </dd>
+              </div>
+              <div>
+                <dt>You get</dt>
+                <dd>Quotes drafted the day of the visit. A closed job that turns into an invoice on its own. The desk work covered without adding a desk.</dd>
+              </div>
+            </dl>
+          </article>
+
+          <article class="cb-pkg cb-pkg--dark" data-glow>
+            <div class="cb-pkg__top">
+              <p class="cb-mono">/03 Care</p>
+              <p class="cb-pkg__tag">Monthly</p>
+            </div>
+            <h3>I keep it working</h3>
+            <p class="cb-pkg__lead">Apps change. Logins expire. Something breaks at 6 am. I watch for it and fix it. Every month we add one automation you pick, so the setup keeps up with the business instead of falling behind it.</p>
+            <dl class="cb-pkg__facts">
+              <div>
+                <dt>Fixes</dt>
+                <dd>
+                  <ul class="cb-pkg__fixes">
+                    <li>Bots that quietly stop</li>
+                    <li>Nobody to call when it breaks</li>
+                    <li>The next thing on the list</li>
+                  </ul>
+                </dd>
+              </div>
+              <div>
+                <dt>You get</dt>
+                <dd>Bots that still work in a year. One new automation a month. A growing list of things you no longer do by hand.</dd>
+              </div>
+            </dl>
+          </article>
+        </div>
+
+        <p class="cb-pkgs__note" data-reveal>Not sure which one? Start with Setup. Run it for a month. Add the first specialist bot once you can see what's still eating your time. <a href="tel:+15416393968">Call or text</a> and we'll sort it out in fifteen minutes.</p>
       </div>
     </section>
 
@@ -1504,49 +1904,49 @@
       <div class="cb-wrap">
         <div class="cb-head" data-reveal>
           <div class="cb-rule"><span></span></div>
-          <p class="cb-mono" data-scramble>/Why custom</p>
+          <p class="cb-mono" data-scramble>/Why a bot</p>
           <div class="cb-head__row">
-            <h2 id="why-title">Built for you beats renting a suite</h2>
-            <p class="cb-head__lead">Always-on ops help is a good idea. The big all-in-one suites prove people want it. The difference here is fit and cost.</p>
+            <h2 id="why-title">Cheaper than a hire. Built around how you already work.</h2>
+            <p class="cb-head__lead">Hiring is the right call for a lot of work. For the desk work that repeats every day, a bot wins on cost, hours, and how fast it learns your customers.</p>
           </div>
         </div>
 
         <div class="cb-why">
           <div class="cb-why__prose" data-reveal>
-            <p><strong>I write the automation around how your business already runs.</strong> It uses your Gmail, your calendar, your sheet. There's no per-seat fee that climbs every year, and no template you have to bend your day around.</p>
-            <p>Most small shops need five or six well-built routines, not a platform. Build them once. Run them for the cost of hosting and API usage. Change them when the business changes.</p>
+            <p><strong>The bot runs on accounts you already have.</strong> Your Gmail, your calendar, your QuickBooks. There's no per-seat fee that climbs every year and no template you bend your day around.</p>
+            <p>Most companies I talk to need one good bot and a handful of connectors, not a platform. Build it once. Run it for hosting and API usage. Change it when the business changes.</p>
           </div>
 
-          <div class="cb-compare" data-reveal role="table" aria-label="Rented suite compared with a custom build">
+          <div class="cb-compare" data-reveal-stagger role="table" aria-label="Hiring another admin compared with a bot plus Care">
             <div class="cb-compare__head" role="row">
               <b role="columnheader"></b>
-              <b role="columnheader">Rented suite</b>
-              <b role="columnheader">Built for you</b>
-            </div>
-            <div class="cb-compare__row" role="row">
-              <span role="rowheader">Fit</span>
-              <span role="cell">Their template. Your workaround.</span>
-              <span role="cell">Written around how you already work.</span>
+              <b role="columnheader">Another admin</b>
+              <b role="columnheader">Bot plus Care</b>
             </div>
             <div class="cb-compare__row" role="row">
               <span role="rowheader">Cost</span>
-              <span role="cell">Per seat, per month, goes up.</span>
-              <span role="cell">Build once. Small monthly for hosting and API usage.</span>
+              <span role="cell">Salary, taxes, training, turnover.</span>
+              <span role="cell">Fixed build, then a small monthly.</span>
             </div>
             <div class="cb-compare__row" role="row">
-              <span role="rowheader">Your data</span>
-              <span role="cell">Copied into their system.</span>
-              <span role="cell">Stays in your Gmail, calendar, and sheets.</span>
+              <span role="rowheader">Hours</span>
+              <span role="cell">Forty a week, then they go home.</span>
+              <span role="cell">Runs at 6 am and 9 pm. Weekends too.</span>
             </div>
             <div class="cb-compare__row" role="row">
-              <span role="rowheader">Changes</span>
-              <span role="cell">Wait for their roadmap.</span>
-              <span role="cell">Text me. I change it.</span>
+              <span role="rowheader">Ramp-up</span>
+              <span role="cell">Weeks to learn your customers.</span>
+              <span role="cell">Reads your past emails on day one.</span>
+            </div>
+            <div class="cb-compare__row" role="row">
+              <span role="rowheader">When it breaks</span>
+              <span role="cell">They quit. You start over.</span>
+              <span role="cell">I fix it. That's what Care is for.</span>
             </div>
             <div class="cb-compare__row" role="row">
               <span role="rowheader">Ownership</span>
-              <span role="cell">Cancel and it's gone.</span>
-              <span role="cell">The code is yours. Keep me on or don't.</span>
+              <span role="cell">The know-how walks out with them.</span>
+              <span role="cell">The bot, the logins, and the docs are yours.</span>
             </div>
           </div>
         </div>
@@ -1559,12 +1959,36 @@
           <div class="cb-rule"><span></span></div>
           <p class="cb-mono" data-scramble>/Connectors</p>
           <div class="cb-head__row">
-            <h2 id="connectors-title">Plugs into what you already pay for</h2>
-            <p class="cb-head__lead">No new dashboard. The work shows up as drafts, calendar holds, texts, and messages in the channels you already read. Tap one to see what I usually wire there.</p>
+            <h2 id="connectors-title">Your software finally talks to itself.</h2>
+            <p class="cb-head__lead">CRM, QuickBooks, Gmail, Slack or Teams, calendar. You already pay for these. I write the connectors so a change in one shows up in the others, with or without a bot on top.</p>
           </div>
         </div>
 
-        <div class="cb-cells" id="conn-grid" data-reveal-stagger></div>
+        <ul class="cb-pairs" data-reveal-stagger aria-label="Common connectors">
+          <li class="cb-pair">
+            <p class="cb-pair__route">CRM <svg viewBox="0 0 16 16" aria-hidden="true"><use href="#g-right"/></svg> QuickBooks</p>
+            <p>A closed job becomes an invoice. A payment marks the job paid. Same customer record on both sides.</p>
+          </li>
+          <li class="cb-pair">
+            <p class="cb-pair__route">Gmail <svg viewBox="0 0 16 16" aria-hidden="true"><use href="#g-right"/></svg> CRM</p>
+            <p>A new customer email creates the contact and logs the thread. No copy and paste.</p>
+          </li>
+          <li class="cb-pair">
+            <p class="cb-pair__route">Form <svg viewBox="0 0 16 16" aria-hidden="true"><use href="#g-right"/></svg> Calendar <svg viewBox="0 0 16 16" aria-hidden="true"><use href="#g-right"/></svg> Text</p>
+            <p>A website lead gets a text back with two open slots, a booked hold, and a reminder the day before.</p>
+          </li>
+          <li class="cb-pair">
+            <p class="cb-pair__route">Calendar <svg viewBox="0 0 16 16" aria-hidden="true"><use href="#g-right"/></svg> Slack or Teams</p>
+            <p>Tomorrow's schedule posts to the crew channel every evening. Changes post as they happen.</p>
+          </li>
+          <li class="cb-pair">
+            <p class="cb-pair__route">QuickBooks <svg viewBox="0 0 16 16" aria-hidden="true"><use href="#g-right"/></svg> Text</p>
+            <p>A past due invoice gets one polite nudge in your words. Still unpaid a week later and it hands the thread to you.</p>
+          </li>
+        </ul>
+
+        <p class="cb-head__lead" style="margin-top: 3rem" data-reveal>Tap a tool to see what usually gets wired there.</p>
+        <div class="cb-cells" id="conn-grid" data-reveal-stagger style="margin-top: 1.25rem"></div>
         <p class="cb-cell-detail" id="conn-detail" data-reveal aria-live="polite"></p>
       </div>
     </section>
@@ -1576,7 +2000,7 @@
           <p class="cb-mono" data-scramble>/How it works</p>
           <div class="cb-head__row">
             <h2 id="how-title">Four steps. No long discovery phase.</h2>
-            <p class="cb-head__lead">Most of this happens in a couple of calls and a screen share. On-site in Bend if you'd rather.</p>
+            <p class="cb-head__lead">Most of this happens in a couple of calls and a screen share. On-site in Bend if you'd rather. You'll know on the first call whether it's a fit.</p>
           </div>
         </div>
       </div>
@@ -1585,7 +2009,7 @@
         <div class="cb-proc" data-reveal>
           <div class="cb-wrap cb-proc__inner">
             <p class="cb-proc__num">/01</p>
-            <div class="cb-proc__art" aria-hidden="true">
+            <div class="cb-proc__art" aria-hidden="true" data-parallax="-0.05">
               <svg viewBox="0 0 240 200">
                 <rect class="cb-bar" x="20" y="110" width="26" height="80"/>
                 <rect class="cb-bar" x="56" y="70" width="26" height="120"/>
@@ -1597,7 +2021,7 @@
             </div>
             <div class="cb-proc__text">
               <h3>Call or text</h3>
-              <p>Tell me what eats your afternoon. Fifteen minutes is enough for a first pass. If it's not a fit I'll say so.</p>
+              <p>Tell me what's piling up. Fifteen minutes is enough for a first pass. If it's not a fit I'll say so.</p>
             </div>
           </div>
         </div>
@@ -1605,7 +2029,7 @@
         <div class="cb-proc" data-reveal>
           <div class="cb-wrap cb-proc__inner">
             <p class="cb-proc__num">/02</p>
-            <div class="cb-proc__art" aria-hidden="true">
+            <div class="cb-proc__art" aria-hidden="true" data-parallax="-0.05">
               <svg viewBox="0 0 240 200">
                 <path class="cb-plane--line" d="M120 150l90-45-90-45-90 45z"/>
                 <path class="cb-plane--line" d="M120 125l90-45-90-45-90 45z"/>
@@ -1615,7 +2039,7 @@
             </div>
             <div class="cb-proc__text">
               <h3>I look at your tools</h3>
-              <p>Inbox, calendar, chat, spreadsheet, CRM. I'm looking for the work that repeats and the places it falls through.</p>
+              <p>Inbox, calendar, phone, CRM, books. I'm looking for the work that repeats and the places it falls through the cracks.</p>
             </div>
           </div>
         </div>
@@ -1623,7 +2047,7 @@
         <div class="cb-proc" data-reveal>
           <div class="cb-wrap cb-proc__inner">
             <p class="cb-proc__num">/03</p>
-            <div class="cb-proc__art" aria-hidden="true">
+            <div class="cb-proc__art" aria-hidden="true" data-parallax="-0.05">
               <svg viewBox="0 0 240 200">
                 <rect class="cb-plane--line" x="40" y="120" width="50" height="50"/>
                 <rect class="cb-plane--line" x="95" y="120" width="50" height="50"/>
@@ -1634,8 +2058,8 @@
               </svg>
             </div>
             <div class="cb-proc__text">
-              <h3>I build it</h3>
-              <p>You get a working version, then we tune it on real traffic. Guardrails first, speed second.</p>
+              <h3>Setup goes live</h3>
+              <p>Your chief of staff bot starts on real traffic with the guardrails on. We tune it together for the first couple of weeks. Nothing sends money or talks to a new customer without you.</p>
             </div>
           </div>
         </div>
@@ -1643,17 +2067,17 @@
         <div class="cb-proc" data-reveal>
           <div class="cb-wrap cb-proc__inner">
             <p class="cb-proc__num">/04</p>
-            <div class="cb-proc__art" aria-hidden="true">
+            <div class="cb-proc__art" aria-hidden="true" data-parallax="-0.05">
               <svg viewBox="0 0 240 200">
                 <circle class="cb-plane--line" cx="120" cy="100" r="80"/>
-                <circle class="cb-plane--line" cx="120" cy="100" r="56" stroke-dasharray="3 7"/>
+                <circle class="cb-plane--line cb-orbit" cx="120" cy="100" r="56" stroke-dasharray="3 7"/>
                 <circle class="cb-plane" cx="120" cy="100" r="30"/>
-                <rect x="114" y="94" width="12" height="12" fill="#131313"/>
+                <rect class="cb-core" x="114" y="94" width="12" height="12" fill="#131313"/>
               </svg>
             </div>
             <div class="cb-proc__text">
-              <h3>You own it</h3>
-              <p>The code, the accounts, the keys. I write it down so anyone can pick it up later. Keep me on for changes or don't.</p>
+              <h3>Team and Care</h3>
+              <p>Add specialist bots when the next pile shows up. Care keeps everything running and adds one automation a month. Either way you own the bot, the accounts, and the docs.</p>
             </div>
           </div>
         </div>
@@ -1667,8 +2091,8 @@
         <div class="cb-wrap">
           <div class="cb-cta__row" data-reveal>
             <div>
-              <h2 id="cta-title">Tell me what eats your afternoon.</h2>
-              <p>Call or text 541-639-3968, or send an email. I read everything myself. If it's a fit I'll say so. If it isn't, I'll tell you that too.</p>
+              <h2 id="cta-title">Tell me what's piling up.</h2>
+              <p>Call or text 541-639-3968, or send an email. I read everything myself. Fifteen minutes and you'll know which package fits, or that none of them do. I'll tell you either way.</p>
             </div>
             <div class="cb-cta__actions">
               <a class="cb-btn cb-btn--blue" href="tel:+15416393968">
@@ -1690,7 +2114,7 @@
         <div class="cb-footer__grid" style="margin-top: 3.5rem">
           <div class="cb-footer__col">
             <p class="cb-mono" data-scramble>About Clancy</p>
-            <p class="cb-footer__about">Clancy Booher builds custom automations and connectors for small businesses. Based in Bend, Oregon. Remote works fine for most of this.</p>
+            <p class="cb-footer__about">Clancy Booher sets up Grok bots and custom connectors for companies that have outgrown their inbox. Based in Bend, Oregon. Remote works fine for most of this.</p>
             <div class="cb-footer__stack">
               <p class="cb-mono">Email</p>
               <a href="mailto:clancy@peakvieworegon.com">clancy@peakvieworegon.com</a>
@@ -1699,31 +2123,32 @@
             </div>
             <div class="cb-footer__stack">
               <p class="cb-mono">Runs on</p>
-              <ul class="cb-marks" aria-label="Tools these automations connect to">
+              <ul class="cb-marks" aria-label="Tools these bots connect to">
+                <li class="cb-mark"><svg viewBox="0 0 24 24"><use href="#g-bolt"/></svg>Grok</li>
                 <li class="cb-mark"><svg viewBox="0 0 24 24"><use href="#g-mail"/></svg>Gmail</li>
+                <li class="cb-mark"><svg viewBox="0 0 24 24"><use href="#g-inbox"/></svg>Outlook</li>
                 <li class="cb-mark"><svg viewBox="0 0 24 24"><use href="#g-cal"/></svg>Calendar</li>
+                <li class="cb-mark"><svg viewBox="0 0 24 24"><use href="#g-invoice"/></svg>QuickBooks</li>
                 <li class="cb-mark"><svg viewBox="0 0 24 24"><use href="#g-chat"/></svg>Slack</li>
                 <li class="cb-mark"><svg viewBox="0 0 24 24"><use href="#g-team"/></svg>Teams</li>
-                <li class="cb-mark"><svg viewBox="0 0 24 24"><use href="#g-ring"/></svg>ChatGPT</li>
-                <li class="cb-mark"><svg viewBox="0 0 24 24"><use href="#g-spark"/></svg>Claude</li>
-                <li class="cb-mark"><svg viewBox="0 0 24 24"><use href="#g-bolt"/></svg>Grok</li>
-                <li class="cb-mark"><svg viewBox="0 0 24 24"><use href="#g-sheet"/></svg>Sheets</li>
+                <li class="cb-mark"><svg viewBox="0 0 24 24"><use href="#g-db"/></svg>Your CRM</li>
               </ul>
             </div>
           </div>
           <div class="cb-footer__col">
             <p class="cb-mono" data-scramble>Sections</p>
             <ul class="cb-footer__links">
-              <li><a href="#capabilities">Capabilities</a></li>
+              <li><a href="#problem">The problem</a></li>
+              <li><a href="#fixes">What changes</a></li>
               <li><a href="#demo">Demo</a></li>
-              <li><a href="#examples">Examples</a></li>
-              <li><a href="#connectors">Connectors</a></li>
+              <li><a href="#packages">Packages</a></li>
             </ul>
           </div>
           <div class="cb-footer__col">
             <p class="cb-mono" data-scramble>Work</p>
             <ul class="cb-footer__links">
-              <li><a href="#why">Why custom</a></li>
+              <li><a href="#connectors">Connectors</a></li>
+              <li><a href="#why">Why a bot</a></li>
               <li><a href="#how">How it works</a></li>
               <li><a href="mailto:clancy@peakvieworegon.com">Contact</a></li>
             </ul>
@@ -1739,7 +2164,7 @@
         </div>
         <div class="cb-footer__bottom">
           <p class="cb-mono">&copy; 2026 Clancy Booher. Bend, Oregon.</p>
-          <p class="cb-mono">Same owner as Peak View Windows and Doors. Different work.</p>
+          <p class="cb-mono">Built first for my own company, Peak View Windows and Doors.</p>
         </div>
       </div>
     </footer>
@@ -1760,7 +2185,7 @@
         trigger: 'New email lands at 6:42 am',
         connectors: [
           { name: 'Gmail', glyph: 'g-mail', role: 'read, label, draft' },
-          { name: 'Claude', glyph: 'g-spark', role: 'reads and writes' },
+          { name: 'Grok', glyph: 'g-bolt', role: 'reads and writes' },
           { name: 'Your past replies', glyph: 'g-note', role: 'for tone' }
         ],
         steps: [
@@ -1768,15 +2193,15 @@
           { t: '6:42', text: 'Checks the thread. You sent the quote nine days ago.' },
           { t: '6:43', text: 'Pulls three of your past replies on the same question to match your tone.' },
           { t: '6:43', text: 'Drafts a reply in your voice. Two short paragraphs.' },
-          { t: '6:43', text: 'Saves the draft and labels the thread "Needs Clancy". Nothing sends without you.', hold: true }
+          { t: '6:43', text: 'Saves the draft and labels the thread "Needs you". Nothing sends without you.', hold: true }
         ],
         outcome: {
           kind: 'email',
           bar: 'Draft saved in Gmail',
           to: 'Dana R.',
           subject: 'Re: Quote from last week',
-          text: 'Hi Dana,\n\nThanks for checking in. Your quote is good through the end of the month. If you want to lock in a start date, reply here or call me and I\'ll get you on the calendar.\n\nClancy',
-          foot: 'Labeled: Needs Clancy. Not sent. You review at 7.'
+          text: 'Hi Dana,\n\nThanks for checking in. Your quote is good through the end of the month. If you want to lock in a start date, reply here or call me and I\'ll get you on the calendar.\n\nThanks',
+          foot: 'Labeled: Needs you. Not sent. You review at 7.'
         }
       },
       {
@@ -1814,7 +2239,7 @@
           { name: 'Gmail', glyph: 'g-mail', role: 'watch the thread' },
           { name: 'Timer', glyph: 'g-clock', role: '48 hour clock' },
           { name: 'Google Sheets', glyph: 'g-sheet', role: 'price log' },
-          { name: 'ChatGPT', glyph: 'g-ring', role: 'pulls the numbers' }
+          { name: 'Grok', glyph: 'g-bolt', role: 'pulls the numbers' }
         ],
         steps: [
           { t: 'Mon', text: 'You send a quote request for hardware. It logs the thread and starts a two-day clock.' },
@@ -1826,6 +2251,7 @@
         outcome: {
           kind: 'sheet',
           bar: 'Price log, row added',
+          head: ['Date', 'Item', 'Quote', 'vs last'],
           rows: [
             ['Jun 3', 'Hinges, 40 sets', '$1,148', ''],
             ['Sep 10', 'Hinges, 40 sets', '$1,184', '+3%']
@@ -1840,7 +2266,7 @@
         connectors: [
           { name: 'Slack', glyph: 'g-chat', role: 'listens in #crew' },
           { name: 'Google Calendar', glyph: 'g-cal', role: 'read only' },
-          { name: 'ChatGPT', glyph: 'g-ring', role: 'answers in plain English' }
+          { name: 'Grok', glyph: 'g-bolt', role: 'answers in plain English' }
         ],
         steps: [
           { t: '7:02', text: 'Jordan asks in #crew: are we still on for the Miller job Friday?' },
@@ -1854,9 +2280,9 @@
           bar: '#crew in Slack',
           messages: [
             { who: 'Jordan', time: '7:02 am', text: 'Are we still on for the Miller job Friday?' },
-            { who: 'Ops bot', time: '7:02 am', bot: true, text: 'Yes. Friday 8:00 am, confirmed Tuesday. On it: Jordan, Sam, Clancy.' },
+            { who: 'Ops bot', time: '7:02 am', bot: true, text: 'Yes. Friday 8:00 am, confirmed Tuesday. Crew: Jordan, Sam, and the boss.' },
             { who: 'Jordan', time: '7:05 am', text: 'Can you push it to Monday?' },
-            { who: 'Ops bot', time: '7:05 am', bot: true, text: 'I can\'t move jobs. Tagging @clancy so he sees this.' }
+            { who: 'Ops bot', time: '7:05 am', bot: true, text: 'I can\'t move jobs. Tagging the boss so this gets seen.' }
           ]
         }
       },
@@ -1867,8 +2293,8 @@
         connectors: [
           { name: 'Gmail', glyph: 'g-mail', role: 'unread that matters' },
           { name: 'Google Calendar', glyph: 'g-cal', role: 'next two days' },
-          { name: 'Invoicing', glyph: 'g-invoice', role: 'past due' },
-          { name: 'Claude', glyph: 'g-spark', role: 'writes it up' }
+          { name: 'QuickBooks', glyph: 'g-invoice', role: 'past due' },
+          { name: 'Grok', glyph: 'g-bolt', role: 'writes it up' }
         ],
         steps: [
           { t: '9:00', text: 'Pulls unread mail that mentions money, a date, or ends in a question mark.' },
@@ -1879,7 +2305,7 @@
         ],
         outcome: {
           kind: 'digest',
-          bar: '9:02 pm, text to Clancy',
+          bar: '9:02 pm, text to you',
           title: 'Tonight',
           items: [
             'Two quotes with no answer in 7+ days: Hale, Ortiz. Nudges drafted.',
@@ -1890,115 +2316,48 @@
         }
       },
       {
-        id: 'review',
-        label: 'Review request',
-        trigger: 'Job marked done at 4:30 pm',
+        id: 'books',
+        label: 'Job to invoice',
+        trigger: 'Job marked done in your CRM at 4:30 pm',
         connectors: [
           { name: 'Your CRM', glyph: 'g-db', role: 'job status' },
-          { name: 'Timer', glyph: 'g-clock', role: 'two-day wait' },
-          { name: 'Gmail', glyph: 'g-mail', role: 'checks the thread' },
-          { name: 'Text messaging', glyph: 'g-sms', role: 'sends the ask' }
+          { name: 'QuickBooks', glyph: 'g-invoice', role: 'invoice and payments' },
+          { name: 'Grok', glyph: 'g-bolt', role: 'checks the numbers' },
+          { name: 'Text messaging', glyph: 'g-sms', role: 'one line to you' }
         ],
         steps: [
-          { t: 'Tue 4:30', text: 'Job closes in your CRM. Starts a two-day timer.' },
-          { t: 'Thu 10:00', text: 'Checks the thread for complaints or open items. None.' },
-          { t: 'Thu 10:00', text: 'Sends a short thank-you text with the review link. Your words, not a template.' },
-          { t: 'Thu +7d', text: 'No review after a week: one more nudge, then it stops.', hold: true },
-          { t: 'Later', text: 'Review comes in. Logs it and sends you the link.' }
+          { t: '4:30', text: 'Job closes in the CRM. Pulls the customer, the line items, and the deposit already paid.' },
+          { t: '4:30', text: 'Finds the customer in QuickBooks. Same name, same email. No duplicate record.' },
+          { t: '4:31', text: 'Drafts the invoice. Line items match the signed quote. Deposit applied.' },
+          { t: '4:31', text: 'Total comes in $140 under the signed quote. Flags it and waits for you.', hold: true },
+          { t: '4:38', text: 'You approve from your phone. Invoice goes out. CRM now shows invoiced.' }
         ],
         outcome: {
-          kind: 'chat',
-          bar: 'Text to customer',
-          messages: [
-            { who: 'You', time: 'Thu 10:00 am', bot: true, text: 'Hi Sam, thanks for the work this week. If you have a minute, a short review helps a small shop more than you\'d think. Link below. Clancy' },
-            { who: 'Sam', time: 'Thu 6:12 pm', text: 'Done. Thanks again for getting it in before the weekend.' }
-          ]
+          kind: 'sheet',
+          bar: 'QuickBooks invoice, draft',
+          head: ['Invoice', 'Customer', 'Amount', 'Status'],
+          rows: [
+            ['#1041', 'Ortiz, M.', '$3,200', 'Paid'],
+            ['#1042', 'Miller, K.', '$6,850', 'Needs you']
+          ],
+          message: 'Miller invoice drafted. $140 under the signed quote. Approve or fix?'
         }
       }
     ];
 
     var CONNECTORS = [
+      { name: 'Grok', glyph: 'g-bolt', detail: 'The brain. It reads, decides, and drafts inside limits you set. Your account, your data.' },
       { name: 'Gmail', glyph: 'g-mail', detail: 'Read, label, draft. Send only when you say so.' },
+      { name: 'Outlook', glyph: 'g-inbox', detail: 'Same as Gmail for Microsoft shops. Mail and calendar both.' },
       { name: 'Calendar', glyph: 'g-cal', detail: 'Hold slots, check conflicts, send reminders. Google or Microsoft.' },
-      { name: 'ChatGPT', glyph: 'g-ring', detail: 'Summaries, drafts, sorting. Your account and your data settings.' },
-      { name: 'Claude', glyph: 'g-spark', detail: 'Long reads. Contracts, long threads, careful drafts.' },
-      { name: 'Grok', glyph: 'g-bolt', detail: 'Fast answers and search when the job calls for it.' },
-      { name: 'Slack', glyph: 'g-chat', detail: 'A bot in your channels that answers from your real calendar and sheets.' },
+      { name: 'QuickBooks', glyph: 'g-invoice', detail: 'Invoices from closed jobs. Payments back to the CRM. One polite nudge on past due.' },
+      { name: 'Your CRM', glyph: 'g-db', detail: 'Jobber, HubSpot, Housecall Pro, others. If it has an API or an export, it connects.' },
+      { name: 'Slack', glyph: 'g-chat', detail: 'A bot in your channels that answers from the real calendar and job list.' },
       { name: 'Teams', glyph: 'g-team', detail: 'Same bot, different room. Works with your Microsoft accounts.' },
-      { name: 'Sheets', glyph: 'g-sheet', detail: 'Where a lot of small shops keep the truth. It reads and writes rows.' },
-      { name: 'Texting', glyph: 'g-sms', detail: 'Quick confirmations and reminders to customers and crew, from your business number.' },
-      { name: 'Your CRM', glyph: 'g-db', detail: 'Jobber, HubSpot, others. If it has an API or an export, it connects.' },
+      { name: 'Texting', glyph: 'g-sms', detail: 'Missed calls get a text back. Confirmations and reminders from your business number.' },
+      { name: 'Sheets', glyph: 'g-sheet', detail: 'Where a lot of shops keep the truth. It reads and writes rows.' },
       { name: 'Forms', glyph: 'g-form', detail: 'A website form fill starts the run. No copy and paste from an inbox.' },
-      { name: 'Custom', glyph: 'g-plug', detail: 'Your supplier portal, your scheduler, your bookkeeping. I write the connector.' }
-    ];
-
-    var EXAMPLES = [
-      {
-        scenario: 'inbox', icon: 'g-mail',
-        title: 'Inbox triage with drafts in your voice',
-        sub: 'Reads new mail, sorts it, drafts the ones you\'d answer the same way every time.',
-        facts: [
-          ['Watches', 'Your Gmail inbox, every few minutes.'],
-          ['Does', 'Labels by type. Drafts replies to the common questions using your past emails as the pattern.'],
-          ['You get', 'An inbox where the easy ones already have a draft waiting. Ten minutes at 7 am instead of forty.'],
-          ['Guardrail', 'Nothing sends on its own. Drafts only.']
-        ]
-      },
-      {
-        scenario: 'lead', icon: 'g-cal',
-        title: 'Lead to calendar to follow-up',
-        sub: 'A form fill turns into a booked slot and a reminder without you touching it.',
-        facts: [
-          ['Watches', 'Your website form and your calendar.'],
-          ['Does', 'Texts the lead back fast with real open times. Books the slot. Sends the confirmation. Reminds them the day before.'],
-          ['You get', 'Fewer leads going cold overnight. A calendar that fills itself.'],
-          ['Guardrail', 'If they go quiet or ask something odd, it hands the thread to you.']
-        ]
-      },
-      {
-        scenario: 'rfq', icon: 'g-clock',
-        title: 'Supplier chase after two days of silence',
-        sub: 'Follows up on quote requests so you don\'t have to remember who owes you numbers.',
-        facts: [
-          ['Watches', 'Outgoing quote requests in Gmail.'],
-          ['Does', 'Starts a clock. Nudges politely at 48 hours. Logs the reply into your price sheet and flags the change from last time.'],
-          ['You get', 'Pricing on time and a running history of what each supplier charged.'],
-          ['Guardrail', 'It never accepts a quote or places an order. It reports.']
-        ]
-      },
-      {
-        scenario: 'bot', icon: 'g-shield',
-        title: 'A chat bot for hours and status, with guardrails',
-        sub: 'Answers the same five questions in Slack or Teams so nobody has to text you at 6 am.',
-        facts: [
-          ['Watches', 'A channel you choose.'],
-          ['Does', 'Answers what time, where, who\'s on it, and whether a job is confirmed. Pulls from the calendar you already keep.'],
-          ['You get', 'Fewer interruptions and a log of what people ask most.'],
-          ['Guardrail', 'Read only. It cannot move, cancel, or add anything. It tags you instead.']
-        ]
-      },
-      {
-        scenario: 'digest', icon: 'g-invoice',
-        title: 'A nightly digest instead of checking five tabs',
-        sub: 'One text at 9 pm with what matters tomorrow.',
-        facts: [
-          ['Watches', 'Mail, calendar, invoices, open quotes.'],
-          ['Does', 'Pulls the few things that need a decision and writes them up short.'],
-          ['You get', 'You close the laptop knowing nothing is on fire.'],
-          ['Guardrail', 'It summarizes. It does not act on anything in the digest.']
-        ]
-      },
-      {
-        scenario: 'review', icon: 'g-star',
-        title: 'Review request after the job',
-        sub: 'Two days after a job closes, a short thank-you and a review link. Skips anyone who had a problem.',
-        facts: [
-          ['Watches', 'Job status in your CRM or your sheet.'],
-          ['Does', 'Waits two days. Checks the thread for trouble. Sends one text in your words, one nudge a week later, then stops.'],
-          ['You get', 'Steady reviews without remembering to ask.'],
-          ['Guardrail', 'Only after you mark the job done. Never to a customer with an open issue.']
-        ]
-      }
+      { name: 'Custom', glyph: 'g-plug', detail: 'Your supplier portal, your scheduler, your payroll. I write the connector.' }
     ];
 
     // ---- Helpers ----------------------------------------------------------
@@ -2124,14 +2483,14 @@
         });
       } else if (o.kind === 'sheet') {
         var table = el('table', { class: 'cb-table' });
-        table.appendChild(el('tr', {}, ['Date', 'Item', 'Quote', 'vs last'].map(function (h) { return el('th', { text: h }); })));
+        table.appendChild(el('tr', {}, o.head.map(function (h) { return el('th', { text: h }); })));
         o.rows.forEach(function (r, idx) {
           table.appendChild(el('tr', { class: idx === o.rows.length - 1 ? 'is-new' : '' }, r.map(function (c) { return el('td', { text: c }); })));
         });
         body.appendChild(table);
         var m2 = el('div', { class: 'cb-msg cb-msg--bot' });
-        m2.appendChild(el('span', { class: 'cb-msg__avatar', text: 'A', 'aria-hidden': 'true' }));
-        m2.appendChild(el('div', {}, [el('b', { text: 'Text to Clancy' }), el('p', { text: o.message })]));
+        m2.appendChild(el('span', { class: 'cb-msg__avatar', text: 'B', 'aria-hidden': 'true' }));
+        m2.appendChild(el('div', {}, [el('b', { text: 'Text to you' }), el('p', { text: o.message })]));
         body.appendChild(m2);
       } else if (o.kind === 'digest') {
         body.appendChild(el('strong', { text: o.title }));
@@ -2277,54 +2636,6 @@
     });
     showDetail(CONNECTORS[0]);
 
-    // ---- Example rows -----------------------------------------------------
-
-    var cards = document.getElementById('example-cards');
-
-    EXAMPLES.forEach(function (x, i) {
-      var bodyId = 'example-body-' + i;
-      var card = el('article', { class: 'cb-use' });
-      var chev = el('span', { class: 'cb-use__chev', 'aria-hidden': 'true' });
-      chev.innerHTML = '<svg viewBox="0 0 24 24"><path d="M12 5v14 M5 12h14"/></svg>';
-
-      var text = el('div', {}, [
-        glyph(x.icon, 'cb-use__icon'),
-        el('h3', { text: x.title }),
-        el('p', { class: 'cb-use__sub', text: x.sub })
-      ]);
-
-      var btn = el('button', { class: 'cb-use__btn', type: 'button', 'aria-expanded': 'false', 'aria-controls': bodyId }, [text, chev]);
-
-      var facts = el('dl', { class: 'cb-facts' }, x.facts.map(function (f) {
-        return el('div', {}, [el('dt', { text: f[0] }), el('dd', { text: f[1] })]);
-      }));
-
-      var play = el('button', { class: 'cb-btn cb-btn--light cb-btn--sm cb-btn--play', type: 'button' }, [
-        el('span', { text: 'Play it in the demo' })
-      ]);
-      var box = el('span', { class: 'cb-btn__box', 'aria-hidden': 'true' });
-      box.innerHTML = '<svg viewBox="0 0 16 16" style="fill:currentColor;stroke:none"><use href="#g-play"></use></svg>';
-      play.appendChild(box);
-      play.addEventListener('click', function () {
-        var idx = SCENARIOS.findIndex(function (s) { return s.id === x.scenario; });
-        hasAutoPlayed = true;
-        select(idx, true);
-        document.getElementById('demo').scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'start' });
-      });
-
-      var inner = el('div', { class: 'cb-use__inner' }, [facts, el('div', {}, [play])]);
-      var body = el('div', { class: 'cb-use__body', id: bodyId }, [el('div', {}, [inner])]);
-
-      btn.addEventListener('click', function () {
-        var open = card.classList.toggle('is-open');
-        btn.setAttribute('aria-expanded', open ? 'true' : 'false');
-      });
-
-      card.appendChild(btn);
-      card.appendChild(body);
-      cards.appendChild(card);
-    });
-
     // ---- Reveal on scroll -------------------------------------------------
 
     var revealables = document.querySelectorAll('[data-reveal], [data-reveal-stagger]');
@@ -2332,6 +2643,7 @@
 
     if (reduceMotion || !('IntersectionObserver' in window)) {
       Array.prototype.forEach.call(revealables, function (n) { n.classList.add('is-in'); });
+      Array.prototype.forEach.call(scrambles, function (n) { n.classList.add('is-in'); });
     } else {
       var io = new IntersectionObserver(function (entries) {
         entries.forEach(function (e) {
@@ -2342,10 +2654,81 @@
 
       var sio = new IntersectionObserver(function (entries) {
         entries.forEach(function (e) {
-          if (e.isIntersecting) { scramble(e.target); sio.unobserve(e.target); }
+          if (e.isIntersecting) { e.target.classList.add('is-in'); scramble(e.target); sio.unobserve(e.target); }
         });
       }, { threshold: 0.5 });
       Array.prototype.forEach.call(scrambles, function (n) { sio.observe(n); });
+    }
+
+    // ---- Sticky header state + active nav ---------------------------------
+
+    var header = document.querySelector('.cb-header');
+    var navLinks = Array.prototype.slice.call(document.querySelectorAll('.cb-nav a[href^="#"]'));
+    // Every section is observed so the underline clears on sections that are not in the nav.
+    var navTargets = Array.prototype.slice.call(document.querySelectorAll('main section[id]'));
+
+    var darkBlocks = Array.prototype.slice.call(document.querySelectorAll('.cb-dark, .cb-end'));
+
+    function onHeaderScroll() {
+      header.classList.toggle('is-scrolled', window.scrollY > 24);
+      var h = header.offsetHeight;
+      var overDark = darkBlocks.some(function (b) {
+        var r = b.getBoundingClientRect();
+        return r.top <= h && r.bottom >= h;
+      });
+      header.classList.toggle('is-dark', overDark);
+    }
+    window.addEventListener('scroll', onHeaderScroll, { passive: true });
+    onHeaderScroll();
+
+    if ('IntersectionObserver' in window && navTargets.length) {
+      var nio = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (!e.isIntersecting) return;
+          navLinks.forEach(function (a) { a.classList.toggle('is-active', a.getAttribute('href') === '#' + e.target.id); });
+        });
+      }, { rootMargin: '-40% 0px -55% 0px', threshold: 0 });
+      navTargets.forEach(function (t) { nio.observe(t); });
+    }
+
+    // ---- Parallax ---------------------------------------------------------
+    // Each [data-parallax] drifts by (distance from viewport center) * factor.
+
+    var parallaxNodes = Array.prototype.slice.call(document.querySelectorAll('[data-parallax]'));
+    var parallaxQueued = false;
+
+    function applyParallax() {
+      parallaxQueued = false;
+      var vh = window.innerHeight;
+      parallaxNodes.forEach(function (n) {
+        var r = n.getBoundingClientRect();
+        if (r.bottom < -vh || r.top > vh * 2) return;
+        var factor = parseFloat(n.getAttribute('data-parallax')) || 0;
+        var offset = (r.top + r.height / 2 - vh / 2) * factor;
+        n.style.setProperty('--py', offset.toFixed(1) + 'px');
+      });
+    }
+
+    function queueParallax() {
+      if (!parallaxQueued) { parallaxQueued = true; requestAnimationFrame(applyParallax); }
+    }
+
+    if (!reduceMotion && parallaxNodes.length) {
+      window.addEventListener('scroll', queueParallax, { passive: true });
+      window.addEventListener('resize', queueParallax);
+      applyParallax();
+    }
+
+    // ---- Cursor glow on cards ---------------------------------------------
+
+    if (!reduceMotion && window.matchMedia && window.matchMedia('(hover: hover)').matches) {
+      Array.prototype.forEach.call(document.querySelectorAll('[data-glow]'), function (card) {
+        card.addEventListener('pointermove', function (e) {
+          var r = card.getBoundingClientRect();
+          card.style.setProperty('--mx', ((e.clientX - r.left) / r.width * 100).toFixed(1) + '%');
+          card.style.setProperty('--my', ((e.clientY - r.top) / r.height * 100).toFixed(1) + '%');
+        });
+      });
     }
   })();
   </script>
