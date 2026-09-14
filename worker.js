@@ -1,6 +1,7 @@
 /**
  * Peak View Windows — Cloudflare Worker
- * Handles POST /api/submit; everything else is served as static assets.
+ * Handles POST /api/submit (windows quotes) and POST /api/consult (automations).
+ * Everything else is served as static assets.
  *
  * Required env vars (Cloudflare dashboard → Workers & Pages → peak-view-windows
  *                    → Settings → Variables and secrets):
@@ -12,6 +13,8 @@
  *   QUO_API_KEY                 – app.openphone.com → Settings → API → your key (sent as bare Authorization header, no Bearer prefix)
  *   QUO_FROM_NUMBER             – your Quo/OpenPhone number in E.164, e.g. +15416393968
  *   MY_PHONE_NUMBER             – your personal number to receive texts, e.g. +15415550000
+ *
+ * POST /api/consult            – automations lander form (name, email, message)
  *
  * Deploy:
  *   npx wrangler deploy
@@ -35,8 +38,8 @@ export default {
   async fetch(request, env) {
     const url = new URL(request.url);
 
-    // Canonical 301s before /api/submit and ASSETS. Never redirect the form endpoint.
-    if (url.pathname !== '/api/submit') {
+    // Canonical 301s before API routes and ASSETS. Never redirect form endpoints.
+    if (!isApiPath(url.pathname)) {
       const scheme = (() => {
         const visitor = request.headers.get('cf-visitor');
         if (visitor) {
@@ -66,6 +69,12 @@ export default {
     if (url.pathname === '/api/submit') {
       if (request.method === 'OPTIONS') return handleOptions();
       if (request.method === 'POST')    return handleSubmit(request, env);
+      return new Response('Method not allowed', { status: 405 });
+    }
+
+    if (url.pathname === '/api/consult') {
+      if (request.method === 'OPTIONS') return handleOptions();
+      if (request.method === 'POST')    return handleConsult(request, env);
       return new Response('Method not allowed', { status: 405 });
     }
 
@@ -138,11 +147,81 @@ async function handleSubmit(request, env) {
   return json({ success: true }, 200, headers);
 }
 
+async function handleConsult(request, env) {
+  const headers = { 'Content-Type': 'application/json', ...corsHeaders() };
+
+  let body;
+  try {
+    const ct = request.headers.get('Content-Type') ?? '';
+    if (ct.includes('application/x-www-form-urlencoded')) {
+      const text   = await request.text();
+      const params = new URLSearchParams(text);
+      body = Object.fromEntries(params.entries());
+    } else {
+      body = await request.json();
+    }
+  } catch {
+    return json({ success: false, error: 'Invalid request.' }, 400, headers);
+  }
+
+  // Honeypot. Pretend it worked so bots leave.
+  if (body.website && String(body.website).trim()) {
+    return json({ success: true }, 200, headers);
+  }
+
+  const { name, email, company, message, turnstileToken } = body;
+  const validationError = validateConsult({ name, email, message, turnstileToken });
+  if (validationError) return json({ success: false, error: validationError }, 422, headers);
+
+  const ip = request.headers.get('CF-Connecting-IP') ?? '';
+  const turnstileOk = await verifyTurnstile(turnstileToken, ip, env.CLOUDFLARE_TURNSTILE_SECRET);
+  if (!turnstileOk) {
+    return json({ success: false, error: 'Security check failed. Please refresh and try again.' }, 422, headers);
+  }
+
+  const safe = {
+    name:    sanitize(name),
+    email:   sanitize(email),
+    company: sanitize(company ?? ''),
+    message: sanitize(message ?? ''),
+  };
+
+  try {
+    await sendEmail(env.RESEND_API_KEY, {
+      from:     'Clancy Booher <hello@peakvieworegon.com>',
+      to:       buildNotifyList(env),
+      reply_to: safe.email,
+      subject:  `Automation note from ${safe.name}`,
+      html:     buildConsultOwnerEmail(safe),
+    });
+  } catch (err) {
+    console.error('Consult owner email failed:', err);
+    return json({ success: false, error: 'Could not send. Email clancy@peakvieworegon.com and I will get it.' }, 502, headers);
+  }
+
+  try {
+    await sendEmail(env.RESEND_API_KEY, {
+      from:    'Clancy Booher <hello@peakvieworegon.com>',
+      to:      safe.email,
+      subject: 'Got your note',
+      html:    buildConsultCustomerEmail(safe),
+    });
+  } catch (err) {
+    console.error('Consult confirm email failed:', err);
+  }
+
+  return json({ success: true }, 200, headers);
+}
+
 function handleOptions() {
   return new Response(null, { status: 204, headers: corsHeaders() });
 }
 
 // ─── Helpers ──────────────────────────────────────────────────────────────────
+
+function isApiPath(pathname) {
+  return pathname === '/api/submit' || pathname === '/api/consult';
+}
 
 function corsHeaders() {
   return {
@@ -159,6 +238,14 @@ function json(body, status, headers) {
 function sanitize(str) {
   if (typeof str !== 'string') return '';
   return str.replace(/<[^>]*>/g, '').trim().slice(0, 2000);
+}
+
+function validateConsult({ name, email, message, turnstileToken }) {
+  if (!name || !name.trim()) return 'Please enter your name.';
+  if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim())) return 'Please enter a valid email address.';
+  if (!message || message.trim().length < 8) return 'Tell me a bit about what you need.';
+  if (!turnstileToken) return 'Please complete the security check.';
+  return null;
 }
 
 function validateInputs({ name, phone, email, project_type, turnstileToken }) {
@@ -199,12 +286,14 @@ function buildNotifyList(env) {
 
 // ─── Email sending ────────────────────────────────────────────────────────────
 
-async function sendEmail(apiKey, { from, to, subject, html }) {
+async function sendEmail(apiKey, { from, to, subject, html, reply_to }) {
   if (!apiKey) throw new Error('RESEND_API_KEY not set.');
+  const payload = { from, to, subject, html };
+  if (reply_to) payload.reply_to = reply_to;
   const res = await fetch(RESEND_API_URL, {
     method:  'POST',
     headers: { 'Authorization': `Bearer ${apiKey}`, 'Content-Type': 'application/json' },
-    body:    JSON.stringify({ from, to, subject, html }),
+    body:    JSON.stringify(payload),
   });
   if (!res.ok) throw new Error(`Resend ${res.status}: ${await res.text()}`);
   return res.json();
@@ -380,4 +469,71 @@ function buildOwnerEmail({ name, phone, email, message }, projectLabel) {
   </div>
   <div class="ft"><p>Sent from peakvieworegon.com &nbsp;·&nbsp; Peak View Windows &amp; Doors</p></div>
 </div></div></body></html>`;
+}
+
+function buildConsultOwnerEmail({ name, email, company, message }) {
+  const companyRow = company
+    ? `<tr><td class="label">Company</td><td>${escHtml(company)}</td></tr>`
+    : '';
+
+  return `<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" /><meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Automation note</title>
+<style>
+  body{margin:0;padding:0;background:#f3f3f3;font-family:'Helvetica Neue',Arial,sans-serif}
+  .wrap{padding:40px 16px}
+  .card{max-width:600px;margin:0 auto;background:#fff;border:1px solid #e5e5e5}
+  .hd{background:#131313;padding:18px 32px}
+  .hd p{color:#fff;font-size:13px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;margin:0}
+  .bd{padding:32px;color:#131313}
+  h2{font-size:20px;font-weight:700;margin:0 0 20px}
+  table{width:100%;border-collapse:collapse}
+  td{padding:10px 0;font-size:14px;vertical-align:top;border-bottom:1px solid #e5e5e5}
+  td.label{color:#3a3a3a;font-weight:600;width:130px}
+  a{color:#131313}
+  .ft{padding:16px 32px;background:#f9f9f9;border-top:1px solid #e5e5e5;text-align:center}
+  .ft p{font-size:12px;color:#7d8082;margin:0}
+</style>
+</head>
+<body><div class="wrap"><div class="card">
+  <div class="hd"><p>Automation lander</p></div>
+  <div class="bd">
+    <h2>${escHtml(name)} wrote in</h2>
+    <table>
+      <tr><td class="label">Name</td><td>${escHtml(name)}</td></tr>
+      ${companyRow}
+      <tr><td class="label">Email</td><td><a href="mailto:${escHtml(email)}">${escHtml(email)}</a></td></tr>
+      <tr><td class="label">Note</td><td>${escHtml(message).replace(/\n/g, '<br>')}</td></tr>
+    </table>
+  </div>
+  <div class="ft"><p>Sent from peakvieworegon.com/automations. Reply goes to them.</p></div>
+</div></div></body></html>`;
+}
+
+function buildConsultCustomerEmail({ name }) {
+  const firstName = name.split(' ')[0] || 'there';
+  return `<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" /><meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Got your note</title>
+</head>
+<body style="margin:0;padding:0;background:#f9f9f9;font-family:'Helvetica Neue',Arial,sans-serif;">
+<table width="100%" cellpadding="0" cellspacing="0" style="padding:40px 16px;">
+  <tr><td align="center">
+    <table width="600" cellpadding="0" cellspacing="0" style="max-width:600px;width:100%;background:#ffffff;border:1px solid #e5e5e5;">
+      <tr>
+        <td style="padding:36px 40px;">
+          <p style="margin:0 0 8px;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:#7d8082;">Clancy Booher</p>
+          <h1 style="font-size:22px;font-weight:700;color:#131313;margin:0 0 14px;">Got it, ${escHtml(firstName)}.</h1>
+          <p style="font-size:15px;color:#3a3a3a;line-height:1.6;margin:0 0 18px;">I read everything myself. I will write you back at this address. If it is a fit I will say so. If it is not, I will tell you that too.</p>
+          <p style="font-size:14px;color:#7d8082;margin:0;">clancy@peakvieworegon.com</p>
+        </td>
+      </tr>
+    </table>
+  </td></tr>
+</table>
+</body></html>`;
 }
