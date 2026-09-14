@@ -269,7 +269,10 @@
     .cb-hero h1 {
       font-size: clamp(2.5rem, 7.4vw, 5rem);
       line-height: 1;
-      max-width: 16ch;
+      max-width: 14ch;
+      display: flex;
+      flex-direction: column;
+      gap: 0.08em;
     }
 
     .cb-word {
@@ -1229,7 +1232,10 @@
     <section class="cb-hero">
       <div class="cb-wrap">
         <div class="cb-hero__top">
-          <h1 id="hero-title" data-words>You are new to AI. I get agents running.</h1>
+          <h1 id="hero-title">
+            <span data-words>New to AI.</span>
+            <span data-words>I get agents running.</span>
+          </h1>
 
           <div class="cb-status" data-reveal aria-label="Example of work an agent is handling">
             <div class="cb-status__head">
@@ -2114,17 +2120,23 @@
 
     // ---- Hero word reveal -------------------------------------------------
 
-    var heroTitle = document.querySelector('[data-words]');
-    if (heroTitle) {
-      var words = heroTitle.textContent.trim().split(/\s+/);
-      heroTitle.textContent = '';
+    var heroLines = document.querySelectorAll('[data-words]');
+    var wordIndex = 0;
+    heroLines.forEach(function (line) {
+      var words = line.textContent.trim().split(/\s+/);
+      line.textContent = '';
       words.forEach(function (w, i) {
         var span = el('span', { class: 'cb-word', text: w });
-        span.style.transitionDelay = (i * 0.045) + 's';
-        heroTitle.appendChild(span);
-        if (i < words.length - 1) heroTitle.appendChild(document.createTextNode(' '));
+        span.style.transitionDelay = (wordIndex * 0.045) + 's';
+        wordIndex += 1;
+        line.appendChild(span);
+        if (i < words.length - 1) line.appendChild(document.createTextNode(' '));
       });
-      requestAnimationFrame(function () { heroTitle.classList.add('is-in'); });
+    });
+    if (heroLines.length) {
+      requestAnimationFrame(function () {
+        heroLines.forEach(function (line) { line.classList.add('is-in'); });
+      });
     }
 
     // ---- Mono label scramble ---------------------------------------------
