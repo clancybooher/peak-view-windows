@@ -472,35 +472,30 @@ section + section { border-top: 1px solid var(--border); }
     align-items: center;
   }
 }
+.hero > picture {
+  position: absolute;
+  inset: 0;
+  display: block;
+}
+.hero__img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  z-index: 0;
+}
 .hero__bg {
   position: absolute;
   inset: 0;
-  background:
-    linear-gradient(to top, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.45) 40%, rgba(0,0,0,0.12) 70%, rgba(0,0,0,0.04) 100%),
-    image-set(
-      url('/photos/IMG_1351.webp') type('image/webp'),
-      url('/photos/IMG_1351.jpg') type('image/jpeg')
-    ) center/cover no-repeat;
-  z-index: -1;
-  transform-origin: center center;
-}
-@keyframes hero-zoom {
-  from { transform: scale(1); }
-  to   { transform: scale(1.06); }
-}
-@keyframes hero-enter {
-  from {
-    opacity: 0;
-    transform: translateY(24px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  background: linear-gradient(to top, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.45) 40%, rgba(0,0,0,0.12) 70%, rgba(0,0,0,0.04) 100%);
+  z-index: 1;
+  pointer-events: none;
 }
 .hero__content {
   position: relative;
-  z-index: 1;
+  z-index: 2;
   width: 100%;
   padding: clamp(2rem, 4vw, 3rem) 0;
   text-align: center;
@@ -513,20 +508,13 @@ section + section { border-top: 1px solid var(--border); }
 .hero__eyebrow {
   color: var(--gold);
   margin-bottom: 1.25rem;
-  opacity: 0;
-  animation: hero-enter 0.9s var(--ease-luxury) forwards;
-  animation-delay: 0ms;
 }
 .hero__title {
   color: var(--white);
   margin-bottom: 1.5rem;
   text-align: center;
   text-shadow: 0 2px 30px rgba(0,0,0,0.55), 0 1px 4px rgba(0,0,0,0.35);
-  opacity: 0;
-  animation: hero-enter 0.9s var(--ease-luxury) forwards;
-  animation-delay: 0ms;
 }
-.hero__eyebrow ~ .hero__title { animation-delay: 120ms; }
 .hero__sub {
   color: rgba(255,255,255,0.96);
   font-size: 1.05rem;
@@ -536,22 +524,14 @@ section + section { border-top: 1px solid var(--border); }
   line-height: 1.78;
   text-align: center;
   text-shadow: 0 1px 14px rgba(0,0,0,0.75), 0 1px 3px rgba(0,0,0,0.5);
-  opacity: 0;
-  animation: hero-enter 0.9s var(--ease-luxury) forwards;
-  animation-delay: 120ms;
 }
-.hero__eyebrow ~ .hero__sub { animation-delay: 240ms; }
 .hero__actions {
   display: flex;
   gap: 1rem;
   margin-bottom: 0;
   margin-inline: auto;
   justify-content: center;
-  opacity: 0;
-  animation: hero-enter 0.9s var(--ease-luxury) forwards;
-  animation-delay: 240ms;
 }
-.hero__eyebrow ~ .hero__actions { animation-delay: 360ms; }
 .hero__trust {
   display: flex;
   flex-wrap: wrap;
@@ -1303,9 +1283,11 @@ section + section { border-top: 1px solid var(--border); }
 }
 .testimonials-nav {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  gap: 1.25rem;
+  gap: 0.75rem 1.25rem;
+  max-width: 100%;
 }
 .t-btn {
   width: 48px; height: 48px;
@@ -1320,7 +1302,13 @@ section + section { border-top: 1px solid var(--border); }
   transition: border-color 0.35s var(--ease), color 0.35s var(--ease);
 }
 .t-btn:hover { border-color: rgba(255,255,255,0.35); color: rgba(255,255,255,0.75); }
-.t-dots { display: flex; gap: 0.625rem; }
+.t-dots {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.25rem;
+  max-width: 100%;
+}
 .t-dot {
   width: 48px; height: 48px;
   border-radius: 50%;
@@ -1329,7 +1317,7 @@ section + section { border-top: 1px solid var(--border); }
   border: none;
   cursor: pointer;
   transition: background 0.35s var(--ease);
-  padding: 21.5px;
+  padding: 20px;
 }
 .t-dot.active { background: rgba(255,255,255,0.65); background-clip: content-box; }
 
@@ -1924,18 +1912,6 @@ section + section { border-top: 1px solid var(--border); }
 /* ─── REDUCED MOTION ─────────────────────────────────────── */
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  .hero__bg {
-    animation: none;
-    will-change: auto;
-  }
-  .hero__eyebrow,
-  .hero__title,
-  .hero__sub,
-  .hero__actions {
-    animation: none;
-    opacity: 1;
-    transform: none;
-  }
   .reveal,
   .reveal-child,
   .reveal-img {
