@@ -206,7 +206,7 @@ function footer(prefix) {
         <p class="footer-nap">Bend, OR<br><a href="tel:${PHONE_HREF}">${PHONE_DISPLAY}</a><br><a href="mailto:${EMAIL}">${EMAIL}</a><br>CCB #260230</p>
       </div>
       <div class="footer-col">
-        <h4>Services</h4>
+        <h3>Services</h3>
         <nav aria-label="Services">
           <a href="/windows">Window Replacement</a>
           <a href="/andersen">Andersen Window Replacement</a>
@@ -218,7 +218,7 @@ function footer(prefix) {
         </nav>
       </div>
       <div class="footer-col">
-        <h4>Service Area</h4>
+        <h3>Service Area</h3>
         <nav aria-label="Service area">
           <a href="/contact">Bend</a>
           <a href="/window-replacement-redmond-oregon">Redmond</a>
@@ -231,7 +231,7 @@ function footer(prefix) {
         </nav>
       </div>
       <div class="footer-col">
-        <h4>Contact</h4>
+        <h3>Contact</h3>
         <nav aria-label="Contact">
           <a href="/contact">Free Quote</a>
           <a href="/faq">FAQ</a>
@@ -466,7 +466,7 @@ ${post.faq.map(f => `      <div class="faq-item">
   }
   </script>${faqSchema}
 
-  <link rel="stylesheet" href="/styles.css?v=16" />
+  <link rel="stylesheet" href="/styles.css?v=21" />
   <link rel="icon" type="image/png" href="/logo.png" />
 </head>
 <body>
@@ -524,7 +524,7 @@ export function renderIndex(posts) {
         <div class="b-card__img" style="${imgStyle}">${p.image ? '' : esc(p.tag || 'Peak View')}</div>
         <div class="b-card__body">
           <p class="b-tag">${esc(p.tag || 'Article')}</p>
-          <h3>${esc(p.title)}</h3>
+          <h2>${esc(p.title)}</h2>
           <p>${esc(p.excerpt || '')}</p>
           <p style="font-size:.78rem;color:var(--text-light);margin:0">${esc(prettyDate(p.date))}</p>
         </div>
@@ -539,7 +539,7 @@ export function renderIndex(posts) {
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Window Replacement Guides &amp; Advice | Peak View Windows &amp; Doors - Bend, Oregon</title>
+  <title>Window Guides for Bend, OR | Peak View</title>
   <meta name="description" content="Straight answers about replacing windows in Bend and Central Oregon — energy efficiency, product choices, costs, and what actually matters in our high-desert climate. From Peak View Windows &amp; Doors, CCB #260230." />
   <meta name="keywords" content="window replacement advice Bend Oregon, energy efficient windows Central Oregon, Andersen windows Bend blog, replacing windows Bend Oregon guide" />
   <meta name="robots" content="index, follow" />
@@ -549,14 +549,14 @@ export function renderIndex(posts) {
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Window Replacement Guides &amp; Advice | Peak View Windows &amp; Doors" />
   <meta property="og:description" content="Straight answers about replacing windows in Bend and Central Oregon, from the crew that does the work." />
-  <meta property="og:image" content="${SITE}/photos/andersen/andersen-100-room.jpg" />
+  <meta property="og:image" content="https://peakvieworegon.com/photos/og-peak-view.jpg" />
   <meta property="og:url" content="${SITE}/blog" />
   <meta property="og:locale" content="en_US" />
   <meta property="og:site_name" content="Peak View Windows &amp; Doors" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Window Replacement Guides &amp; Advice | Peak View Windows &amp; Doors" />
   <meta name="twitter:description" content="Straight answers about replacing windows in Bend and Central Oregon." />
-  <meta name="twitter:image" content="${SITE}/photos/andersen/andersen-100-room.jpg" />
+  <meta name="twitter:image" content="https://peakvieworegon.com/photos/og-peak-view.jpg" />
 
   <script type="application/ld+json">
   {
@@ -583,7 +583,7 @@ ${itemList}
   }
   </script>
 ` : ''}
-  <link rel="stylesheet" href="/styles.css?v=16" />
+  <link rel="stylesheet" href="/styles.css?v=21" />
   <link rel="icon" type="image/png" href="/logo.png" />
 </head>
 <body>
