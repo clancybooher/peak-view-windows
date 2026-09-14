@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap');
+/* Fonts load from HTML so this file is not a render-blocking @import. */
 
 /* ─── TOKENS ─────────────────────────────────────────────── */
 :root {
@@ -162,8 +162,8 @@ section + section { border-top: 1px solid var(--border); }
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  padding: 0.65rem 1.35rem;
-  min-height: 42px;
+  padding: 0.75rem 1.35rem;
+  min-height: 48px;
   font-family: var(--font-body);
   font-size: 0.75rem;
   font-weight: 500;
@@ -359,8 +359,8 @@ section + section { border-top: 1px solid var(--border); }
   justify-self: end;
   align-items: center;
   justify-content: center;
-  width: 44px;
-  height: 44px;
+  width: 48px;
+  height: 48px;
   flex-shrink: 0;
   color: var(--text);
   background: none;
@@ -381,9 +381,8 @@ section + section { border-top: 1px solid var(--border); }
   align-items: center;
   justify-content: center;
   gap: 5px;
-  /* 44px minimum touch target. The bars stay 24px wide via the span rule. */
-  width: 44px;
-  height: 44px;
+  width: 48px;
+  height: 48px;
   flex-shrink: 0;
   padding: 0;
   background: none;
@@ -478,10 +477,11 @@ section + section { border-top: 1px solid var(--border); }
   inset: 0;
   background:
     linear-gradient(to top, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.45) 40%, rgba(0,0,0,0.12) 70%, rgba(0,0,0,0.04) 100%),
-    url('/photos/IMG_1351.jpg') center/cover no-repeat;
+    image-set(
+      url('/photos/IMG_1351.webp') type('image/webp'),
+      url('/photos/IMG_1351.jpg') type('image/jpeg')
+    ) center/cover no-repeat;
   z-index: -1;
-  will-change: transform;
-  animation: hero-zoom 20s ease-out forwards;
   transform-origin: center center;
 }
 @keyframes hero-zoom {
@@ -848,7 +848,7 @@ section + section { border-top: 1px solid var(--border); }
   color: rgba(255,255,255,0.62);
 }
 .footer-brand .footer-nap a:hover { color: rgba(255,255,255,0.85); }
-.footer-col h4 {
+.footer-col h3 {
   font-size: 0.6rem;
   font-weight: 500;
   letter-spacing: 0.18em;
@@ -862,6 +862,9 @@ section + section { border-top: 1px solid var(--border); }
   font-size: 0.78rem;
   color: rgba(255,255,255,0.52);
   transition: color 0.35s var(--ease);
+  min-height: 48px;
+  display: inline-flex;
+  align-items: center;
   letter-spacing: 0.01em;
 }
 .footer-col nav a:hover { color: rgba(255,255,255,0.78); }
@@ -1082,7 +1085,7 @@ section + section { border-top: 1px solid var(--border); }
   .section-head-center .eyebrow::after,
   .testimonials-head .eyebrow::after,
   .page-hero--center .eyebrow::after { width: 14px; }
-  .btn { padding: 0.75rem 1.25rem; font-size: 0.72rem; min-height: 44px; }
+  .btn { padding: 0.75rem 1.25rem; font-size: 0.72rem; min-height: 48px; }
   .footer-btm { flex-direction: column; text-align: center; }
   .t-body { font-size: clamp(1rem, 4.2vw, 1.25rem); padding-inline: 0.25rem; }
   .t-card { padding-inline: 0.5rem; }
@@ -1305,7 +1308,7 @@ section + section { border-top: 1px solid var(--border); }
   gap: 1.25rem;
 }
 .t-btn {
-  width: 36px; height: 36px;
+  width: 48px; height: 48px;
   border-radius: 50%;
   border: 1px solid rgba(255,255,255,0.12);
   background: none;
@@ -1319,15 +1322,16 @@ section + section { border-top: 1px solid var(--border); }
 .t-btn:hover { border-color: rgba(255,255,255,0.35); color: rgba(255,255,255,0.75); }
 .t-dots { display: flex; gap: 0.625rem; }
 .t-dot {
-  width: 5px; height: 5px;
+  width: 48px; height: 48px;
   border-radius: 50%;
   background: rgba(255,255,255,0.15);
+  background-clip: content-box;
   border: none;
   cursor: pointer;
   transition: background 0.35s var(--ease);
-  padding: 0;
+  padding: 21.5px;
 }
-.t-dot.active { background: rgba(255,255,255,0.65); }
+.t-dot.active { background: rgba(255,255,255,0.65); background-clip: content-box; }
 
 /* ─── CONTACT FORM ───────────────────────────────────────────  */
 .contact-section { background: var(--bg); }
@@ -1569,6 +1573,7 @@ section + section { border-top: 1px solid var(--border); }
   color: var(--accent);
   margin-bottom: 0.5rem;
 }
+.b-card h2,
 .b-card h3 { font-size: 1.05rem; line-height: 1.3; margin-bottom: 0.5rem; }
 .b-card p  { font-size: 0.875rem; color: var(--text-muted); line-height: 1.65; margin-bottom: 1rem; }
 .b-card .b-card__date {
@@ -1591,8 +1596,8 @@ section + section { border-top: 1px solid var(--border); }
     position: fixed;
     bottom: 1.5rem;
     right: 1.25rem;
-    width: 44px;
-    height: 44px;
+    width: 48px;
+    height: 48px;
     border-radius: 50%;
     background: var(--accent);
     color: var(--white);

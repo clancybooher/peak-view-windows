@@ -1,4 +1,7 @@
 User-agent: *
 Allow: /
+Disallow: /automations
+Disallow: /notes
+Disallow: /notes/
 
 Sitemap: https://peakvieworegon.com/sitemap.xml
