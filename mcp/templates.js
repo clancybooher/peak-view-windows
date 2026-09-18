@@ -165,6 +165,7 @@ function nav(active, prefix) {
     <ul class="nav__links" role="list">
       <li><a href="/" class="${cls('home')}">Home</a></li>
       <li><a href="/windows" class="${cls('windows')}">Windows</a></li>
+      <li><a href="/andersen" class="${cls('andersen')}">Andersen</a></li>
       <li><a href="/doors" class="${cls('doors')}">Doors</a></li>
       <li><a href="/gallery" class="${cls('gallery')}">Our Work</a></li>
       <li><a href="/about" class="${cls('about')}">About Us</a></li>
@@ -184,6 +185,7 @@ function nav(active, prefix) {
 <div class="mob-menu" id="mob-menu" role="dialog" aria-label="Navigation">
   <a href="/">Home</a>
   <a href="/windows">Windows</a>
+  <a href="/andersen">Andersen</a>
   <a href="/doors">Doors</a>
   <a href="/gallery">Our Work</a>
   <a href="/about">About Us</a>
@@ -220,7 +222,7 @@ function footer(prefix) {
       <div class="footer-col">
         <h3>Service Area</h3>
         <nav aria-label="Service area">
-          <a href="/contact">Bend</a>
+          <a href="/">Bend</a>
           <a href="/window-replacement-redmond-oregon">Redmond</a>
           <a href="/window-replacement-sisters-oregon">Sisters</a>
           <a href="/window-replacement-sunriver-oregon">Sunriver</a>
@@ -466,7 +468,7 @@ ${post.faq.map(f => `      <div class="faq-item">
   }
   </script>${faqSchema}
 
-  <link rel="stylesheet" href="/styles.css?v=21" />
+  <link rel="stylesheet" href="/styles.css?v=22" />
   <link rel="icon" type="image/png" href="/logo.png" />
 </head>
 <body>
@@ -583,7 +585,7 @@ ${itemList}
   }
   </script>
 ` : ''}
-  <link rel="stylesheet" href="/styles.css?v=21" />
+  <link rel="stylesheet" href="/styles.css?v=22" />
   <link rel="icon" type="image/png" href="/logo.png" />
 </head>
 <body>
