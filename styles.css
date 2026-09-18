@@ -1935,3 +1935,52 @@ section + section { border-top: 1px solid var(--border); }
   .nav__link::after { transition: none; }
   .btn, .gallery-preview-item img, .gallery-item img, .b-card { transition: none; }
 }
+
+/* ── Customer Portal page (/portal) ─────────────────────────────────────── */
+.portal-hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem 1.5rem;
+  margin-top: 2rem;
+}
+.portal-steps { background: var(--bg); }
+.portal-steps .process-steps { margin-top: 0; }
+.portal-trust {
+  background: var(--bg-alt);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding-block: clamp(2rem, 4vw, 3rem);
+}
+.portal-trust__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem 2.5rem;
+  max-width: var(--max-w);
+  margin-inline: auto;
+}
+.portal-trust__list li {
+  font-size: 0.9375rem;
+  line-height: 1.65;
+  color: var(--text-muted);
+  padding-left: 1.25rem;
+  position: relative;
+}
+.portal-trust__list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.65em;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+.portal-trust__list strong { color: var(--text); font-weight: 600; }
+.f-optional { font-weight: 400; text-transform: none; letter-spacing: 0; color: var(--text-light); }
+@media (max-width: 900px) {
+  .portal-hero__actions .btn { width: 100%; justify-content: center; }
+}
