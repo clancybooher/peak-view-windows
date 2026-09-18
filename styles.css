@@ -1943,6 +1943,9 @@ section + section { border-top: 1px solid var(--border); }
 .gallery-item:hover img { opacity: 0.88; transform: none; }
 
 /* ─── CITY LINKS / SERVICE AREA ──────────────────────────── */
+.section--city-band {
+  padding-block: clamp(2.5rem, 4.5vw, 3.75rem);
+}
 .city-links {
   display: flex;
   flex-wrap: wrap;
