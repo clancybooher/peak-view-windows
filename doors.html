@@ -13,14 +13,16 @@
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Door Replacement in Central Oregon | Peak View Windows &amp; Doors" />
   <meta property="og:description" content="Entry doors, patio doors, and French doors for homes in Bend, Redmond, Sisters &amp; Central Oregon. Free repair-or-replace evaluation. CCB #260230." />
-  <meta property="og:image" content="https://peakvieworegon.com/photos/andersen/andersen-100-room.jpg" />
+  <meta property="og:image" content="https://peakvieworegon.com/photos/og-peak-view.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
   <meta property="og:url" content="https://peakvieworegon.com/doors" />
   <meta property="og:locale" content="en_US" />
   <meta property="og:site_name" content="Peak View Windows &amp; Doors" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Door Replacement in Central Oregon | Peak View Windows &amp; Doors" />
   <meta name="twitter:description" content="Entry, patio &amp; French door replacement in Bend, Redmond, Sisters &amp; Central Oregon. Free repair-or-replace evaluation. CCB #260230." />
-  <meta name="twitter:image" content="https://peakvieworegon.com/photos/andersen/andersen-100-room.jpg" />
+  <meta name="twitter:image" content="https://peakvieworegon.com/photos/og-peak-view.jpg" />
 
   <script type="application/ld+json">
   {
@@ -69,7 +71,11 @@
   }
   </script>
 
-  <link rel="stylesheet" href="/styles.css?v=16" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,400&family=Inter:wght@400;500&display=swap" media="print" onload="this.media='all'" />
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,400&family=Inter:wght@400;500&display=swap" /></noscript>
+  <link rel="stylesheet" href="/styles.css?v=23" />
   <link rel="icon" type="image/png" href="/logo.png" />
 </head>
 <body>
@@ -87,11 +93,15 @@
 <nav class="nav scrolled" id="nav" aria-label="Main navigation">
   <div class="nav__inner">
     <a href="/" class="nav__logo" aria-label="Peak View Windows &amp; Doors - home">
-      <img src="/logo-light.png" alt="Peak View Windows &amp; Doors" width="56" height="56" class="nav__logo-full" />
+      <picture>
+        <source type="image/webp" srcset="/logo-light.webp" />
+        <img src="/logo-light.png" alt="Peak View Windows &amp; Doors" width="56" height="56" class="nav__logo-full" />
+      </picture>
     </a>
     <ul class="nav__links" role="list">
       <li><a href="/" class="nav__link">Home</a></li>
       <li><a href="/windows" class="nav__link">Windows</a></li>
+      <li><a href="/andersen" class="nav__link">Andersen</a></li>
       <li><a href="/doors" class="nav__link active">Doors</a></li>
       <li><a href="/gallery" class="nav__link">Our Work</a></li>
       <li><a href="/about" class="nav__link">About Us</a></li>
@@ -111,6 +121,7 @@
 <div class="mob-menu" id="mob-menu" role="dialog" aria-label="Navigation">
   <a href="/">Home</a>
   <a href="/windows">Windows</a>
+  <a href="/andersen">Andersen</a>
   <a href="/doors">Doors</a>
   <a href="/gallery">Our Work</a>
   <a href="/about">About Us</a>
@@ -125,6 +136,10 @@
     <p class="eyebrow">Door Replacement &nbsp;·&nbsp; Bend, Oregon</p>
     <h1 id="page-h1">Your Doors Are Letting in the Cold.</h1>
     <p>Entry doors and patio doors are major energy loss points and one of the most overlooked. A drafty door runs your heating system hard all winter. We install high-performance replacement doors and offer a free evaluation to tell you honestly whether yours needs repair or full replacement.</p>
+    <div class="page-hero__actions">
+      <a href="#contact" class="btn btn--primary">Book a Free Evaluation</a>
+      <a href="tel:+15416393968" class="btn btn--outline">Call 541-639-3968</a>
+    </div>
   </div>
 </header>
 
@@ -177,11 +192,11 @@
       <p class="eyebrow" style="margin-bottom:.875rem">Door Types</p>
       <h2 id="types-h2" style="font-size:clamp(2rem,5vw,3.25rem);margin-bottom:1.25rem">We Install All Major Door Types</h2>
       <p style="font-size:1.05rem;color:var(--text-muted);line-height:1.78;margin-bottom:2.5rem">The right door depends on your home's layout, traffic patterns, and energy priorities. We'll help you work through the options and give you a straight recommendation.</p>
-      <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:1rem;max-width:520px;margin:0 auto 2.5rem">
-        <a href="/entry-door-replacement-bend-oregon" style="padding:1.5rem;background:var(--bg);border:1px solid var(--border);border-radius:var(--radius-md);font-weight:600;font-size:1rem;display:block;color:inherit;text-decoration:none">Entry Doors</a>
-        <a href="/patio-door-replacement-bend-oregon" style="padding:1.5rem;background:var(--bg);border:1px solid var(--border);border-radius:var(--radius-md);font-weight:600;font-size:1rem;display:block;color:inherit;text-decoration:none">Patio Doors</a>
-        <div style="padding:1.5rem;background:var(--bg);border:1px solid var(--border);border-radius:var(--radius-md);font-weight:600;font-size:1rem">French Doors</div>
-        <div style="padding:1.5rem;background:var(--bg);border:1px solid var(--border);border-radius:var(--radius-md);font-weight:600;font-size:1rem">Sliding Doors</div>
+      <div class="type-tiles">
+        <a href="/entry-door-replacement-bend-oregon" class="type-tile">Entry Doors</a>
+        <a href="/patio-door-replacement-bend-oregon" class="type-tile">Patio Doors</a>
+        <span class="type-tile">French Doors</span>
+        <a href="/patio-door-replacement-bend-oregon" class="type-tile">Sliding Doors</a>
       </div>
       <a href="#quote" class="btn btn--primary">Get a Free Evaluation</a>
     </div>
@@ -206,6 +221,14 @@
         <p>Sisters' higher elevation means colder nights and heavier snow load than Bend, which is hard on door seals and thresholds. Mountain and log-style homes in the area often call for custom sizing and matched trim, handled by the same crew that does the door and the finish carpentry, start to finish.</p>
       </div>
     </div>
+    <nav class="city-links" aria-label="Cities we serve" style="margin-top:2rem">
+      <a href="/">Bend</a>
+      <a href="/window-replacement-redmond-oregon">Redmond</a>
+      <a href="/window-replacement-sisters-oregon">Sisters</a>
+      <a href="/window-replacement-sunriver-oregon">Sunriver</a>
+      <a href="/window-replacement-la-pine-oregon">La Pine</a>
+      <a href="/window-replacement-prineville-oregon">Prineville</a>
+    </nav>
   </div>
 </section>
 
@@ -296,13 +319,16 @@
   <div class="container">
     <div class="footer-top">
       <div class="footer-brand">
+        <picture>
+        <source type="image/webp" srcset="/logo.webp" />
         <img src="/logo.png" alt="Peak View Windows &amp; Doors" width="64" height="64" />
+      </picture>
         <p>Window replacement for Central Oregon homes. Bend-based. CCB #260230.</p>
         <p class="license">CCB Licensed, Bonded &amp; Insured &nbsp;·&nbsp; License #260230</p>
         <p class="footer-nap">Bend, OR<br><a href="tel:+15416393968">541-639-3968</a><br><a href="mailto:clancy@peakvieworegon.com">clancy@peakvieworegon.com</a><br>CCB #260230</p>
       </div>
       <div class="footer-col">
-        <h4>Services</h4>
+        <h3>Services</h3>
                 <nav aria-label="Services">
           <a href="/windows">Window Replacement</a>
           <a href="/andersen">Andersen Window Replacement</a>
@@ -314,9 +340,9 @@
         </nav>
       </div>
       <div class="footer-col">
-        <h4>Service Area</h4>
+        <h3>Service Area</h3>
                 <nav aria-label="Service area">
-          <a href="/contact">Bend</a>
+          <a href="/">Bend</a>
           <a href="/window-replacement-redmond-oregon">Redmond</a>
           <a href="/window-replacement-sisters-oregon">Sisters</a>
           <a href="/window-replacement-sunriver-oregon">Sunriver</a>
@@ -327,7 +353,7 @@
         </nav>
       </div>
       <div class="footer-col">
-        <h4>Contact</h4>
+        <h3>Contact</h3>
         <nav aria-label="Contact">
           <a href="/contact">Free Quote</a>
           <a href="/faq">FAQ</a>
