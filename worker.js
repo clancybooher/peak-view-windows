@@ -29,6 +29,9 @@ const PROJECT_TYPE_LABELS = {
   'windows-and-doors':  'Windows & Doors',
   'millwork-trim':      'Millwork / Trim Only',
   'not-sure':           'Not Sure Yet',
+  // /portal "lost your link?" form — not a lead, an existing customer asking
+  // for their quote/invoice link to be re-sent from the CRM.
+  'portal-link':        'Resend my customer portal link',
 };
 
 export default {
@@ -112,6 +115,7 @@ async function handleSubmit(request, env) {
     message:      sanitize(message ?? ''),
   };
   const projectLabel = PROJECT_TYPE_LABELS[safe.project_type] ?? safe.project_type;
+  const isPortalRequest = safe.project_type === 'portal-link';
 
   // Fire all three notifications in parallel; any individual failure is logged but
   // never surfaces as an error to the user — the lead is in, that's what matters.
@@ -119,13 +123,17 @@ async function handleSubmit(request, env) {
     sendEmail(env.RESEND_API_KEY, {
       from:    'Peak View Windows & Doors <hello@peakvieworegon.com>',
       to:      safe.email,
-      subject: 'We received your estimate request — Peak View Windows & Doors',
+      subject: isPortalRequest
+        ? 'We got your portal link request — Peak View Windows & Doors'
+        : 'We received your estimate request — Peak View Windows & Doors',
       html:    buildCustomerEmail(safe, projectLabel),
     }),
     sendEmail(env.RESEND_API_KEY, {
       from:    'Peak View Website <hello@peakvieworegon.com>',
       to:      buildNotifyList(env),
-      subject: `New estimate request from ${safe.name}`,
+      subject: isPortalRequest
+        ? `Portal link request from ${safe.name} — resend from the CRM`
+        : `New estimate request from ${safe.name}`,
       html:    buildOwnerEmail(safe, projectLabel),
     }),
     sendSms(env, safe, projectLabel),
@@ -242,7 +250,9 @@ async function sendSms(env, safe, projectLabel) {
 
 function buildSmsMessage({ name, phone, email, message }, projectLabel) {
   const lines = [
-    '🏠 NEW LEAD — Peak View',
+    projectLabel === PROJECT_TYPE_LABELS['portal-link']
+      ? '🔗 PORTAL LINK REQUEST — Peak View (resend from CRM)'
+      : '🏠 NEW LEAD — Peak View',
     `Name:    ${name}`,
     `Phone:   ${phone}`,
     `Email:   ${email}`,

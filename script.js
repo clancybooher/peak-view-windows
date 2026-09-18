@@ -175,7 +175,8 @@
           '</svg>' +
         '</div>' +
         '<h3>Got it, ' + firstName + '.</h3>' +
-        '<p>Clancy will reach out personally — usually same day. In the meantime you can call or text directly at <a href="tel:+15416393968">541-639-3968</a>.</p>' +
+        '<p>' + (form.dataset.successText ||
+          'Clancy will reach out personally — usually same day. In the meantime you can call or text directly at <a href="tel:+15416393968">541-639-3968</a>.') + '</p>' +
       '</div>';
   }
 
