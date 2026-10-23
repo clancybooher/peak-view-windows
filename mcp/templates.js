@@ -174,7 +174,7 @@ function nav(active, prefix) {
       <a href="tel:${PHONE_HREF}" class="btn btn--nav-phone">${PHONE_DISPLAY}</a>
       <a href="/contact" class="btn btn--primary">Free Quote</a>
     </div>
-    <a href="tel:${PHONE_HREF}" class="nav__mobile-phone" aria-label="Call Peak View Windows and Doors">${PHONE_DISPLAY}</a>
+    <a href="tel:${PHONE_HREF}" class="nav__mobile-phone" aria-label="Call Peak View Windows and Doors"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.2 14.7c-.4-.3-.9-.4-1.3-.2l-2.1 1c-.2.1-.4 0-.6-.1-1.2-.8-2.3-1.8-3.1-3.1-.1-.2-.1-.4 0-.6l1-2.1c.2-.4.1-.9-.2-1.3L7.4 5.3c-.4-.5-1.1-.6-1.6-.3L3.6 6.2c-.4.2-.6.7-.6 1.2 0 6.6 5.4 12 12 12 .5 0 .9-.2 1.2-.6l1.2-2.2c.3-.5.2-1.2-.3-1.6l-3-2.3z"/></svg></a>
     <button class="nav__burger" id="burger" aria-label="Open menu" aria-expanded="false">
       <span></span><span></span><span></span>
     </button>
@@ -201,9 +201,9 @@ function footer(prefix) {
     <div class="footer-top">
       <div class="footer-brand">
         <img src="/logo.png" alt="Peak View Windows &amp; Doors" width="64" height="64" />
-        <p>Window replacement for Central Oregon homes. Bend-based. CCB #260230.</p>
+        <p>Window and door replacement for homes from Roseburg to Eugene. Based in Yoncalla. Licensed, insured, and accountable on every job.</p>
         <p class="license">CCB Licensed, Bonded &amp; Insured &nbsp;·&nbsp; License #260230</p>
-        <p class="footer-nap">Bend, OR<br><a href="tel:${PHONE_HREF}">${PHONE_DISPLAY}</a><br><a href="mailto:${EMAIL}">${EMAIL}</a><br>CCB #260230</p>
+        <p class="footer-nap">Yoncalla, OR<br><a href="tel:${PHONE_HREF}">${PHONE_DISPLAY}</a><br><a href="mailto:${EMAIL}">${EMAIL}</a><br>CCB #260230</p>
       </div>
       <div class="footer-col">
         <h4>Services</h4>
@@ -212,22 +212,22 @@ function footer(prefix) {
           <a href="/andersen">Andersen Window Replacement</a>
           <a href="/windows#energy">Energy Efficient Windows</a>
           <a href="/doors">Door Replacement</a>
-          <a href="/patio-door-replacement-bend-oregon">Patio Door Replacement</a>
-          <a href="/entry-door-replacement-bend-oregon">Entry Door Replacement</a>
+          <a href="/doors#patio">Patio Door Replacement</a>
+          <a href="/doors#entry">Entry Door Replacement</a>
           <a href="/blog">Blog</a>
         </nav>
       </div>
       <div class="footer-col">
         <h4>Service Area</h4>
         <nav aria-label="Service area">
-          <a href="/contact">Bend</a>
-          <a href="/window-replacement-redmond-oregon">Redmond</a>
-          <a href="/window-replacement-sisters-oregon">Sisters</a>
-          <a href="/window-replacement-sunriver-oregon">Sunriver</a>
-          <a href="/window-replacement-la-pine-oregon">La Pine</a>
-          <a href="/contact">Tumalo</a>
-          <a href="/window-replacement-prineville-oregon">Prineville</a>
-          <a href="/contact">Terrebonne</a>
+          <a href="/contact">Roseburg</a>
+          <a href="/contact">Eugene</a>
+          <a href="/contact">Springfield</a>
+          <a href="/contact">Sutherlin</a>
+          <a href="/contact">Creswell</a>
+          <a href="/contact">Cottage Grove</a>
+          <a href="/contact">Winston</a>
+          <a href="/contact">Myrtle Creek</a>
         </nav>
       </div>
       <div class="footer-col">
@@ -242,8 +242,8 @@ function footer(prefix) {
       </div>
     </div>
     <div class="footer-btm">
-      <p>&copy; 2026 Peak View Windows &amp; Doors &nbsp;&middot;&nbsp; Bend, Oregon</p>
-      <p>Serving Bend, Redmond, Sisters, Sunriver, La Pine, Tumalo, Prineville, Terrebonne &amp; all of Central Oregon.</p>
+      <p>&copy; 2026 Peak View Windows &amp; Doors &nbsp;&middot;&nbsp; Yoncalla, Oregon</p>
+      <p>Serving Roseburg, Eugene, Springfield, Sutherlin, Creswell, Cottage Grove, Winston, Myrtle Creek &amp; the Umpqua Valley.</p>
     </div>
   </div>
 </footer>
@@ -269,7 +269,7 @@ function quoteForm(slug) {
       <div class="contact-info">
         <p class="eyebrow" style="margin-bottom:.875rem">Written quote</p>
         <h2 id="${prefix}-contact-h2" style="font-size:clamp(2rem,4vw,3rem);margin-bottom:1rem">Get a written quote</h2>
-        <p style="font-size:1.05rem;color:var(--text-muted);margin-bottom:1.5rem">We drive from Bend. Central Oregon is a regular run.</p>
+        <p style="font-size:1.05rem;color:var(--text-muted);margin-bottom:1.5rem">Based in Yoncalla. Roseburg, Eugene, and the towns in between are a regular run.</p>
         <p>We measure at the house. You get product, labor, and trim on one sheet.</p>
         <div class="c-detail">
           <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true"><path d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z"/></svg>
@@ -281,7 +281,7 @@ function quoteForm(slug) {
         </div>
         <div class="c-detail">
           <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"/><path d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"/></svg>
-          <span>Bend, OR &nbsp;·&nbsp; CCB #260230</span>
+          <span>Roseburg &amp; Eugene, OR &nbsp;·&nbsp; CCB #260230</span>
         </div>
       </div>
       <div class="c-form">
@@ -334,11 +334,11 @@ function ctaBand(prefix) {
 <section class="cta-band" aria-labelledby="post-cta-h2">
   <div class="container">
     <p class="eyebrow">Written quote</p>
-    <h2 id="post-cta-h2" style="font-size:clamp(2rem,5vw,3.5rem)">Want a number for your house?</h2>
-    <p>We measure at the house. You get a written quote. Bend, Redmond, Sisters, and the rest of Central Oregon.</p>
+    <h2 id="post-cta-h2" style="font-size:clamp(2rem,5vw,3.5rem)">Ready for a free quote?</h2>
+    <p>We measure at the house. You get a written quote. Roseburg, Eugene, and the Umpqua Valley.</p>
     <div class="cta-band__actions">
       <a href="tel:${PHONE_HREF}" class="btn btn--light">Call ${PHONE_DISPLAY}</a>
-      <a href="/contact" class="btn btn--outline">Get a quote</a>
+      <a href="/contact" class="btn btn--outline">Get a free quote</a>
     </div>
   </div>
 </section>`;
@@ -406,17 +406,24 @@ ${post.faq.map(f => `      <div class="faq-item">
 `
     : '';
 
+  const midCta = `      <p style="margin:2rem 0;padding:1.25rem 1.5rem;background:var(--bg-alt);border-left:3px solid var(--accent)">Thinking about new windows? <a href="/contact">Get a free quote</a> or call <a href="tel:${PHONE_HREF}">${PHONE_DISPLAY}</a>.</p>`;
+  const rendered = renderMarkdown(post.body);
+  const firstH2 = rendered.indexOf('      <h2');
+  const bodyHtml = firstH2 > 0
+    ? rendered.slice(0, firstH2) + midCta + '\n' + rendered.slice(firstH2)
+    : rendered + '\n' + midCta;
+
   return `<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>${esc(post.title)} | Peak View Windows &amp; Doors</title>
+  <title>${esc(post.title)} | Peak View</title>
   <meta name="description" content="${esc(desc)}" />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="${url}" />
   <meta name="geo.region" content="US-OR" />
-  <meta name="geo.placename" content="Bend, Oregon" />
+  <meta name="geo.placename" content="Yoncalla, Oregon" />
   <meta property="og:type" content="article" />
   <meta property="og:title" content="${esc(post.title)}" />
   <meta property="og:description" content="${esc(desc)}" />
@@ -486,11 +493,10 @@ ${heroImg}
 <section aria-label="Article" style="padding-top:clamp(2rem,4vw,3rem)">
   <div class="container container--narrow">
     <div class="about-body post-body">
-${renderMarkdown(post.body)}
-      <p style="margin:2rem 0;padding:1.25rem 1.5rem;background:var(--bg-alt);border-left:3px solid var(--accent)">Need a number for your house? <a href="/contact">Get a quote</a> or call <a href="tel:${PHONE_HREF}">${PHONE_DISPLAY}</a>.</p>
+${bodyHtml}
     </div>
     <p style="margin-top:2.5rem;font-size:.875rem;color:var(--text-light)">
-      From the team at Peak View Windows &amp; Doors — CCB #260230, Bend, Oregon.
+      From the team at Peak View Windows &amp; Doors, CCB #260230, based in Yoncalla, Oregon.
       Questions about your own windows? Call <a href="tel:${PHONE_HREF}" style="color:var(--accent)">${PHONE_DISPLAY}</a>.
     </p>
     <p style="margin-top:1.5rem">
@@ -539,23 +545,23 @@ export function renderIndex(posts) {
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Window Replacement Guides &amp; Advice | Peak View Windows &amp; Doors - Bend, Oregon</title>
-  <meta name="description" content="Straight answers about replacing windows in Bend and Central Oregon — energy efficiency, product choices, costs, and what actually matters in our high-desert climate. From Peak View Windows &amp; Doors, CCB #260230." />
-  <meta name="keywords" content="window replacement advice Bend Oregon, energy efficient windows Central Oregon, Andersen windows Bend blog, replacing windows Bend Oregon guide" />
+  <title>Window Replacement Guides &amp; Advice | Peak View Windows &amp; Doors</title>
+  <meta name="description" content="Straight answers about replacing windows and doors: product choices, foggy glass, and what actually matters. From Peak View Windows and Doors, CCB #260230." />
+  <meta name="keywords" content="window replacement advice Roseburg Oregon, window replacement Eugene Oregon, EWEB window rebate, replacing single pane windows, energy efficient windows Umpqua Valley, Andersen windows guide" />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="${SITE}/blog" />
   <meta name="geo.region" content="US-OR" />
-  <meta name="geo.placename" content="Bend, Oregon" />
+  <meta name="geo.placename" content="Yoncalla, Oregon" />
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Window Replacement Guides &amp; Advice | Peak View Windows &amp; Doors" />
-  <meta property="og:description" content="Straight answers about replacing windows in Bend and Central Oregon, from the crew that does the work." />
+  <meta property="og:description" content="Straight answers about replacing windows and doors, from the people who do the work." />
   <meta property="og:image" content="${SITE}/photos/andersen/andersen-100-room.jpg" />
   <meta property="og:url" content="${SITE}/blog" />
   <meta property="og:locale" content="en_US" />
   <meta property="og:site_name" content="Peak View Windows &amp; Doors" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Window Replacement Guides &amp; Advice | Peak View Windows &amp; Doors" />
-  <meta name="twitter:description" content="Straight answers about replacing windows in Bend and Central Oregon." />
+  <meta name="twitter:description" content="Straight answers about replacing windows and doors in Oregon." />
   <meta name="twitter:image" content="${SITE}/photos/andersen/andersen-100-room.jpg" />
 
   <script type="application/ld+json">
@@ -563,7 +569,7 @@ export function renderIndex(posts) {
     "@context": "https://schema.org",
     "@type": "Blog",
     "name": "Peak View Windows & Doors Journal",
-    "description": "Window replacement guides and advice for Central Oregon homeowners.",
+    "description": "Window replacement guides and advice for homeowners in Roseburg, Eugene, and the Umpqua Valley.",
     "url": "${SITE}/blog",
     "publisher": {
       "@type": "Organization",
@@ -593,9 +599,9 @@ ${nav('blog', prefix)}
 <!-- PAGE HERO -->
 <header class="page-hero page-hero--center" aria-labelledby="page-h1">
   <div class="container">
-    <p class="eyebrow">The Journal &nbsp;·&nbsp; Bend, Oregon</p>
+    <p class="eyebrow">The Journal &nbsp;·&nbsp; Roseburg &amp; Eugene</p>
     <h1 id="page-h1">Window Replacement, Explained</h1>
-    <p>Straight answers about replacing windows in Central Oregon — what our climate does to them, which products hold up, and what actually moves the needle on comfort and energy bills.</p>
+    <p>Straight answers about replacing windows in Western Oregon: what our wet winters and hot valley summers do to them, which products hold up, and what actually makes a home more comfortable.</p>
   </div>
 </header>
 

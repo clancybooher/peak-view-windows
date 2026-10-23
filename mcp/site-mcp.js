@@ -49,13 +49,6 @@ const STATIC_PAGES = [
   { loc: '/faq',       priority: '0.7', changefreq: 'monthly' },
   { loc: '/contact',   priority: '0.8', changefreq: 'monthly' },
   { loc: '/contract',  priority: '0.3', changefreq: 'yearly'  },
-  { loc: '/window-replacement-redmond-oregon',   priority: '0.8', changefreq: 'monthly' },
-  { loc: '/window-replacement-sisters-oregon',   priority: '0.8', changefreq: 'monthly' },
-  { loc: '/window-replacement-sunriver-oregon',  priority: '0.8', changefreq: 'monthly' },
-  { loc: '/window-replacement-la-pine-oregon',   priority: '0.8', changefreq: 'monthly' },
-  { loc: '/window-replacement-prineville-oregon',priority: '0.8', changefreq: 'monthly' },
-  { loc: '/patio-door-replacement-bend-oregon',                    priority: '0.8', changefreq: 'monthly' },
-  { loc: '/entry-door-replacement-bend-oregon',                    priority: '0.8', changefreq: 'monthly' },
   // /automations stays off the sitemap (email-ad URL only; do not feature).
 ];
 
@@ -154,7 +147,7 @@ server.tool('list_posts',
 server.tool('draft_post',
   'Preview a blog post WITHOUT writing any files. Takes a title and a markdown body and returns the slug, meta description, and a plain-text preview of how it will read. ALWAYS run this and show Clancy the result before calling publish_post. Writes nothing to disk.',
   {
-    title:   z.string().describe('Post headline, e.g. "Why Replacing Your Windows in Bend Matters"'),
+    title:   z.string().describe('Post headline, e.g. "Why Replacing Your Windows in Roseburg Matters"'),
     body:    z.string().describe('Post body in markdown. Supports ## / ### headings, paragraphs, - bullets, 1. numbered lists, **bold**, *italic*, [links](url), > quotes, and --- rules.'),
     tag:     z.string().optional().describe('Category label shown on the card, e.g. "Energy Efficiency", "Product Guide". Default "Article".'),
     excerpt: z.string().optional().describe('1–2 sentence summary for the card and meta description. Auto-generated from the body if omitted.'),
