@@ -22,6 +22,27 @@ const RESEND_API_URL       = 'https://api.resend.com/emails';
 const OPENPHONE_API_URL    = 'https://api.openphone.com/v1/messages';
 const ALLOWED_ORIGIN       = 'https://peakvieworegon.com';
 
+// TEMPORARY public-site outage (about two days). To restore the site, delete
+// OFFLINE_HOSTS, publicSiteOffline(), and the early return in fetch().
+// Only the apex and www are offline. Any other hostname — including
+// portal.peakvieworegon.com, which this Worker does not serve — falls through.
+const OFFLINE_HOSTS = new Set(['peakvieworegon.com', 'www.peakvieworegon.com']);
+
+function publicSiteOffline() {
+  return new Response(
+    '<!DOCTYPE html><html lang="en"><meta charset="utf-8"><title>Temporarily offline</title><p>Peak View Windows &amp; Doors is temporarily offline. Back soon.</p></html>',
+    {
+      status: 503,
+      headers: {
+        'Content-Type': 'text/html; charset=utf-8',
+        'Retry-After': '172800',
+        'Cache-Control': 'no-store',
+        'X-Robots-Tag': 'noindex',
+      },
+    },
+  );
+}
+
 const PROJECT_TYPE_LABELS = {
   'whole-home-window-replacement': 'Whole-Home Window Replacement',
   'window-replacement': 'A Few Windows',
@@ -34,6 +55,8 @@ const PROJECT_TYPE_LABELS = {
 export default {
   async fetch(request, env) {
     const url = new URL(request.url);
+
+    if (OFFLINE_HOSTS.has(url.hostname)) return publicSiteOffline();
 
     // Canonical 301s before /api/submit and ASSETS. Never redirect the form endpoint.
     if (url.pathname !== '/api/submit') {
