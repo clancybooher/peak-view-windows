@@ -31,6 +31,19 @@ const PROJECT_TYPE_LABELS = {
   'not-sure':           'Not Sure Yet',
 };
 
+// Central Oregon pages retired when the service area moved to Roseburg and Eugene.
+const RETIRED_PATHS = {
+  '/window-replacement-redmond-oregon':    '/windows',
+  '/window-replacement-sisters-oregon':    '/windows',
+  '/window-replacement-sunriver-oregon':   '/windows',
+  '/window-replacement-la-pine-oregon':    '/windows',
+  '/window-replacement-prineville-oregon': '/windows',
+  '/patio-door-replacement-bend-oregon':   '/doors',
+  '/entry-door-replacement-bend-oregon':   '/doors',
+  '/blog/window-replacement-redmond-oregon':  '/blog/window-replacement-roseburg-oregon',
+  '/blog/window-replacement-sunriver-oregon': '/blog/window-replacement-eugene-oregon',
+};
+
 export default {
   async fetch(request, env) {
     const url = new URL(request.url);
@@ -51,6 +64,11 @@ export default {
 
       if (url.hostname === 'www.peakvieworegon.com') {
         return Response.redirect('https://peakvieworegon.com' + url.pathname + url.search, 301);
+      }
+
+      const retiredPath = url.pathname.replace(/\.html$/, '').replace(/\/+$/, '');
+      if (Object.prototype.hasOwnProperty.call(RETIRED_PATHS, retiredPath)) {
+        return Response.redirect('https://' + url.hostname + RETIRED_PATHS[retiredPath] + url.search, 301);
       }
 
       if (url.pathname === '/index.html') {
@@ -328,7 +346,7 @@ function buildCustomerEmail({ name, phone, email, message }, projectLabel) {
 
       <tr>
         <td align="center" style="padding:16px 40px;background-color:#F2EBE0;border-top:1px solid #E0D8CF;">
-          <p style="margin:0;font-size:12px;color:#7A6E64;">Peak View Windows &amp; Doors &nbsp;&middot;&nbsp; Bend, Oregon &nbsp;&middot;&nbsp; CCB #260230</p>
+          <p style="margin:0;font-size:12px;color:#7A6E64;">Peak View Windows &amp; Doors &nbsp;&middot;&nbsp; Yoncalla, Oregon &nbsp;&middot;&nbsp; CCB #260230</p>
         </td>
       </tr>
 
