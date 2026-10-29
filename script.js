@@ -73,14 +73,18 @@
   document.querySelectorAll('.faq-q').forEach(btn => {
     btn.addEventListener('click', () => {
       const item = btn.closest('.faq-item');
+      if (!item) return;
       const ans  = item.querySelector('.faq-a');
+      if (!ans) return;
       const open = item.classList.contains('open');
 
       // Close all open items
       document.querySelectorAll('.faq-item.open').forEach(el => {
         el.classList.remove('open');
-        el.querySelector('.faq-a').style.maxHeight = '0';
-        el.querySelector('.faq-q').setAttribute('aria-expanded', 'false');
+        const a = el.querySelector('.faq-a');
+        const q = el.querySelector('.faq-q');
+        if (a) a.style.maxHeight = '0';
+        if (q) q.setAttribute('aria-expanded', 'false');
       });
 
       if (!open) {
