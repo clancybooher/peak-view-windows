@@ -1089,40 +1089,6 @@ section + section { border-top: 1px solid var(--border); }
   .trust-bar__inner { justify-content: center; }
 }
 
-/* ─── SERVICE NOTICE ───────────────────────────────────────── */
-.service-notice {
-  margin-top: var(--nav-h);
-  background: var(--bg-alt);
-  color: var(--text);
-  border-bottom: 1px solid var(--border);
-  padding: 0.9rem var(--pad-x);
-  text-align: center;
-}
-@media (max-width: 900px) {
-  .service-notice { margin-top: var(--nav-h-mobile); }
-}
-.service-notice + .hero { margin-top: 0; }
-.service-notice + .page-hero { padding-top: 2.75rem; }
-@media (max-width: 900px) {
-  .service-notice + .page-hero { padding-top: 2rem; }
-}
-.service-notice p {
-  max-width: 46rem;
-  margin: 0 auto;
-  font-size: 0.95rem;
-  line-height: 1.55;
-}
-.service-notice--on-dark {
-  background: rgba(0, 0, 0, 0.45);
-  color: var(--white);
-  border: 1px solid rgba(255, 255, 255, 0.28);
-  border-radius: var(--radius-md);
-  padding: 0.85rem 1.1rem;
-  margin: 0 auto 1.25rem;
-  max-width: 46rem;
-}
-.service-notice--on-dark p { color: var(--white); }
-
 .c-form .reach-line {
   font-size: 1.15rem;
   margin: 0.35rem 0 0.75rem;

@@ -284,7 +284,6 @@ function quoteForm(slug) {
       </div>
       <div class="c-form">
         <h3>Call or email us</h3>
-        <p style="font-size:1.05rem;color:var(--text-muted);margin-bottom:1.25rem">Call or email us. We'll come measure and talk through the job.</p>
         <p class="reach-line"><a href="tel:${PHONE_HREF}">${PHONE_DISPLAY}</a></p>
         <p class="reach-line"><a href="mailto:${EMAIL}">${EMAIL}</a></p>
       </div>
