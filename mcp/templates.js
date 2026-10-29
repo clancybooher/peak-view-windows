@@ -253,16 +253,14 @@ function footer(prefix) {
   <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.68A2 2 0 012 .18h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.09-1.09a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
 </a>
 
-<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 <script src="/script.js?v=8"></script>`;
 }
 
 
-/** Quote form used on money posts so script.js form[name^=contact] can submit. */
+/** Call / email block. Lead forms are off the site. */
 function quoteForm(slug) {
   const prefix = 'b' + String(slug || 'post').replace(/[^a-z0-9]+/g, '').slice(0, 10);
-  const name = 'contact-' + String(slug || 'post').replace(/[^a-z0-9]+/g, '-').slice(0, 28).replace(/^-|-$/g, '');
-  return `<!-- QUOTE FORM -->
+  return `<!-- CONTACT -->
 <section id="contact" class="contact-section section--spacious" aria-labelledby="${prefix}-contact-h2">
   <div class="container">
     <div class="contact-grid">
@@ -285,42 +283,10 @@ function quoteForm(slug) {
         </div>
       </div>
       <div class="c-form">
-        <h3>Request a quote</h3>
-        <form name="${name}" method="POST">
-          <div class="f-row">
-            <div class="f-group">
-              <label for="${prefix}-name">Your Name</label>
-              <input type="text" id="${prefix}-name" name="name" placeholder="Jane Smith" required autocomplete="name" />
-            </div>
-            <div class="f-group">
-              <label for="${prefix}-phone">Phone Number</label>
-              <input type="tel" id="${prefix}-phone" name="phone" placeholder="541-555-0100" required autocomplete="tel" />
-            </div>
-          </div>
-          <div class="f-group">
-            <label for="${prefix}-email">Email Address</label>
-            <input type="email" id="${prefix}-email" name="email" placeholder="you@example.com" required autocomplete="email" />
-          </div>
-          <div class="f-group">
-            <label for="${prefix}-type">Project Type</label>
-            <select id="${prefix}-type" name="project_type" required>
-              <option value="" disabled selected>Select a project type</option>
-              <option value="whole-home-window-replacement">Whole-Home Window Replacement</option>
-              <option value="window-replacement">A Few Windows</option>
-              <option value="door-replacement">Door Replacement</option>
-              <option value="windows-and-doors">Windows &amp; Doors</option>
-              <option value="millwork-trim">Millwork / Trim Only</option>
-              <option value="not-sure">Not Sure Yet</option>
-            </select>
-          </div>
-          <div class="f-group">
-            <label for="${prefix}-message">Tell Us About Your Project</label>
-            <textarea id="${prefix}-message" name="message" placeholder="Number of windows, door type, neighborhood, any other details..."></textarea>
-          </div>
-          <div class="cf-turnstile" data-sitekey="0x4AAAAAADT7OZdh-mCzf-mp" data-theme="light"></div>
-          <button type="submit" class="f-submit">Request a quote</button>
-          <p class="f-note">We get back to you fast.</p>
-        </form>
+        <h3>Call or email us</h3>
+        <p style="font-size:1.05rem;color:var(--text-muted);margin-bottom:1.25rem">Call or email us. We'll come measure and talk through the job.</p>
+        <p class="reach-line"><a href="tel:${PHONE_HREF}">${PHONE_DISPLAY}</a></p>
+        <p class="reach-line"><a href="mailto:${EMAIL}">${EMAIL}</a></p>
       </div>
     </div>
   </div>
@@ -466,7 +432,7 @@ ${post.faq.map(f => `      <div class="faq-item">
   }
   </script>${faqSchema}
 
-  <link rel="stylesheet" href="/styles.css?v=16" />
+  <link rel="stylesheet" href="/styles.css?v=17" />
   <link rel="icon" type="image/png" href="/logo.png" />
 </head>
 <body>
@@ -583,7 +549,7 @@ ${itemList}
   }
   </script>
 ` : ''}
-  <link rel="stylesheet" href="/styles.css?v=16" />
+  <link rel="stylesheet" href="/styles.css?v=17" />
   <link rel="icon" type="image/png" href="/logo.png" />
 </head>
 <body>

@@ -155,7 +155,7 @@
   <link rel="preload" as="image" href="/photos/IMG_1351.jpg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="stylesheet" href="/styles.css?v=16" />
+  <link rel="stylesheet" href="/styles.css?v=17" />
   <link rel="icon" type="image/png" href="/logo.png" />
 </head>
 <body>
@@ -198,6 +198,10 @@
   <a href="/blog">Blog</a>
   <a href="/contact">Contact</a>
   <a href="#contact" class="btn btn--primary">Free Quote</a>
+</div>
+
+<div class="service-notice" role="status">
+  <p>Heads up: we're wrapping up work in Central Oregon over the next couple of weeks, so replies may be a little slower than usual. Thanks for your patience.</p>
 </div>
 
 <!-- HERO -->
@@ -425,46 +429,10 @@
       </div>
 
       <div class="c-form">
-        <h3>Request a Free Replacement Quote</h3>
-        <form name="contact" method="POST">
-          <div class="f-row">
-            <div class="f-group">
-              <label for="f-name">Your Name</label>
-              <input type="text" id="f-name" name="name" placeholder="Jane Smith" required autocomplete="name" />
-            </div>
-            <div class="f-group">
-              <label for="f-phone">Phone Number</label>
-              <input type="tel" id="f-phone" name="phone" placeholder="541-555-0100" required autocomplete="tel" />
-            </div>
-          </div>
-
-          <div class="f-group">
-            <label for="f-email">Email Address</label>
-            <input type="email" id="f-email" name="email" placeholder="you@example.com" required autocomplete="email" />
-          </div>
-
-          <div class="f-group">
-            <label for="f-type">Project Type</label>
-            <select id="f-type" name="project_type" required>
-              <option value="" disabled selected>Select a project type</option>
-              <option value="whole-home-window-replacement">Whole-Home Window Replacement</option>
-              <option value="window-replacement">A Few Windows</option>
-              <option value="door-replacement">Door Replacement</option>
-              <option value="windows-and-doors">Windows &amp; Doors</option>
-              <option value="millwork-trim">Millwork / Trim Only</option>
-              <option value="not-sure">Not Sure Yet</option>
-            </select>
-          </div>
-
-          <div class="f-group">
-            <label for="f-message">Tell Us About Your Project</label>
-            <textarea id="f-message" name="message" placeholder="Number of windows, door type, neighborhood, any other details..."></textarea>
-          </div>
-
-          <div class="cf-turnstile" data-sitekey="0x4AAAAAADT7OZdh-mCzf-mp" data-theme="light"></div>
-          <button type="submit" class="f-submit">Request a quote</button>
-          <p class="f-note">We get back to you fast.</p>
-        </form>
+        <h3>Call or email us</h3>
+        <p style="font-size:1.05rem;color:var(--text-muted);margin-bottom:1.25rem">Call or email us. We'll come measure and talk through the job.</p>
+        <p class="reach-line"><a href="tel:+15416393968">541-639-3968</a></p>
+        <p class="reach-line"><a href="mailto:clancy@peakvieworegon.com">clancy@peakvieworegon.com</a></p>
       </div>
     </div>
   </div>
@@ -551,7 +519,6 @@
   </div>
 </footer>
 
-<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 <script src="/script.js?v=8"></script>
 
 <!-- FLOATING PHONE FAB (mobile only) -->

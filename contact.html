@@ -59,7 +59,7 @@
   }
   </script>
 
-  <link rel="stylesheet" href="/styles.css?v=16" />
+  <link rel="stylesheet" href="/styles.css?v=17" />
   <link rel="icon" type="image/png" href="/logo.png" />
 </head>
 <body>
@@ -100,12 +100,16 @@
   <a href="#contact" class="btn btn--primary">Free Quote</a>
 </div>
 
+<div class="service-notice" role="status">
+  <p>Heads up: we're wrapping up work in Central Oregon over the next couple of weeks, so replies may be a little slower than usual. Thanks for your patience.</p>
+</div>
+
 <!-- PAGE HERO -->
 <header class="page-hero page-hero--center" aria-labelledby="page-h1">
   <div class="container">
     <p class="eyebrow">Contact &nbsp;·&nbsp; Bend, Oregon</p>
     <h1 id="page-h1">Get a Free In-Home Quote</h1>
-    <p>Call, email, or send the form. We come to you, measure the openings you want replaced, and leave you with a firm itemized number.</p>
+    <p>Call or email us. We come to you, measure the openings you want replaced, and leave you with a firm itemized number.</p>
   </div>
 </header>
 
@@ -135,46 +139,10 @@
       </div>
 
       <div class="c-form">
-        <h3>Request a Free Replacement Quote</h3>
-        <form name="contact-page" method="POST">
-          <div class="f-row">
-            <div class="f-group">
-              <label for="c-name">Your Name</label>
-              <input type="text" id="c-name" name="name" placeholder="Jane Smith" required autocomplete="name" />
-            </div>
-            <div class="f-group">
-              <label for="c-phone">Phone Number</label>
-              <input type="tel" id="c-phone" name="phone" placeholder="541-555-0100" required autocomplete="tel" />
-            </div>
-          </div>
-
-          <div class="f-group">
-            <label for="c-email">Email Address</label>
-            <input type="email" id="c-email" name="email" placeholder="you@example.com" required autocomplete="email" />
-          </div>
-
-          <div class="f-group">
-            <label for="c-type">Project Type</label>
-            <select id="c-type" name="project_type" required>
-              <option value="" disabled selected>Select a project type</option>
-              <option value="whole-home-window-replacement">Whole-Home Window Replacement</option>
-              <option value="window-replacement">A Few Windows</option>
-              <option value="door-replacement">Door Replacement</option>
-              <option value="windows-and-doors">Windows &amp; Doors</option>
-              <option value="millwork-trim">Millwork / Trim Only</option>
-              <option value="not-sure">Not Sure Yet</option>
-            </select>
-          </div>
-
-          <div class="f-group">
-            <label for="c-message">Tell Us About Your Project</label>
-            <textarea id="c-message" name="message" placeholder="Number of windows, door type, neighborhood, any other details..."></textarea>
-          </div>
-
-          <div class="cf-turnstile" data-sitekey="0x4AAAAAADT7OZdh-mCzf-mp" data-theme="light"></div>
-          <button type="submit" class="f-submit">Request a quote</button>
-          <p class="f-note">We get back to you fast.</p>
-        </form>
+        <h3>Call or email us</h3>
+        <p style="font-size:1.05rem;color:var(--text-muted);margin-bottom:1.25rem">Call or email us. We'll come measure and talk through the job.</p>
+        <p class="reach-line"><a href="tel:+15416393968">541-639-3968</a></p>
+        <p class="reach-line"><a href="mailto:clancy@peakvieworegon.com">clancy@peakvieworegon.com</a></p>
       </div>
     </div>
   </div>
@@ -233,7 +201,6 @@
   </div>
 </footer>
 
-<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 <script src="/script.js?v=8"></script>
 
 <!-- FLOATING PHONE FAB (mobile only) -->
