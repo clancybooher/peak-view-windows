@@ -22,6 +22,7 @@ future-edits/
 mcp/
 node_modules/
 .claude/
+.github/
 Clancy Master Style Guide v6.0
 master-style-guide-v6.0
 !robots.txt
