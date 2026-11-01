@@ -1,16 +1,9 @@
 # Deploy
 
-Merges to `main` deploy automatically to the Cloudflare Worker `peak-view-windows`, which serves peakvieworegon.com and www.peakvieworegon.com. There is no build step. Wrangler publishes `worker.js` together with the static assets in this repository. Deploys go to Cloudflare Workers only.
+Production deploys of the Cloudflare Worker `peak-view-windows` (peakvieworegon.com and www.peakvieworegon.com) come from Cloudflare Workers Builds when changes merge to `main`. No GitHub repository secrets are required.
 
-## Required repository secrets
+There is no build step. Workers Builds publishes `worker.js` together with the static assets in this repository.
 
-Add these under GitHub → Settings → Secrets and variables → Actions before merging:
+## CI
 
-- `CLOUDFLARE_API_TOKEN` — Workers Scripts:Edit and Workers Routes:Edit on the peakvieworegon.com zone
-- `CLOUDFLARE_ACCOUNT_ID` — the Cloudflare account that owns the Worker
-
-Do not commit either value.
-
-## Manual deploy
-
-Open the Actions tab, choose **Deploy**, and run the workflow. From a machine that is already logged in to Wrangler, the same publish is `npx wrangler deploy`.
+Pull requests and pushes to `main` run a GitHub Actions check on Node 22. It runs `wrangler deploy --dry-run` and checks that `blog/posts.json` parses. That workflow does not deploy.

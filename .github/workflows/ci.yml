@@ -1,0 +1,31 @@
+name: CI
+
+on:
+  pull_request:
+    branches:
+      - main
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+env:
+  WRANGLER_VERSION: "4.156.0"
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
+
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
+        with:
+          node-version: 22
+
+      - name: Dry-run Wrangler deploy
+        run: npx --yes wrangler@${WRANGLER_VERSION} deploy --dry-run
+
+      - name: Check blog/posts.json parses
+        run: node -e "JSON.parse(require('fs').readFileSync('blog/posts.json','utf8'))"
